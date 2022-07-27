@@ -15,4 +15,9 @@ public class main {
     public String about() {
         return "about";
     }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
 }
