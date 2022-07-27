@@ -98,15 +98,14 @@ header {
 }
 
 .card{
-    margin : 20px auto 0px auto;
-    width : 450px;
-    height : 450px;
+    width : 390px;
+    height : 390px;
     z-index: -1;
 }
 
 .card img{
-    width:450px;
-    height:450px;
+    width:390px;
+    height:390px;
 }
 
 .card:hover{
