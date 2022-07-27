@@ -3,87 +3,47 @@
     font-family: montserrat, sans-serif;
     font-size:14px;
 }
-
-header {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    font-size:14px;
-    padding:20px 150px;
+main{
+    padding-top: 150px;
+    background-color:#F5F6F7;
 }
 
-.headerImg {
-    position: relative;
+.articleAdmin {
+    padding: 0 150px;
+    margin-top: 80px;
+}
+.articleAdminNav {
+    display:inline-block;
+    float:left;
     width: 200px;
-    height: 80px;
-    /*background-size: cover;*/
 }
+.articleAdminNav ul {
+    margin:0;
+    padding:0 10px;
+}
+.articleAdminNav ul li {
 
-.headerImg img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.headerNav {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.headerNav ul{
-    height: 20px;
-    margin:40px 0;
-    padding:0;
-}
-
-.headerNav ul li {
-    color: black;
+    font-weight: normal;
     list-style-type: none;
-    display: inline-block;
-    margin: 0 25px;
-    padding: 5px 0;
-
+    margin-bottom: 10px;
 }
-.headerNav ul li:nth-child(1){
+.articleAdminNav ul li a {
+    color: black;
+    text-decoration: none;
+    padding-bottom: 12px;
+    font-size:16px;
+}
+.articleAdminNav ul li:nth-child(1){
     border-bottom: 2px solid orange;
+    width: 70px;
 }
 
-.headerNav ul li a {
-    color: black;
-    text-decoration: none;
-}
-
-.headerLogin {
-
-    width: 200px;
-    height: auto;
-    text-align: right;
-    padding-right : 20px;
-    color: black;
-    line-height: 100px;
-}
-
-.headerLogin a {
-    display: inline-block;
-    color: black;
-    text-decoration: none;
-}
-
-.footer {
-    margin:0 150px;
-}
-
-.footer_logo{
-    float: right;
-    width: 80px;
-}
 article{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding-top: 150px;
+    margin: 0 150px;
 }
 .articleNav {
     width: 100%;
@@ -100,14 +60,16 @@ article{
     color: black;
     font-weight: normal;
     list-style-type: none;
-    margin: 0 25px;
+    margin: 0 15px;
     padding-bottom: 5px;
     vertical-align: middle;
+}
+.articleNav ul li a {
     color: #212121B3;
+    text-decoration: none;
 }
 .articleNav ul li:nth-child(1){
     border-bottom: 1px solid black;
-    color:black;
 }
 .articleImg {
     height:818px;
@@ -129,7 +91,27 @@ article{
     width: 100%;
     height: 130px;
 }
+
+.collaboCard{
+    z-index: -1;
+    border:none;
+}
+
+.footer {
+    margin:0 150px;
+}
+
+.footer_logo{
+    float: right;
+    width: 80px;
+}
+
 #bold {
     font-weight: bold;
 }
-
+#textAlignCenter {
+    text-align: center;
+}
+#collaboSubImg {
+    display:inline-block;
+}
