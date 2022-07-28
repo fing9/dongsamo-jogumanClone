@@ -25,6 +25,46 @@
 //     })
 // }
 
+$("#btnRegistration").click(function(){
+    registration_product();
+});
+
+function registration_product() {
+    $('#tableid').empty() //먼저 만들어두었던 상품 틀 제거
+    $.ajax({
+        type:"GET",
+        // url="", //product api
+        data:{},
+        success:function (response) {
+            let product_id=response['product_id']
+            let product_category=response['product_category']
+            let product_name=response['product_name']
+            let product_price=response['product_price']
+            let product_amount=response['product_amount']
+            let registration_date=response['registration_date']
+            for(let i=0;i<rows.length;i++) {
+                let product_id=rows[i]['product_id']
+                let product_category=rows[i]['product_category']
+                let product_name=rows[i]['product_name']
+                let product_price=rows[i]['product_price']
+                let product_amount=rows[i]['product_amount']
+                let registration_date=rows[i]['registration_date']
+
+                let temp_html=`<tr>
+                                    <th scope="col">${product_id}</th>
+                                    <th scope="col">${product_category}</th>
+                                    <th scope="col">${product_name}</th>
+                                    <th scope="col">${product_price}</th>
+                                    <th scope="col">${product_amount}</th>
+                                    <th scope="col">${registration_date}</th>
+                                </tr>`
+
+                $('#tableid').append(temp_html) //상품 등록
+            }
+        }
+    })
+}
+
 //mainImg 화면 전환 script
 var index = 0;   //이미지에 접근하는 인덱스
 window.onload = function(){
@@ -46,7 +86,6 @@ function slideShow() {
 
 }
 
-//
 window.addEventListener('load', function() {
     var allElements = document.getElementsByTagName('*');
     Array.prototype.forEach.call(allElements, function(el) {
