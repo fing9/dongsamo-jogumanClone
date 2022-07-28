@@ -19,6 +19,6 @@ public class SpringConfig {
         this.productRepository = productRepository;
     }
 
-
+    //<--Bean 등록-->
 
 }
