@@ -23,7 +23,7 @@
         <div class="articleAdmin">
             <div class="articleAdminNav">
                 <ul>
-                    <li><a href="#">상품 관리</a></li>
+                    <li><a href="#" style="border-bottom: 2px solid orange">상품 관리</a></li>
                     <li><a href="#">회원 관리</a></li>
                     <li><a href="#">주문 관리</a></li>
                     <li><a href="#">공지 관리</a></li>
@@ -33,16 +33,40 @@
             <div class="articleAdminSection">
                 <table class="table">
                     <thead class="table-light">
-                    ...
+                    <tr>
+                        <th scope="col">번호</th>
+                        <th scope="col">카테고리</th>
+                        <th scope="col">상품이름</th>
+                        <th scope="col">가격</th>
+                        <th scope="col">재고</th>
+                        <th scope="col">등록일시</th>
+                    </tr>
                     </thead>
                     <tbody>
-                    ...
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>living</td>
+                        <td>키링</td>
+                        <td>10500</td>
+                        <td>300</td>
+                        <td>2022/7/28</td>
+                    </tr>
+
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="articleGap"></div>
+        <div class="articleAdminBtn">
+            <button type="button" class="btn btn-outline-secondary" disabled>조회</button>
+            <button type="button" class="btn btn-outline-secondary" disabled>수정</button>
+            <button type="button" class="btn btn-outline-secondary" disabled>등록</button>
+            <button type="button" class="btn btn-outline-secondary" disabled>삭제</button>
+        </div>
 
+
+
+
+        <div class="articleGap"></div>
     </main>
 </container>
 <script src="script.js"></script>
