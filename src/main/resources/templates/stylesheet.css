@@ -113,6 +113,18 @@ article{
     border:none;
 }
 
+/*------------------- projects > Joguman Laboratory ----------------------*/
+.siema {
+    width: 500px;
+    height: 500px;
+    margin: 3em auto;
+}
+.siema img {
+    width: 500px;
+    height: 500px;
+}
+
+
 .footer {
     margin:0 150px;
 }
@@ -128,6 +140,4 @@ article{
 #textAlignCenter {
     text-align: center;
 }
-#collaboSubImg {
-    display:inline-block;
-}
+

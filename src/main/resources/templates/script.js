@@ -45,7 +45,7 @@ function slideShow() {
     setTimeout(slideShow, 3000);   //함수를 3초마다 호출
 
 }
-
+//Header 불러오는 코드
 window.addEventListener('load', function() {
     var allElements = document.getElementsByTagName('*');
     Array.prototype.forEach.call(allElements, function(el) {
@@ -62,3 +62,5 @@ window.addEventListener('load', function() {
         }
     });
 });
+//siema slider 코드
+new siema();
