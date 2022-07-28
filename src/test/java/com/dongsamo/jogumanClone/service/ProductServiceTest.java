@@ -48,7 +48,7 @@ public class ProductServiceTest {
                 .build());
 
         //when
-        List<ProductSimpleDto> productSimpleDtoList = productService.getAll(new ArrayList<ProductSimpleDto>());
+        List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll(new ArrayList<ProductSimpleDto>());
 
         //then
         ProductSimpleDto productSimpleDto = productSimpleDtoList.get(0);

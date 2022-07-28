@@ -18,7 +18,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     @Transactional
-    public List<ProductSimpleDto> getAll(List<ProductSimpleDto> productSimpleDtoList) {
+    public List<ProductSimpleDto> findSimpleAll(List<ProductSimpleDto> productSimpleDtoList) {
         List<Product> productList = productRepository.findAll();
 
         for(int i=0;i<productList.size();i++) {
@@ -26,6 +26,27 @@ public class ProductService {
         }
 
         return productSimpleDtoList;
+    }
+
+    @Transactional
+    public List<ProductDto> findAll(List<ProductDto> productDtoList) {
+        List<Product> productList = productRepository.findAll();
+
+        for(int i=0;i<productList.size();i++) {
+            productDtoList.add(new ProductDto(productList.get(i)));
+        }
+
+        return productDtoList;
+    }
+
+    @Transactional
+    public ProductDto findById(Long id) {
+        return new ProductDto(productRepository.findById(id).get());
+    }
+
+    @Transactional
+    public ProductSimpleDto findSimpleById(Long id) {
+        return new ProductSimpleDto(productRepository.findById(id).get());
     }
 
     @Transactional
@@ -41,4 +62,8 @@ public class ProductService {
         return productDto;
     }
 
+    @Transactional
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
+    }
 }

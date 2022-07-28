@@ -28,7 +28,7 @@ public class MainController {
 
     @GetMapping("admin")
     public String admin(Model model) {
-        List<ProductSimpleDto> productSimpleDtoList = productService.getAll(new ArrayList<ProductSimpleDto>());
+        List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll(new ArrayList<ProductSimpleDto>());
         model.addAttribute("productSummaryList", productSimpleDtoList);
         return "admin";
     }
