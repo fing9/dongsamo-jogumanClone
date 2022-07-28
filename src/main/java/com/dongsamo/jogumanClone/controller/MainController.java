@@ -16,17 +16,17 @@ public class MainController {
 
     ProductService productService;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String main() {
         return "main";
     }
 
-    @GetMapping("about")
+    @GetMapping("/about")
     public String about() {
         return "abouts";
     }
 
-    @GetMapping("admin")
+    @GetMapping("/admin")
     public String admin(Model model) {
         List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll(new ArrayList<ProductSimpleDto>());
         model.addAttribute("productSummaryList", productSimpleDtoList);

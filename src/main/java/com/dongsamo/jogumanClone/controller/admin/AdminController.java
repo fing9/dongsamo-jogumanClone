@@ -13,11 +13,6 @@ public class AdminController {
 
     private ProductService productService;
 
-    @GetMapping("/admin")
-    public String admin() {
-        return "admin";
-    }
-
     @PostMapping("/save")
     public String save(ProductDto product) {
         productService.save(product);
