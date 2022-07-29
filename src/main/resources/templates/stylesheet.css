@@ -54,6 +54,15 @@ section{
     display: none;
 }
 
+.subInformation{
+    text-align: left;
+    font-size:30px;
+    padding-left:40px;
+    padding-top:0px;
+    padding-bottom:20px;
+    font-weight: bold;
+}
+
 .footer {
     border-top:1px solid #d9d7d4;
     padding-top : 40px;
