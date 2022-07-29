@@ -116,14 +116,81 @@ article{
 /*------------------- projects > Joguman Laboratory ----------------------*/
 .siema {
     width: 500px;
-    height: 500px;
+
     margin: 3em auto;
 }
 .siema img {
     width: 500px;
-    height: 500px;
+    height: auto;
+}
+.prev, .next {
+    background: rgba(255,255,255,.5);
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    top: 500px;
+    border: none;
+    cursor: pointer;
+    transition: all .25s;
+    color: #212121B3;
+    font-size:30px;
+    font-weight: lighter;
+}
+.next { right: 150px; }
+.prev:hover, .next:hover { background: rgba(255,255,255,.75); }
+button:focus { outline: 0; }
+
+.articleLabText {
+    text-align: center;
+}
+/*------------------- projects > book ----------------------*/
+
+.articleBookImg {
+    width:1300px;
+    margin: 3em auto;
+}
+.articleBookImg img {
+    width:1300px;
+    margin-bottom: 3em;
+}
+.articleBookText {
+    width: 500px;
+    margin: 1em auto;
+}
+.articleBookText p {
+    margin:0;
+}
+.articleBookText p span{
+    text-align: center;
+}
+.articleBookImo {
+    text-align: center;
+    width:500px;
+    margin:0 auto;
+}
+.articleBookImo img {
+    width:142px;
+    margin: 1em auto;
+}
+.articleBookBtn {
+    display: flex;
+    justify-content: space-between;
+}
+.articleBookBtn a {
+    text-align: center;
+    width:115px;
+    height:50px;
+    line-height: 50px;
+    border:none;
+    background-color: #FFD100;
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    margin:0 30px;
 }
 
+
+/*------------------- main > footer ----------------------*/
 
 .footer {
     margin:0 150px;
