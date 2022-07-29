@@ -63,4 +63,34 @@ window.addEventListener('load', function() {
     });
 });
 //siema slider 코드
-new siema();
+function onInitCallback() {
+    console.log('Siema initialised bro :)');
+}
+
+function onChangeCallback() {
+    console.log(`The index of current slide is: ${this.currentSlide}`);
+}
+var timer
+const mySiema = new Siema({
+    onInit: onInitCallback,
+    onChange: onChangeCallback,
+    loop: true,
+});
+function autoSlide(){
+    timer = setInterval(function(){
+        mySiema.next();
+    }, 4000);
+}
+autoSlide();
+$('.Slider').mouseover(function(){
+    clearInterval(timer);
+}).mouseout(function(){
+    autoSlide();
+});
+
+
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+prev.addEventListener('click', () => mySiema.prev());
+next.addEventListener('click', () => mySiema.next());
