@@ -2,7 +2,9 @@ package com.dongsamo.jogumanClone.controller;
 
 import com.dongsamo.jogumanClone.dto.ProductSimpleDto;
 import com.dongsamo.jogumanClone.service.ProductService;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,26 +12,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Controller
+@RequiredArgsConstructor
 public class MainController {
 
-    ProductService productService;
+    private final ProductService productService;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String main() {
         return "main";
     }
 
-    @GetMapping("about")
+    @GetMapping("/about")
     public String about() {
         return "about";
     }
 
-    @GetMapping("admin")
+    @GetMapping("/admin")
     public String admin(Model model) {
-        List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll(new ArrayList<ProductSimpleDto>());
-        model.addAttribute("productSummaryList", productSimpleDtoList);
+        List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
+        model.addAttribute("productSimpleList", productSimpleDtoList);
         return "admin";
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.sound.midi.SysexMessage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class ProductServiceTest {
                 .build());
 
         //when
-        List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll(new ArrayList<ProductSimpleDto>());
+        List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
 
         //then
         ProductSimpleDto productSimpleDto = productSimpleDtoList.get(0);
@@ -58,4 +59,15 @@ public class ProductServiceTest {
         assertThat(productSimpleDto.getAmount()).isEqualTo(amount);
     }
 
+    @Test
+    public void 상품요약조회_상품이없는경우() {
+        //given
+        //nothing
+
+        //when
+        List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
+
+        //then
+        assertThat(productSimpleDtoList).isNotNull(); //null이 아닌 빈 객체를 반환
+    }
 }

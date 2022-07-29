@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,7 +19,8 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     @Transactional
-    public List<ProductSimpleDto> findSimpleAll(List<ProductSimpleDto> productSimpleDtoList) {
+    public List<ProductSimpleDto> findSimpleAll() {
+        List<ProductSimpleDto> productSimpleDtoList = new ArrayList<>();
         List<Product> productList = productRepository.findAll();
 
         for(int i=0;i<productList.size();i++) {
@@ -29,7 +31,8 @@ public class ProductService {
     }
 
     @Transactional
-    public List<ProductDto> findAll(List<ProductDto> productDtoList) {
+    public List<ProductDto> findAll() {
+        List<ProductDto> productDtoList = new ArrayList<>();
         List<Product> productList = productRepository.findAll();
 
         for(int i=0;i<productList.size();i++) {
