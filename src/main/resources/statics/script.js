@@ -61,7 +61,7 @@ function save_product() {
 }
 
 function show_product() {
-    $('#tableid').empty() //먼저 만들어두었던 상품 틀 제거
+    // $('#tableid').empty() //먼저 만들어두었던 상품 틀 제거
     $.ajax({
         type:"GET",
         url:"/admin",
