@@ -39,11 +39,11 @@ $(document).ready(function (){ //로딩되면 상품 보여주기
     show_product();
 })
 
-$("#btnRegistration").click(function(){ //버튼 눌렀을때 상품 데이터 보내기
-    give_product();
-});
+// $("#btnRegistration").click(function(){ //버튼 눌렀을때 상품 데이터 보내기
+//     give_product();
+// });
 
-function give_product() {
+function save_product() {
     let product_id=$('#product_id').val()
     let product_category=$('#product_category').val()
     let product_name=$('#product_name').val()
