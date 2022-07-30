@@ -1,10 +1,13 @@
 package com.dongsamo.jogumanClone.domain.product;
 
+import com.dongsamo.jogumanClone.domain.productImage.ProductImage;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -21,6 +24,10 @@ public class Product {
     private Long price;
     private String description;
     private Long amount;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
+    private List<ProductImage> productImages = new ArrayList<>();
+//    빌더에는 넣지않는다
 
     @Builder
     public Product(String name, String category, Long price, String description, Long amount) {

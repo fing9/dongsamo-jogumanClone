@@ -2,6 +2,8 @@ package com.dongsamo.jogumanClone.service;
 
 import com.dongsamo.jogumanClone.domain.product.Product;
 import com.dongsamo.jogumanClone.domain.product.ProductRepository;
+import com.dongsamo.jogumanClone.domain.productImage.ProductImage;
+import com.dongsamo.jogumanClone.domain.productImage.ProductImageRepository;
 import com.dongsamo.jogumanClone.dto.ProductDto;
 import com.dongsamo.jogumanClone.dto.ProductSimpleDto;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,9 @@ import java.util.List;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductImageRepository productImageRepository;
+
+    ProductImage productImage = new ProductImage(); // 객체가 생성되기 전에 그 객체를 참조하면 NullPointerException이 발생한다.
 
     @Transactional
     public List<ProductSimpleDto> findSimpleAll() {
@@ -24,7 +29,7 @@ public class ProductService {
         List<Product> productList = productRepository.findAll();
 
         for(int i=0;i<productList.size();i++) {
-            productSimpleDtoList.add(new ProductSimpleDto(productList.get(i)));
+            productSimpleDtoList.add(new ProductSimpleDto(productList.get(i), productImage.toDtoList(productList.get(i).getProductImages())));
         }
 
         return productSimpleDtoList;
@@ -36,7 +41,7 @@ public class ProductService {
         List<Product> productList = productRepository.findAll();
 
         for(int i=0;i<productList.size();i++) {
-            productDtoList.add(new ProductDto(productList.get(i)));
+            productDtoList.add(new ProductDto(productList.get(i), productImage.toDtoList(productList.get(i).getProductImages())));
         }
 
         return productDtoList;
@@ -44,16 +49,16 @@ public class ProductService {
 
     @Transactional
     public ProductDto findById(Long id) {
-        return new ProductDto(productRepository.findById(id).get());
+        return new ProductDto(productRepository.findById(id).get(), productImage.toDtoList(productRepository.findById(id).get().getProductImages()));
     }
 
     @Transactional
     public ProductSimpleDto findSimpleById(Long id) {
-        return new ProductSimpleDto(productRepository.findById(id).get());
+        return new ProductSimpleDto(productRepository.findById(id).get(), productImage.toDtoList(productRepository.findById(id).get().getProductImages()));
     }
 
     @Transactional
-    public ProductDto save(ProductDto productDto) {
+    public ProductDto save(ProductDto productDto) { //productImageDto추가해야함
         productRepository.save(Product.builder()
                 .name(productDto.getName())
                 .price(productDto.getPrice())
@@ -66,7 +71,7 @@ public class ProductService {
     }
 
     @Transactional
-    public void deleteById(Long id) {
+    public void deleteById(Long id) { //연관된 사진도 삭제해야함
         productRepository.deleteById(id);
     }
 }
