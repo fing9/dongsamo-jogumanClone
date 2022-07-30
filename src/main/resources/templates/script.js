@@ -25,15 +25,46 @@
 //     })
 // }
 
-$("#btnRegistration").click(function(){
-    registration_product();
+// $(document).ready(function(){ //check박스 선택했을때 서버로 보내주고 조회 버튼 누르면 다시 받아와서 모달창에 띄우기
+//     $("#checkBoxId").change(function(){
+//         if($("#checkBoxId").is(":checked")){
+//             alert("체크박스 체크했음!");
+//         }else{
+//             alert("체크박스 체크 해제!");
+//         }
+//     });
+// });
+
+$(document).ready(function (){ //로딩되면 상품 보여주기
+    show_product();
+})
+
+$("#btnRegistration").click(function(){ //버튼 눌렀을때 상품 데이터 보내기
+    give_product();
 });
 
-function registration_product() {
+function give_product() {
+    let product_id=$('#product_id').val()
+    let product_category=$('#product_category').val()
+    let product_name=$('#product_name').val()
+    let product_price=$('#product_price').val()
+    let product_amount=$('#product_amount').val()
+
+    $.ajax({
+        type:"POST",
+        url:"/admin/save",
+        data:{'id_give':product_id, 'category_give:category':product_category, 'name_give:':product_name, 'price_give':product_price, 'amount_give':product_amount},
+        success:function (response) {
+            window.location.reload() //새로고침
+            }
+    })
+}
+
+function show_product() {
     $('#tableid').empty() //먼저 만들어두었던 상품 틀 제거
     $.ajax({
         type:"GET",
-        // url="", //product api
+        url:"/admin",
         data:{},
         success:function (response) {
             let product_id=response['product_id']

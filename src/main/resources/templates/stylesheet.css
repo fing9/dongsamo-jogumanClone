@@ -54,6 +54,21 @@ section{
     display: none;
 }
 
+.adminBtn{
+    background-color:gray;
+    border: none;
+}
+
+.adminBtn:hover{
+    background-color:black;
+    color:white;
+}
+
+.adminBtn:active{
+    background-color:black;
+    color:white;
+}
+
 .memberSubInformation{
     text-align: left;
     font-size:30px;
