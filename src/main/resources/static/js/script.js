@@ -35,70 +35,66 @@
 //     });
 // });
 
-$(document).ready(function (){ //로딩되면 상품 보여주기
-    show_product();
-})
-
 // $("#btnRegistration").click(function(){ //버튼 눌렀을때 상품 데이터 보내기
 //     give_product();
 // });
 
-function save_product() {
-    let id=$('#id').val()
-    let category=$('#category').val()
-    let name=$('#name').val()
-    let price=$('#price').val()
-    let amount=$('#amount').val()
-    // let images=$('#images').val()
+// function save_product() {
+//     // let id=$('#id').val()
+//     // let name=$('#name').val()
+//     // let category=$('#category').val()
+//     // let price=$('#price').val()
+//     // let description=$('#description').val()
+//     // let amount=$('#amount').val()
+//     // let images=$('#images').val()
+//
+//     $.ajax({
+//         type:"POST",
+//         url:"/admin/save",
+//         data:{'name':name, 'category':category, 'price':price, 'description':description, 'amount':amount},
+//         success:function (data) {
+//             window.location.reload() //새로고침
+//             alert("완료");
+//         }
+//     })
+// }
 
-    $.ajax({
-        type:"POST",
-        url:"/admin/save",
-        data:{'id_give':id, 'category_give:category':category, 'name_give:':name, 'price_give':price, 'amount_give':amount},
-        success:function (response) {
-            window.location.reload() //새로고침
-            }
-    })
-}
-
-function show_product() {
-    $('#tableid').empty() //먼저 만들어두었던 상품 틀 제거
-    $.ajax({
-        type:"GET",
-        url:"/admin",
-        data:{},
-        success:function (response) {
-            let id=response['id']
-            let category=response['category']
-            let name=response['name']
-            let price=response['price']
-            let amount=response['amount']
-            // let images=response['images']
-            // let registration_date=response['registration_date']
-            for(let i=0;i<rows.length;i++) {
-                let id=rows[i]['id']
-                let category=rows[i]['category']
-                let name=rows[i]['name']
-                let price=rows[i]['price']
-                let amount=rows[i]['amount']
-                // let images=rows[i]['images']
-                // let registration_date=rows[i]['registration_date']
-
-                let temp_html=`<tr>
-                                    <th scope="col">${id}</th>
-                                    <th scope="col">${category}</th>
-                                    <th scope="col">${name}</th>
-                                    <th scope="col">${price}</th>
-                                    <th scope="col">${amount}</th>
-                                    <th scope="col">${registration_date}</th>
-<!--                                    <th scope="col">${images}</th>-->
-                                </tr>`
-
-                $('#tableid').append(temp_html) //상품 등록
-            }
-        }
-    })
-}
+// $(document).ready(function (){
+//     //alert("완료");
+//     show_product()
+//     //$('#tableid').empty() //먼저 만들어두었던 상품 틀 제거
+// })
+//
+// function show_product() {
+//     $('#tableid').empty() //먼저 만들어두었던 상품 틀 제거
+//     $.ajax({
+//         type:"GET",
+//         url:"/admin",
+//         data:{},
+//         success:function (response) {
+//             let rows=response['productSimpleList']
+//             for(let i=0;i<rows.length;i++) {
+//                 let id=rows[i]['id']
+//                 let category=rows[i]['category']
+//                 let name=rows[i]['name']
+//                 let price=rows[i]['price']
+//                 let amount=rows[i]['amount']
+//                 // let description=rows[i]['description']
+//                 // let images=rows[i]['images']
+//
+//                 let temp_html=`<tr>
+//                                     <th scope="col">${id}</th>
+//                                     <th scope="col">${category}</th>
+//                                     <th scope="col">${name}</th>
+//                                     <th scope="col">${price}</th>
+//                                     <th scope="col">${amount}</th>
+//                                 </tr>`
+//
+//                 $('#tableid').append(temp_html) //상품 등록
+//             }
+//         }
+//     })
+// }
 
 //mainImg 화면 전환 script
 var index = 0;   //이미지에 접근하는 인덱스
