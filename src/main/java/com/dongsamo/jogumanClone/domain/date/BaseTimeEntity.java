@@ -1,4 +1,4 @@
-package com.dongsamo.jogumanClone.domain.posts;
+package com.dongsamo.jogumanClone.domain.date;
 
 
 import lombok.Getter;

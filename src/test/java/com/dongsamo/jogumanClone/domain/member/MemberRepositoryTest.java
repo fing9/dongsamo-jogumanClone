@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -26,6 +27,7 @@ public class MemberRepositoryTest {
     @Test
     public void 멤버생성() {
         //given
+        LocalDateTime now = LocalDateTime.of(2022, 8, 1, 0, 0, 0);
         String email = "test@naver.com";
         String name = "HongGilDong";
         String phone = "01012345678";
@@ -50,6 +52,9 @@ public class MemberRepositoryTest {
 
         //then
         Member member = memberList.get(0);
+
+        System.out.println(">>>>>>> createDate=" + member.getCreatedDate() + ", modifiedDate=" + member.getModifiedDate());
+
         assertThat(member.getEmail()).isEqualTo(email);
         assertThat(member.getName()).isEqualTo(name);
         assertThat(member.getPhone()).isEqualTo(phone);
@@ -57,6 +62,8 @@ public class MemberRepositoryTest {
         assertThat(member.getRole()).isEqualTo(role);
         assertThat(member.getPoint()).isEqualTo(point);
         assertThat(member.getTotalprice()).isEqualTo(totalPrice);
+        assertThat(member.getCreatedDate().isAfter(now));
+        assertThat(member.getModifiedDate().isAfter(now));
     }
 
 }

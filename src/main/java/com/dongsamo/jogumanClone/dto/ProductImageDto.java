@@ -10,6 +10,8 @@ public class ProductImageDto {
     private String uploadPath;
     private String fileName;
     private Long product_id;
+    private String createdDate;
+    private String modifiedDate;
 
     @Builder
     public ProductImageDto(ProductImage productImage) {
@@ -17,5 +19,7 @@ public class ProductImageDto {
         this.uploadPath = productImage.getUploadPath();
         this.fileName = productImage.getFileName();
         this.product_id = productImage.getProduct().getId();
+        this.createdDate = productImage.getCreatedDate().toString();
+        this.modifiedDate = productImage.getModifiedDate().toString();
     }
 }

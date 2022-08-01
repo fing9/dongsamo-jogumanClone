@@ -102,4 +102,9 @@ public class ProductService {
     public void deleteById(Long id) { //연관된 사진도 삭제해야함
         productRepository.deleteById(id);
     }
+
+    @Transactional
+    public void changeById() {
+
+    }
 }

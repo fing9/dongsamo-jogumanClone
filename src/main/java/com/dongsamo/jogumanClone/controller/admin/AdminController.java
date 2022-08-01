@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.net.URI;
 import java.util.List;
@@ -34,13 +35,13 @@ public class AdminController {
 //    }
 
     @PostMapping("/admin/save")
-    public String saveProduct( //@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
-                                          @RequestParam("name") String name,
-                                          @RequestParam("category") String category,
-                                          @RequestParam("price") Long price,
-                                          @RequestParam("description") String description,
-                                          @RequestParam("amount") Long amount,
-                                          @RequestParam("images") List<MultipartFile> images
+    public RedirectView saveProduct( //@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
+                                     @RequestParam("name") String name,
+                                     @RequestParam("category") String category,
+                                     @RequestParam("price") Long price,
+                                     @RequestParam("description") String description,
+                                     @RequestParam("amount") Long amount,
+                                     @RequestParam("images") List<MultipartFile> images
     ) throws Exception {
         ProductDto productDto = productService.save(Product.builder()
                 .name(name)
@@ -51,15 +52,38 @@ public class AdminController {
                 .build(), images);
 
         //다른 URI로 파싱할수도 있음
-        //URI uriLocation = new URI("/board/" + productDto.getId());
-        return "redirect:/admin";
+        return new RedirectView("/admin");
     }
 
     //change 요청이 왔을 때 파라미터로 받은 id값을 가지고 기존값을 리턴해줌
     @GetMapping("/admin/change")
-    public String change(@RequestParam(value = "id", required = true) Long id, Model model) {
+    public Model change(@RequestParam(value = "id", required = true) Long id, Model model) {
         ProductDto productDto = productService.findById(id);
         model.addAttribute("productDto", productDto);
-        return "redirect:/admin";
+        return model;
+    }
+
+    @PostMapping("/admin/change")
+    public RedirectView change (//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
+                                @RequestParam("id") Long id,
+                                @RequestParam("name") String name,
+                                @RequestParam("category") String category,
+                                @RequestParam("price") Long price,
+                                @RequestParam("description") String description,
+                                @RequestParam("amount") Long amount,
+                                @RequestParam("images") List<MultipartFile> images
+    ) throws Exception {
+        productRepository.deleteById(id);
+        // 삭제할때 그 아이디랑 연관된 이미지를 물리적으로 삭제해야한다.
+
+        productService.save(Product.builder()
+                .name(name)
+                .category(category)
+                .price(price)
+                .description(description)
+                .amount(amount)
+                .build(), images);
+
+        return new RedirectView("/admin");
     }
 }

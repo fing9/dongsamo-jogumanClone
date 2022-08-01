@@ -1,5 +1,6 @@
 package com.dongsamo.jogumanClone.domain.productImage;
 
+import com.dongsamo.jogumanClone.domain.date.BaseTimeEntity;
 import com.dongsamo.jogumanClone.domain.product.Product;
 import com.dongsamo.jogumanClone.dto.ProductImageDto;
 import lombok.Builder;
@@ -13,7 +14,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class ProductImage {
+public class ProductImage extends BaseTimeEntity {
 
     @Id
     /* uuid */

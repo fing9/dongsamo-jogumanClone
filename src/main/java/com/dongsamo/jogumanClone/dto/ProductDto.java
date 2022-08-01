@@ -16,6 +16,8 @@ public class ProductDto {
     private String description;
     private Long amount;
     private List<ProductImageDto> images;
+    private String createdDate;
+    private String modifiedDate;
 
     @Builder
     public ProductDto(Product product, List<ProductImageDto> productImageDtoList) {
@@ -26,5 +28,7 @@ public class ProductDto {
         this.price = product.getPrice();
         this.amount = product.getAmount();
         this.images = productImageDtoList;
+        this.createdDate = product.getCreatedDate().toString();
+        this.modifiedDate = product.getModifiedDate().toString();
     }
 }

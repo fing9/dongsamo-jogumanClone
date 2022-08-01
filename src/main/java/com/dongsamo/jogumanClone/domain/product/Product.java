@@ -1,5 +1,6 @@
 package com.dongsamo.jogumanClone.domain.product;
 
+import com.dongsamo.jogumanClone.domain.date.BaseTimeEntity;
 import com.dongsamo.jogumanClone.domain.productImage.ProductImage;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Product {
+public class Product extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -112,7 +112,7 @@ public class ProductServiceTest {
                 .build();
 
         String uuid = "234124-dsfdfs-123124";
-        String uploadPath = "/static/image";
+        String uploadPath = "src/main/resources/static/images/";
         String fileName = "image.png";
 
         ProductImage productImage = ProductImage.builder()
