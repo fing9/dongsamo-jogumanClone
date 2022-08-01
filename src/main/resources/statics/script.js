@@ -35,27 +35,6 @@
 //     });
 // });
 
-const form = document.getElementById("form");
-const inputFile = document.getElementById("file");
-
-const formData = new FormData();
-
-const handleSubmit = (event) => {
-    event.preventDefault();
-
-    for (const file of inputFile.files) {
-        formData.append("files", file);
-    }
-
-    fetch("", {
-        method: "post",
-        body: formData,
-    }).catch((error) => ("Something went wrong!", error));
-};
-
-form.addEventListener("submit", handleSubmit);
-
-
 $(document).ready(function (){ //로딩되면 상품 보여주기
     show_product();
 })
@@ -70,12 +49,12 @@ function save_product() {
     let name=$('#name').val()
     let price=$('#price').val()
     let amount=$('#amount').val()
-    let images=$('#images').val()
+    // let images=$('#images').val()
 
     $.ajax({
         type:"POST",
         url:"/admin/save",
-        data:{'id_give':id, 'category_give:category':category, 'name_give:':name, 'price_give':price, 'amount_give':amount, 'images_give':images},
+        data:{'id_give':id, 'category_give:category':category, 'name_give:':name, 'price_give':price, 'amount_give':amount},
         success:function (response) {
             window.location.reload() //새로고침
             }
@@ -94,7 +73,7 @@ function show_product() {
             let name=response['name']
             let price=response['price']
             let amount=response['amount']
-            let images=response['images']
+            // let images=response['images']
             // let registration_date=response['registration_date']
             for(let i=0;i<rows.length;i++) {
                 let id=rows[i]['id']
@@ -102,7 +81,7 @@ function show_product() {
                 let name=rows[i]['name']
                 let price=rows[i]['price']
                 let amount=rows[i]['amount']
-                let images=rows[i]['images']
+                // let images=rows[i]['images']
                 // let registration_date=rows[i]['registration_date']
 
                 let temp_html=`<tr>
@@ -112,7 +91,7 @@ function show_product() {
                                     <th scope="col">${price}</th>
                                     <th scope="col">${amount}</th>
                                     <th scope="col">${registration_date}</th>
-                                    <th scope="col">${images}</th>
+<!--                                    <th scope="col">${images}</th>-->
                                 </tr>`
 
                 $('#tableid').append(temp_html) //상품 등록
