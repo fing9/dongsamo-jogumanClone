@@ -26,7 +26,7 @@ public class ProductService {
     private final ProductImageRepository productImageRepository;
     private final FileHandler fileHandler = new FileHandler();
 
-    ProductImage productImage = new ProductImage(); // 객체가 생성되기 전에 그 객체를 참조하면 NullPointerException이 발생한다.
+    private final ProductImage productImage = new ProductImage(); // 객체가 생성되기 전에 그 객체를 참조하면 NullPointerException이 발생한다.
 
     @Transactional
     public List<ProductSimpleDto> findSimpleAll() {
