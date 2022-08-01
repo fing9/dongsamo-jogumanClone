@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
 
 <head>
     <meta charset="UTF-8">
@@ -17,9 +20,8 @@
     <script src="/js/script.js"></script>
     <title>admin</title>
 </head>
-<body>
+<body layout:fragment="content">
 <container>
-    <div data-include-path="header.html"></div>
     <section>
         <div class="articleAdmin">
             <div class="articleAdminNav">
@@ -165,7 +167,8 @@
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form name="form" method="post" action="http://localhost:8080/admin/save" enctype="multipart/form-data">
+                        <form name="form" method="post" action="http://localhost:8080/admin/save"
+                              enctype="multipart/form-data">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">상품 등록</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -189,22 +192,26 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">설명</label>
-                                    <textarea class="form-control" id="description" rows="3" name="description" value="description"></textarea>
+                                    <textarea class="form-control" id="description" rows="3" name="description"
+                                              value="description"></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="amount" class="form-label">재고</label>
                                     <input type="text" class="form-control" id="amount"
                                            placeholder="Stock input placeholder" name="amount" value="amount">
                                 </div>
-                                    <div class="mb-3">
-                                        <label for="images" class="form-label">이미지</label>
-                                        <input class="form-control" type="file" id="images" multiple="multiple" name="images"/>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="images" class="form-label">이미지</label>
+                                    <input class="form-control" type="file" id="images" multiple="multiple"
+                                           name="images"/>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">Submit</button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                                </button>
+                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">Submit
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>

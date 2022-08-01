@@ -1,5 +1,8 @@
 <!doctype html >
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
 
 <head>
     <meta charset="UTF-8">
@@ -18,10 +21,10 @@
     <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
     <link rel="stylesheet" href="/css/stylesheet.css">
     <script src="/js/script.js" defer></script>
-    <link rel="import" href="header.html">
+    <link rel="import" href="fragments/header.html">
     <title>main</title>
 </head>
-<body>
+<body layout:fragment="content">
 <container>
     <div data-include-path="header.html"></div>
 <!--    <header>-->
