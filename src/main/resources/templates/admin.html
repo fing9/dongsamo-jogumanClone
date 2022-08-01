@@ -14,6 +14,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
     <link rel="stylesheet" href="/css/stylesheet.css">
+    <script src="/js/script.js"></script>
     <title>admin</title>
 </head>
 <body>
@@ -34,6 +35,8 @@
                 <table class="table">
                     <thead class="table-light">
                     <tr>
+
+                        <th scope="col"></th>
                         <th scope="col">번호</th>
                         <th scope="col">카테고리</th>
                         <th scope="col">상품이름</th>
@@ -44,6 +47,7 @@
                     </thead>
                     <tbody id="tableid">
                     <tr>
+                        <th scope="row"><input class="form-check-input mt-0" type="checkbox" id="checkBoxId" value="" aria-label="Checkbox for following text input"></th>
                         <th scope="row">1</th>
                         <td>living</td>
                         <td>키링</td>
@@ -56,15 +60,134 @@
             </div>
         </div>
         <div class="articleAdminBtn">
-            <button type="button" class="btn btn-outline-secondary" disabled>조회</button>
-            <button type="button" class="btn btn-outline-secondary" disabled>수정</button>
-            <button type="button" class="btn btn-outline-secondary" onclick="registration_product()" id="btnRegistration">등록</button>
-            <button type="button" class="btn btn-outline-secondary" disabled>삭제</button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCheck">
+                조회
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCheck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabelCheck">상품 조회</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="formGroupCategoryInput" class="form-label">카테고리</label>
+                                <input type="text" class="form-control" id="formGroupCategoryInput-check" placeholder="Category input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupNameInput" class="form-label">상품 이름</label>
+                                <input type="text" class="form-control" id="formGroupNameInput-check" placeholder="Name input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupPriceInput" class="form-label">가격</label>
+                                <input type="text" class="form-control" id="formGroupPriceInput-check" placeholder="Price input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupStockInput" class="form-label">재고</label>
+                                <input type="text" class="form-control" id="formGroupStockInput-check" placeholder="Stock input placeholder">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalRevise">
+                수정
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalRevise" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabelRevise">상품 수정</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="formGroupCategoryInput" class="form-label">카테고리</label>
+                                <input type="text" class="form-control" id="formGroupCategoryInput-revise" placeholder="Category input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupNameInput" class="form-label">상품 이름</label>
+                                <input type="text" class="form-control" id="formGroupNameInput-revise" placeholder="Name input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupPriceInput" class="form-label">가격</label>
+                                <input type="text" class="form-control" id="formGroupPriceInput-revise" placeholder="Price input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupStockInput" class="form-label">재고</label>
+                                <input type="text" class="form-control" id="formGroupStockInput-revise" placeholder="Stock input placeholder">
+                            </div>
+                            <form name="form" action="#" method="post" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="formFileMultiple" class="form-label">이미지</label>
+                                    <input class="form-control" type="file" id="formFileMultiple-revise" multiple />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-secondary">Revise</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    등록
+                </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">상품 등록</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="formGroupCategoryInput" class="form-label">카테고리</label>
+                                <input type="text" class="form-control" id="formGroupCategoryInput" placeholder="Category input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupNameInput" class="form-label">상품 이름</label>
+                                <input type="text" class="form-control" id="formGroupNameInput" placeholder="Name input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupPriceInput" class="form-label">가격</label>
+                                <input type="text" class="form-control" id="formGroupPriceInput" placeholder="Price input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formGroupStockInput" class="form-label">재고</label>
+                                <input type="text" class="form-control" id="formGroupStockInput" placeholder="Stock input placeholder">
+                            </div>
+                            <form name="form" action="#" method="post" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="formFileMultiple" class="form-label">이미지</label>
+                                    <input class="form-control" type="file" id="formFileMultiple" multiple />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="save_product()" id="btnRegistration" value="submit" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-secondary">삭제</button>
         </div>
         <div class="articleGap"></div>
     </section>
 </container>
-<script src="../static/js/script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <title>adminOrder</title>
+</head>
+<body>
+<container>
+    <div data-include-path="header.html"></div>
+    <section>
+        <div class="articleAdmin">
+            <div class="articleAdminNav">
+                <ul>
+                    <li><a href="#">상품 관리</a></li>
+                    <li><a href="#">회원 관리</a></li>
+                    <li><a href="#" style="border-bottom: 2px solid orange">주문 관리</a></li>
+                    <li><a href="#">공지 관리</a></li>
+                    <li><a href="#">QnA 관리</a></li>
+                </ul>
+            </div>
+            <div class="articleAdminSection">
+                <table class="table">
+                    <thead class="table-light">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">번호</th>
+                        <th scope="col">이름</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">결제금액</th>
+                        <th scope="col">결제상태</th>
+                        <th scope="col">등록일시</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
+                        <th>1</th>
+                        <td>홍길동</td>
+                        <td>3개</td>
+                        <td>56,000원</td>
+                        <td>Y</td>
+                        <td>2022/07/29</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="articleAdminBtn">
+            <button type="button" class="btn btn-outline-secondary">조회</button>
+            <button type="button" class="btn btn-outline-secondary">삭제</button>
+        </div>
+        <div class="articleGap"></div>
+    </section>
+</container>
+<script src="../static/js/script.js"></script>
+</body>
+
+</html>

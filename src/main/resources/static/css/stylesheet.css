@@ -54,6 +54,108 @@ section{
     display: none;
 }
 
+/*adminMember*/
+.memberSubInformation{
+    text-align: left;
+    font-size:30px;
+    padding-left:40px;
+    padding-top:0px;
+    padding-bottom:20px;
+    font-weight: bold;
+}
+
+.adminMemberSub{
+    padding-top:20px;
+    border-top:2px solid black;
+    border-bottom:2px solid black;
+}
+
+/*adminOrder*/
+.orderSubInformation{
+    text-align: center;
+    font-size:30px;
+    padding-left:40px;
+    padding-top:0px;
+    padding-bottom:20px;
+    font-weight: bold;
+}
+
+.articleAdminSectionProduct{
+    display: flex;
+    justify-content: center;
+}
+
+.productInformation{
+    background: white;
+    width:100vw;
+    height:100%;
+    margin:15px;
+    padding:15px;
+}
+
+.productInformationText{
+    text-align: left;
+    font-size:18px;
+    padding-left:10px;
+    padding-top:10px;
+    font-weight: bold;
+}
+
+.productInformationImg{
+    width:100px;
+    height:100px;
+}
+
+.productInformationImg img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.productInformation-nametable{
+    border:1px solid #bdc2c9;
+    display: flex;
+    padding:10px;
+}
+
+.productInformation-deliveryTexttable{
+    border:1px solid #bdc2c9;
+    margin-top : 10px;
+    text-align: center;
+    padding:10px;
+    background: rgba(33, 33, 33, 0.03);
+    font-weight: bold;
+}
+
+.productInformationSub{
+    padding:10px;
+}
+
+.productInformationSub-text{
+    width:100%;
+    height:33.3%;
+    text-align: left;
+    font-size:13px;
+}
+
+.productInformation-pointtable{
+    font-weight: bold;
+}
+
+.productInformation-totaltable{
+    text-align: left;
+    padding:20px;
+}
+
+.productInformation-summary:nth-of-type(2){
+    border-bottom : 1px solid #bdc2c9;
+    padding-bottom:10px;
+}
+
+.productInformation-deliverytable{
+    font-weight: bold;
+}
+
 .footer {
     border-top:1px solid #d9d7d4;
     padding-top : 40px;
