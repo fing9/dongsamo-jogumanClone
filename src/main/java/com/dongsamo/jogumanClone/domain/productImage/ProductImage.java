@@ -6,8 +6,10 @@ import com.dongsamo.jogumanClone.dto.ProductImageDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,16 +18,19 @@ import java.util.List;
 @Entity
 public class ProductImage extends BaseTimeEntity {
 
+    @NotNull
     @Id
     /* uuid */
     private String uuid; //uuid
 
-    @Column
+    @NotNull
     /* 경로 */
     private String uploadPath; //upload_path
     /* 파일 이름 */
+    @NotNull
     private String fileName; //file_name
 
+    @Nullable
     @ManyToOne
     @JoinColumn(name="product") // name은 ProductImage 테이블에서의 칼럼명을 지정하는 것임 Build할때 product객체를 넣으면 자동으로 product객체의 PK가 들어가면서 생성됨
     private Product product; // 대상 테이블은 매핑된 Entity의 오브젝트형을 보고 자동으로 정함 (여기선 Product)

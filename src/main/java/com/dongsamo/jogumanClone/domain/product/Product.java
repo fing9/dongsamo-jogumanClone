@@ -5,8 +5,10 @@ import com.dongsamo.jogumanClone.domain.productImage.ProductImage;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +21,18 @@ public class Product extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @NotNull
     private String name;
+    @NotNull
     private String category;
+    @NotNull
     private Long price;
+    @Nullable
     private String description;
+    @NotNull
     private Long amount;
 
+    @Nullable
     @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
     private List<ProductImage> productImages = new ArrayList<>();
 //    빌더에는 넣지않는다

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -36,12 +37,12 @@ public class AdminController {
 
     @PostMapping("/admin/save")
     public RedirectView saveProduct( //@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
-                                     @RequestParam("name") String name,
-                                     @RequestParam("category") String category,
-                                     @RequestParam("price") Long price,
-                                     @RequestParam("description") String description,
-                                     @RequestParam("amount") Long amount,
-                                     @RequestParam("images") List<MultipartFile> images
+                                     @Valid @RequestParam("name") String name,
+                                     @Valid @RequestParam("category") String category,
+                                     @Valid @RequestParam("price") Long price,
+                                     @Valid @RequestParam("description") String description,
+                                     @Valid @RequestParam("amount") Long amount,
+                                     @Valid @RequestParam("images") List<MultipartFile> images
     ) throws Exception {
         ProductDto productDto = productService.save(Product.builder()
                 .name(name)
@@ -65,13 +66,13 @@ public class AdminController {
 
     @PostMapping("/admin/change")
     public RedirectView change (//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
-                                @RequestParam("id") Long id,
-                                @RequestParam("name") String name,
-                                @RequestParam("category") String category,
-                                @RequestParam("price") Long price,
-                                @RequestParam("description") String description,
-                                @RequestParam("amount") Long amount,
-                                @RequestParam("images") List<MultipartFile> images
+                                @Valid @RequestParam("id") Long id,
+                                @Valid @RequestParam("name") String name,
+                                @Valid @RequestParam("category") String category,
+                                @Valid @RequestParam("price") Long price,
+                                @Valid @RequestParam("description") String description,
+                                @Valid @RequestParam("amount") Long amount,
+                                @Valid @RequestParam("images") List<MultipartFile> images
     ) throws Exception {
         productRepository.deleteById(id);
         // 삭제할때 그 아이디랑 연관된 이미지를 물리적으로 삭제해야한다.

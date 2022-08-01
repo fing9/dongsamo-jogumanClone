@@ -4,8 +4,10 @@ import com.dongsamo.jogumanClone.domain.date.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @NoArgsConstructor
@@ -16,13 +18,19 @@ public class Member extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "varchar(255)", nullable = false)
+    @NotNull
     private String email;
+    @NotNull
     private String name;
+    @Nullable
     private String phone;
+    @Nullable
     private String birthday;
+    @NotNull
     private String role;
+    @NotNull
     private Long point;
+    @NotNull
     private Long totalprice;
 
     @Builder

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -99,12 +100,32 @@ public class ProductService {
     }
 
     @Transactional
-    public void deleteById(Long id) { //연관된 사진도 삭제해야함
-        productRepository.deleteById(id);
+    public void deleteProductImageAndFilesByProductId(Long productId) {
+        Product product = productRepository.getReferenceById(productId);
+        List<ProductImage> productImageList = productImageRepository.findAllByProduct(product);
+
+        if(productImageList == null) {
+            return;
+        }
+
+        for(int i=0;i<productImageList.size();i++) {
+            ProductImage productImage = productImageList.get(i);
+            String uploadPath = productImage.getUploadPath();
+
+            if(uploadPath == null || uploadPath == "")
+                continue;
+
+            File file = new File(uploadPath);
+            file.delete();
+            productImageRepository.delete(productImage);
+        }
+
+        return;
     }
 
     @Transactional
-    public void changeById() {
-
+    public void deleteById(Long id) { //연관된 사진도 삭제해야함
+        deleteProductImageAndFilesByProductId(id);
+        productRepository.deleteById(id);
     }
 }

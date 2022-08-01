@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -45,16 +45,16 @@
                         <th scope="col">등록일시</th>
                     </tr>
                     </thead>
-                    <tbody id="tableid">
-                    <tr>
+                    <tbody id="tableId">
+                    <tr data-th-each="product : ${productSimpleList}">
                         <th scope="row"><input class="form-check-input mt-0" type="checkbox" id="checkBoxId" value=""
                                                aria-label="Checkbox for following text input"></th>
-                        <th scope="row">1</th>
-                        <td>living</td>
-                        <td>키링</td>
-                        <td>10500</td>
-                        <td>300</td>
-                        <td>2022/7/28</td>
+                        <th scope="row" data-th-text="${product.id}"></th>
+                        <td data-th-text="${product.category}"></td>
+                        <td data-th-text="${product.name}"></td>
+                        <td data-th-text="${product.price}"></td>
+                        <td data-th-text="${product.amount}"></td>
+                        <td data-th-text="${product.createdDate}"></td>
                     </tr>
                     </tbody>
                 </table>
