@@ -9,5 +9,4 @@ public class JogumanCloneApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JogumanCloneApplication.class, args);
 	}
-
 }
