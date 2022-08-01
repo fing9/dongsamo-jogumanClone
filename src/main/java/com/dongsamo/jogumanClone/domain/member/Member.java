@@ -15,7 +15,7 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "varchar(100)", nullable = false)
+    @Column(columnDefinition = "varchar(255)", nullable = false)
     private String email;
     private String name;
     private String phone;
@@ -34,5 +34,4 @@ public class Member {
         this.point = point;
         this.totalprice = totalprice;
     }
-
 }
