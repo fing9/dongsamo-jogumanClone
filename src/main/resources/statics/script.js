@@ -44,16 +44,17 @@ $(document).ready(function (){ //로딩되면 상품 보여주기
 // });
 
 function save_product() {
-    let product_id=$('#product_id').val()
-    let product_category=$('#product_category').val()
-    let product_name=$('#product_name').val()
-    let product_price=$('#product_price').val()
-    let product_amount=$('#product_amount').val()
+    let id=$('#id').val()
+    let category=$('#category').val()
+    let name=$('#name').val()
+    let price=$('#price').val()
+    let amount=$('#amount').val()
+    let images=$('#images').val()
 
     $.ajax({
         type:"POST",
         url:"/admin/save",
-        data:{'id_give':product_id, 'category_give:category':product_category, 'name_give:':product_name, 'price_give':product_price, 'amount_give':product_amount},
+        data:{'id_give':id, 'category_give:category':category, 'name_give:':name, 'price_give':price, 'amount_give':amount, 'images_give':images},
         success:function (response) {
             window.location.reload() //새로고침
             }
@@ -67,27 +68,30 @@ function show_product() {
         url:"/admin",
         data:{},
         success:function (response) {
-            let product_id=response['product_id']
-            let product_category=response['product_category']
-            let product_name=response['product_name']
-            let product_price=response['product_price']
-            let product_amount=response['product_amount']
-            let registration_date=response['registration_date']
+            let id=response['id']
+            let category=response['category']
+            let name=response['name']
+            let price=response['price']
+            let amount=response['amount']
+            let images=response['images']
+            // let registration_date=response['registration_date']
             for(let i=0;i<rows.length;i++) {
-                let product_id=rows[i]['product_id']
-                let product_category=rows[i]['product_category']
-                let product_name=rows[i]['product_name']
-                let product_price=rows[i]['product_price']
-                let product_amount=rows[i]['product_amount']
-                let registration_date=rows[i]['registration_date']
+                let id=rows[i]['id']
+                let category=rows[i]['category']
+                let name=rows[i]['name']
+                let price=rows[i]['price']
+                let amount=rows[i]['amount']
+                let images=rows[i]['images']
+                // let registration_date=rows[i]['registration_date']
 
                 let temp_html=`<tr>
-                                    <th scope="col">${product_id}</th>
-                                    <th scope="col">${product_category}</th>
-                                    <th scope="col">${product_name}</th>
-                                    <th scope="col">${product_price}</th>
-                                    <th scope="col">${product_amount}</th>
+                                    <th scope="col">${id}</th>
+                                    <th scope="col">${category}</th>
+                                    <th scope="col">${name}</th>
+                                    <th scope="col">${price}</th>
+                                    <th scope="col">${amount}</th>
                                     <th scope="col">${registration_date}</th>
+                                    <th scope="col">${images}</th>
                                 </tr>`
 
                 $('#tableid').append(temp_html) //상품 등록
