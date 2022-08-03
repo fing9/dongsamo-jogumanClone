@@ -164,7 +164,7 @@
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form name="form" method="post" action="http://localhost:8080/admin/save" enctype="multipart/form-data">
+                        <form name="form" method="post" action="http://localhost:8080/admin" enctype="multipart/form-data">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">상품 등록</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -174,35 +174,35 @@
                                 <div class="mb-3">
                                     <label for="name" class="form-label">상품 이름</label>
                                     <input type="text" class="form-control" id="name"
-                                           placeholder="Name input placeholder" name="name" value="name">
+                                           placeholder="Name input placeholder" name="name" >
                                 </div>
                                 <div class="mb-3">
                                     <label for="category" class="form-label">카테고리</label>
                                     <input type="text" class="form-control" id="category"
-                                           placeholder="Category input placeholder" name="category" value="category">
+                                           placeholder="Category input placeholder" name="category" >
                                 </div>
                                 <div class="mb-3">
                                     <label for="price" class="form-label">가격</label>
                                     <input type="text" class="form-control" id="price"
-                                           placeholder="Price input placeholder" name="price" value="price">
+                                           placeholder="Price input placeholder" name="price" >
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">설명</label>
-                                    <textarea class="form-control" id="description" rows="3" name="description" value="description"></textarea>
+                                    <textarea class="form-control" id="description" rows="3" name="description" ></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="amount" class="form-label">재고</label>
                                     <input type="text" class="form-control" id="amount"
-                                           placeholder="Stock input placeholder" name="amount" value="amount">
+                                           placeholder="Stock input placeholder" name="amount" >
                                 </div>
                                 <div class="mb-3">
                                     <label for="images" class="form-label">이미지</label>
-                                    <input class="form-control" type="file" id="images" multiple="multiple" name="images"/>
+                                    <input class="form-control" type="file" id="images" multiple="multiple" name="images" />
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">Submit</button>
+                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration" onclick="formValidation()">Submit</button>
                             </div>
                         </form>
                     </div>

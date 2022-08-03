@@ -295,6 +295,17 @@ article{
     padding-top:5px;
 }
 
+.updateBox-best{
+    background: white;
+    color:red;
+    border:1px solid #ccc8c8;
+    /*font-weight: bold;*/
+    padding:5px;
+    width:18%;
+    text-align: center;
+    height:100%;
+}
+
 .updateBox-new{
     background: #f7c316;
     color:white;
