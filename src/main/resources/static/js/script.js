@@ -79,7 +79,7 @@
 //                 let name=rows[i]['name']
 //                 let price=rows[i]['price']
 //                 let amount=rows[i]['amount']
-//                 // let description=rows[i]['description']
+//                 let description=rows[i]['description']
 //                 // let images=rows[i]['images']
 //
 //                 let temp_html=`<tr>
