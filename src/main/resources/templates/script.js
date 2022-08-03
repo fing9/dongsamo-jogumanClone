@@ -115,7 +115,7 @@ $(function(){
         var start = (idx -1) * rowsPerPage,
             end = start + rowsPerPage;
 
-            rows.hid();
+            rows.hide();
             rows.slide(start, end).show();
     }
 
