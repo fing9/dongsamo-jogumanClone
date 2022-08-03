@@ -45,6 +45,7 @@ function slideShow() {
     setTimeout(slideShow, 3000);   //함수를 3초마다 호출
 
 }
+
 //Header 불러오는 코드
 window.addEventListener('load', function() {
     var allElements = document.getElementsByTagName('*');
@@ -94,3 +95,33 @@ const next = document.querySelector('.next');
 
 prev.addEventListener('click', () => mySiema.prev());
 next.addEventListener('click', () => mySiema.next());
+
+//pagination 코드 (Jquery 강의 69)
+$(function(){
+    var rowsPerPage = 7,
+        rows = $('#myTable tbody tr'),
+        rowsCount = rows.length,
+        pageCount = Math.ceil(rowsCount/rowsPerPage),
+        numbers = $('#numbers');
+
+    /* 페이지네이션 li생성 반복문*/
+    for(var i = 1; i<=pageCount; i++) {
+        numbers.append('<li><a href="#">' + i +'</a></li>');
+    }
+    numbers.find('li:first-chile a').addClass('active');
+
+    //페이지네이션 함수
+    function displayRows(idx){
+        var start = (idx -1) * rowsPerPage,
+            end = start + rowsPerPage;
+
+            rows.hid();
+            rows.slide(start, end).show();
+    }
+
+    numbers.find('li').click(function(e){
+        e.preventDefault();
+        var index = $(this).index() + 1;
+        displayRows(index);
+    })
+})

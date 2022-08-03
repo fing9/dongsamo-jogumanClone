@@ -39,7 +39,7 @@ section{
 }
 
 .articleAdminSection {
-    width:1000px;
+    width:1200px;
     text-align: center;
     border: 1px solid black;
 }
@@ -53,9 +53,53 @@ section{
 .articleAdminTableSub {
     display: none;
 }
+.adminNoticeSubBtn {
+    display:flex;
+    justify-content: space-between;
+}
+.adminNoticeSubBtn a, .adminNoticeSubBtn div button {
+    text-align: center;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    border:none;
+    background-color: #FFD100;
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    margin:0 10px;
+}
+.pagination {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+#numbers {
+    padding: 0;
+    margin: 0 2rem;
+    list-style-type: none;
+    display: flex;
+}
+
+#numbers li a {
+    color:black;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    opacity: .7;
+}
+
+#numbers li a:hover {
+    opacity: 1;
+}
+
+#numbers li a.active {
+    opacity: 1;
+}
 
 
-/*article*/
+/*--------------------- article --------------------------*/
 article{
     display: flex;
     justify-content: center;
@@ -103,7 +147,7 @@ article{
     margin: 0;
     padding: 0;
 }
-.articleGap {
+.articleGap, .footerGap {
     width: 100%;
     height: 130px;
 }

@@ -22,7 +22,7 @@
 <body>
 <container>
   <div data-include-path="header.html"></div>
-  <main>
+  <section>
     <div class="articleAdmin">
       <div class="articleAdminNav">
         <ul>
@@ -34,9 +34,10 @@
         </ul>
       </div>
       <div class="articleAdminSection">
-        <table class="table articleAdminTable">
+        <table class="table articleAdminTable" id="myTable">
           <thead class="table-light">
           <tr>
+            <th scope="col"></th>
             <th scope="col">번호</th>
             <th scope="col">제목</th>
             <th scope="col">글쓴이</th>
@@ -46,6 +47,7 @@
           </thead>
           <tbody>
           <tr>
+            <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
             <th scope="row">1</th>
             <td>[FAQ] 자주 묻는 질문들</td>
             <td>조구만</td>
@@ -53,22 +55,87 @@
             <td>2022/7/28</td>
           </tr>
           <tr>
+            <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
             <th scope="row">2</th>
             <td>공지사항 2</td>
             <td>조구만</td>
             <td>18</td>
             <td>2022/7/28</td>
           </tr>
+          <tr>
+            <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
+            <th scope="row">3</th>
+            <td>공지사항 3</td>
+            <td>조구만</td>
+            <td>18</td>
+            <td>2022/7/28</td>
+          </tr>
+          <tr>
+            <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
+            <th scope="row">4</th>
+            <td>공지사항 4</td>
+            <td>조구만</td>
+            <td>18</td>
+            <td>2022/7/28</td>
+          </tr>
+          <tr>
+            <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
+            <th scope="row">5</th>
+            <td>공지사항 5</td>
+            <td>조구만</td>
+            <td>18</td>
+            <td>2022/7/28</td>
+          </tr>
+          <tr>
+            <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
+            <th scope="row">6</th>
+            <td>공지사항 6</td>
+            <td>조구만</td>
+            <td>18</td>
+            <td>2022/7/28</td>
+          </tr>
+          <tr>
+            <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
+            <th scope="row">7</th>
+            <td>공지사항 2</td>
+            <td>조구만</td>
+            <td>18</td>
+            <td>2022/7/28</td>
+          </tr>
+          <tr>
+            <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
+            <th scope="row">7</th>
+            <td>공지사항 7</td>
+            <td>조구만</td>
+            <td>18</td>
+            <td>2022/7/28</td>
+          </tr>
+
           </tbody>
 
         </table>
+        <div class="pagination">
+          <ol id="numbers">
+<!--            <li><a href="#">1</a></li>-->
+<!--            <li><a href="#">2</a></li>-->
+<!--            <li><a href="#">3</a></li>-->
+
+          </ol>
+        </div>
       </div>
     </div>
+    <div class="articleAdminBtn">
+      <button type="button" class="btn btn-outline-secondary">조회</button>
+      <button type="button" class="btn btn-outline-secondary">등록</button>
+      <button type="button" class="btn btn-outline-secondary">수정</button>
+      <button type="button" class="btn btn-outline-secondary">삭제</button>
+
+    </div>
+
 
     <div class="articleGap"></div>
-  </main>
+  </section>
 </container>
 <script src="script.js"></script>
 </body>
-
 </html>
