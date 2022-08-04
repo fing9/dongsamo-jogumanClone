@@ -2,12 +2,14 @@ package com.dongsamo.jogumanClone.domain.product;
 
 import com.dongsamo.jogumanClone.domain.date.BaseTimeEntity;
 import com.dongsamo.jogumanClone.domain.productImage.ProductImage;
+import com.dongsamo.jogumanClone.dto.ProductImageDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,18 +23,18 @@ public class Product extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    //@NotBlank(message = "이름은 필수 입력 값입니다.")
+    @Column
     private String name;
-    @NotNull
+    //@NotBlank(message = "카테고리는 필수 입력 값입니다.")
     private String category;
-    @NotNull
+    //@NotBlank(message = "가격은 필수 입력 값입니다.")
     private Long price;
-    @Nullable
+    //@Nullable
     private String description;
-    @NotNull
+    //@NotBlank(message = "수량은 필수 입력 값입니다.")
     private Long amount;
 
-    @Nullable
     @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
     private List<ProductImage> productImages = new ArrayList<>();
 //    빌더에는 넣지않는다
@@ -44,5 +46,15 @@ public class Product extends BaseTimeEntity {
         this.price = price;
         this.description = description;
         this.amount = amount;
+    }
+
+    public List<ProductImageDto> toDtoList(List<ProductImage> productImageList) {
+        List<ProductImageDto> productImageDtoList = new ArrayList<>();
+
+        for(int i=0;i<productImageList.size();i++) {
+            productImageDtoList.add(new ProductImageDto(productImageList.get(i)));
+        }
+
+        return productImageDtoList;
     }
 }

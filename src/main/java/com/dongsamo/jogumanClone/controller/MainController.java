@@ -1,6 +1,8 @@
 package com.dongsamo.jogumanClone.controller;
 
+import com.dongsamo.jogumanClone.domain.product.Product;
 import com.dongsamo.jogumanClone.dto.ProductSimpleDto;
+import com.dongsamo.jogumanClone.dto.ProductVo;
 import com.dongsamo.jogumanClone.service.ProductService;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +32,7 @@ public class MainController {
     }
 
     @GetMapping("/admin")
-    public String admin(Model model) {
+    public String admin(@ModelAttribute("productVo") ProductVo productVo, Model model) {
         List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
         model.addAttribute("productSimpleList", productSimpleDtoList);
         return "admin";

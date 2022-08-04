@@ -167,7 +167,7 @@
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form name="form" method="post" action="http://localhost:8080/admin/save"
+                        <form class="sign-up" method="post" th:action="@{/admin}" th:object="${productVo}" id="form"
                               enctype="multipart/form-data">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">상품 등록</h5>
@@ -177,40 +177,49 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">상품 이름</label>
-                                    <input type="text" class="form-control" id="name"
-                                           placeholder="Name input placeholder" name="name" value="name">
+                                    <input type="text" class="form-control" id="name" th:field="*{name}"
+                                           placeholder="Name input placeholder">
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_name}"
+                                          th:id="valid_name"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="category" class="form-label">카테고리</label>
-                                    <input type="text" class="form-control" id="category"
-                                           placeholder="Category input placeholder" name="category" value="category">
+                                    <input type="text" class="form-control" id="category" th:field="*{category}"
+                                           placeholder="Category input placeholder">
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_category}"
+                                          th:id="valid_category"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="price" class="form-label">가격</label>
-                                    <input type="text" class="form-control" id="price"
-                                           placeholder="Price input placeholder" name="price" value="price">
+                                    <input type="text" class="form-control" id="price" th:field="*{price}"
+                                           placeholder="Price input placeholder">
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_price}"
+                                          th:id="valid_price"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">설명</label>
-                                    <textarea class="form-control" id="description" rows="3" name="description"
-                                              value="description"></textarea>
+                                    <textarea class="form-control" id="description" rows="3" th:field="*{description}"
+                                    ></textarea>
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_description}"
+                                          th:id="valid_description"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="amount" class="form-label">재고</label>
-                                    <input type="text" class="form-control" id="amount"
-                                           placeholder="Stock input placeholder" name="amount" value="amount">
+                                    <input type="text" class="form-control" id="amount" th:field="*{amount}"
+                                           placeholder="Stock input placeholder">
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_amount}"
+                                          th:id="valid_amount"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="images" class="form-label">이미지</label>
                                     <input class="form-control" type="file" id="images" multiple="multiple"
-                                           name="images"/>
+                                           th:field="*{images}"/>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
                                 </button>
-                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">Submit
-                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="btnRegistration" onclick="formValidation(); return false;">Submit</button>
                             </div>
                         </form>
                     </div>

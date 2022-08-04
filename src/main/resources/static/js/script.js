@@ -35,10 +35,36 @@
 //     });
 // });
 
-// $("#btnRegistration").click(function(){ //버튼 눌렀을때 상품 데이터 보내기
-//     give_product();
-// });
+function formSubmit() {
+    let form = document.form;
 
+    let n = document.getElementById('name').value;
+    let c = document.getElementById('category').value;
+    let p = document.getElementById('price').value;
+    let d = document.getElementById('description').value;
+    let a = document.getElementById('amount').value;
+
+    document.forms["form"].submit();
+}
+
+function formValidation() {
+    formSubmit();
+
+    var myModal = new bootstrap.Modal(document.getElementById('myModal'), options);
+
+    let valid_name = document.getElementById("valid_name").textContent.length;
+    let valid_category = document.getElementById("valid_category").textContent.length;
+    let valid_price = document.getElementById("valid_price").textContent.length;
+    let valid_description = document.getElementById("valid_description").textContent.length;
+    let valid_amount = document.getElementById("valid_amount").textContent.length;
+
+    if (valid_name == 0 && valid_category == 0 && valid_price == 0 && valid_description == 0 && valid_amount == 0) { //입력값이 없으면
+        myModal.hide();
+    }
+    else { //입력값이 있으면
+        myModal.show();
+    }
+}
 // function save_product() {
 //     // let id=$('#id').val()
 //     // let name=$('#name').val()
@@ -95,6 +121,7 @@
 //         }
 //     })
 // }
+
 
 //mainImg 화면 전환 script
 var index = 0;   //이미지에 접근하는 인덱스

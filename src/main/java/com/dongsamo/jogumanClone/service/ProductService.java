@@ -101,7 +101,7 @@ public class ProductService {
 
     @Transactional
     public void deleteProductImageAndFilesByProductId(Long productId) {
-        Product product = productRepository.getReferenceById(productId);
+        Product product = productRepository.getById(productId);
         List<ProductImage> productImageList = productImageRepository.findAllByProduct(product);
 
         if(productImageList == null) {
@@ -127,5 +127,14 @@ public class ProductService {
     public void deleteById(Long id) { //연관된 사진도 삭제해야함
         deleteProductImageAndFilesByProductId(id);
         productRepository.deleteById(id);
+    }
+
+    @Transactional
+    public ProductDto updateById(Long id) {
+        Product product = productRepository.getById(id);
+        List<ProductImage> productImageList = productImageRepository.findAllByProduct(product);
+        List<ProductImageDto> productImageDtoList = product.toDtoList(productImageList);
+
+        return new ProductDto(product, productImageDtoList);
     }
 }
