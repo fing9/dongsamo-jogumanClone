@@ -1,4 +1,4 @@
-package com.dongsamo.jogumanClone.domain.member;
+package com.dongsamo.jogumanClone.domain.user;
 
 import org.junit.After;
 import org.junit.Test;
@@ -14,44 +14,42 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MemberRepositoryTest {
+public class UserRepositoryTest {
 
     @Autowired
-    MemberRepository memberRepository;
+    UserRepository userRepository;
 
     @After
     public void cleanUp() {
-        memberRepository.deleteAll();
+        userRepository.deleteAll();
     }
 
     @Test
-    public void 멤버생성() {
+    public void 멤버생성() { //spring security 사용해서 테스트하기
         //given
         LocalDateTime now = LocalDateTime.of(2022, 8, 1, 0, 0, 0);
         String email = "test@naver.com";
         String name = "HongGilDong";
         String phone = "01012345678";
         String birthday = "1999-04-26";
-        String role = "guest";
         Long point = 0L;
         Long totalPrice = 0L;
 
-        memberRepository.save(Member.builder()
+        userRepository.save(User.builder()
                         .email(email)
                         .name(name)
                         .phone(phone)
                         .birthday(birthday)
-                        .role(role)
                         .point(point)
                         .totalprice(totalPrice)
                         .build());
 
 
         //when
-        List<Member> memberList = memberRepository.findAll();
+        List<User> memberList = userRepository.findAll();
 
         //then
-        Member member = memberList.get(0);
+        User member = memberList.get(0);
 
         System.out.println(">>>>>>> createDate=" + member.getCreatedDate() + ", modifiedDate=" + member.getModifiedDate());
 

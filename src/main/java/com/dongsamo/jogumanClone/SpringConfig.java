@@ -1,18 +1,17 @@
 package com.dongsamo.jogumanClone;
 
-import com.dongsamo.jogumanClone.domain.member.MemberRepository;
+import com.dongsamo.jogumanClone.domain.user.UserRepository;
 import com.dongsamo.jogumanClone.domain.product.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SpringConfig {
 
-    private MemberRepository memberRepository;
+    private UserRepository userRepository;
     private ProductRepository productRepository;
 
-    public void setMemberRepository(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
+    public void setMemberRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     public void setProductRepository(ProductRepository productRepository) {
