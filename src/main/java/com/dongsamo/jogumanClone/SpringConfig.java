@@ -10,7 +10,7 @@ public class SpringConfig {
     private UserRepository userRepository;
     private ProductRepository productRepository;
 
-    public void setMemberRepository(UserRepository userRepository) {
+    public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
