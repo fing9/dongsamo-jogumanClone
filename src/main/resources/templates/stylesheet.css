@@ -43,6 +43,9 @@ section{
     text-align: center;
     border: 1px solid black;
 }
+.articleAdminTable {
+    margin-bottom: 0;
+}
 .articleAdminBtn {
     float:right;
     padding: 50px 150px;
@@ -70,8 +73,8 @@ section{
     margin:0 10px;
 }
 .pagination {
+    border-top: 1px solid black ;
     padding: 1rem;
-    margin-bottom: 1rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -405,4 +408,54 @@ button:focus { outline: 0; }
 /*------------------casetify------------------------*/
 .casetifyPadding {
     line-height: 60px;
+}
+
+/*------------------Login---------------------------------*/
+
+.loginArticle {
+    text-align: center;
+    background-color: #f5f6f7;
+    padding-top: 150px;
+    width: 100%;
+    height: auto;
+}
+.loginWhite {
+    width:100%;
+    line-height: 150px;
+}
+.loginArticle p span{
+    font-size: 36px;
+    align-content: center;
+}
+.loginForm {
+    margin: 0 auto;
+    width: 400px;
+}
+#loginID, #loginPW {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    padding: 12px 16px;
+    border: 0.5px solid #8f8d89;
+}
+.loginCheckBox {
+    margin:10px 0;
+    padding:0;
+    text-align: left;
+    justify-content: center;
+}
+.loginCheckBox input {
+    accent-color: #FFD100;
+
+}
+.loginBtn {
+    width:100%;
+    padding:10px 20px;
+    color: black;
+    background-color: #FFD100;
+    border: none;
+}
+.loginTagA a {
+    color: black;
+    text-decoration: none;
 }
