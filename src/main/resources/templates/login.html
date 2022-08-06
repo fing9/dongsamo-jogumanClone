@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body layout:fragment="content">
+<th:block>
+    <h1>Login</h1>
+    <hr>
+
+    <form class="sign-up" method="POST" th:action="@{/login}" id="form">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        email : <input type="text" id="email" name="username" placeholder="email">
+        <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_email}"
+              th:id="valid_email"></span>
+        password : <input type="text" id="password" name="password" placeholder="password">
+        <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_password}"
+              th:id="valid_password"></span>
+        <button type="submit">Login</button>
+    </form> <br>
+</th:block>
+</body>
+</html>

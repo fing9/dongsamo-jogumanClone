@@ -16,7 +16,7 @@ public class ValidateHandler {
         Map<String, String> validatorResult = new HashMap<>();
 
         for (FieldError error : errors.getFieldErrors()) {
-            String validKeyName = String.format("valid_%s", error.getField());
+            String validKeyName = String.format("valid_%s", error.getField()); //"valid_칼럼명"으로 에러 메세지 생성
             if(error.getDefaultMessage().contains("java.lang.NumberFormatException"))
                 validatorResult.put(validKeyName, "정수를 입력해 주세요.");
             else

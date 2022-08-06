@@ -31,6 +31,12 @@ public class MainController {
         return "about";
     }
 
+    @GetMapping(value = {"/user", "/login"})
+    public String login() {
+        return "login";
+    }
+
+
     @GetMapping("/admin")
     public String admin(@ModelAttribute("productVo") ProductVo productVo, Model model) {
         List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
