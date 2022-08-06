@@ -15,6 +15,12 @@
     <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
     <link rel="stylesheet" href="../static/css/stylesheet.css">
     <script src="../static/js/script.js"></script>
+    <style>
+        /*tr:hover{*/
+        /*    background-color: #8f8d89;*/
+        /*}*/
+    </style>
+
     <title>admin</title>
 </head>
 <body>
@@ -32,7 +38,7 @@
                 </ul>
             </div>
             <div class="articleAdminSection">
-                <table class="table">
+                <table class="table" id="tableid">
                     <thead class="table-light">
                     <tr>
                         <th scope="col"></th>
@@ -44,29 +50,40 @@
                         <th scope="col">등록일시</th>
                     </tr>
                     </thead>
-                    <tbody id="tableId">
+                    <tbody>
                     <tr data-th-each="product : ${productSimpleList}">
-                        <th scope="row"><input class="form-check-input mt-0" type="checkbox" id="checkBoxId" value=""
-                                               aria-label="Checkbox for following text input"></th>
-                        <th scope="row" data-th-text="${product.id}"></th>
-                        <td data-th-text="${product.category}"></td>
-                        <td data-th-text="${product.name}"></td>
-                        <td data-th-text="${product.price}"></td>
-                        <td data-th-text="${product.amount}"></td>
-                        <td data-th-text="${product.createdDate}"></td>
+                        <th scope="row"><input class="form-check-input listRadioInput" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></th>
+                        <th scope="row" data-th-text="${product.id}" id="tdId">1</th>
+                        <td data-th-text="${product.category}" id="tdCategory">Living</td>
+                        <td data-th-text="${product.name}" id="tdName">조구만</td>
+                        <td data-th-text="${product.price}" id="tdPrice">$10,000</td>
+                        <td data-th-text="${product.amount}" id="tdAmount">20</td>
+                        <td data-th-text="${product.createdDate}" id="tdDate">2022/07/31</td>
+                    </tr>
+                    <tr data-th-each="product : ${productSimpleList}">
+                        <th scope="row"><input class="form-check-input listRadioInput" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option1"></th>
+                        <th scope="row" data-th-text="${product.id}">3</th>
+                        <td data-th-text="${product.category}">Stationery</td>
+                        <td data-th-text="${product.name}">키링</td>
+                        <td data-th-text="${product.price}">$20,000</td>
+                        <td data-th-text="${product.amount}">30</td>
+                        <td data-th-text="${product.createdDate}">2022/08/01</td>
                     </tr>
                     </tbody>
                 </table>
+
+                <div id="test"></div>
+                <!--                <input type="text" id="text">-->
             </div>
         </div>
         <div class="articleAdminBtn">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" onclick="test()"
                     data-bs-target="#exampleModalCheck">
                 조회
             </button>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalCheck" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade modalTest" id="exampleModalCheck" tabindex="-1" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -76,24 +93,40 @@
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="formGroupCategoryInput-check" class="form-label">카테고리</label>
-                                <input type="text" class="form-control" id="formGroupCategoryInput-check"
-                                       placeholder="Category input placeholder">
+                                <label for="formGroupNameInput-check" class="form-label">상품 이름</label>
+                                <input type="text" class="form-control modalName" id="formGroupNameInput-check" id=""
+                                       placeholder="Name input placeholder">
                             </div>
                             <div class="mb-3">
-                                <label for="formGroupNameInput-check" class="form-label">상품 이름</label>
-                                <input type="text" class="form-control" id="formGroupNameInput-check"
+                                <label for="category-check" class="form-label">카테고리</label>
+<!--                                <select class="form-select" aria-label="Default select example" id="modalCategory">-->
+<!--                                    <option selected id="category-check">Open this select category</option>-->
+<!--                                    <option value="1">Stationery</option>-->
+<!--                                    <option value="2">Digital</option>-->
+<!--                                    <option value="3">Living</option>-->
+<!--                                    <option value="4">ACC</option>-->
+<!--                                    <option value="5">All</option>-->
+<!--                                </select>-->
+                                <input type="text" class="form-control modalCategory" id="category-check"
                                        placeholder="Name input placeholder">
                             </div>
                             <div class="mb-3">
                                 <label for="formGroupPriceInput-check" class="form-label">가격</label>
-                                <input type="text" class="form-control" id="formGroupPriceInput-check"
+                                <input type="text" class="form-control modalPrice" id="formGroupPriceInput-check"
                                        placeholder="Price input placeholder">
                             </div>
                             <div class="mb-3">
+                                <label for="description-check" class="form-label">설명</label>
+                                <textarea class="form-control modalDescription" id="description-check" rows="3" name="description" ></textarea>
+                            </div>
+                            <div class="mb-3">
                                 <label for="formGroupStockInput-check" class="form-label">재고</label>
-                                <input type="text" class="form-control" id="formGroupStockInput-check"
+                                <input type="text" class="form-control modalAmount" id="formGroupStockInput-check"
                                        placeholder="Stock input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFileMultiple-check" class="form-label">이미지</label>
+                                <input class="form-control" type="file" id="formFileMultiple-check" multiple/>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -106,7 +139,7 @@
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModalRevise">
+                    data-bs-target="#exampleModalRevise" id="reviseBtn">
                 수정
             </button>
             <!-- Modal -->
@@ -120,14 +153,20 @@
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="formGroupCategoryInput-revise" class="form-label">카테고리</label>
-                                <input type="text" class="form-control" id="formGroupCategoryInput-revise"
-                                       placeholder="Category input placeholder">
-                            </div>
-                            <div class="mb-3">
                                 <label for="formGroupNameInput-revise" class="form-label">상품 이름</label>
                                 <input type="text" class="form-control" id="formGroupNameInput-revise"
                                        placeholder="Name input placeholder">
+                            </div>
+                            <div class="mb-3">
+                                <label for="category-revise" class="form-label">카테고리</label>
+                                <select class="form-select" aria-label="Default select example" id="category-revise">
+                                    <option selected>Open this select category</option>
+                                    <option value="1">Stationery</option>
+                                    <option value="2">Digital</option>
+                                    <option value="3">Living</option>
+                                    <option value="4">ACC</option>
+                                    <option value="5">All</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="formGroupPriceInput-revise" class="form-label">가격</label>
@@ -135,16 +174,18 @@
                                        placeholder="Price input placeholder">
                             </div>
                             <div class="mb-3">
+                                <label for="description-revise" class="form-label">설명</label>
+                                <textarea class="form-control" id="description-revise" rows="3" name="description" ></textarea>
+                            </div>
+                            <div class="mb-3">
                                 <label for="formGroupStockInput-revise" class="form-label">재고</label>
                                 <input type="text" class="form-control" id="formGroupStockInput-revise"
                                        placeholder="Stock input placeholder">
                             </div>
-                            <form name="form" action="#" method="post" enctype="multipart/form-data">
-                                <div class="mb-3">
-                                    <label for="formFileMultiple-revise" class="form-label">이미지</label>
-                                    <input class="form-control" type="file" id="formFileMultiple-revise" multiple/>
-                                </div>
-                            </form>
+                            <div class="mb-3">
+                                <label for="formFileMultiple-revise" class="form-label">이미지</label>
+                                <input class="form-control" type="file" id="formFileMultiple-revise" multiple/>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
@@ -174,10 +215,21 @@
                                     <input type="text" class="form-control" id="name"
                                            placeholder="Name input placeholder" name="name" >
                                 </div>
+                                <!--                                <div class="mb-3">-->
+                                <!--                                    <label for="category" class="form-label">카테고리</label>-->
+                                <!--                                    <input type="text" class="form-control" id="category"-->
+                                <!--                                           placeholder="Category input placeholder" name="category" >-->
+                                <!--                                </div>-->
                                 <div class="mb-3">
                                     <label for="category" class="form-label">카테고리</label>
-                                    <input type="text" class="form-control" id="category"
-                                           placeholder="Category input placeholder" name="category" >
+                                    <select class="form-select" aria-label="Default select example" id="category">
+                                        <option selected>Open this select category</option>
+                                        <option value="1">Stationery</option>
+                                        <option value="2">Digital</option>
+                                        <option value="3">Living</option>
+                                        <option value="4">ACC</option>
+                                        <option value="5">All</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="price" class="form-label">가격</label>
@@ -212,5 +264,18 @@
     </section>
 </container>
 </body>
-
+<script>
+    //라디오 버튼 전체 선택
+    const radioBtns = document.querySelectorAll('.listRadioInput'); //class listRadioInput 전체 선택
+    for(let i=0; i<radioBtns.length; i++){ // 라디오 버튼 전체에 대한 이벤트 부여하기 위해서 반복문
+        radioBtns[i].addEventListener('click', function(){ // 라디오 버튼 전체에 대한 이벤트 부여
+            const tr = radioBtns[i].closest('tr'); // 가장 가까운 tr 태그 찾기
+            const tds = tr.querySelectorAll('td'); // tr 태그 안에 있는 td 요소 선택
+            document.querySelector('.modalCategory').value = tds[0].innerText; // .modalCategory Class 를 지닌 요소에게 이름 Value 입력
+            document.querySelector('.modalName').value = tds[1].innerText; // .modalName Class 를 지닌 요소에게 이름 Value 입력
+            document.querySelector('.modalPrice').value = tds[2].innerText; // .modalPrice Class 를 지닌 요소에게 이름 Value 입력
+            document.querySelector('.modalAmount').value = tds[3].innerText; // .modalAmount Class 를 지닌 요소에게 이름 Value 입력
+        })
+    }
+</script>
 </html>

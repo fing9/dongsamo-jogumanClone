@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <script src="../static/js/script.js"></script>
+    <style>
+        input{
+            padding-left:10px;
+        }
+    </style>
+    <title>SignUpSub</title>
+</head>
+<body style="background-color: #F5F6F7">
+<div data-include-path="header.html"></div>
+<section>
+    <div class="wrap" style="display: flex; justify-content: center">
+        <div class="sign-up-sub-warp">
+            <div class="sign-up-profile">
+                <h1 style="font-weight: bold; text-align: center">Sign In</h1>
+                <div class="sign-up-profile-img">
+                </div>
+            </div>
+            <br>
+            <div class="sign-up-box">
+                정확한 이메일 주소를 입력하지 않을 경우, 구매/결제/환불/새소식 등의 안내 메일을 받지 못할 수 있습니다.
+            </div>
+            <br>
+            <div class="sign-up-text">
+                <!--            <label for="email-id"></label>-->
+                <input class="sign-up-input" type="email" placeholder="이메일" id="email-id">
+                <!--            <label for="password-id"></label>-->
+                <input class="sign-up-input" type="password" placeholder="비밀번호" id="password-id">
+                <!--            <label for="password-check-id"></label>-->
+                <input class="sign-up-input" type="password" placeholder="비밀번호 확인" id="password-check-id">
+                <br><br>
+                <label for="name-id">이름</label>
+                <input class="sign-up-input" type="password" placeholder="이름을(를) 입력하세요" id="name-id">
+                <br><br>
+                <label for="phone-number-id">연락처</label><br>
+                <input class="sign-up-input" type="text" placeholder="연락처" id="phone-number-id">
+                <br><br>
+                <label for="birth-id">생년월일</label>
+                <div class="sign-up-select" id="birth-id">
+                    <div class="select-box">
+                        <select style="width:110px; height:40px; border:1px solid #bdc2c9;">
+                            <option value="">1990</option>
+                            <option value="1990">1990</option>
+                            <option value="1991">1991</option>
+                            <option value="1992">1992</option>
+                            <option value="1993">1993</option>
+                            <option value="1994">1994</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                        </select>
+                    </div>
+                    <div class="select-box">
+                        <select style="width:110px; height:40px; border:1px solid #bdc2c9;">
+                            <option value="">월</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                    <div class="select-box">
+                        <select style="width:110px; height:40px; border:1px solid #bdc2c9;">
+                            <option value="">일</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="sign-up-sub-btn">가입하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>

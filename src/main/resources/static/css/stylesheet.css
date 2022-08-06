@@ -4,6 +4,91 @@
     font-size:14px;
 }
 
+/*Sign up*/
+.signUpBtnClose{
+    background: #F5F6F7;
+    border:none;
+    width:80px;
+    height:35px;
+    font-weight: bold;;
+    font-size:13px;
+}
+.signUpBtnSubmit{
+    background: #f7c316;
+    color: white;
+    border:none;
+    width:80px;
+    height:35px;
+    font-weight: bold;;
+    font-size:13px;
+}
+
+.signUpBtnWrap{
+    display: flex;
+    justify-content: center;
+}
+.signUpPolicy{
+    padding-bottom:30px;
+}
+
+input[type=checkbox] {
+    transform : scale(1.5);
+}
+
+.checkBox input{
+    accent-color: #f7c316;
+}
+
+.sign-up-sub-warp{
+    width:370px;
+    height:660px;
+    /*background: blue;*/
+}
+
+.sign-up-box{
+    background: #FAFAFA;
+    border-left:4px solid #2196f3;
+    /*padding:10px;*/
+    padding:15px;
+    font-weight: bold;
+    color: #8f8d89;
+    /*text-align: center;*/
+}
+
+.sign-up-input{
+    width:370px;
+    height:40px;
+    border:1px solid #bdc2c9;
+}
+
+.sign-up-input:nth-of-type(1) {
+    border-bottom:none;
+}
+
+.sign-up-input:nth-of-type(2) {
+    border-bottom:none;
+}
+
+.sign-up-select{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.select-box{
+    padding:3px;
+}
+
+.sign-up-sub-btn{
+    width:370px;
+    height:45px;
+    background: #f7c316;
+    color:white;
+    border:none;
+    font-size:13px;
+    font-weight: bold;
+}
+
+
 /*admin*/
 section{
     padding-top: 150px;
@@ -407,7 +492,7 @@ article{
     height:304px;
 }
 
-.articleStationeryNav{
+.articleSubNav{
     width: 100%;
     height: 60px;
     /*background: blue;*/
@@ -415,14 +500,14 @@ article{
     justify-content: space-between;
 }
 
-.articleStationeryNav ul{
+.articleSubNav ul{
     text-align: left;
     height:40px;
     padding-left:0px;
     /*background: blue;*/
 }
 
-.articleStationeryNav ul li{
+.articleSubNav ul li{
     display: inline-block;
     color: black;
     font-weight: normal;
@@ -434,7 +519,7 @@ article{
     color: #666;
 }
 
-.articleStationeryNav ul li:hover{
+.articleSubNav ul li:hover{
     color: black;
 }
 

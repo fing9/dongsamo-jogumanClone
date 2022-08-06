@@ -1,92 +1,3 @@
-// $(document).ready(function(){
-//     listing();
-// });
-// //로딩후 바로실행
-// function listing() {
-//     $('#subImg').empty() //먼저 만들어두었던 이미지 카드 제거
-//     $.ajax({
-//         type:"GET",
-//         // url="", //img api
-//         data:{},
-//         success:function (response) {
-//             let rows=response['images'] //img name
-//             for(let i=0;i<rows.length;i++) {
-//                 let image=rows[i]['image']
-//
-//                 let temp_html=`<div class="col">
-//                                     <div class="card">
-//                                         <img src="${image}" class="card-img-top" alt="...">
-//                                     </div>
-//                                 </div>`
-//
-//                 $('#subImg').append(temp_html) //이미지 카드 붙이기
-//             }
-//         }
-//     })
-// }
-
-// function modalKeep() {
-//     $('#modal').modal('show');
-// }
-//
-// function formSubmit() {
-//     let form = document.form;
-//
-//     let n = document.getElementById('name').value;
-//     let c = document.getElementById('category').value;
-//     let p = document.getElementById('price').value;
-//     let d = document.getElementById('description').value;
-//     let a = document.getElementById('amount').value;
-//
-//     if(n=='' && c=='' && p=='' && d=='' && a=='') {
-//         $('#modal').modal('show');
-//     }
-//     else {
-//         document.forms["form"].submit();
-//     }
-//
-//     modalKeep()
-//
-//     //document.forms["form"].submit();
-//
-//     // $('#modal').modal('show');
-//     //formValidation()
-// }
-//
-
-
-
-
-
-function formValidation() {
-    // let form = document.form;
-    // let valid_name = document.getElementById('valid_name').value;
-    // let valid_category = document.getElementById('valid_category').value;
-    // let valid_price = document.getElementById('valid_price').value;
-    // let valid_description = document.getElementById('valid_description').value;
-    // let valid_amount = document.getElementById('valid_amount').value;
-    //
-    // if (valid_name == '' && valid_category == '' && valid_price == '' && valid_description == '' && valid_amount == '') { //입력값이 없으면
-    //     alert('잘못된 입력');
-    //     $('#modal').modal('hide');
-    // }
-    let name = document.getElementById('name').value;
-    let category = document.getElementById('category').value;
-    let price = document.getElementById('price').value;
-    let description = document.getElementById('description').value;
-    let amount = document.getElementById('amount').value;
-
-
-    if (name == '' && category == '' && price == '' && description == '' && amount == '') { //입력값이 없으면
-        // alert('잘못된 입력');
-        $('#modal').modal('hide');
-    }
-    else { //입력값이 있으면
-        $('#modal').modal('show');
-    }
-}
-
-
 // $(document).ready(function(){ //check박스 선택했을때 서버로 보내주고 조회 버튼 누르면 다시 받아와서 모달창에 띄우기
 //     $("#checkBoxId").change(function(){
 //         if($("#checkBoxId").is(":checked")){
@@ -96,6 +7,10 @@ function formValidation() {
 //         }
 //     });
 // });
+
+
+
+
 
 // $("#btnRegistration").click(function(){ //버튼 눌렀을때 상품 데이터 보내기
 //     give_product();
@@ -179,6 +94,7 @@ function slideShow() {
 
 }
 
+//헤더파일 html 파일 안에 삽입
 window.addEventListener('load', function() {
     var allElements = document.getElementsByTagName('*');
     Array.prototype.forEach.call(allElements, function(el) {
