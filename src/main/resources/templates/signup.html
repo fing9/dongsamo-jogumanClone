@@ -11,17 +11,17 @@
 <h1>Sign Up</h1>
 <hr>
 
-<form th:action="@{/user}" method="POST">
-    email : <input type="text" name="email"> <br>
-    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_email}" th:id="valid_email"></span>
-    password : <input type="password" name="password"> <br>
-    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_password}" th:id="valid_password"></span>
-    name : <input type="name" name="name"> <br>
-    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_name}" th:id="valid_name"></span>
-    phone : <input type="phone" name="phone"> <br>
-    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_phone}" th:id="valid_phone"></span>
-    birthday : <input type="birthday" name="birthday"> <br>
-    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_birthday}" th:id="valid_birthday"></span>
+<form th:action="@{/user}" method="POST" modelAttribute="userDto">
+    email : <input type="text" name="email" th:value="${userDto.email}" placeholder="이메일을 입력해주세요."> <br>
+    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_email}" th:id="valid_email"></span> <br>
+    password : <input type="text" name="password" th:value="${userDto.password}" placeholder="비밀번호를 입력해주세요."> <br>
+    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_password}" th:id="valid_password"></span> <br>
+    name : <input type="name" name="name" th:value="${userDto.name}" placeholder="이름을 입력해주세요."> <br>
+    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_name}" th:id="valid_name"></span> <br>
+    phone : <input type="phone" name="phone" th:value="${userDto.phone}" placeholder="전화번호를 입력해주세요."> <br>
+    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_phone}" th:id="valid_phone"></span> <br>
+    birthday : <input type="birthday" name="birthday" th:value="${userDto.birthday}" placeholder="생일을 입력해주세요."> <br>
+    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_birthday}" th:id="valid_birthday"></span> <br>
     <input type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER"> admin
     <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user <br>
     <button type="submit">Join</button>

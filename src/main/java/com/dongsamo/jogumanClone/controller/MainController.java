@@ -3,6 +3,7 @@ package com.dongsamo.jogumanClone.controller;
 import com.dongsamo.jogumanClone.domain.product.Product;
 import com.dongsamo.jogumanClone.dto.ProductSimpleDto;
 import com.dongsamo.jogumanClone.dto.ProductVo;
+import com.dongsamo.jogumanClone.dto.UserDto;
 import com.dongsamo.jogumanClone.service.ProductService;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -36,11 +37,15 @@ public class MainController {
         return "login";
     }
 
-
     @GetMapping("/admin")
     public String admin(@ModelAttribute("productVo") ProductVo productVo, Model model) {
         List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
         model.addAttribute("productSimpleList", productSimpleDtoList);
         return "admin";
+    }
+
+    @GetMapping("/signup")
+    public String signup(@ModelAttribute("userDto") UserDto userDto, Model model) {
+        return "signup";
     }
 }

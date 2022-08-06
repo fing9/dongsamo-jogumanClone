@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/login", "/signup", "/user").permitAll() //누구나 접근 허용
                 .antMatchers("/order").hasRole("USER") //USER, ADMIN만 접근 가능
-                .antMatchers("/admin").hasRole("ADMIN") //ADMIN만 접근 가능 test단계에서 잠시 주석처리해둠
+                .antMatchers("/admin").hasRole("ADMIN") //ADMIN만 접근 가능
                 .anyRequest().authenticated() //나머지 요청들은 권한의 종류에 상관 없이 권한이 있어야 접근 가능
                 .and()
                 .formLogin() //로그인에 관한 설정을 의미 : loginPage()->로그인 페이지 링크 설정, defaultSuccessUrl()-> 로그인 성공 후 리다이렉트할 주소
