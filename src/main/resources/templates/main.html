@@ -45,14 +45,6 @@
 <!--        </div>-->
 <!--    </header>-->
     <main>
-        ID : <span sec:authentication="name"></span> <br>
-        소유 권한 : <span sec:authentication="authorities"></span> <br>
-        <form id="logout" action="/logout" method="POST">
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-            <input type="submit" value="로그아웃"/>
-        </form>
-
-
         <div class="wrap">
             <div class="articleMainImg" id="mainImg">
                 <img class="slide1" src="https://cdn.imweb.me/thumbnail/20220621/dc86be43bdcc2.jpg">

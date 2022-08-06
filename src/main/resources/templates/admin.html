@@ -40,8 +40,9 @@
 
                         <th scope="col"></th>
                         <th scope="col">번호</th>
-                        <th scope="col">카테고리</th>
+                        <th scope="col">사진</th>
                         <th scope="col">상품이름</th>
+                        <th scope="col">카테고리</th>
                         <th scope="col">가격</th>
                         <th scope="col">재고</th>
                         <th scope="col">등록일시</th>
@@ -52,8 +53,10 @@
                         <th scope="row"><input class="form-check-input mt-0" type="checkbox" id="checkBoxId" value=""
                                                aria-label="Checkbox for following text input"></th>
                         <th scope="row" data-th-text="${product.id}"></th>
-                        <td data-th-text="${product.category}"></td>
+                        <td th:if="${product.images.isEmpty()} == false"><img id="imgId" th:src="${product.images.get(0).getUploadPath().split('static/')[1]}" alt="첨부이미지" th:if="${product.images.isEmpty() == false}" height="50"/></td>
+                        <td th:unless="${product.images.isEmpty()} == false"></td>
                         <td data-th-text="${product.name}"></td>
+                        <td data-th-text="${product.category}"></td>
                         <td data-th-text="${product.price}"></td>
                         <td data-th-text="${product.amount}"></td>
                         <td data-th-text="${product.createdDate}"></td>
@@ -183,18 +186,18 @@
                                           th:id="valid_name"></span>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="category" class="form-label">카테고리</label>
-                                    <input type="text" class="form-control" id="category" th:field="*{category}"
-                                           placeholder="Category input placeholder">
-                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_category}"
-                                          th:id="valid_category"></span>
-                                </div>
-                                <div class="mb-3">
                                     <label for="price" class="form-label">가격</label>
                                     <input type="text" class="form-control" id="price" th:field="*{price}"
                                            placeholder="Price input placeholder">
                                     <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_price}"
                                           th:id="valid_price"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="category" class="form-label">카테고리</label>
+                                    <input type="text" class="form-control" id="category" th:field="*{category}"
+                                           placeholder="Category input placeholder">
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_category}"
+                                          th:id="valid_category"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">설명</label>
