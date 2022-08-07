@@ -90,6 +90,9 @@ input[type=checkbox] {
 
 
 /*admin*/
+.errorMsgStyle{
+    color:red; font-size:10px; padding-top:5px;
+}
 section{
     padding-top: 150px;
     background-color:#F5F6F7;

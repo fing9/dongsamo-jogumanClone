@@ -205,7 +205,7 @@
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form name="form" method="post" action="http://localhost:8080/admin" enctype="multipart/form-data">
+                        <form name="registrationForm" method="post" action="http://localhost:8080/admin" enctype="multipart/form-data">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">상품 등록</h5>
                             </div>
@@ -213,46 +213,49 @@
                                 <div class="mb-3">
                                     <label for="name" class="form-label">상품 이름</label>
                                     <input type="text" class="form-control" id="name"
-                                           placeholder="Name input placeholder" name="name" >
+                                           placeholder="Name input placeholder" name="name">
+                                    <span id="nameErrorMsg" class="errorMsgStyle"></span>
                                 </div>
-                                <!--                                <div class="mb-3">-->
-                                <!--                                    <label for="category" class="form-label">카테고리</label>-->
-                                <!--                                    <input type="text" class="form-control" id="category"-->
-                                <!--                                           placeholder="Category input placeholder" name="category" >-->
-                                <!--                                </div>-->
+
                                 <div class="mb-3">
                                     <label for="category" class="form-label">카테고리</label>
-                                    <select class="form-select" aria-label="Default select example" id="category">
-                                        <option selected>Open this select category</option>
-                                        <option value="1">Stationery</option>
-                                        <option value="2">Digital</option>
-                                        <option value="3">Living</option>
-                                        <option value="4">ACC</option>
-                                        <option value="5">All</option>
-                                    </select>
+<!--                                    <select class="form-select" aria-label="Default select example" id="category">-->
+<!--                                        <option selected>Open this select category</option>-->
+<!--                                        <option value="1">Stationery</option>-->
+<!--                                        <option value="2">Digital</option>-->
+<!--                                        <option value="3">Living</option>-->
+<!--                                        <option value="4">ACC</option>-->
+<!--                                        <option value="5">All</option>-->
+<!--                                    </select>-->
+                                        <input type="text" class="form-control" id="category"
+                                               placeholder="Category input placeholder" name="category" >
+                                        <span id="categoryErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="price" class="form-label">가격</label>
                                     <input type="text" class="form-control" id="price"
-                                           placeholder="Price input placeholder" name="price" >
+                                           placeholder="Price input placeholder" name="price">
+                                    <span id="priceErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">설명</label>
                                     <textarea class="form-control" id="description" rows="3" name="description" ></textarea>
+                                    <span id="descriptionErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="amount" class="form-label">재고</label>
                                     <input type="text" class="form-control" id="amount"
                                            placeholder="Stock input placeholder" name="amount" >
+                                    <span id="amountErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="images" class="form-label">이미지</label>
-                                    <input class="form-control" type="file" id="images" multiple="multiple" name="images" />
+                                    <input class="form-control" type="file" id="images" multiple="multiple" name="images" required/>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration" onclick="formValidation()">Submit</button>
+                                <button type="button" class="btn btn-outline-secondary" id="btnRegistration" onclick="formValidation();">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -265,7 +268,6 @@
 </container>
 </body>
 <script>
-    //라디오 버튼 전체 선택
     const radioBtns = document.querySelectorAll('.listRadioInput'); //class listRadioInput 전체 선택
     for(let i=0; i<radioBtns.length; i++){ // 라디오 버튼 전체에 대한 이벤트 부여하기 위해서 반복문
         radioBtns[i].addEventListener('click', function(){ // 라디오 버튼 전체에 대한 이벤트 부여
@@ -276,6 +278,60 @@
             document.querySelector('.modalPrice').value = tds[2].innerText; // .modalPrice Class 를 지닌 요소에게 이름 Value 입력
             document.querySelector('.modalAmount').value = tds[3].innerText; // .modalAmount Class 를 지닌 요소에게 이름 Value 입력
         })
+    }
+
+    const inputName=document.querySelector('#name');
+    const inputCategory=document.querySelector('#category');
+    const inputPrice=document.querySelector('#price');
+    const inputDescription=document.querySelector('#description');
+    const inputAmount=document.querySelector('#amount');
+
+    const valueName=inputName.value;
+    const valueCategory=inputCategory.value;
+    const valuePrice=inputPrice.value;
+    const valueDescription=inputDescription.value;
+    const valueAmount=inputAmount.value;
+
+    const text="error"
+    const registrationSubmit=document.registrationForm;
+
+    inputPrice.addEventListener('keypress', function(event){
+        if (event.keyCode < 48 || event.keyCode > 57) {
+            document.querySelector('#priceErrorMsg').innerHTML="숫자만 입력 가능합니다.";
+        }
+    });
+    inputAmount.addEventListener('keypress', function(event){
+        if (event.keyCode < 48 || event.keyCode > 57) {
+            document.querySelector('#amountErrorMsg').innerHTML="숫자만 입력 가능합니다.";
+        }
+    });
+
+    function formValidation(e){
+        //e.preventDefault(); //submit 막기
+        if(typeof valuePrice ==='string') {
+            console.log(text);
+        }
+        //Form validation 로직 (입력값이 없을때)
+        if(valueName=='') {
+            document.querySelector('#nameErrorMsg').innerHTML="이름은 필수입력값입니다.";
+            // console.log(text)
+        }
+        if(valueCategory==''){
+            document.querySelector('#categoryErrorMsg').innerHTML="카테고리는 필수입력값입니다.";
+        }
+        if(valuePrice==''){
+            document.querySelector('#priceErrorMsg').innerHTML="가격은 필수입력값입니다.";
+        }
+        if(valueDescription=='') {
+            document.querySelector('#descriptionErrorMsg').innerHTML="설명은 필수입력값입니다.";
+        }
+        if(valueAmount=='') {
+            document.querySelector('#amountErrorMsg').innerHTML="수량은 필수입력값입니다.";
+        }
+        // submit();
+        else {
+            registrationSubmit.submit();
+        }
     }
 </script>
 </html>
