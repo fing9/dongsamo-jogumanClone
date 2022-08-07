@@ -154,32 +154,34 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="formGroupNameInput-revise" class="form-label">상품 이름</label>
-                                <input type="text" class="form-control" id="formGroupNameInput-revise"
+                                <input type="text" class="form-control modalName" id="formGroupNameInput-revise"
                                        placeholder="Name input placeholder">
                             </div>
                             <div class="mb-3">
                                 <label for="category-revise" class="form-label">카테고리</label>
-                                <select class="form-select" aria-label="Default select example" id="category-revise">
-                                    <option selected>Open this select category</option>
-                                    <option value="1">Stationery</option>
-                                    <option value="2">Digital</option>
-                                    <option value="3">Living</option>
-                                    <option value="4">ACC</option>
-                                    <option value="5">All</option>
-                                </select>
+                                <input type="text" class="form-control modalCategory" id="category-revise"
+                                       placeholder="Name input placeholder">
+<!--                                <select class="form-select" aria-label="Default select example" id="category-revise">-->
+<!--                                    <option selected>Open this select category</option>-->
+<!--                                    <option value="1">Stationery</option>-->
+<!--                                    <option value="2">Digital</option>-->
+<!--                                    <option value="3">Living</option>-->
+<!--                                    <option value="4">ACC</option>-->
+<!--                                    <option value="5">All</option>-->
+<!--                                </select>-->
                             </div>
                             <div class="mb-3">
                                 <label for="formGroupPriceInput-revise" class="form-label">가격</label>
-                                <input type="text" class="form-control" id="formGroupPriceInput-revise"
+                                <input type="text" class="form-control modalPrice" id="formGroupPriceInput-revise"
                                        placeholder="Price input placeholder">
                             </div>
                             <div class="mb-3">
                                 <label for="description-revise" class="form-label">설명</label>
-                                <textarea class="form-control" id="description-revise" rows="3" name="description" ></textarea>
+                                <textarea class="form-control modalDescription" id="description-revise" rows="3" name="description" ></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="formGroupStockInput-revise" class="form-label">재고</label>
-                                <input type="text" class="form-control" id="formGroupStockInput-revise"
+                                <input type="text" class="form-control modalAmount" id="formGroupStockInput-revise"
                                        placeholder="Stock input placeholder">
                             </div>
                             <div class="mb-3">
@@ -213,7 +215,7 @@
                                 <div class="mb-3">
                                     <label for="name" class="form-label">상품 이름</label>
                                     <input type="text" class="form-control" id="name"
-                                           placeholder="Name input placeholder" name="name">
+                                           placeholder="Name input placeholder" name="name" required>
                                     <span id="nameErrorMsg" class="errorMsgStyle"></span>
                                 </div>
 
@@ -228,24 +230,24 @@
 <!--                                        <option value="5">All</option>-->
 <!--                                    </select>-->
                                         <input type="text" class="form-control" id="category"
-                                               placeholder="Category input placeholder" name="category" >
+                                               placeholder="Category input placeholder" name="category" required>
                                         <span id="categoryErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="price" class="form-label">가격</label>
                                     <input type="text" class="form-control" id="price"
-                                           placeholder="Price input placeholder" name="price">
+                                           placeholder="Price input placeholder" name="price" required>
                                     <span id="priceErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">설명</label>
-                                    <textarea class="form-control" id="description" rows="3" name="description" ></textarea>
+                                    <textarea class="form-control" id="description" rows="3" name="description" required></textarea>
                                     <span id="descriptionErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
                                     <label for="amount" class="form-label">재고</label>
                                     <input type="text" class="form-control" id="amount"
-                                           placeholder="Stock input placeholder" name="amount" >
+                                           placeholder="Stock input placeholder" name="amount" required>
                                     <span id="amountErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
@@ -255,7 +257,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-outline-secondary" id="btnRegistration" onclick="formValidation();">Submit</button>
+                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -292,46 +294,48 @@
     const valueDescription=inputDescription.value;
     const valueAmount=inputAmount.value;
 
-    const text="error"
-    const registrationSubmit=document.registrationForm;
+    // const text="error"
+    // const registrationSubmit=document.registrationForm;
 
-    inputPrice.addEventListener('keypress', function(event){
-        if (event.keyCode < 48 || event.keyCode > 57) {
+    inputPrice.addEventListener('keypress', function(e){
+        if (e.keyCode < 48 || e.keyCode > 57) {
+            e.preventDefault();
             document.querySelector('#priceErrorMsg').innerHTML="숫자만 입력 가능합니다.";
         }
     });
-    inputAmount.addEventListener('keypress', function(event){
-        if (event.keyCode < 48 || event.keyCode > 57) {
+    inputAmount.addEventListener('keypress', function(e){
+        if (e.keyCode < 48 || e.keyCode > 57) {
+            e.preventDefault();
             document.querySelector('#amountErrorMsg').innerHTML="숫자만 입력 가능합니다.";
         }
     });
 
-    function formValidation(e){
-        //e.preventDefault(); //submit 막기
-        if(typeof valuePrice ==='string') {
-            console.log(text);
-        }
-        //Form validation 로직 (입력값이 없을때)
-        if(valueName=='') {
-            document.querySelector('#nameErrorMsg').innerHTML="이름은 필수입력값입니다.";
-            // console.log(text)
-        }
-        if(valueCategory==''){
-            document.querySelector('#categoryErrorMsg').innerHTML="카테고리는 필수입력값입니다.";
-        }
-        if(valuePrice==''){
-            document.querySelector('#priceErrorMsg').innerHTML="가격은 필수입력값입니다.";
-        }
-        if(valueDescription=='') {
-            document.querySelector('#descriptionErrorMsg').innerHTML="설명은 필수입력값입니다.";
-        }
-        if(valueAmount=='') {
-            document.querySelector('#amountErrorMsg').innerHTML="수량은 필수입력값입니다.";
-        }
-        // submit();
-        else {
-            registrationSubmit.submit();
-        }
-    }
+    // function formValidation(e){
+    //     //e.preventDefault(); //submit 막기
+    //     // if(typeof valuePrice ==='string') {
+    //     //     console.log(text);
+    //     // }
+    //     //Form validation 로직 (입력값이 없을때)
+    //     if(valueName=='') {
+    //         document.querySelector('#nameErrorMsg').innerHTML="이름은 필수입력값입니다.";
+    //         // console.log(text)
+    //     }
+    //     if(valueCategory==''){
+    //         document.querySelector('#categoryErrorMsg').innerHTML="카테고리는 필수입력값입니다.1";
+    //     }
+    //     if(valuePrice==''){
+    //         document.querySelector('#priceErrorMsg').innerHTML="가격은 필수입력값입니다.";
+    //     }
+    //     if(valueDescription=='') {
+    //         document.querySelector('#descriptionErrorMsg').innerHTML="설명은 필수입력값입니다.";
+    //     }
+    //     if(valueAmount=='') {
+    //         document.querySelector('#amountErrorMsg').innerHTML="수량은 필수입력값입니다.";
+    //     }
+    //     // submit();
+    //     else {
+    //         registrationSubmit.submit();
+    //     }
+    // }
 </script>
 </html>
