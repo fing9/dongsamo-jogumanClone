@@ -49,4 +49,11 @@ public class MainController {
     public String signupSub(@ModelAttribute("userDto") UserDto userDto, Model model) {
         return "signUpSub";
     }
+
+    @GetMapping("/store")
+    public String store(@ModelAttribute("productVo") ProductVo productVo, Model model) {
+        List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
+        model.addAttribute("productSimpleList", productSimpleDtoList);
+        return "store";
+    }
 }

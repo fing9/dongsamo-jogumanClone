@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception { //http 관련 인증 설정이 가능합니다.
         http.authorizeRequests()
-                .antMatchers("/", "/user").permitAll() //누구나 접근 허용
+                .antMatchers("/", "/user", "/store").permitAll() //누구나 접근 허용
                 .antMatchers("/login", "/signup", "/signupSub").anonymous() //인증받은사람은 접근 불가능
                 .antMatchers("/order").hasRole("USER") //USER, ADMIN만 접근 가능
                 .antMatchers("/admin").hasRole("ADMIN") //ADMIN만 접근 가능
