@@ -44,7 +44,7 @@ public class UserController {
             // 데이터 갱신을 위한 임시 코드
             model.addAttribute(userDto);
 
-            return "/signup";
+            return "/signUpSub";
         }
 
         userService.save(userDto);

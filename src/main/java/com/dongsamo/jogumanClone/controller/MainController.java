@@ -45,7 +45,12 @@ public class MainController {
     }
 
     @GetMapping("/signup")
-    public String signup(@ModelAttribute("userDto") UserDto userDto, Model model) {
-        return "signup";
+    public String signup() {
+        return "signUp";
+    }
+
+    @GetMapping("/signupSub")
+    public String signupSub(@ModelAttribute("userDto") UserDto userDto, Model model) {
+        return "signUpSub";
     }
 }

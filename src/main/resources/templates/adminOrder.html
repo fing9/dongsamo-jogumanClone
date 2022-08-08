@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org/"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{fragments/layout}">
 
@@ -16,12 +16,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
-    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <link rel="stylesheet" href="/css/stylesheet.css">
     <title>adminOrder</title>
 </head>
 <body layout:fragment="content">
 <container>
-    <div data-include-path="header.html"></div>
     <section>
         <div class="articleAdmin">
             <div class="articleAdminNav">
@@ -48,7 +47,16 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
+                        <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1"></th>
+                        <th>1</th>
+                        <td>홍길동</td>
+                        <td>3개</td>
+                        <td>56,000원</td>
+                        <td>Y</td>
+                        <td>2022/07/29</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1"></th>
                         <th>1</th>
                         <td>홍길동</td>
                         <td>3개</td>
@@ -67,7 +75,6 @@
         <div class="articleGap"></div>
     </section>
 </container>
-<script src="../static/js/script.js"></script>
 </body>
 
 </html>

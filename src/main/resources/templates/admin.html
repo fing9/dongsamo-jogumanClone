@@ -171,7 +171,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form class="sign-up" method="post" th:action="@{/admin}" th:object="${productVo}" id="form"
-                              enctype="multipart/form-data" onsubmit="return false;">
+                              enctype="multipart/form-data">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="myModalLabel">상품 등록</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -221,7 +221,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="buttonㅁ" class="btn btn-outline-secondary" id="btnRegistration" onclick="formValidation();">Submit</button>
+                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">Submit</button>
                             </div>
                         </form>
                     </div>
