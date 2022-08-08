@@ -19,40 +19,38 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- 조구만 스튜디오 폰트 -->
   <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
-  <link rel="stylesheet" href="../static/css/stylesheet.css">
-  <script src="../static/js/script.js" defer></script>
+  <link rel="stylesheet" href="/css/stylesheet.css">
+  <script src="/js/script.js" defer></script>
+  <link rel="import" href="fragments/header.html">
   <title>Login</title>
-
 </head>
 <body layout:fragment="content">
 <div class="loginContainer">
-  <div data-include-path="header.html"></div>
   <div class="loginArticle">
     <div class="loginWhite"><br></div>
     <p><span>Login</span></p>
     <div class="loginForm">
-      <input type="text" placeholder="이메일" id="loginID">
-      <input type="password" placeholder="비밀번호" id="loginPW">
-      <div class="loginCheckBox form-check">
-        <input  type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label"  for="flexCheckChecked">
-          로그인상태유지
-        </label>
-      </div>
-      <p>
-        <button class="loginBtn">로그인</button>
-      </p>
+      <form action="/login" method="POST">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <input type="text" name="username" id="loginID" placeholder="이메일"> <br>
+        <input type="password" name="password" id="loginPW" placeholder="비밀번호"> <br>
+        <button type="submit" class="loginBtn">Login</button>
+        <div class="loginCheckBox form-check">
+          <input  type="checkbox" value="" id="flexCheckChecked" checked>
+          <label class="form-check-label"  for="flexCheckChecked">
+            로그인상태유지
+          </label>
+        </div>
+      </form> <br>
       <div class="loginTagA">
-        <a href="#" style="float:left">회원가입</a>
+        <a href="/signup" style="float:left">회원가입</a>
         <a href="#" style="float:right">아이디∙비밀번호 찾기</a>
       </div>
     </div>
     <div class="loginWhite"><br></div>
-
   </div>
-
 </div>
-<script src="../static/js/script.js"></script>
+<script src="/js/script.js"></script>
 <!--자바스크립트 : 속도를 위해 아래 첨부-->
 </body>
 </html>
