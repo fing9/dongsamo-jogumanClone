@@ -93,14 +93,12 @@ input[type=checkbox] {
     color:red; font-size:10px; padding-top:5px;
 }
 section{
-    padding-top: 150px;
     background-color:#F5F6F7;
 }
 .articleAdmin {
     display:flex;
     justify-content: space-between;
-    padding: 0 150px;
-    margin-top: 80px;
+    padding: 80px 150px;
 }
 .articleAdminNav {
     display: inline-block;
@@ -132,7 +130,7 @@ section{
 }
 .articleAdminBtn {
     float:right;
-    padding: 50px 150px;
+    padding: 0 150px;
 }
 .articleAdminBtn button {
     margin-left: 10px;
@@ -846,7 +844,6 @@ button:focus { outline: 0; }
 .loginArticle {
     text-align: center;
     background-color: #f5f6f7;
-    padding-top: 150px;
     width: 100%;
     height: auto;
 }
