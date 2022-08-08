@@ -60,19 +60,20 @@ $(function(){
 
 //pagination 코드 (Jquery 강의 69)
 $(function(){
-    var rowsPerPage = 7,
-        rows = $('#myTable tbody tr'),
-        rowsCount = rows.length,
-        pageCount = Math.ceil(rowsCount/rowsPerPage),
+    var rowsPerPage = 7, //한 페이지에 나오는 list 수
+        rows = $('#myTable tbody tr'), //table 에서 값 받아오기
+        rowsCount = rows.length, //table 에서 받아온 값 개수
+        pageCount = Math.ceil(rowsCount / rowsPerPage),
         numbers = $('#numbers');
 
     /* 페이지네이션 li생성 반복문*/
     for(var i = 1; i<=pageCount; i++) {
+        console.log(pageCount);
         numbers.append('<li><a href="#">' + i +'</a></li>');
     };
     numbers.find('li:first-child a').addClass('active');
 
-    //페이지네이션 함수
+    //rowsPerPage에 저장된 수만큼 보여주기
     function displayRows(idx){
         var start = (idx - 1) * rowsPerPage,
             end = start + rowsPerPage;
@@ -81,7 +82,7 @@ $(function(){
             rows.slice(start, end).show();
     };
     displayRows(1);
-
+    //숫자 버튼을 누르면 해당하는 번호 list 보여주기
     numbers.find('li a').click(function(e){
         e.preventDefault();
         numbers.find('li a').removeClass('active');
