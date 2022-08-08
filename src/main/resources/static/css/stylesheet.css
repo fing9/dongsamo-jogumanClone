@@ -3,8 +3,6 @@
     font-family: montserrat, sans-serif;
     font-size:14px;
 }
-/*-----------  Admin -------------*/
-
 /*Sign up*/
 .signUpBtnClose{
     background: #F5F6F7;
@@ -338,14 +336,6 @@ section{
     opacity: 1;
 }
 
-
-/*--------------------- article --------------------------*/
-article{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-top:150px;
-}
 .articleNav {
     width: 100%;
     height: 100px;
@@ -603,7 +593,7 @@ article{
     border:none;
 }
 
-/*------------------- projects > Joguman Laboratory ----------------------*/
+/*projects > Joguman Laboratory*/
 .siema {
     width: 500px;
     margin: 3em auto;
@@ -632,7 +622,7 @@ button:focus { outline: 0; }
 .articleLabText {
     text-align: center;
 }
-/*------------------- projects > book ----------------------*/
+/*projects > book*/
 
 .articleBookImg {
     width:1300px;
@@ -679,7 +669,7 @@ button:focus { outline: 0; }
 }
 
 
-/*------------------- main > footer ----------------------*/
+/*main > footer*/
 
 .footer {
     margin:0 150px;
@@ -696,13 +686,12 @@ button:focus { outline: 0; }
 #textAlignCenter {
     text-align: center;
 }
-/*--------------------------------adminNoticeSub-------------------------------*/
+/*adminNoticeSub*/
 .articleAdminPadding, .articleSupportPadding {
     padding: 0 100px;
 }
 .adminNoticeNav, .supportNoticeNav {
-    width:500px;
-    padding-top: 200px;
+    padding-top: 50px;
 
 }
 .adminNoticeNav ul, .supportNoticeNav ul {
@@ -732,7 +721,7 @@ button:focus { outline: 0; }
     color: #21212180;
 }
 
-/*-------------------------supportNoticeSub------------------------- */
+/*supportNoticeSub*/
 .supportNoticeArticle{
     margin-top: 30px;
     border-top: 1px solid black;
@@ -742,7 +731,7 @@ button:focus { outline: 0; }
     text-decoration: none;
 }
 
-/*-------------------------collaboComoninoz------------------------- */
+/*collaboComoninoz*/
 
 .articleStoreNav{
     width: 100%;
@@ -836,7 +825,7 @@ button:focus { outline: 0; }
 }
 
 
-/*------------------collaboFlipdeep-----------------------*/
+/*collaboFlipdeep*/
 
 .collaboFlipPrice {
     width:100%;
@@ -847,12 +836,12 @@ button:focus { outline: 0; }
     margin: 20px auto;
 }
 
-/*------------------casetify------------------------*/
+/*casetify*/
 .casetifyPadding {
     line-height: 60px;
 }
 
-/*------------------Login---------------------------------*/
+/*login*/
 
 .loginArticle {
     text-align: center;

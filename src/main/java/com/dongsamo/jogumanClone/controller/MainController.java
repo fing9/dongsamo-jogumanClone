@@ -49,4 +49,9 @@ public class MainController {
     public String signupSub(@ModelAttribute("userDto") UserDto userDto, Model model) {
         return "signUpSub";
     }
+
+    @GetMapping("/supportNotice")
+    public String supportNotice() {
+        return "supportNotice";
+    }
 }
