@@ -118,4 +118,5 @@ public class AdminController {
 
         return new RedirectView("/admin");
     }
+
 }

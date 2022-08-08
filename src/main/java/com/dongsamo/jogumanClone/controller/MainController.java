@@ -50,8 +50,4 @@ public class MainController {
         return "signUpSub";
     }
 
-    @GetMapping("/supportNotice")
-    public String supportNotice() {
-        return "supportNotice";
-    }
 }
