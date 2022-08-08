@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
 
 <head>
     <meta charset="UTF-8">
@@ -20,7 +23,7 @@
 
     <title>admin notice sub</title>
 </head>
-<body>
+<body layout:fragment="content">
 <div data-include-path="header.html"></div>
 <div class="articleAdminPadding">
     <div class="adminNoticeNav">
