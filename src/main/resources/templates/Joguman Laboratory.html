@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- ajax -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- 부트스트랩 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+  <!-- siema -->
+  <script src="https://cdn.jsdelivr.net/npm/siema@1.3.1/dist/siema.min.js"></script>
+  <!-- 조구만 스튜디오 폰트 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
+  <link rel="stylesheet" href="../static/css/stylesheet.css">
+
+  <title>Joguman Laboratory</title>
+</head>
+<body layout:fragment="content">
+<container>
+  <div data-include-path="header.html"></div>
+  <article>
+    <div class="articleNav">
+      <ul>
+        <li><a href="#">Collabolation</a></li>
+        <li><a href="#" style="border-bottom: 1px solid black;">Joguman Laboratory</a></li>
+        <li><a href="#">Book</a></li>
+        <li><a href="#">Emoticon</a></li>
+      </ul>
+    </div>
+    <div class="articleLabSlide">
+      <div class="siema slider">
+        <img src="https://cdn.imweb.me/thumbnail/20210222/108cfb71cd276.jpg">
+        <img src="https://cdn.imweb.me/thumbnail/20210222/3bad692f40214.jpg">
+        <img src="https://cdn.imweb.me/thumbnail/20210222/2350915be757a.jpg">
+      </div>
+      <button class="prev prevBtn">&lt;</button>
+      <button class="next nextBtn">&gt;</button>
+    </div>
+
+    <div class="articleLabText">
+      <p>'하고 싶었던 것들 다 해보자!' 라는 생각에서 시작된 &lt;조구만 실험실&gt;은
+        <br>
+        현실에 부딪혀 하지 못했던 것들을 과감하게 시도해보는 공간입니다.
+      </p>
+    </div>
+    <div class="articleGap"></div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col colBorder">
+        <div class="card h-100 collaboCard">
+          <img src="https://cdn.imweb.me/thumbnail/20220525/715cfd48c1e6d.png" class="card-img-top" alt="...">
+        </div>
+      </div>
+      <div class="col colBorder">
+        <div class="card h-100 collaboCard">
+          <img src="https://cdn.imweb.me/thumbnail/20220525/91c4e3028efcc.jpg" class="card-img-top" alt="...">
+        </div>
+      </div>
+      <div class="col colBorder">
+        <div class="card h-100 collaboCard">
+          <img src="https://cdn.imweb.me/thumbnail/20220705/c7d6bac6dbe4d.jpg" class="card-img-top" alt="...">
+        </div>
+      </div>
+    </div>
+
+      <div class="articleGap"></div>
+  </article>
+</container>
+<script src="../static/js/script.js"></script>
+
+</body>
+
+</html>

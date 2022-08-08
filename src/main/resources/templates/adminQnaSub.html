@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 부트스트랩 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <!-- 조구만 스튜디오 폰트 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+
+    <title>admin Qna sub</title>
+</head>
+<body layout:fragment="content">
+<div data-include-path="header.html"></div>
+<div class="articleAdminPadding">
+    <div class="adminNoticeNav">
+        <ul>
+            <li><a href="#">Notice</a></li>
+            <li><a href="#" style="border-bottom: 1px solid black">QnA</a></li>
+        </ul>
+    </div>
+    <div class="adminNoticeSearch">
+
+    </div>
+    <div class="adminNoticeSubArticle">
+        <h5 id="title">파트타이머를 찾고있어요</h5>
+        <p><br></p>
+        <p id="name">조구만</p>
+        <p id="category">
+            <span>Notice</span>
+            <span>조회수</span>
+            <span>18</span>
+        </p>
+
+        <div id="contents">
+            <p>안녕하세요.</p>
+            <p>조구만 스튜디오에서 파트타이머로 근무하실 분을 찾습니다.</p>
+            <p><br></p>
+            <p>1. 업무 : 입출고관리 / 포장 및 검수</p>
+            <p>2. 근무일정 : 화, 목 (주 2회)</p>
+            <p>3. 근무시간 : 13:30 ~ 17:30 (4시간/일)  * 근무일정과 시간은 조율 가능합니다.</p>
+            <p>4. 시급 : 9,500원</p>
+            <p><이런 분에게 맞아요!></p>
+            <p>혼자서 일하기를 선호하시는 분</p>
+            <p>손이 빠르고 정확하신 분</p>
+            <p>말 없이 묵묵히 정해진 미션을 완수하는 것을 선호하시는 분</p>
+            <p><이런 분에게는 조금 힘들 수 있어요></p>
+            <p>반복적인 일보다는 버라이어티한 일을 선호하시는 분</p>
+            <p>다른 사람들과 함께 일하는 것을 좋아하시는 분</p>
+            <p>간단한 자기소개와 이력을 아래 메일로 보내주시면 감사하겠습니다!</p>
+            <p>이메일 : joguman.studio@gmail.com</p>
+            <p>감사합니다.</p>
+            <p>조구만 행복이 가득한 하루 되세요!</p>
+        </div>
+    </div>
+
+    <div class="articleAdminBtn">
+        <button type="button" class="btn btn-outline-secondary">목록</button>
+    </div>
+
+
+    <div class="footerGap"></div>
+
+</div>
+<script src="../static/js/script.js"></script>
+</body>
+</html>

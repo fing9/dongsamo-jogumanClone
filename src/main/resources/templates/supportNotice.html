@@ -15,44 +15,53 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
+  <!-- 조구만 스튜디오 폰트 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!-- 조구만 스튜디오 폰트 -->
   <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
   <link rel="stylesheet" href="../static/css/stylesheet.css">
-  <script src="../static/js/script.js" defer></script>
-  <title>Login</title>
-
+  <title>support Notice</title>
 </head>
+
 <body layout:fragment="content">
-<div class="loginContainer">
-  <div data-include-path="header.html"></div>
-  <div class="loginArticle">
-    <div class="loginWhite"><br></div>
-    <p><span>Login</span></p>
-    <div class="loginForm">
-      <input type="text" placeholder="이메일" id="loginID">
-      <input type="password" placeholder="비밀번호" id="loginPW">
-      <div class="loginCheckBox form-check">
-        <input  type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label"  for="flexCheckChecked">
-          로그인상태유지
-        </label>
-      </div>
-      <p>
-        <button class="loginBtn">로그인</button>
-      </p>
-      <div class="loginTagA">
-        <a href="#" style="float:left">회원가입</a>
-        <a href="#" style="float:right">아이디∙비밀번호 찾기</a>
-      </div>
-    </div>
-    <div class="loginWhite"><br></div>
+<div data-include-path="header.html"></div>
+<div class="articleAdminPadding">
+  <div class="supportNoticeNav">
+    <ul>
+      <li><a href="#" style="border-bottom: 1px solid black">Notice</a></li>
+      <li><a href="#">QnA</a></li>
+    </ul>
+  </div>
+  <div class="adminNoticeSearch">
 
   </div>
-
+  <div class="supportNoticeArticle">
+    <table class="table" id="myTable">
+      <thead class="table-light">
+      <tr>
+        <th scope="col">번호</th>
+        <th scope="col">제목</th>
+        <th scope="col">글쓴이</th>
+        <th scope="col">조회수</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td><a href="#">[FAQ] 자주 묻는 질문들</a></td>
+        <td>조구만</td>
+        <td>180</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td><a href="#">공지사항 2</a></td>
+        <td>조구만</td>
+        <td>18</td>
+      </tr>
+      </tbody>
+    </table>
 </div>
+<div class="footerGap"></div>
 <script src="../static/js/script.js"></script>
-<!--자바스크립트 : 속도를 위해 아래 첨부-->
 </body>
 </html>

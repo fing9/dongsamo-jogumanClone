@@ -3,8 +3,8 @@
     font-family: montserrat, sans-serif;
     font-size:14px;
 }
+/*-----------  Admin -------------*/
 
-/*admin*/
 section{
     padding-top: 150px;
     background-color:#F5F6F7;
@@ -53,7 +53,6 @@ section{
 .articleAdminTableSub {
     display: none;
 }
-
 /*adminMember*/
 .memberSubInformation{
     text-align: left;
@@ -205,26 +204,69 @@ section{
     padding:20px 150px;
     margin-bottom : 100px;
 }
+.adminNoticeSubBtn {
+    display:flex;
+    justify-content: space-between;
+}
+.adminNoticeSubBtn a, .adminNoticeSubBtn div button {
+    text-align: center;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    border:none;
+    background-color: #FFD100;
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    margin:0 10px;
+}
+.pagination {
+    border-top: 1px solid black ;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+#numbers {
+    padding: 0;
+    margin: 0 2rem;
+    list-style-type: none;
+    display: flex;
+}
 
+#numbers li a {
+    color:black;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    opacity: .7;
+}
+
+#numbers li a:hover {
+    opacity: 1;
+}
+
+#numbers li a.active {
+    opacity: 1;
+}
+
+
+/*--------------------- article --------------------------*/
 article{
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding-top:150px;
 }
-
 .articleNav {
     width: 100%;
     height: 100px;
 }
-
 .articleNav ul {
     text-align: center;
     height:40px;
     margin: 0;
     padding: 30px 0;
 }
-
 .articleNav ul li{
     display: inline-block;
     color: black;
@@ -280,16 +322,311 @@ article{
     margin: 0;
     padding: 0;
 }
-.articleGap {
+.articleGap, .footerGap {
     width: 100%;
     height: 130px;
 }
-#bold {
+
+.collaboCard{
+    z-index: -1;
+    border:none;
+}
+
+/*------------------- projects > Joguman Laboratory ----------------------*/
+.siema {
+    width: 500px;
+    margin: 3em auto;
+}
+.siema img {
+    width: 500px;
+    height: auto;
+}
+.prev, .next {
+    background: rgba(255,255,255,.5);
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    top: 500px;
+    border: none;
+    cursor: pointer;
+    transition: all .25s;
+    color: #212121B3;
+    font-size:30px;
+    font-weight: lighter;
+}
+.next { right: 150px; }
+.prev:hover, .next:hover { background: rgba(255,255,255,.75); }
+button:focus { outline: 0; }
+
+.articleLabText {
+    text-align: center;
+}
+/*------------------- projects > book ----------------------*/
+
+.articleBookImg {
+    width:1300px;
+    margin: 3em auto;
+}
+.articleBookImg img {
+    width:1300px;
+    margin-bottom: 3em;
+}
+.articleBookText {
+    width: 500px;
+    margin: 1em auto;
+}
+.articleBookText p {
+    margin:0;
+}
+.articleBookText p span{
+    text-align: center;
+}
+.articleBookImo {
+    text-align: center;
+    width:500px;
+    margin:0 auto;
+}
+.articleBookImo img {
+    width:142px;
+    margin: 1em auto;
+}
+.articleBookBtn {
+    display: flex;
+    justify-content: space-between;
+}
+.articleBookBtn a {
+    text-align: center;
+    width:115px;
+    height:50px;
+    line-height: 50px;
+    border:none;
+    background-color: #FFD100;
+    text-decoration: none;
+    color:black;
     font-weight: bold;
+    margin:0 30px;
 }
 
 
+/*------------------- main > footer ----------------------*/
+
+.footer {
+    margin:0 150px;
+}
+
+.footer_logo{
+    float: right;
+    width: 80px;
+}
+
+#bold {
+    font-weight: bold;
+}
+#textAlignCenter {
+    text-align: center;
+}
+/*--------------------------------adminNoticeSub-------------------------------*/
+.articleAdminPadding, .articleSupportPadding {
+    padding: 0 100px;
+}
+.adminNoticeNav, .supportNoticeNav {
+    width:500px;
+    padding-top: 200px;
+
+}
+.adminNoticeNav ul, .supportNoticeNav ul {
+
+    padding: 0 0 14px;
+    maring: 0;
+}
+.adminNoticeNav ul li, .supportNoticeNav ul li {
+    display: inline-block;
+    list-style-type: none;
+    text-align: center;
+    margin-right: 30px;
+}
+.adminNoticeNav ul li a, .supportNoticeNav ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+#contents {
+    border-top: 0.5px solid gray;
+    padding-top:20px;
+}
+#title {
+    font-size: 25px;
+}
+#category {
+    color: #21212180;
+}
+
+/*-------------------------supportNoticeSub------------------------- */
+.supportNoticeArticle{
+    margin-top: 30px;
+    border-top: 1px solid black;
+}
+.table tbody tr td a {
+    color: black;
+    text-decoration: none;
+}
+
+/*-------------------------collaboComoninoz------------------------- */
+
+.articleStoreNav{
+    width: 100%;
+    height: 100px;
+    /*background: blue;*/
+}
+
+.articleStoreNav ul{
+    text-align: left;
+    height:40px;
+    padding-left:0px;
+    padding-top:20px;
+}
+
+.articleStoreNav ul li{
+    display: inline-block;
+    color: black;
+    font-weight: normal;
+    list-style-type: none;
+    margin: 0 15px;
+    /*padding-bottom: 5px;*/
+    vertical-align: middle;
+    font-size:16px;
+    color: #8f8d89;
+}
+
+.storeWrap{
+    width:1300px;
+    height:400px;
+    margin:0px;
+}
+
+.storeCard{
+    margin : 0;
+    z-index: -1;
+}
+
+.storeDivWrap{
+    padding:0px;
+    margin:0px;
+}
+
+.storeCol{
+    width:304px;
+    height:304px;
+}
+
+.storeCard{
+    width:304px;
+    height:304px;
+}
+
+.collaboComoHeadImg img{
+    width: 1400px;
+}
+.collaboComoPadding {
+    padding:30px 0;
+}
+
+.collaboCard img{
+    object-fit: cover;
+}
+.card-img-top-collabo {
+    height:540px;
+}
+.card-img-top-hover{
+    height:540px;
+    top: 0px;
+    left: 0px;
+    display:none;
+}
+.collaboComo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 150px;
+    margin: 0 100px;
+}
+.cardTxt {
+
+    text-align: center;
+    margin: 10px 0 0;
+    color:black;
+}
+.cardWhite {
+    width:100%;
+    height: 60px;
+}
+.collaboGrid a {
+    text-decoration: none;
+}
 
 
+/*------------------collaboFlipdeep-----------------------*/
 
+.collaboFlipPrice {
+    width:100%;
+}
+.collaboFlipPrice img {
+    width: 400px;
+    height: 40px;
+    margin: 20px auto;
+}
 
+/*------------------casetify------------------------*/
+.casetifyPadding {
+    line-height: 60px;
+}
+
+/*------------------Login---------------------------------*/
+
+.loginArticle {
+    text-align: center;
+    background-color: #f5f6f7;
+    padding-top: 150px;
+    width: 100%;
+    height: auto;
+}
+.loginWhite {
+    width:100%;
+    line-height: 150px;
+}
+.loginArticle p span{
+    font-size: 36px;
+    align-content: center;
+}
+.loginForm {
+    margin: 0 auto;
+    width: 400px;
+}
+#loginID, #loginPW {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    padding: 12px 16px;
+    border: 0.5px solid #8f8d89;
+}
+.loginCheckBox {
+    margin:10px 0;
+    padding:0;
+    text-align: left;
+    justify-content: center;
+}
+.loginCheckBox input {
+    accent-color: #FFD100;
+
+}
+.loginBtn {
+    width:100%;
+    padding:10px 20px;
+    color: black;
+    background-color: #FFD100;
+    border: none;
+}
+.loginTagA a {
+    color: black;
+    text-decoration: none;
+}

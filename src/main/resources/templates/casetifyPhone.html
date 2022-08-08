@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 부트스트랩 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- 조구만 스튜디오 폰트 -->
+    <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <script src="../static/js/script.js" defer></script>
+    <title>casetify Phone</title>
+    <style>
+        #mainStore{
+            border-bottom:2px solid orange;
+        }
+    </style>
+</head>
+<body layout:fragment="content">
+<container>
+    <div data-include-path="header.html"></div>
+    <div class="collaboComo">
+        <div class="wrap">
+            <div class="casetifyPadding">
+                <br>
+            </div>
+            <div class="articleStoreNav">
+                <ul>
+                    <li style="border-bottom: 2px solid black; color:black">Phone</li>
+                    <li>Airpods</li>
+                    <li>iPad</li>
+                    <li>MacBook</li>
+                    <li>Watch Band</li>
+                    <li>AirTag</li>
+                </ul>
+            </div>
+            <div class="collaboComoArticle">
+                <div class="collaboComoHeadImg">
+                    <a href="#"><img src="https://cdn.imweb.me/thumbnail/20220628/bb39945ce0f15.jpg" alt=""></a>
+                </div>
+                <div class="collaboComoPadding"></div>
+                <div class="row row-cols-md-3 collaboGrid">
+
+                    <div class="col colBorder">
+                        <a href="#">
+                            <div class="card collaboCard">
+                                <img src="https://cdn.imweb.me/thumbnail/20220721/f88c40ca0936d.jpg" class="card-img-top card-img-top-collabo" alt="...">
+                                <img src="https://cdn.imweb.me/thumbnail/20220722/b582c02a4b78c.jpg" class="card-img-top card-img-top-hover" alt="">
+                            </div>
+                            <div class="cardTxt">
+                                I Miss My Dog
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col colBorder">
+                        <a href="#">
+                            <div class="card collaboCard">
+                                <img src="https://cdn.imweb.me/thumbnail/20220721/5f2e3e3290340.jpg" class="card-img-top card-img-top-collabo" alt="...">
+                            </div>
+                            <div class="cardTxt">
+                                I'm Leaving This Planet
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col colBorder">
+                        <a href="#">
+                            <div class="card collaboCard">
+                                <img src="https://cdn.imweb.me/thumbnail/20220628/7b0f21ba7e019.jpg" class="card-img-top card-img-top-collabo" alt="...">
+                                <img src="https://cdn.imweb.me/thumbnail/20220722/5c1571808b41c.jpg" class="card-img-top card-img-top-hover" alt="">
+                            </div>
+                            <div class="cardTxt">
+                                OGUMAN HAE! - BLACK (PINK LENS)
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="row cardWhite"></div>
+
+
+                    <div class="col colBorder">
+                        <a href="#">
+                            <div class="card collaboCard">
+                                <img src="https://cdn.imweb.me/thumbnail/20220722/00ed8f33293df.jpg" class="card-img-top card-img-top-collabo" alt="...">
+                            </div>
+                            <div class="cardTxt">
+                                [Joguman X Comoninoz] JOGUMAN UBHC 티셔츠
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col colBorder">
+                        <a href="#">
+                            <div class="card collaboCard">
+                                <img src="https://cdn.imweb.me/thumbnail/20220722/225e6c9c0e730.jpg" class="card-img-top card-img-top-collabo" alt="...">
+                            </div>
+                            <div class="cardTxt">
+                                [Joguman X Comoninoz] JOGUMAN UBHC 티셔츠
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col colBorder collaboHover">
+                        <a href="#">
+                            <div class="card collaboCard">
+                                <img src="https://cdn.imweb.me/thumbnail/20220722/9968482d77161.jpg" class="card-img-top card-img-top-collabo" alt="...">
+                            </div>
+                            <div class="cardTxt">
+                                [Joguman X Comoninoz] JOGUMAN UBHC 티셔츠
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="row cardWhite"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</container>
+<script src="../static/js/script.js"></script>
+<!--자바스크립트 : 속도를 위해 아래 첨부-->
+</body>
+</html>
