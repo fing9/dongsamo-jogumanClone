@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +20,8 @@
     <script src="../static/js/script.js"></script>
     <title>SignUp</title>
 </head>
-<body style="background-color: #F5F6F7">
+<!--<body style="background-color: #F5F6F7">-->
+<body layout:fragment="content" style="background-color: #F5F6F7">
 <div data-include-path="header.html"></div>
 <section>
     <div class="wrap">

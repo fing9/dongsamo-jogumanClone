@@ -1,6 +1,9 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -23,7 +26,7 @@
 
     <title>admin</title>
 </head>
-<body>
+<body layout:fragment="content">
 <container>
     <div data-include-path="header.html"></div>
     <section>
@@ -236,7 +239,7 @@
                                 <div class="mb-3">
                                     <label for="price" class="form-label">가격</label>
                                     <input type="text" class="form-control" id="price"
-                                           placeholder="Price input placeholder" name="price" required>
+                                           placeholder="Price input placeholder" name="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
                                     <span id="priceErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
@@ -247,7 +250,7 @@
                                 <div class="mb-3">
                                     <label for="amount" class="form-label">재고</label>
                                     <input type="text" class="form-control" id="amount"
-                                           placeholder="Stock input placeholder" name="amount" required>
+                                           placeholder="Stock input placeholder" name="amount" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
                                     <span id="amountErrorMsg" class="errorMsgStyle"></span>
                                 </div>
                                 <div class="mb-3">
@@ -295,17 +298,21 @@
     const valueAmount=inputAmount.value;
 
     // const text="error"
-    // const registrationSubmit=document.registrationForm;
+    const registrationSubmit=document.registrationForm;
 
-    inputPrice.addEventListener('keypress', function(e){
-        if (e.keyCode < 48 || e.keyCode > 57) {
-            e.preventDefault();
+    inputPrice.addEventListener('keydown', function(e){ //keyboard 이벤트 리스너
+        //e.value = e.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+        if (e.keyCode < 48 || e.keyCode > 57) { //숫자 keycode 0:48, 9:57
             document.querySelector('#priceErrorMsg').innerHTML="숫자만 입력 가능합니다.";
+            console.log(e);
         }
+        // if (e.key>=0  && e.key <=9) { //숫자 keycode 0:48, 9:57
+        //     document.querySelector('#priceErrorMsg').innerHTML="숫자만 입력 가능합니다.";
+        //     console.log(e);
+        // }
     });
-    inputAmount.addEventListener('keypress', function(e){
+    inputAmount.addEventListener('keydown', function(e){
         if (e.keyCode < 48 || e.keyCode > 57) {
-            e.preventDefault();
             document.querySelector('#amountErrorMsg').innerHTML="숫자만 입력 가능합니다.";
         }
     });
@@ -321,7 +328,7 @@
     //         // console.log(text)
     //     }
     //     if(valueCategory==''){
-    //         document.querySelector('#categoryErrorMsg').innerHTML="카테고리는 필수입력값입니다.1";
+    //         document.querySelector('#categoryErrorMsg').innerHTML="카테고리는 필수입력값입니다.";
     //     }
     //     if(valuePrice==''){
     //         document.querySelector('#priceErrorMsg').innerHTML="가격은 필수입력값입니다.";

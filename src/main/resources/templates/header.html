@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
 
 <head>
     <meta charset="UTF-8">
@@ -96,7 +99,7 @@
     </style>
     <title>main</title>
 </head>
-<body>
+<body layout:fragment="content">
     <header>
         <div class="headerImg">
             <img src="https://cdn.imweb.me/thumbnail/20220620/ea8ae05d24bca.png">
