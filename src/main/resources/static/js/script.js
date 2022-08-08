@@ -44,25 +44,36 @@ function formSubmit() {
     let d = document.getElementById('description').value;
     let a = document.getElementById('amount').value;
 
+    alert("22222");
     document.forms["form"].submit();
+    alert("3333");
 }
 
 function formValidation() {
+    alert("111111");
     formSubmit();
+    alert("44444");
 
-    var myModal = new bootstrap.Modal(document.getElementById('myModal'), options);
+    var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+    alert("88888");
+    let valid_name = document.getElementById("valid_name").innerHTML.length;
+    let valid_category = document.getElementById("valid_category").innerHTML.length;
+    let valid_price = document.getElementById("valid_price").innerHTML.length;
+    let valid_description = document.getElementById("valid_description").innerHTML.length;
+    let valid_amount = document.getElementById("valid_amount").innerHTML.length;
 
-    let valid_name = document.getElementById("valid_name").textContent.length;
-    let valid_category = document.getElementById("valid_category").textContent.length;
-    let valid_price = document.getElementById("valid_price").textContent.length;
-    let valid_description = document.getElementById("valid_description").textContent.length;
-    let valid_amount = document.getElementById("valid_amount").textContent.length;
-
+    // console.log(valid_name);
+    // console.log(valid_amount);
+    // console.log(valid_category);
+    // console.log(valid_price);
+    // console.log(valid_description);
     if (valid_name == 0 && valid_category == 0 && valid_price == 0 && valid_description == 0 && valid_amount == 0) { //입력값이 없으면
         myModal.hide();
+        alert("55555");
     }
     else { //입력값이 있으면
         myModal.show();
+        alert("66666");
     }
 }
 // function save_product() {

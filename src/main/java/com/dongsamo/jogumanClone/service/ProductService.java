@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.Query;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
@@ -130,11 +131,22 @@ public class ProductService {
     }
 
     @Transactional
-    public ProductDto updateById(Long id) {
+    public ProductDto updateById(Long id, ProductDto productDto, List<ProductImageDto> productImageDtoList) {
         Product product = productRepository.getById(id);
-        List<ProductImage> productImageList = productImageRepository.findAllByProduct(product);
-        List<ProductImageDto> productImageDtoList = product.toDtoList(productImageList);
+        product.update(productDto.getName(), productDto.getCategory(), productDto.getPrice(), productDto.getDescription(), productDto.getAmount());
+        List<ProductImage> images = productImageRepository.findAllByProduct(product);
 
-        return new ProductDto(product, productImageDtoList);
+        //업데이트시에는 기존에 저장된 모든 사진을 지우므로 다시 올려야 함
+        //1단계 : 모든 사진 지우기
+        if(images != null) {
+            deleteProductImageAndFilesByProductId(id);
+        }
+        //2단계 : 다시 받은 사진 저장하기
+        if(productImageDtoList != null) {
+            for (int i=0;i< productImageDtoList.size();i++) {
+                productImageRepository.save(productImage.dtoToEntity(productImageDtoList.get(i), product));
+            }
+        }
+        return productDto;
     }
 }

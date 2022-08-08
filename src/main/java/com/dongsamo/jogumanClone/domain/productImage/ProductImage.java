@@ -52,4 +52,20 @@ public class ProductImage extends BaseTimeEntity {
 
         return productImageDtoList;
     }
+
+    public void update(String uuid, String uploadPath, String fileName, Product product) {
+        this.uuid = uuid;
+        this.uploadPath = uploadPath;
+        this.fileName = fileName;
+        this.product = product;
+    }
+
+    public ProductImage dtoToEntity(ProductImageDto productImageDto, Product product) {
+        return ProductImage.builder()
+                .uuid(productImageDto.getUuid())
+                .uploadPath(productImageDto.getUploadPath())
+                .fileName(productImageDto.getFileName())
+                .product(product)
+                .build();
+    }
 }

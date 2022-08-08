@@ -72,7 +72,7 @@
                 조회
             </button>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalCheck" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="exampleModalCheck" tabindex="-1" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -116,7 +116,7 @@
                 수정
             </button>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModalRevise" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="exampleModalRevise" tabindex="-1" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -162,18 +162,18 @@
             </div>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
+                    data-bs-target="#myModal">
                 등록
             </button>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form class="sign-up" method="post" th:action="@{/admin}" th:object="${productVo}" id="form"
-                              enctype="multipart/form-data">
+                              enctype="multipart/form-data" onsubmit="return false;">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">상품 등록</h5>
+                                <h5 class="modal-title" id="myModalLabel">상품 등록</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
@@ -220,9 +220,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary" id="btnRegistration" onclick="formValidation(); return false;">Submit</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="buttonㅁ" class="btn btn-outline-secondary" id="btnRegistration" onclick="formValidation();">Submit</button>
                             </div>
                         </form>
                     </div>

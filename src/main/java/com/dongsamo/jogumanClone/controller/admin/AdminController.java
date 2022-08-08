@@ -91,26 +91,30 @@ public class AdminController {
         return model;
     }
 
+    //만들다가 말았음
     @PostMapping("/admin/change")
     public RedirectView change(//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
-                               @Valid @RequestParam("id") Long id,
-                               @Valid @RequestParam("name") String name,
-                               @Valid @RequestParam("category") String category,
-                               @Valid @RequestParam("price") Long price,
-                               @Valid @RequestParam("description") String description,
-                               @Valid @RequestParam("amount") Long amount,
-                               @Valid @RequestParam("images") List<MultipartFile> images
+                               @Valid Long id,
+                               @Valid ProductVo productVo,
+                               BindingResult errors,
+                               Model model
     ) throws Exception {
-        productRepository.deleteById(id);
-        // 삭제할때 그 아이디랑 연관된 이미지를 물리적으로 삭제해야한다.
 
-        productService.save(Product.builder()
-                .name(name)
-                .category(category)
-                .price(price)
-                .description(description)
-                .amount(amount)
-                .build(), images);
+        if (errors.hasErrors()) {
+            // 유효성 통과 못한 필드와 메시지를 핸들링
+            Map<String, String> validatorResult = validateHandler.validateHandling(errors);
+            for (String key : validatorResult.keySet()) {
+                model.addAttribute(key, validatorResult.get(key));
+            }
+
+            // 데이터 갱신을 위한 임시 코드
+            List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
+            model.addAttribute("productSimpleList", productSimpleDtoList);
+
+            return new RedirectView("/admin"); //업데이트에서는 리다이렉션이 아니라 모델을 반환해주는게 맞을듯....?! 리다이렉션은 GetMapping("/admin/change")인경우 admin으로 이어줘서 해결하자
+        }
+
+        //productService.updateById(productDto.getId(), productDto, );
 
         return new RedirectView("/admin");
     }

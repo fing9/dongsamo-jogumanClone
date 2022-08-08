@@ -57,4 +57,12 @@ public class Product extends BaseTimeEntity {
 
         return productImageDtoList;
     }
+
+    public void update(String name, String category, Long price, String description, Long amount) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.description = description;
+        this.amount = amount;
+    }
 }

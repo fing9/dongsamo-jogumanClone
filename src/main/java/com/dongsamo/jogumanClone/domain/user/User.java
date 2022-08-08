@@ -110,4 +110,15 @@ public class User extends BaseTimeEntity implements UserDetails {
         //계정이 사용 가능한지 확인하는 로직
         return true;
     }
+
+    public void update(String email, String name, String password, String auth, String phone, String birthday, Long point, Long totalprice) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.auth = auth;
+        this.phone = phone;
+        this.birthday = birthday;
+        this.point = point;
+        this.totalprice = totalprice;
+    }
 }
