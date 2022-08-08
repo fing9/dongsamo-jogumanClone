@@ -1,19 +1,15 @@
 package com.dongsamo.jogumanClone.controller;
 
-import com.dongsamo.jogumanClone.domain.product.Product;
 import com.dongsamo.jogumanClone.dto.ProductSimpleDto;
 import com.dongsamo.jogumanClone.dto.ProductVo;
 import com.dongsamo.jogumanClone.dto.UserDto;
 import com.dongsamo.jogumanClone.service.ProductService;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -46,7 +42,7 @@ public class MainController {
 
     @GetMapping("/signup")
     public String signup() {
-        return "signUp";
+        return "signup";
     }
 
     @GetMapping("/signupSub")
