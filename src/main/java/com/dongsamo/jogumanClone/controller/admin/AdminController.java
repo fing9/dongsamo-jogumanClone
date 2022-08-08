@@ -84,16 +84,16 @@ public class AdminController {
     }
 
     //change 요청이 왔을 때 파라미터로 받은 id값을 가지고 기존값을 리턴해줌
-    @GetMapping("/admin/change")
-    public Model change(@RequestParam(value = "id", required = true) Long id, Model model) {
+    @GetMapping("/admin/update")
+    public Model update(@RequestParam(value = "id", required = true) Long id, Model model) {
         ProductDto productDto = productService.findById(id);
         model.addAttribute("productDto", productDto);
         return model;
     }
 
     //만들다가 말았음
-    @PostMapping("/admin/change")
-    public RedirectView change(//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
+    @PostMapping("/admin/update")
+    public RedirectView update(//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
                                @Valid Long id,
                                @Valid ProductVo productVo,
                                BindingResult errors,
