@@ -54,4 +54,10 @@ public class MainController {
     public String mypage() {
         return "myPage";
     }
+
+    @GetMapping("/order")
+    public String order() {
+        return "order";
+    }
+
 }

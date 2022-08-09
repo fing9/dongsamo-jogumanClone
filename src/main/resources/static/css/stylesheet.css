@@ -920,8 +920,35 @@ button:focus { outline: 0; }
 }
 
 .myPageHead {
+    background-color: white;
     width:1000px;
     padding: 50px 0 40px 45px;
     margin-bottom: 70px;
     text-align: center;
+}
+/*order*/
+
+.orderSection {
+    background-color:#F5F6F7;
+    width: 1280px;
+    height: 100%;
+}
+.orderHeader h1 {
+    margin:60px 0;
+    text-align: center;
+}
+.orderProduct {
+    width:520px;
+    padding:24px;
+    margin-bottom: 16px;
+}
+.orderProduct h6 {
+    padding-bottom:20px;
+}
+.orderProductWrap {
+    display:flex;
+
+}
+.orderProductImg {
+    margin-right: 25px;
 }
