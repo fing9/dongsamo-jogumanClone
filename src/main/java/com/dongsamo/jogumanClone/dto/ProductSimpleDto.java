@@ -54,4 +54,4 @@ public class ProductSimpleDto {
         this.modifiedDate = product.getModifiedDate().toString();
     }
 }
-// 이미지랑 프로덕트 DTO를 분리하거나 각각의 VO를까만들어서 받은다음에 DTO에 집어넣어서 만드는식으로 해야할
+// 이미지랑 프로덕트 DTO를 분리하거나D 각각의 VO를까만들어서 받은다음에 TO에 집어넣어서 만드는식으로 해야할

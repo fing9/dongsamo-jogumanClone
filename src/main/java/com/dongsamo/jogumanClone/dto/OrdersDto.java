@@ -1,5 +1,7 @@
 package com.dongsamo.jogumanClone.dto;
 
+import com.dongsamo.jogumanClone.domain.orders.Orders;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -35,10 +37,23 @@ public class OrdersDto {
     @NotBlank(message = "결제방식은 필수 입력 값 입니다.")
     private String paymentway;
 
+    private Long product_id;
+    private Long user_id;
+
     private String createdDate;
     private String modifiedDate;
 
-    public OrdersDto() {
-
+    @Builder
+    public OrdersDto(Orders orders) {
+        this.id = orders.getId();
+        this.amount = orders.getAmount();
+        this.payment = orders.getPayment();
+        this.paymentstate = orders.getPaymentstate();
+        this.state = orders.getState();
+        this.userpoint = orders.getUserpoint();
+        this.product_id = orders.getProduct().getId();
+        this.user_id = orders.getUser().getId();
+        this.createdDate = orders.getCreatedDate().toString();
+        this.modifiedDate = orders.getModifiedDate().toString();
     }
 }
