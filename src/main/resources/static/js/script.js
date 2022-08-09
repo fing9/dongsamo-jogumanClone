@@ -90,3 +90,24 @@ $(function(){
         displayRows(index);
     });
 });
+
+//radio button 체크하고 조회 버튼 누르면 백에 id값 보내기
+$(function () {
+    $('#adminFixBtn').click(function () {
+        var dataArrayToSend =[];
+        var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
+        dataArrayToSend.push($checkbox);
+        console.log(dataArrayToSend);
+
+        $.ajax({
+            type:"POST",
+            data:{
+                id: $checkbox,
+            },
+            url:"http://localhost:8080/admin/update",
+            error:function(jqXHR, textStatus, errorThrown){
+                console.log('error while post');
+            }
+        });
+    });
+});
