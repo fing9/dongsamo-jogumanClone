@@ -50,4 +50,8 @@ public class MainController {
         return "signUpSub";
     }
 
+    @GetMapping("/myPage")
+    public String mypage() {
+        return "myPage";
+    }
 }

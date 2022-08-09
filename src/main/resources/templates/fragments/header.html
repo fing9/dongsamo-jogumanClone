@@ -29,7 +29,7 @@
             </li>
 
             <li sec:authorize="isAuthenticated()">
-                <a sec:authorize="hasRole('ROLE_USER') && !hasRole('ROLE_ADMIN')" href="/" id="headerLoginAuthenticated"><span sec:authentication="name"></span></a>
+                <a sec:authorize="hasRole('ROLE_USER') && !hasRole('ROLE_ADMIN')" href="/myPage" id="headerLoginAuthenticated"><span sec:authentication="name"></span></a>
                 <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin" id="headerLoginAuthenticatedAdmin"><span sec:authentication="name"></span></a>
             </li>
             <li sec:authorize="isAuthenticated()">
