@@ -50,7 +50,7 @@
                     </thead>
                     <tbody id="tableId">
                     <tr data-th-each="product : ${productSimpleList}">
-                        <th scope="row"><input class="form-check-input listRadioInput" type="radio" name="inlineRadioOptions" id="inlineRadio${product.id}" value="${product.id}"></th>
+                        <th scope="row"><input class="form-check-input listRadioInput" type="radio" name="inlineRadioOptions" th:id="inlineRadio+${product.id}" th:value="${product.id}"></th>
                         <th scope="row" data-th-text="${product.id}"></th>
                         <td th:if="${product.images.isEmpty()} == false"><img id="imgId" th:src="${product.images.get(0).getUploadPath().split('static/')[1]}" alt="첨부이미지" th:if="${product.images.isEmpty() == false}" height="50"/></td>
                         <td th:unless="${product.images.isEmpty()} == false"></td>
