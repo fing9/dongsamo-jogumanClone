@@ -101,33 +101,70 @@ $(function () {
         var rowData = new Array();
         var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
         console.log($checkbox);
-        console.log(typeof($checkbox));
-    });
-});
-//signup 페이지 모두 동의 버튼
-$(function(){
-    var agree = $("input[name=agree]");
-
-    $("#flexCheckDefault1").click(function(){
-        if($(this).is(":checked")){
-            agree.prop("checked", true);
-        }else
-            agree.prop("checked", false);
+        console.log(typeof ($checkbox));
     });
 });
 //signupSub select 형식 알기
 $(function(){
     $('.sign-up-sub-btn').click(function(){
-        var yearVal = $('select[name=selectYear]').val();
-        var monthVal = $('select[name=selectMonth]').val();
-        var dayVal = $('select[name=selectDay]').val();
         var yeartext = $("select[name=selectYear] option:selected").text();
         var monthtext = $("select[name=selectMonth] option:selected").text();
         var daytext = $("select[name=selectDay] option:selected").text();
 
-        console.log(yearVal, monthVal, dayVal);
-        console.log(typeof(yearVal), typeof(monthVal),typeof(dayVal));
         console.log(yeartext, monthtext, daytext);
         console.log(typeof(yeartext), typeof(monthtext),typeof(daytext));
     });
+});
+
+//signup 페이지 모두 동의 버튼 , 동의 안하면 안넘어가게
+$(function () {
+    var agree = $("input[name=agree]");
+    var agree_all = $("input[name=agree_all]");
+    var $submitBtn = $(".signUpBtnSubmit");
+
+    agree_all.click(function () {
+        if ($(this).is(":checked")) {
+            agree.prop("checked", true);
+            $submitBtn.css({
+                opacity: 1,
+            }).prop("disabled", false);
+        } else {
+            agree.prop("checked", false);
+            $submitBtn.css({
+                opacity: 0.6,
+            }).prop("disabled", true);
+        }
+    })
+    agree.click(function () {
+        var total = agree.length;
+        var checked = $("input[name=agree]:checked").length;
+
+        if (total != checked) {
+            agree_all.prop("checked", false);
+            $submitBtn.css({
+                opacity: 0.6,
+            }).prop("disabled", true);
+        } else {
+            agree_all.prop("checked", true);
+            $submitBtn.css({
+                opacity: 1,
+            }).prop("disabled", false);
+        }
+    });
+});
+// signupSub select 번호 자동 추가
+$(function(){
+    const year = $('#selectYear');
+    const month = $('#selectMonth');
+    const day = $('#selectDay');
+
+    for (var i = 1900; i <= 2022; i++) {
+        year.append('<option value="i">'+i+'</option>');
+    }
+    for (var i = 1; i <= 12; i++) {
+        month.append('<option value="i">'+i+'</option>');
+    }
+    for (var i = 1; i <= 31; i++) {
+        day.append('<option value="i">'+i+'</option>');
+    }
 });
