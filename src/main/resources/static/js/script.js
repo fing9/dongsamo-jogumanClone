@@ -1,12 +1,12 @@
 //mainImg 화면 전환 script
-var index = 0;   //이미지에 접근하는 인덱스
+let index = 0;   //이미지에 접근하는 인덱스
 window.onload = function(){
     slideShow();
 }
 
 function slideShow() {
-    var i;
-    var x = document.getElementsByClassName("slide1");  //slide1에 대한 dom 참조
+    let i;
+    let x = document.getElementsByClassName("slide1");  //slide1에 대한 dom 참조
 
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";   //처음에 전부 display를 none으로 지정 (안보이게)
@@ -18,6 +18,82 @@ function slideShow() {
     x[index-1].style.display = "block";  //해당 인덱스는 block으로 (보이게)
     setTimeout(slideShow, 3000);   //함수를 3초마다 호출
 
+}
+
+//product 수량 count
+function count(type)  {
+    // 결과를 표시할 element
+    const resultElement1 = document.getElementById('result1');
+    const resultElement2 = document.getElementById('result2');
+
+    // 현재 화면에 표시된 값
+    let number1 = resultElement1.innerText;
+    let number2 = resultElement2.innerText;
+
+    // 더하기/빼기
+    if(type === 'plus') {
+        number1 = parseInt(number1) + 1;
+        number2 = parseInt(number2) + 1;
+    }
+    else if(type === 'minus')  {
+        number1 = parseInt(number1) - 1;
+        number2 = parseInt(number2) - 1;
+
+        if(number1<=1 && number2<=1){
+            number1=1;
+            number2=1;
+            totalPriceNumber1=parseInt(priceNumber1);
+        }
+    }
+    // 결과 출력
+    resultElement1.innerText = number1;
+    resultElement2.innerText = number2;
+    resultPrice1.innerText=String(totalPriceNumber1);
+}
+
+//product sub box
+// window.onload = function(){
+//
+// }
+function detailInformation() {
+    const detailbox=document.querySelector('.storeProductSubLi1');
+    const productcommentbox=document.querySelector('.storeProductSubLi2');
+    const qnabox=document.querySelector('.storeProductSubLi3');
+    const productchangebox=document.querySelector('.storeProductSubLi4');
+    detailbox.style.display="block";
+    productcommentbox.style.display="none";
+    qnabox.style.display="none";
+    productchangebox.style.display="none";
+}
+function productcomment() {
+    const detailbox=document.querySelector('.storeProductSubLi1');
+    const productcommentbox=document.querySelector('.storeProductSubLi2');
+    const qnabox=document.querySelector('.storeProductSubLi3');
+    const productchangebox=document.querySelector('.storeProductSubLi4');
+    detailbox.style.display="none";
+    productcommentbox.style.display="block";
+    qnabox.style.display="none";
+    productchangebox.style.display="none";
+}
+function qna() {
+    const detailbox=document.querySelector('.storeProductSubLi1');
+    const productcommentbox=document.querySelector('.storeProductSubLi2');
+    const qnabox=document.querySelector('.storeProductSubLi3');
+    const productchangebox=document.querySelector('.storeProductSubLi4');
+    detailbox.style.display="none";
+    productcommentbox.style.display="none";
+    qnabox.style.display="block";
+    productchangebox.style.display="none";
+}
+function productchange() {
+    const detailbox=document.querySelector('.storeProductSubLi1');
+    const productcommentbox=document.querySelector('.storeProductSubLi2');
+    const qnabox=document.querySelector('.storeProductSubLi3');
+    const productchangebox=document.querySelector('.storeProductSubLi4');
+    detailbox.style.display="none";
+    productcommentbox.style.display="none";
+    qnabox.style.display="none";
+    productchangebox.style.display="block";
 }
 
 //siema slider 코드 (Jquery 강의 38)

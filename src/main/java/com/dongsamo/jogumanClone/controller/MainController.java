@@ -49,4 +49,10 @@ public class MainController {
     public String signupSub(@ModelAttribute("userDto") UserDto userDto, Model model) {
         return "signUpSub";
     }
+
+//    @GetMapping("/storeProduct")
+//    public String storeProduct() {
+//        return "storeProduct";
+//    }
+
 }

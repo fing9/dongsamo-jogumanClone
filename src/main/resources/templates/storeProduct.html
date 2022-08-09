@@ -18,64 +18,127 @@
     <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
     <link rel="stylesheet" href="/css/stylesheet.css">
     <script src="/js/script.js"></script>
+    <script>
+        window.onload = function(){
+            detailInformation();
+        }
+    </script>
     <title>storeProduct</title>
 </head>
 <body layout:fragment="content">
     <container>
         <article>
             <div class="wrap">
-            <div class="storeProductWrap">
-                <div class="storeProductImgWrap">
-                    <div class="storeProductImg">
-                        <img src="https://cdn.imweb.me/thumbnail/20220707/b684bfeea0032.jpg">
+                <div class="storeProductWrap">
+                    <div class="storeProductImgWrap">
+                        <div class="storeProductImg">
+                            <img src="https://cdn.imweb.me/thumbnail/20220707/b684bfeea0032.jpg">
+                        </div>
+                        <div class="storeProductImgSelect">
+                            <ul>
+                                <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
+                                <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
+                                <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
+                                <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
+                                <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="storeProductImgSelect">
-                        <ul>
-                            <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
-                            <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
-                            <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
-                            <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
-                            <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
-                        </ul>
+                    <div class="storeProductTextWrap">
+                        <div class="storeProductTitle">
+                            <div class="storeProductTitle-name">
+                                Fuck You Inflatable Glove 빠큐 풍선장갑
+                            </div>
+                            <div class="storeProductTitle-new">
+                                new
+                            </div>
+                            <div class="storeProductTitle-price">
+                                $12,000
+                            </div>
+                        </div>
+                        <div class="storeProductDescription">
+                            <p>화가 많은 브라키오는 때때로 세상에 빠큐를 날리고 싶대요.</p>
+                            하지만 거대한 세상에 비해 브라키오의 빠큐는 너무나 작고 하찮았답니다. (타격감 제로!)
+                            <p>고민을 하던 브라키오는 이 세상 어디에도 없는 크고 멋진 빠큐장갑을 만들었어요.</p>
+                            이제 브라키오는 답답할 일이 없어요. 커다란 빠큐가 대신 말해줄 거거든요.
+                            <p>빠큐장갑은 원래 브라키오만의 아이템이었지만,</p>
+                            커다란 빠큐를 부러워하는 친구들을 위해 브라키오는 손수 빠큐장갑을 더 만들어냈어요.
+                            <p>이제 우리 모두가 빠큐장갑을 가질 수 있게 됐어요!</p>
+                            다 같이 빠큐 풍선장갑을 끼고
+                            <p>호락호락하지 않은 세상에게 빅엿을 날려줍시다.</p>
+                            야구장에서, 체육대회에서, 물놀이할 때, 그냥 일상에서
+                            <p>작지 않은 관심을 받고 싶을 때, 용기가 필요할 때</p>
+                            언제든 빠큐 풍선장갑이 도와줄 거예요.
+                            <br>
+                            <ul>
+                                <li>Material: PVC</li>
+                                <li>Size: 40 x 50 x 9 cm</li>
+                                <li>Weight: 114g</li>
+                                <li>Origin: 한국</li>
+                            </ul>
+                        </div>
+                        <div class="storeProductNote">
+                            <div>THINGS TO NOTE</div>
+                            <div>
+                                <ul>
+                                    <li>사용 중인 모니터 스크린과 스마트폰 기종에 따라 색상이 달라 보일 수 있습니다.</li>
+                                    <li>본 제품은 구조 용품으로 사용할 수 없습니다.</li>
+                                    <li>공기를 과하게 넣는 것은 파손의 원인이 되므로 공기를 과하게 넣지 마세요.</li>
+                                    <li>제품 보관 시는 모래, 염분 등의 이물질을 씻어내고 물기를 완전히 말린 후 서늘한 곳에 보관하시길 바랍니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="storeProductPrice">
+                            <span>구매혜택<span div="storeProductPrice-point">240</span> 포인트 적립예정 적립예정</span><br>
+                            <span>배송 방법 택배</span>
+                            <span>배송비 ₩3,000</span>
+                        </div>
+                        <div class="storeProductAmount">
+                            <div>수량</div>
+                            <div class="amountCountBox">
+                            <div><input type='button' onclick='count("minus")' value='-'/></div>
+                            <div class="productAmountCnt" name="productAmountCnt" id='result1'>1</div>
+                            <div><input type='button' onclick='count("plus")' value='+'/></div>
+                            <div>₩<span id="price1">12000</span></div>
+                            </div>
+                            <div>총 상품금액<span>(<span name="productAmountCnt" id="result2">1</span>)</span></div>
+                            <div>₩<span id="price2">12000</span></div>
+                        </div>
+                        <div class="storeProductBtns">
+                            <div class="storeProductPriceBtn">
+                                <button type="submit" onclick="location.href='/'">구매하기</button>
+                            </div>
+                            <div class="storeProductBasketBtn">
+                                <button type="submit" onclick="location.href='/'">장바구니</button>
+                            </div>
+                            <div class="storeProductWishListBtn">
+                                <button type="button">위시리스트 아이콘</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="storeProductTextWrap">
-                    <div class="storeProductTitle">
-                        <div class="storeProductTitle-name">
-                            Fuck You Inflatable Glove 빠큐 풍선장갑
-                        </div>
-                        <div class="storeProductTitle-new">
-                            new
-                        </div>
-                        <div class="storeProductTitle-price">
-
-                        </div>
-                    </div>
-                    <div class="storeProductDescription">
-
-                    </div>
-                    <div class="storeProductNote">
-
-                    </div>
-                    <div class="storeProductPrice">
-
-                    </div>
-                    <div class="storeProductAmount">
-
-                    </div>
-                    <div class="storeProductBtns">
-                        <div class="storeProductPriceBtn">
-
-                        </div>
-                        <div class="storeProductBasketBtn">
-
-                        </div>
-                        <div class="storeProductWishListBtn">
-
-                        </div>
-                    </div>
+                <div class="storeProductNav">
+                    <ul>
+                        <li onclick="detailInformation();">상세정보</li>
+                        <li onclick="productcomment();">구매평</li>
+                        <li onclick="qna();">Q&A</li>
+                        <li onclick="productchange();">반품/교환</li>
+                    </ul>
                 </div>
-            </div>
+                <div class="storeProductSubBox">
+                <div class="storeProductSubLi1" style="background-color: blue; width:300px; height:300px;" >
+
+                </div>
+                <div class="storeProductSubLi2" style="background-color: red; width:300px; height:300px;">
+
+                </div>
+                <div class="storeProductSubLi3" style="background-color: green; width:300px; height:300px;">
+
+                </div>
+                <div class="storeProductSubLi4" style="background-color: orange; width:300px; height:300px;">
+
+                </div>
+                </div>
             </div>
         </article>
     </container>

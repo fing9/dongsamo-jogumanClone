@@ -344,7 +344,7 @@ article{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding-top:150px;
+    /*padding-top:150px;*/
 }
 .articleNav {
     width: 100%;
@@ -649,9 +649,54 @@ article{
 .storeProductTextWrap{
     /*margin-left:50px;*/
     background: green;
+    margin-left:100px;
 }
 
+.storeProductTitle-new{
+    display: inline-block;
+}
 
+.storeProductTitle-name{
+    font-weight:normal;
+}
+
+.storeProductTitle-price{
+    font-size:20px;
+    font-weight:normal;
+    line-height: 1;
+}
+
+.amountCountBox{
+    display: flex;
+}
+
+.productAmountCnt{
+    background: white;
+    width:30px;
+    height: 30px;
+    border:1px solid gray;
+    text-align: center;
+}
+
+.storeProductNav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.storeProductNav ul li{
+    padding:40px;
+}
+
+.storeProductSubBox{
+    display: flex;
+    justify-content: center;
+}
+
+.storeProductBtns{
+    display: flex;
+    justify-content: center;
+}
 /*------------------- projects > Joguman Laboratory ----------------------*/
 .siema {
     width: 500px;
