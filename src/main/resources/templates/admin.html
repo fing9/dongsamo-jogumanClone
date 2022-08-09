@@ -34,10 +34,10 @@
                 </ul>
             </div>
             <div class="articleAdminSection">
+                <form action="http://localhost:8080/admin" method="post">
                 <table class="table">
                     <thead class="table-light">
                     <tr>
-
                         <th scope="col"></th>
                         <th scope="col">번호</th>
                         <th scope="col">사진</th>
@@ -50,8 +50,7 @@
                     </thead>
                     <tbody id="tableId">
                     <tr data-th-each="product : ${productSimpleList}">
-                        <th scope="row"><input class="form-check-input mt-0" type="checkbox" id="checkBoxId" value=""
-                                               aria-label="Checkbox for following text input"></th>
+                        <th scope="row"><input class="form-check-input listRadioInput" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="id"></th>
                         <th scope="row" data-th-text="${product.id}"></th>
                         <td th:if="${product.images.isEmpty()} == false"><img id="imgId" th:src="${product.images.get(0).getUploadPath().split('static/')[1]}" alt="첨부이미지" th:if="${product.images.isEmpty() == false}" height="50"/></td>
                         <td th:unless="${product.images.isEmpty()} == false"></td>
@@ -63,6 +62,7 @@
                     </tr>
                     </tbody>
                 </table>
+                </form>
             </div>
         </div>
         <div class="articleAdminBtn">
@@ -145,7 +145,7 @@
                                 <input type="text" class="form-control" id="formGroupStockInput-revise"
                                        placeholder="Stock input placeholder">
                             </div>
-                            <form name="form" action="#" method="post" enctype="multipart/form-data">
+                            <form name="form" action="http://localhost:8080/admin" method="post" enctype="multipart/form-data">
                                 <div class="mb-3">
                                     <label for="formFileMultiple-revise" class="form-label">이미지</label>
                                     <input class="form-control" type="file" id="formFileMultiple-revise" multiple/>
