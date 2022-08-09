@@ -390,7 +390,7 @@ article{
     color: #212121B3;
 }
 
-/*store*/
+/*------------------- store ----------------------*/
 .select-product{
     border:none;
 }
@@ -570,7 +570,7 @@ article{
 }
 
 
-/*store*/
+/*------------------- article ----------------------*/
 
 .articleNav ul li:nth-child(1){
     border-bottom: 1px solid black;
@@ -602,6 +602,55 @@ article{
     z-index: -1;
     border:none;
 }
+
+/*------------------- storeProduct ----------------------*/
+.storeProductImg img{
+    width:611px;
+    height:611px;
+}
+
+.storeProductImg{
+    width:611px;
+    height:611px;
+}
+
+.storeProductImgSelect img{
+    width:60px;
+    height:60px;
+}
+
+.storeProductTitle{
+    /*padding-left:15%;*/
+}
+
+.storeProductTitle-name{
+    font-size:22px;
+    padding:0px;
+}
+
+
+.storeProductImgSelect ul{
+    padding : 10px 0 0 0;
+    list-style:none;
+    margin-bottom: 0;
+
+}
+
+.storeProductImgSelect ul li{
+    display: inline-block;
+}
+
+.storeProductWrap{
+    display: flex;
+    /*justify-content: center;*/
+
+}
+
+.storeProductTextWrap{
+    /*margin-left:50px;*/
+    background: green;
+}
+
 
 /*------------------- projects > Joguman Laboratory ----------------------*/
 .siema {
