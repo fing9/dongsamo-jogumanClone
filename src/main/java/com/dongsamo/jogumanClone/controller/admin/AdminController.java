@@ -21,6 +21,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
@@ -46,25 +47,28 @@ public class AdminController {
 //        return "admin";
 //    }
 
-    @PostMapping("/admin")
-    public Model saveProduct( //@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
-                               @Valid ProductVo productVo,
-                               BindingResult errors,
-                               Model model
+    @PostMapping("/admin/save")
+    public ModelAndView saveProduct( //@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
+                                     @Valid ProductVo productVo,
+                                     BindingResult errors
     ) throws Exception {
+
+        ModelAndView mv = new ModelAndView();
 
         if (errors.hasErrors()) {
             // 유효성 통과 못한 필드와 메시지를 핸들링
             Map<String, String> validatorResult = validateHandler.validateHandling(errors);
             for (String key : validatorResult.keySet()) {
-                model.addAttribute(key, validatorResult.get(key));
+                mv.addObject(key, validatorResult.get(key));
             }
 
             // 데이터 갱신을 위한 임시 코드
             List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
-            model.addAttribute("productSimpleList", productSimpleDtoList);
+            mv.addObject("productSimpleList", productSimpleDtoList);
 
-            return model;//"redirect:/admin";
+            mv.setViewName("admin");//setView(new RedirectView("/admin"));
+
+            return mv;
         }
 
         ProductDto productDto = productService.save(Product.builder()
@@ -77,10 +81,12 @@ public class AdminController {
 
         // 데이터 갱신을 위한 임시 코드
         List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
-        model.addAttribute("productSimpleList", productSimpleDtoList);
+        mv.addObject("productSimpleList", productSimpleDtoList);
+
+        mv.setView(new RedirectView("/admin"));
 
         //다른 URI로 파싱할수도 있음
-        return model;//"redirect:/admin";
+        return mv;
     }
 
     //change 요청이 왔을 때 파라미터로 받은 id값을 가지고 기존값을 리턴해줌
