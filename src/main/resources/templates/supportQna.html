@@ -21,44 +21,50 @@
     <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
     <link rel="stylesheet" href="/css/stylesheet.css">
     <script src="/js/script.js"></script>
-    <title>admin notice sub</title>
+    <title>support Notice</title>
 </head>
+
 <body layout:fragment="content">
 <div class="articleAdminPadding">
-    <div class="adminNoticeNav">
+    <div class="supportNoticeNav">
         <ul>
-            <li><a href="#" style="border-bottom: 1px solid black">Notice</a></li>
-            <li><a href="#">QnA</a></li>
+            <li><a href="/support">Notice</a></li>
+            <li><a href="/qna" style="border-bottom: 1px solid black">QnA</a></li>
         </ul>
     </div>
     <div class="adminNoticeSearch">
 
     </div>
-    <div class="adminNoticeSubArticle">
-        <form action="" method="get">
-            <div>
-                <label for="title" class="form-label">제목</label>
-                <input type="text" class="form-control" id="title" placeholder="text title">
-                <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_price}"
-                      th:id="valid_price"></span>
-            </div>
-            <div>
-                <label for="contents" class="form-label">설명</label>
-                <textarea class="form-control" id="contents" rows="30"></textarea>
-                <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_description}"
-                      th:id="valid_description"></span>
-            </div>
-            <div class="articleAdminBtn">
-                <button type="button" class="btn btn-outline-secondary" onClick="location.href='/adminNotice'" style="
-                        float: left;">목록</button>
-                <button type="submit" class="btn btn-outline-secondary" style="float: right;">제출</button>
-            </div>
-        </form>
+    <div class="supportNoticeArticle">
+        <table class="table" id="myTable">
+            <thead class="table-light">
+            <tr>
+                <th scope="col">번호</th>
+                <th scope="col">카테고리</th>
+                <th scope="col">제목</th>
+                <th scope="col">글쓴이</th>
+                <th scope="col">작성시간</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>기타 문의</td>
+                <td>로그아웃 버튼이 어디있나요??</td>
+                <td>sscfadsf</td>
+                <td>2022-09-02</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>배송 관련 문의</td>
+                <td><a href="#">비밀글입니다</a></td>
+                <td>asfdqfewqfwe</td>
+                <td>2022-08-08</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
-
-<div class="footerGap"></div>
-
+    <div class="footerGap"></div>
 </div>
 </body>
 </html>

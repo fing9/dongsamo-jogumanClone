@@ -130,7 +130,7 @@ section{
 }
 .articleAdminBtn {
     float:right;
-    padding: 0 150px;
+    padding-top: 80px;
 }
 .articleAdminBtn button {
     margin-left: 10px;

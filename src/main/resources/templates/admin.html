@@ -33,201 +33,222 @@
                     <li><a href="/adminQna">QnA 관리</a></li>
                 </ul>
             </div>
-            <div class="articleAdminSection">
-                <table class="table">
-                    <thead class="table-light">
-                    <tr>
+            <div>
+                <div class="articleAdminSection">
+                    <table class="table">
+                        <thead class="table-light">
+                        <tr>
 
-                        <th scope="col"></th>
-                        <th scope="col">번호</th>
-                        <th scope="col">사진</th>
-                        <th scope="col">상품이름</th>
-                        <th scope="col">카테고리</th>
-                        <th scope="col">가격</th>
-                        <th scope="col">재고</th>
-                        <th scope="col">등록일시</th>
-                    </tr>
-                    </thead>
-                    <tbody id="tableId">
-                    <tr data-th-each="product : ${productSimpleList}">
-                        <th scope="row"><input class="form-check-input mt-0" type="checkbox" id="checkBoxId" value=""
-                                               aria-label="Checkbox for following text input"></th>
-                        <th scope="row" data-th-text="${product.id}"></th>
-                        <td th:if="${product.images.isEmpty()} == false"><img id="imgId" th:src="${product.images.get(0).getUploadPath().split('static/')[1]}" alt="첨부이미지" th:if="${product.images.isEmpty() == false}" height="50"/></td>
-                        <td th:unless="${product.images.isEmpty()} == false"></td>
-                        <td data-th-text="${product.name}"></td>
-                        <td data-th-text="${product.category}"></td>
-                        <td data-th-text="${product.price}"></td>
-                        <td data-th-text="${product.amount}"></td>
-                        <td data-th-text="${product.createdDate}"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="articleAdminBtn">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModalCheck">
-                조회
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCheck" tabindex="-1" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabelCheck">상품 조회</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="formGroupCategoryInput-check" class="form-label">카테고리</label>
-                                <input type="text" class="form-control" id="formGroupCategoryInput-check"
-                                       placeholder="Category input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupNameInput-check" class="form-label">상품 이름</label>
-                                <input type="text" class="form-control" id="formGroupNameInput-check"
-                                       placeholder="Name input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupPriceInput-check" class="form-label">가격</label>
-                                <input type="text" class="form-control" id="formGroupPriceInput-check"
-                                       placeholder="Price input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupStockInput-check" class="form-label">재고</label>
-                                <input type="text" class="form-control" id="formGroupStockInput-check"
-                                       placeholder="Stock input placeholder">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
-                            </button>
-                        </div>
-                    </div>
+                            <th scope="col"></th>
+                            <th scope="col">번호</th>
+                            <th scope="col">사진</th>
+                            <th scope="col">상품이름</th>
+                            <th scope="col">카테고리</th>
+                            <th scope="col">가격</th>
+                            <th scope="col">재고</th>
+                            <th scope="col">등록일시</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tableId">
+                        <tr data-th-each="product : ${productSimpleList}">
+                            <th scope="row"><input class="form-check-input mt-0" type="checkbox" id="checkBoxId"
+                                                   value=""
+                                                   aria-label="Checkbox for following text input"></th>
+                            <th scope="row" data-th-text="${product.id}"></th>
+                            <td th:if="${product.images.isEmpty()} == false"><img id="imgId"
+                                                                                  th:src="${product.images.get(0).getUploadPath().split('static/')[1]}"
+                                                                                  alt="첨부이미지"
+                                                                                  th:if="${product.images.isEmpty() == false}"
+                                                                                  height="50"/></td>
+                            <td th:unless="${product.images.isEmpty()} == false"></td>
+                            <td data-th-text="${product.name}"></td>
+                            <td data-th-text="${product.category}"></td>
+                            <td data-th-text="${product.price}"></td>
+                            <td data-th-text="${product.amount}"></td>
+                            <td data-th-text="${product.createdDate}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModalRevise">
-                수정
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalRevise" tabindex="-1" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabelRevise">상품 수정</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="formGroupCategoryInput-revise" class="form-label">카테고리</label>
-                                <input type="text" class="form-control" id="formGroupCategoryInput-revise"
-                                       placeholder="Category input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupNameInput-revise" class="form-label">상품 이름</label>
-                                <input type="text" class="form-control" id="formGroupNameInput-revise"
-                                       placeholder="Name input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupPriceInput-revise" class="form-label">가격</label>
-                                <input type="text" class="form-control" id="formGroupPriceInput-revise"
-                                       placeholder="Price input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupStockInput-revise" class="form-label">재고</label>
-                                <input type="text" class="form-control" id="formGroupStockInput-revise"
-                                       placeholder="Stock input placeholder">
-                            </div>
-                            <form name="form" action="#" method="post" enctype="multipart/form-data">
-                                <div class="mb-3">
-                                    <label for="formFileMultiple-revise" class="form-label">이미지</label>
-                                    <input class="form-control" type="file" id="formFileMultiple-revise" multiple/>
+                <div class="articleAdminBtn">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModalCheck">
+                        조회
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCheck" tabindex="-1" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabelCheck">상품 조회</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary">Revise</button>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="formGroupCategoryInput-check" class="form-label">카테고리</label>
+                                        <input type="text" class="form-control" id="formGroupCategoryInput-check"
+                                               placeholder="Category input placeholder">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formGroupNameInput-check" class="form-label">상품 이름</label>
+                                        <input type="text" class="form-control" id="formGroupNameInput-check"
+                                               placeholder="Name input placeholder">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formGroupPriceInput-check" class="form-label">가격</label>
+                                        <input type="text" class="form-control" id="formGroupPriceInput-check"
+                                               placeholder="Price input placeholder">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formGroupStockInput-check" class="form-label">재고</label>
+                                        <input type="text" class="form-control" id="formGroupStockInput-check"
+                                               placeholder="Stock input placeholder">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                    data-bs-target="#myModal">
-                등록
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form class="sign-up" method="post" th:action="@{/admin}" th:object="${productVo}" id="form"
-                              enctype="multipart/form-data">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel">상품 등록</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">상품 이름</label>
-                                    <input type="text" class="form-control" id="name" th:field="*{name}"
-                                           placeholder="Name input placeholder">
-                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_name}"
-                                          th:id="valid_name"></span>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModalRevise">
+                        수정
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalRevise" tabindex="-1" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabelRevise">상품 수정</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="price" class="form-label">가격</label>
-                                    <input type="text" class="form-control" id="price" th:field="*{price}"
-                                           placeholder="Price input placeholder">
-                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_price}"
-                                          th:id="valid_price"></span>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="formGroupCategoryInput-revise" class="form-label">카테고리</label>
+                                        <input type="text" class="form-control" id="formGroupCategoryInput-revise"
+                                               placeholder="Category input placeholder">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formGroupNameInput-revise" class="form-label">상품 이름</label>
+                                        <input type="text" class="form-control" id="formGroupNameInput-revise"
+                                               placeholder="Name input placeholder">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formGroupPriceInput-revise" class="form-label">가격</label>
+                                        <input type="text" class="form-control" id="formGroupPriceInput-revise"
+                                               placeholder="Price input placeholder">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formGroupStockInput-revise" class="form-label">재고</label>
+                                        <input type="text" class="form-control" id="formGroupStockInput-revise"
+                                               placeholder="Stock input placeholder">
+                                    </div>
+                                    <form name="form" action="#" method="post" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label for="formFileMultiple-revise" class="form-label">이미지</label>
+                                            <input class="form-control" type="file" id="formFileMultiple-revise"
+                                                   multiple/>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="category" class="form-label">카테고리</label>
-                                    <input type="text" class="form-control" id="category" th:field="*{category}"
-                                           placeholder="Category input placeholder">
-                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_category}"
-                                          th:id="valid_category"></span>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="description" class="form-label">설명</label>
-                                    <textarea class="form-control" id="description" rows="3" th:field="*{description}"
-                                    ></textarea>
-                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_description}"
-                                          th:id="valid_description"></span>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="amount" class="form-label">재고</label>
-                                    <input type="text" class="form-control" id="amount" th:field="*{amount}"
-                                           placeholder="Stock input placeholder">
-                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_amount}"
-                                          th:id="valid_amount"></span>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="images" class="form-label">이미지</label>
-                                    <input class="form-control" type="file" id="images" multiple="multiple"
-                                           th:field="*{images}"/>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary">Revise</button>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">Submit</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                            data-bs-target="#myModal">
+                        등록
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form class="sign-up" method="post" th:action="@{/admin}" th:object="${productVo}"
+                                      id="form"
+                                      enctype="multipart/form-data">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="myModalLabel">상품 등록</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">상품 이름</label>
+                                            <input type="text" class="form-control" id="name" th:field="*{name}"
+                                                   placeholder="Name input placeholder">
+                                            <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_name}"
+                                                  th:id="valid_name"></span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="price" class="form-label">가격</label>
+                                            <input type="text" class="form-control" id="price" th:field="*{price}"
+                                                   placeholder="Price input placeholder">
+                                            <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_price}"
+                                                  th:id="valid_price"></span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="category" class="form-label">카테고리</label>
+                                            <input type="text" class="form-control" id="category" th:field="*{category}"
+                                                   placeholder="Category input placeholder">
+                                            <span th:style="${'color: red; font-size:11px;'}"
+                                                  th:text="${valid_category}"
+                                                  th:id="valid_category"></span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">설명</label>
+                                            <textarea class="form-control" id="description" rows="3"
+                                                      th:field="*{description}"
+                                            ></textarea>
+                                            <span th:style="${'color: red; font-size:11px;'}"
+                                                  th:text="${valid_description}"
+                                                  th:id="valid_description"></span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="amount" class="form-label">재고</label>
+                                            <input type="text" class="form-control" id="amount" th:field="*{amount}"
+                                                   placeholder="Stock input placeholder">
+                                            <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_amount}"
+                                                  th:id="valid_amount"></span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="images" class="form-label">이미지</label>
+                                            <input class="form-control" type="file" id="images" multiple="multiple"
+                                                   th:field="*{images}"/>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                        <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-secondary">삭제</button>
                 </div>
             </div>
-            <button type="button" class="btn btn-outline-secondary">삭제</button>
         </div>
         <div class="articleGap"></div>
     </section>
