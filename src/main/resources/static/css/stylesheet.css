@@ -888,3 +888,40 @@ button:focus { outline: 0; }
     color: black;
     text-decoration: none;
 }
+
+/*myPage*/
+
+.myPageArticle {
+    display:flex;
+    justify-content: space-between;
+    padding: 80px 150px;
+}
+.myPageNav {
+    display: inline-block;
+    width: 200px;
+}
+
+.myPageNav ul {
+    margin:0;
+    padding:0 10px;
+}
+.myPageNav ul li {
+
+    font-weight: normal;
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+.myPageNav ul li a {
+    color: black;
+    text-decoration: none;
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+    font-size:16px;
+}
+
+.myPageHead {
+    width:1000px;
+    padding: 50px 0 40px 45px;
+    margin-bottom: 70px;
+    text-align: center;
+}
