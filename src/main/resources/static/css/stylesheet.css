@@ -45,7 +45,7 @@ input[type=checkbox] {
     /*background: blue;*/
 }
 
-.sign-up-box{
+.sign-up-box, .orderBox{
     background: #FAFAFA;
     border-left:4px solid #2196f3;
     /*padding:10px;*/
@@ -949,6 +949,10 @@ button:focus { outline: 0; }
     background-color: #FFFFFF;
     width:520px;
     padding:24px;
+    margin-bottom: 16px;
+}
+.orderWrap {
+    display: flex;
 }
 .orderWrap h6 {
     padding-bottom:20px;
@@ -959,12 +963,63 @@ button:focus { outline: 0; }
     flex-direction: column;
 }
 .orderProductDeliveryFee {
+    background-color: #21212108;
     border-top: 1px solid black;
+    text-align: center;
+    padding: 10px 14px;
 }
 .orderProductImg {
-    margin-right: 25px;
+    width: 80px;
+    margin: 0 14px 0 0;
 }
 .orderProductImg img {
     width: 80px;
     height: 80px;
+}
+.orderProductImgInfo {
+    display: flex;
+    padding: 14px;
+}
+.orderSummary {
+    background-color: #FFFFFF;
+    width: 325px;
+    padding: 24px;
+}
+.orderSummaryDetail {
+    padding-bottom: 14px;
+}
+.orderSummaryDetail div{
+    display: flex;
+}
+.orderSummaryDetail div p {
+    width: 50%;
+}
+.orderSummaryTotal {
+    display: flex;
+    border-top: 1px solid black;
+    padding-top: 14px;
+}
+.orderSummaryTotal p {
+    width: 50%;
+}
+.orderPointAccumulate {
+    padding:12px 24px;
+    background-color: #21212108;
+}
+.orderSummaryPoint {
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
+.orderPointAccumulate p {
+    margin: 0;
+}
+.orderUser {
+    margin-top: 20px;
+}
+.orderFloatRight {
+    float: right;
+}
+.orderUserFixBtn {
+    background-color: #ffd100;
+    top:100%;
 }
