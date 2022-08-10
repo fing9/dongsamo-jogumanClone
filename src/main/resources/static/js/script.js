@@ -91,23 +91,21 @@ $(function(){
     });
 });
 
-//radio button 체크하고 조회 버튼 누르면 백에 id값 보내기
 $(function () {
     $('#adminFixBtn').click(function () {
-        var dataArrayToSend =[];
         var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
-        dataArrayToSend.push($checkbox);
-        console.log(dataArrayToSend);
 
         $.ajax({
-            type:"POST",
-            data:{
-                id: $checkbox,
+            url: "/admin/update",
+            type: "GET",
+            data: {
+                id: $checkbox
             },
-            url:"http://localhost:8080/admin/update",
-            error:function(jqXHR, textStatus, errorThrown){
-                console.log('error while post');
-            }
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8;"
         });
     });
 });
+
+var token = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
+$(document).ajaxSend(function(e, xhr, options) { xhr.setRequestHeader(header, token); });

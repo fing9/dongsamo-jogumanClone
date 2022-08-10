@@ -120,43 +120,65 @@
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabelRevise">상품 수정</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="formGroupCategoryInput-revise" class="form-label">카테고리</label>
-                                <input type="text" class="form-control" id="formGroupCategoryInput-revise"
-                                       placeholder="Category input placeholder">
+                        <form class="sign-up" method="post" th:action="@{/admin/update}" th:object="${productVo}" id="formUpdate"
+                              enctype="multipart/form-data">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabelUpdate">상품 수정</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                             </div>
-                            <div class="mb-3">
-                                <label for="formGroupNameInput-revise" class="form-label">상품 이름</label>
-                                <input type="text" class="form-control" id="formGroupNameInput-revise"
-                                       placeholder="Name input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupPriceInput-revise" class="form-label">가격</label>
-                                <input type="text" class="form-control" id="formGroupPriceInput-revise"
-                                       placeholder="Price input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupStockInput-revise" class="form-label">재고</label>
-                                <input type="text" class="form-control" id="formGroupStockInput-revise"
-                                       placeholder="Stock input placeholder">
-                            </div>
-                            <form name="form" action="http://localhost:8080/admin" method="post" enctype="multipart/form-data">
+                            <div class="modal-body" th:if="${productDto != null}">
                                 <div class="mb-3">
-                                    <label for="formFileMultiple-revise" class="form-label">이미지</label>
-                                    <input class="form-control" type="file" id="formFileMultiple-revise" multiple/>
+                                    <label for="name" class="form-label">ID</label>
+                                    <input type="text" class="form-control" id="id" th:field="*{id}"
+                                           th:value="${productDto.id}" readonly="readonly">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary">Revise</button>
-                        </div>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">상품 이름</label>
+                                    <input type="text" class="form-control" id="nameUpdate" th:field="*{name}"
+                                           placeholder="Name input placeholder">
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_name}"
+                                          th:id="valid_name"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="price" class="form-label">가격</label>
+                                    <input type="text" class="form-control" id="priceUpdate" th:field="*{price}"
+                                           placeholder="Price input placeholder">
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_price}"
+                                          th:id="valid_price"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="category" class="form-label">카테고리</label>
+                                    <input type="text" class="form-control" id="categoryUpdate" th:field="*{category}"
+                                           placeholder="Category input placeholder">
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_category}"
+                                          th:id="valid_category"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">설명</label>
+                                    <textarea class="form-control" id="descriptionUpdate" rows="3" th:field="*{description}"
+                                    ></textarea>
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_description}"
+                                          th:id="valid_description"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="amount" class="form-label">재고</label>
+                                    <input type="text" class="form-control" id="amountUpdate" th:field="*{amount}"
+                                           placeholder="Stock input placeholder">
+                                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_amount}"
+                                          th:id="valid_amount"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="images" class="form-label">이미지</label>
+                                    <input class="form-control" type="file" id="imagesUpdate" multiple="multiple"
+                                           th:field="*{images}"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-outline-secondary" id="btnUpadate">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
