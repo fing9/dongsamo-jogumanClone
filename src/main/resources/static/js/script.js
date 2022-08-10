@@ -20,47 +20,6 @@ function slideShow() {
 
 }
 
-//siema slider 코드 (Jquery 강의 38)
-$(function () {
-    function onInitCallback() {
-        console.log('Siema initialised bro :)');
-    }
-
-    function onChangeCallback() {
-        console.log(`The index of current slide is: ${this.currentSlide}`);
-    }
-
-    var timer
-
-    const mySiema = new Siema({
-        selector: '.slider',
-        onInit: onInitCallback,
-        onChange: onChangeCallback,
-        loop: true,
-        duration: 800,
-    });
-
-    function autoSlide() {
-        timer = setInterval(function () {
-            mySiema.next();
-        }, 4000);
-    }
-
-    autoSlide();
-    $('.slider').mouseover(function () {
-        clearInterval(timer);
-    }).mouseout(function () {
-        autoSlide();
-    });
-
-    $('.prev').click(function () {
-        mySiema.prev();
-    });
-    $('.next').click(function () {
-        mySiema.next();
-    });
-
-});
 
 //pagination 코드 (Jquery 강의 69)
 $(function () {
@@ -167,4 +126,14 @@ $(function(){
     for (var i = 1; i <= 31; i++) {
         day.append('<option value="i">'+i+'</option>');
     }
+});
+//order 결제 정보 radio btn
+$(function(){
+    var radiochk = $("input[name=orderPayTypeRadio]:checked").val();
+    if(radiochk == 'cacao'){
+        $("input[name=orderPayTypeRadio]").prop('checked', false);
+    }else{
+
+    }
+
 });

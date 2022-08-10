@@ -115,6 +115,49 @@
     </article>
 </container>
 
+<script>
+    //siema slider 코드 (Jquery 강의 38)
+    $(function () {
+        function onInitCallback() {
+            console.log('Siema initialised bro :)');
+        }
+
+        function onChangeCallback() {
+            console.log(`The index of current slide is: ${this.currentSlide}`);
+        }
+
+        var timer
+
+        const mySiema = new Siema({
+            selector: '.slider',
+            onInit: onInitCallback,
+            onChange: onChangeCallback,
+            loop: true,
+            duration: 800,
+        });
+
+        function autoSlide() {
+            timer = setInterval(function () {
+                mySiema.next();
+            }, 4000);
+        }
+
+        autoSlide();
+        $('.slider').mouseover(function () {
+            clearInterval(timer);
+        }).mouseout(function () {
+            autoSlide();
+        });
+
+        $('.prev').click(function () {
+            mySiema.prev();
+        });
+        $('.next').click(function () {
+            mySiema.next();
+        });
+
+    });
+</script>
 </body>
 
 </html>
