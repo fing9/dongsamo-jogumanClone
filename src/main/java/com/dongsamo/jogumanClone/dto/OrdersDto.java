@@ -16,28 +16,21 @@ public class OrdersDto {
     @NotNull
     private Long id;
 
-    @Min(value = 0, message = "0 이상의 수를 입력해야합니다.")
-    @Positive()
-    @NotNull(message = "수량은 필수 입력 값 입니다.")
-    private Long amount;
+    private Long addressee;
 
-    @Min(value = 0, message = "0이상의 수를 입력해야합니다.")
-    @NotNull(message = "결제금액은 필수 입력 값 입니다.")
-    private Long payment;
+    private String memberAddr1;
 
-    @NotBlank(message = "결제상태는 필수 입력 값 입니다.")
+    private String memberAddr2;
+
+    private String memberAddr3;
+
     private String paymentstate;
 
-    @NotBlank(message = "주문상태는 필수 입력 값 입니다.")
-    private String state;
+    private Long deliverycost;
 
-    @NotNull(message = "사용포인트는 필수 입력 값 입니다.")
-    private Long userpoint;
+    private Long usepoint;
 
-    @NotBlank(message = "결제방식은 필수 입력 값 입니다.")
-    private String paymentway;
-
-    private Long product_id;
+    private Long Ordersproduct_id;
     private Long user_id;
 
     private String createdDate;
@@ -46,13 +39,15 @@ public class OrdersDto {
     @Builder
     public OrdersDto(Orders orders) {
         this.id = orders.getId();
-        this.amount = orders.getAmount();
-        this.payment = orders.getPayment();
+        this.addressee = orders.getAddressee();
+        this.memberAddr1 = orders.getMemberAddr1();
+        this.memberAddr2 = orders.getMemberAddr2();
+        this.memberAddr3 = orders.getMemberAddr3();
         this.paymentstate = orders.getPaymentstate();
-        this.state = orders.getState();
-        this.userpoint = orders.getUserpoint();
-        this.product_id = orders.getProduct().getId();
-        this.user_id = orders.getUser().getId();
+        this.deliverycost = orders.getDeliverycost();
+        this.usepoint = orders.getUsepoint();
+//        this.Ordersproduct_id = orders.getOrdersProduct().getId(); // 주문상품과 외래키 연결해야함
+//        this.user_id = orders.getUser().getId(); // 회원과 외래키로 연결해야함
         this.createdDate = orders.getCreatedDate().toString();
         this.modifiedDate = orders.getModifiedDate().toString();
     }

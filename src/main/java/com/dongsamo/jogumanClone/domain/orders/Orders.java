@@ -19,35 +19,40 @@ public class Orders extends BaseTimeEntity {
     private Long id;
 
     @Column
-    private Long amount;
+    private Long addressee;
 
-    private Long payment;
+    private String memberAddr1;
+
+    private String memberAddr2;
+
+    private String memberAddr3;
 
     private String paymentstate;
 
-    private String state;
+    private Long deliverycost;
 
-    private Long userpoint;
+    private Long usepoint;
 
-    private String paymentway;
+    private Long OrdersProduct_id;
+    private Long user_id;
 
-    @ManyToOne
-    @JoinColumn(name="product") // name은 ProductImage 테이블에서의 칼럼명을 지정하는 것임 Build할때 product객체를 넣으면 자동으로 product객체의 PK가 들어가면서 생성됨
-    private Product product; // 대상 테이블은 매핑된 Entity의 오브젝트형을 보고 자동으로 정함 (여기선 Product)
 
-    @ManyToOne
-    @JoinColumn(name="User")
-    private User user;
+
+//    User와 OrdersProduct를 외래키로 엮어야함
+//    @ManyToOne
+//    @JoinColumn(name="User")
+//    private User user;
 
     @Builder
-    public Orders(Long amount, Long payment, String paymentstate, String state, Long userpoint, String paymentway, Product product, User user){
-        this.amount = amount;
-        this.payment = payment;
+    public Orders(Long addressee, String memberAddr1, String memberAddr2, String memberAddr3, String paymentstate, Long deliverycost, Long usepoint, Long ordersproduct_id, Long user_id){
+        this.addressee = addressee;
+        this.memberAddr1 = memberAddr1;
+        this.memberAddr2 = memberAddr2;
+        this.memberAddr3 = memberAddr3;
         this.paymentstate = paymentstate;
-        this.state = state;
-        this.userpoint = userpoint;
-        this.paymentway = paymentway;
-        this.product = product;
-        this.user = user;
+        this.deliverycost = deliverycost;
+        this.usepoint = usepoint;
+//        this.ordersproduct_id = product;
+//        this.user = user;
     }
 }
