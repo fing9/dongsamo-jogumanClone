@@ -96,11 +96,12 @@ $(function () {
         var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
 
         $.ajax({
-            url: "/admin/update",
+            url: "/admin",
             type: "GET",
             data: {
                 id: $checkbox
             },
+            dataType: "json",
             contentType: "application/x-www-form-urlencoded; charset=UTF-8;"
         });
     });

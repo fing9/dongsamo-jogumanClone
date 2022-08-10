@@ -95,22 +95,29 @@ public class AdminController {
         ModelAndView mv = new ModelAndView();
 
         mv.setViewName("admin");
-
-        ProductDto productDto = productService.findById(id);
-        mv.addObject("productDto", productDto);
+        //mv.setView(new RedirectView("/admin"));
 
         ProductVo productVo = new ProductVo();
+        ProductDto productDto = productService.findById(id);
+        productVo.setId(productDto.getId());
+        productVo.setAmount(productDto.getAmount());
+        productVo.setCategory(productDto.getCategory());
+        productVo.setDescription(productDto.getDescription());
+        productVo.setPrice(productDto.getPrice());
+        productVo.setName(productDto.getName());
+
         mv.addObject("productVo", productVo);
         return mv;
     }
 
     //만들다가 말았음
     @PostMapping("/admin/update")
-    public RedirectView update(//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
+    public ModelAndView update(//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
                                @Valid ProductVo productVo,
                                BindingResult errors,
                                Model model
     ) throws Exception {
+        ModelAndView mv = new ModelAndView();
 
         if (errors.hasErrors()) {
             // 유효성 통과 못한 필드와 메시지를 핸들링
@@ -123,11 +130,15 @@ public class AdminController {
             List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
             model.addAttribute("productSimpleList", productSimpleDtoList);
 
-            return new RedirectView("/admin"); //업데이트에서는 리다이렉션이 아니라 모델을 반환해주는게 맞을듯....?! 리다이렉션은 GetMapping("/admin/change")인경우 admin으로 이어줘서 해결하자
+            mv.setViewName("admin");//setView(new RedirectView("/admin"));
+
+            return mv; //업데이트에서는 리다이렉션이 아니라 모델을 반환해주는게 맞을듯....?! 리다이렉션은 GetMapping("/admin/change")인경우 admin으로 이어줘서 해결하자
         }
 
-        //productService.updateById(productDto.getId(), productDto, );
+        productService.updateById(productVo.getId(), productVo, productVo.getImages());
 
-        return new RedirectView("/admin");
+        mv.setView(new RedirectView("/admin"));
+
+        return mv;
     }
 }

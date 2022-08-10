@@ -127,11 +127,11 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                             </div>
-                            <div class="modal-body" th:if="${productDto != null}">
+                            <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">ID</label>
                                     <input type="text" class="form-control" id="id" th:field="*{id}"
-                                           th:value="${productDto.id}" readonly="readonly">
+                                           readonly="readonly">
                                 </div>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">상품 이름</label>
