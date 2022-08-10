@@ -17,7 +17,29 @@ function slideShow() {
     }
     x[index-1].style.display = "block";  //해당 인덱스는 block으로 (보이게)
     setTimeout(slideShow, 3000);   //함수를 3초마다 호출
+}
 
+//위시리스트
+function heartClickOn(e) {
+    const normal=document.querySelector("#normalHeart");
+    const solid=document.querySelector('#solidHeart');
+    const resultCnt=document.querySelector('#heartCnt');
+    let cntNumber=resultCnt.innerText;
+    solid.style.display="none";
+
+    normal.addEventListener('click',function() {
+        normal.style.display="none";
+        solid.style.display="inline-block";
+        cntNumber=parseInt(cntNumber)+1;
+        resultCnt.innerText=cntNumber;
+    })
+
+    solid.addEventListener('click',function() {
+        normal.style.display="inline-block";
+        solid.style.display="none";
+        cntNumber=parseInt(cntNumber);
+        resultCnt.innerText=cntNumber;
+    })
 }
 
 //product 수량 count
@@ -64,9 +86,6 @@ function count(type)  {
 }
 
 //product sub box
-// window.onload = function(){
-//
-// }
 function detailInformation() {
     const detailbox=document.querySelector('.storeProductSubLi1');
     const productcommentbox=document.querySelector('.storeProductSubLi2');

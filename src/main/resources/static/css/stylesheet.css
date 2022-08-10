@@ -666,10 +666,15 @@ article{
 
 .productAmountCnt{
     background: white;
-    width:30px;
+    width:50px;
     height: 30px;
-    border:1px solid gray;
+    border:1px solid rgba(33,33,33,0.1);
     text-align: center;
+}
+
+.storeProductNav{
+    border-bottom:1px solid rgba(33,33,33,0.1);
+    color:gray;
 }
 
 .storeProductNav ul{
@@ -678,10 +683,33 @@ article{
     justify-content: center;
 }
 
-.storeProductNav ul li{
-    padding:40px;
+.storeProductSubLi1{
+    margin-top:200px;
 }
 
+.storeProductSubLi1 img{
+    width:1000px;
+    height:667px;
+    margin-bottom:80px;
+}
+
+.storeProductImgList{
+    /*width:1000px;*/
+    text-align: center; /* 이미지 가운데 정렬은 text-align */
+}
+
+.storeProductNav ul li{
+    padding:30px 30px 5px 30px;
+}
+
+.storeProductNav ul li:hover{
+    color: black;
+    font-weight: bold;
+}
+
+.amountCountWrap{
+    display: flex;
+}
 .storeProductSubBox{
     display: flex;
     justify-content: center;
@@ -689,7 +717,7 @@ article{
 
 .storeProductBtns{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .storeProductSubLi1{
@@ -700,16 +728,92 @@ article{
 .storeProductSubLi2{
     width:100%;
     height:100%;
+    padding:20px;
+}
+
+.storeProductSubLi2-text p{
+    font-size:13px;
+    font-weight: bold;
+}
+
+.storeProductSubLi3Table{
+    margin-top:20px;
+    border-top:1px solid black;
+    text-align: center;
+}
+
+.storeProductSubLi3Table table th{
+    color: #f7c316;
+}
+
+.storeProductSubLi2Btn{
+    background: #f7c316;
+    width:100px;
+    height:40px;
+    color: black;
+    border:none;
+    font-weight: bold;
+    font-size:13px;
+}
+
+.storeProductSubLi3Btn1{
+    background: #f7c316;
+    width:100px;
+    height:40px;
+    color: black;
+    border:none;
+    font-weight: bold;
+    font-size:13px;
+}
+
+.storeProductSubLi3Btn2{
+    width:100px;
+    height:40px;
+    color: black;
+    background: white;
+    border:1px solid rgba(33,33,33,0.1);
+    font-weight: bold;
+    font-size:13px;
+}
+
+.comment-item-text{
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-item-img img{
+    width:100%;
+    height: 100%;
 }
 
 .storeProductSubLi3{
     width:100%;
     height:100%;
+
 }
 
 .storeProductSubLi4{
     width:100%;
     height:100%;
+}
+
+.storeProductSubLi4 table{
+    margin-top:40px;
+}
+
+.storeProductSubLi4 table th{
+    background: rgba(33,33,33,0.1);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.storeProductSubLi4 table ol {
+    padding-left:20px;
+}
+
+.storeProductSubLi4 table td{
+    /*height:80px;*/
+    padding:20px 0px 20px 20px;
 }
 
 .storeProductTitle-new{
@@ -732,8 +836,81 @@ article{
 }
 
 .storeProductPrice{
+    font-size:22px;
+}
+
+#storeProductPrice-point{
+    font-weight: normal;
+    font-size:12px;
+}
+
+.storeProductAmount{
+    margin-top:10px;
+    border:1px solid #21212108;
+    background: #21212108;
+}
+
+.storeProductTotalPriceBox{
+    display: flex;
+    margin:20px 0px;
+    padding:10px 0px;
+}
+
+.storeProductTotalPrice{
+    margin-left: auto;
+    font-size:22px;
+}
+
+#price2{
     font-weight: bold;
     font-size:22px;
+}
+
+.storeProductPriceBtn button{
+    background: #f7c316;
+    width:160px;
+    height:45px;
+    color: white;
+    border:none;
+    font-weight: bold;
+}
+
+.storeProductBasketBtn button{
+    background: white;
+    width:160px;
+    height:45px;
+    color: black;
+    border:1px solid rgba(33,33,33,0.1);
+    font-weight: bold;
+}
+
+.storeProductWishListBtn button{
+    background: white;
+    width:160px;
+    height:45px;
+    color: black;
+    border:1px solid rgba(33,33,33,0.1);
+    font-weight: bold;
+}
+
+.storeProductAmount-text{
+    margin:10px;
+    padding:10px;
+    border-bottom:1px dotted rgba(33,33,33,0.1);
+}
+
+#amountBtnMinus, #amountBtnPlus {
+    width: 25px;
+    height: 30px;
+    background: white;
+    border: 1px solid rgba(33, 33, 33, 0.1);
+}
+
+.amountCountBox{
+    margin:10px;
+    padding:10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #price0{
@@ -758,7 +935,7 @@ article{
 
 .storeProductDescription ul{
     padding-left:0px;
-
+    /*background: red;*/
 }
 
 .storeProductDescription{
@@ -766,8 +943,18 @@ article{
     border-bottom:1px solid rgba(33,33,33,0.1);
 }
 
-.storeProductNote{
+.storeProductNoteBox{
     margin:20px 0px;
+    /*background: blue;*/
+    padding-left:0px;
+}
+
+.storeProductNoteBox ul{
+    padding-left:20px;
+}
+
+.storeProductNoteBox{
+
 }
 /*------------------- projects > Joguman Laboratory ----------------------*/
 .siema {

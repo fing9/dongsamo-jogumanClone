@@ -17,11 +17,24 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
     <link rel="stylesheet" href="/css/stylesheet.css">
+    <!-- 웹폰트 사용-->
+    <script src="https://kit.fontawesome.com/d2294d33a0.js" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
     <script>
         window.onload = function(){
             detailInformation();
+            heartClickOn();
         }
+
+        function postPrice(e) {
+            const btnBuy=document.querySelector('#buyBtn');
+            btnBuy.addEventListener('click', function(){
+                const totalPrice = document.querySelector('#price2');
+                let numberPrice=parseInt(totalPrice.innerText);
+                console.log(numberPrice);
+            })
+        }
+
     </script>
     <title>storeProduct</title>
 </head>
@@ -35,7 +48,7 @@
                             <img src="https://cdn.imweb.me/thumbnail/20220707/b684bfeea0032.jpg">
                         </div>
                         <div class="storeProductImgSelect">
-                            <ul>
+                            <ul class="listLiImg">
                                 <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
                                 <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
                                 <li><img src="https://cdn.imweb.me/thumbnail/20220707/f12179a733070.jpg"></li>
@@ -79,9 +92,9 @@
                             </div>
                         </div>
                         <div class="storeProductNoteBox">
-                            <div>THINGS TO NOTE</div>
-                            <div class="storeProductNote" style="list-style-type:circle;">
-                                <ul>
+                            <p>THINGS TO NOTE</p>
+                            <div class="storeProductNote">
+                                <ul style="list-style-type:circle;">
                                     <li>사용 중인 모니터 스크린과 스마트폰 기종에 따라 색상이 달라 보일 수 있습니다.</li>
                                     <li>본 제품은 구조 용품으로 사용할 수 없습니다.</li>
                                     <li>공기를 과하게 넣는 것은 파손의 원인이 되므로 공기를 과하게 넣지 마세요.</li>
@@ -89,31 +102,41 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="storeProductPrice">
-                            <span>구매혜택<span div="storeProductPrice-point">240</span> 포인트 적립예정 적립예정</span><br>
-                            <span>배송 방법 택배</span>
-                            <span>배송비 ₩3,000</span>
+                        <div style="font-size:12px;">
+                            <span style="font-weight: bold; font-size:12px;">구매혜택</span><span id="storeProductPrice-point">&nbsp;240</span> 포인트 적립예정 적립예정<br>
+                            <span style="font-weight: bold; font-size:12px;">배송 방법</span>&nbsp; 택배<br>
+                            <span style="font-weight: bold; font-size:12px;">배송비</span>&nbsp;₩3,000
                         </div>
                         <div class="storeProductAmount">
-                            <div>수량</div>
+                            <div class="storeProductAmount-text">수량</div>
                             <div class="amountCountBox">
-                            <div><input type='button' onclick='count("minus")' value='-'/></div>
-                            <div class="productAmountCnt" name="productAmountCnt" id='result1'>1</div>
-                            <div><input type='button' onclick='count("plus")' value='+'/></div>
-                            <div>₩<span id="price1">12000</span></div>
+                                <div class="amountCountWrap">
+                                    <div><input type='button' onclick='count("minus")' value='-' id="amountBtnMinus"/></div>
+                                    <div class="productAmountCnt" name="productAmountCnt" id='result1'>1</div>
+                                    <div><input type='button' onclick='count("plus")' value='+' id="amountBtnPlus"/></div>
+                                </div>
+                                <div class="amountCountText">
+                                    ₩<span id="price1">12000</span>
+                                </div>
                             </div>
-                            <div>총 상품금액<span>(<span name="productAmountCnt" id="result2">1</span>)</span></div>
-                            <div>₩<span id="price2">12000</span></div>
+                        </div>
+                        <div class="storeProductTotalPriceBox">
+                            <div>
+                                총 상품금액<span>(<span name="productAmountCnt" id="result2">1</span>)</span>
+                            </div>
+                            <div class="storeProductTotalPrice">
+                                ₩<span id="price2">12000</span>
+                            </div>
                         </div>
                         <div class="storeProductBtns">
                             <div class="storeProductPriceBtn">
-                                <button type="submit" onclick="location.href='/'">구매하기</button>
+                                <button type="submit" onclick="postPrice();" id="buyBtn">구매하기</button>
                             </div>
                             <div class="storeProductBasketBtn">
                                 <button type="submit" onclick="location.href='/'">장바구니</button>
                             </div>
                             <div class="storeProductWishListBtn">
-                                <button type="button">위시리스트 아이콘</button>
+                                <button type="button"><i class="fa-regular fa-heart" id="normalHeart" onclick="heartClickOn();"></i><i class="fa-solid fa-heart" id="solidHeart"></i>&nbsp;<span id="heartCnt">0</span></button>
                             </div>
                         </div>
                     </div>
@@ -121,32 +144,69 @@
                 <div class="storeProductNav">
                     <ul>
                         <li onclick="detailInformation();">상세정보</li>
+                        <li>/</li>
                         <li onclick="productcomment();">구매평</li>
+                        <li>/</li>
                         <li onclick="qna();">Q&A</li>
+                        <li>/</li>
                         <li onclick="productchange();">반품/교환</li>
                     </ul>
                 </div>
                 <div class="storeProductSubBox">
-                <div class="storeProductSubLi1" style="background-color: blue;" >
-
+                <div class="storeProductSubLi1">
+                    <div class="storeProductImgList">
+                        <img src="https://cdn.imweb.me/upload/S2020070945bd60b018bf8/bd281b4dbcdfe.jpg">
+                        <img src="https://cdn.imweb.me/upload/S2020070945bd60b018bf8/bd281b4dbcdfe.jpg">
+                    </div>
                 </div>
-                <div class="storeProductSubLi2" style="background-color: red;">
-                    <div>
+                <div class="storeProductSubLi2">
+                    <div class="storeProductSubLi2-text">
                         <p>디지털 상품의 경우, 배경화면이 적용된 모습 또는 사용하고 계신 모습을 올려주시면 감사하겠습니다!</p>
-                        (제품과 관련 없는 이미지의 경우 지급이 반려 될 수 있습니다.)
-                        <button type="submit" onclick="location.href='/'">구매평 작성</button>
-                        포토 구매평만 보기
+                        <p>(제품과 관련 없는 이미지의 경우 지급이 반려 될 수 있습니다.)</p>
+                        <button type="submit" onclick="location.href='/'" class="storeProductSubLi2Btn">구매평 작성</button><br><br>
                     </div>
-                    <div>
-                        <div>너무 귀엽네요. 책가방에 달고 다녀요</div>
-                        <div>janu****<br>2022-07-24 16:01</div>
+                    <div class="storeProductSubLi2-comment-box">
+                        <div style="border-bottom : 1px solid black; padding-bottom:15px; margin-bottom:15px; color:gray"><i class="fa-regular fa-image"></i>&nbsp;포토 구매평만 보기</div>
+                        <div class="storeProductSubLi2-comment">
+                            <div class="storeProductSubLi2-comment-item">
+                                <div class="comment-item-text">
+                                    <div style="font-weight: bold; font-size:13px;">⭐⭐⭐⭐⭐<br>너무 귀엽네요. 책가방에 달고 다녀요</div>
+                                    <div>janu****<br>2022-07-24 16:01</div>
+                                </div>
+                                <div class="comment-item-img" style="background-color: green; width:100px; height:100px;">
+                                    <img src="https://cdn.imweb.me/thumbnail/20220722/bb981c5746b97.jpeg">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="storeProductSubLi3" style="background-color: green;">
-                    <div>구매하시려는 상품에 대해 궁금한 점이 있으면 문의주세요.</div>
-                    <div>
-                        <button type="submit" onclick="location.href='/'">상품문의</button>
-                        <button type="submit" onclick="location.href='/'">1:1문의</button>
+                <div class="storeProductSubLi3">
+                    <div style="margin:20px 0px; font-size:13px; font-weight: bold;">구매하시려는 상품에 대해 궁금한 점이 있으면 문의주세요.</div>
+                    <div class="storeProductSubLi3Btns">
+                        <button type="submit" onclick="location.href='/'" class="storeProductSubLi3Btn1">상품문의</button>
+                        <button type="submit" onclick="location.href='/'" class="storeProductSubLi3Btn2">1:1문의</button>
+                    </div>
+                    <div class="storeProductSubLi3Table">
+                        <table class="table">
+                            <tr>
+                                <td>상태</td>
+                                <td>제목</td>
+                                <td>작성자</td>
+                                <td>등록일</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">답변완료</th>
+                                <td>입고문의</td>
+                                <td>gPwj****</td>
+                                <td>2022-08-10 09:40</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">답변완료</th>
+                                <td>재입고 문의</td>
+                                <td>euna****</td>
+                                <td>2022-07-29 08:55</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 <div class="storeProductSubLi4">
@@ -154,6 +214,10 @@
                         <tr>
                             <th scope="col">반품/교환 택배사</th>
                             <td>로젠택배</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">반품 배송비(편도)</th>
+                            <td>₩3,000</td>
                         </tr>
                         <tr>
                             <th scope="col">교환 배송비(왕복)</th>
@@ -171,12 +235,12 @@
                             <th scope="col">반품/교환 불가능 사유</th>
                             <td>
                                 <ol type="1">
-                                    <li>소비자의 부주의로 인해 상품가치가 훼손된 경우 (단, 내용물을 확인하기 위해 포장을 훼손한 경우는 제외)</li>
-                                    <li>소비자가 사용해서 물건의 가치가 뚜렷하게 떨어진 경우 (사용 흔적, 얼룩 등)</li>
-                                    <li>시간이 지나 다시 판매하기 곤란할 정도로 물건의 가치가 뚜렷하게 떨어진 경우</li>
-                                    <li>소비자의 주문에 따라 개별적으로 생산되는 상품이 제작에 들어간 경우</li>
-                                    <li>상품의 사용 및 제품 구성품을 파손하거나 분실한 경우</li>
-                                    <li>제품 상세페이지에 교환 및 반품 불가가 명시된 제품 (스티커, 지류 상품 등)</li>
+                                    <li>소비자의 부주의로 인해 상품가치가 훼손된 경우 (단, 내용물을 확인하기 위해 포장을 훼손한 경우는 제외)</li><br>
+                                    <li>소비자가 사용해서 물건의 가치가 뚜렷하게 떨어진 경우 (사용 흔적, 얼룩 등)</li><br>
+                                    <li>시간이 지나 다시 판매하기 곤란할 정도로 물건의 가치가 뚜렷하게 떨어진 경우</li><br>
+                                    <li>소비자의 주문에 따라 개별적으로 생산되는 상품이 제작에 들어간 경우</li><br>
+                                    <li>상품의 사용 및 제품 구성품을 파손하거나 분실한 경우</li><br>
+                                    <li>제품 상세페이지에 교환 및 반품 불가가 명시된 제품 (스티커, 지류 상품 등)</li><br>
                                     <li>디지털 상품</li>
                                 </ol>
                             </td>
