@@ -619,16 +619,10 @@ article{
     height:60px;
 }
 
-.storeProductTitle{
-    /*padding-left:15%;*/
-}
-
 .storeProductTitle-name{
     font-size:22px;
     padding:0px;
 }
-
-
 .storeProductImgSelect ul{
     padding : 10px 0 0 0;
     list-style:none;
@@ -648,12 +642,12 @@ article{
 
 .storeProductTextWrap{
     /*margin-left:50px;*/
-    background: green;
+    /*background: green;*/
     margin-left:100px;
 }
 
-.storeProductTitle-new{
-    display: inline-block;
+.storeProductTitle{
+    display: flex;
 }
 
 .storeProductTitle-name{
@@ -696,6 +690,84 @@ article{
 .storeProductBtns{
     display: flex;
     justify-content: center;
+}
+
+.storeProductSubLi1{
+    width:100%;
+    height:100%;
+}
+
+.storeProductSubLi2{
+    width:100%;
+    height:100%;
+}
+
+.storeProductSubLi3{
+    width:100%;
+    height:100%;
+}
+
+.storeProductSubLi4{
+    width:100%;
+    height:100%;
+}
+
+.storeProductTitle-new{
+    /*margin : 0 auto;*/
+    background: #ffcd00;
+    border:1px solid #ffcd00;
+    width:40px;
+    height:100%;
+    margin : auto;
+}
+
+.storeProduct-new{
+    text-align: center;
+    color: white;
+    font-size:10px;
+}
+
+.storeProductTitle-name{
+    font-weight: bold;
+}
+
+.storeProductPrice{
+    font-weight: bold;
+    font-size:22px;
+}
+
+#price0{
+    font-weight: bold;
+    font-size:22px;
+}
+
+.storeProductTitlePriceBox{
+    border-bottom : 1px solid rgba(33,33,33,0.1);
+    padding-bottom:20px;
+}
+
+.storeProductDescription{
+    padding-top:20px;
+}
+
+.storeProductDescription-ul-wrap{
+    margin:20px 20px 20px 0px;
+    padding:20px;
+    /*background: blue;*/
+}
+
+.storeProductDescription ul{
+    padding-left:0px;
+
+}
+
+.storeProductDescription{
+    margin-bottom:20px;
+    border-bottom:1px solid rgba(33,33,33,0.1);
+}
+
+.storeProductNote{
+    margin:20px 0px;
 }
 /*------------------- projects > Joguman Laboratory ----------------------*/
 .siema {

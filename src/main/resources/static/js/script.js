@@ -25,30 +25,42 @@ function count(type)  {
     // 결과를 표시할 element
     const resultElement1 = document.getElementById('result1');
     const resultElement2 = document.getElementById('result2');
+    const resultPrice0=document.querySelector('#price0');
+    const resultPrice1=document.querySelector('#price1');
+    const resultPrice2=document.querySelector('#price2');
 
     // 현재 화면에 표시된 값
     let number1 = resultElement1.innerText;
     let number2 = resultElement2.innerText;
+    let priceNumber0 = resultPrice0.innerText;
+    let priceNumber1 = resultPrice1.innerText;
+    let priceNumber2 = resultPrice2.innerText;
 
     // 더하기/빼기
     if(type === 'plus') {
         number1 = parseInt(number1) + 1;
         number2 = parseInt(number2) + 1;
+        priceNumber1 = parseInt(priceNumber0)*number1;
+        priceNumber2 = parseInt(priceNumber0)*number1;
     }
     else if(type === 'minus')  {
         number1 = parseInt(number1) - 1;
         number2 = parseInt(number2) - 1;
+        priceNumber1 = parseInt(priceNumber1)-parseInt(priceNumber0);
+        priceNumber2 = parseInt(priceNumber2)-parseInt(priceNumber0);
 
         if(number1<=1 && number2<=1){
             number1=1;
             number2=1;
-            totalPriceNumber1=parseInt(priceNumber1);
+            priceNumber1=parseInt(priceNumber0);
+            priceNumber2=parseInt(priceNumber0);
         }
     }
     // 결과 출력
     resultElement1.innerText = number1;
     resultElement2.innerText = number2;
-    resultPrice1.innerText=String(totalPriceNumber1);
+    resultPrice1.innerText = priceNumber1;
+    resultPrice2.innerText = priceNumber2;
 }
 
 //product sub box

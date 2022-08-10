@@ -50,9 +50,9 @@ public class MainController {
         return "signUpSub";
     }
 
-//    @GetMapping("/storeProduct")
-//    public String storeProduct() {
-//        return "storeProduct";
-//    }
+    @GetMapping("/storeProduct")
+    public String storeProduct() {
+        return "storeProduct";
+    }
 
 }
