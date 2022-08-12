@@ -941,7 +941,9 @@ button:focus { outline: 0; }
     display: flex;
 }
 .myPageInfoUser {
-    align-content: center;
+    display: inline-block;
+    text-align: left;
+    align-items: center;
 }
 .myPageOrderTypeNew {
     background: #f7c316;
@@ -954,9 +956,7 @@ button:focus { outline: 0; }
 }
 .myPageCardWrap {
     border: none;
-}
-.myPageCard {
-
+    background-color: #F5F6F7;
 }
 /*order*/
 .order {
@@ -986,17 +986,17 @@ button:focus { outline: 0; }
 .orderWrap {
     display: flex;
 }
-.orderWrap h6 {
+.orderWrap h4 {
     padding-bottom:20px;
 }
 .orderProductWrap {
-    border: 1px solid black;
+    border: 1px solid rgba(33, 33, 33, 0.15);
     display:flex;
     flex-direction: column;
 }
 .orderProductDeliveryFee {
     background-color: #21212108;
-    border-top: 1px solid black;
+    border-top: 1px solid rgba(33, 33, 33, 0.15);
     text-align: center;
     padding: 10px 14px;
 }
@@ -1048,6 +1048,9 @@ button:focus { outline: 0; }
 .orderUser {
     margin-top: 20px;
 }
+.orderProductInfo {
+    margin-top: 20px;
+}
 .orderFloatRight {
     float: right;
 }
@@ -1061,6 +1064,7 @@ button:focus { outline: 0; }
     background-color: #ffd100;
     color:#000000;
     border: none;
+
 }
 .orderUserFixBtn:hover, .orderUserPointUseBtn:hover {
     background-color: #000000;
@@ -1083,7 +1087,92 @@ button:focus { outline: 0; }
 .orderPayTypeRadioWrap {
     display: flex;
     justify-content: space-between;
+    margin-top: 14px;
 }
 .orderPayTypeRadio{
     margin: 0 10px;
+}
+.width50 {
+    float: left;
+    width: 50%;
+    margin: 0;
+}
+.orderUserInfoNameWrap{
+    padding: 0px 5px 0px 0px;
+}
+.orderUserInfoPhoneWrap {
+    padding: 0px 0px 0px 5px;
+ }
+.width100 {
+    float: left;
+    width: 100%;
+    padding: 10px 0px 0px;
+}
+.inputPadding{
+    width: 100%;
+    padding: 7px 10px;
+}
+.orderUserInfoChange {
+    height: 90px;
+}
+.orderProductDeliveryChange ul {
+    margin-bottom: 24px;
+    padding: 0;
+    border-bottom:1px solid black;
+}
+.orderProductDeliveryChange ul li {
+    display: inline-block;
+    font-weight: normal;
+    list-style-type: none;
+    margin: 0;
+    border:1px solid black;
+    border-bottom: none;
+}
+.orderProductDeliveryChange ul li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding:9px 15px;
+}
+.orderDeliveryTapList {
+    border-bottom: 1px solid black;
+}
+.orderDeliveryTapList ul {
+    border: none;
+}
+.orderDeliveryTapList ul li {
+    border: none;
+}
+.orderProductDeliveryTab, .orderProductDeliveryTabNew {
+    height: 150px;
+    padding-bottom: 14px;
+}
+.orderProductDeliveryTabNew {
+    height:200px;
+    padding-top: 14px;
+}
+.orderProductDeliveryTabNew div{
+    padding: 14px 0;
+}
+.width25 {
+    float: left;
+    width:25%;
+    maring: 0;
+    padding-top: 10px;
+}
+.width25 input {
+    width: 100%;
+    padding:7px 10px;
+}
+.width25 a {
+    width:100%;
+    text-decoration: none;
+    color: black;
+}
+.orderDelivery {
+    padding-top: 14px;
+    height: 100px;
+}
+.orderProductDeliveryTabNew {
+    height:150px
 }

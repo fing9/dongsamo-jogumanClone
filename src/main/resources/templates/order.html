@@ -29,7 +29,7 @@
                 <div class="orderWrap">
                     <div>
                         <div class="orderProduct">
-                            <h6>주문 상품 정보</h6>
+                            <h4>주문 상품 정보</h4>
                             <div class="orderProductWrap">
                                 <div class="orderProductImgInfo">
                                     <div class="orderProductImg">
@@ -45,36 +45,101 @@
                             </div>
                         </div>
                         <div class="orderProduct">
-                            <h6>주문자 정보</h6>
+                            <h4>주문자 정보</h4>
                             <div class="orderBox">
                                 디지털 상품은 특성상 결제완료 후 환불이 불가합니다!
                             </div>
                             <div class="orderUser">
                                 <button type="button" onclick=""
-                                        class="btn btn-primary orderUserFixBtn orderFloatRight">수정
+                                        class="btn btn-primary orderUserFixBtn orderFloatRight" id="orderUserFixBtn">수정
                                 </button>
-                                <div style="margin-bottom: 4px;">
-                                    송관석
+                                <div class="orderUserInfoDefault">
+                                    <div style="margin-bottom: 4px;">
+                                        송관석
+                                    </div>
+                                    <div>01085526745</div>
+                                    <div>sgs980902@naver.com</div>
                                 </div>
-                                <div>01085526745</div>
-                                <div>sgs980902@naver.com</div>
-
+                                <div class="orderUserInfoChange" style="display: none;">
+                                    <div class="orderUserInfoNameWrap width50">
+                                        <input type="text" class="orderUserInfoName inputPadding">
+                                    </div>
+                                    <div class="orderUserInfoPhoneWrap width50">
+                                        <input type="text" class="orderUserInfoPhone inputPadding">
+                                    </div>
+                                    <div class="orderUserInfoEmailWrap width100">
+                                        <input type="text" class="orderUserInfoEmail inputPadding">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="orderProduct">
-                            <h6>배송 정보</h6>
-                            <div class="orderUser">
-                                <button type="button" onclick=""
-                                        class="btn btn-primary orderUserFixBtn orderFloatRight">변경
-                                </button>
-                                <div style="margin-bottom: 4px;">
-                                    송관석
+                            <h4>배송 정보</h4>
+                            <div class="orderProductInfo">
+                                <div class="orderProductDeliveryDefault">
+                                    <button type="button" onclick=""
+                                            class="btn btn-primary orderUserFixBtn orderFloatRight" id="orderDeliveryChange">변경
+                                    </button>
+                                    <div style="margin-bottom: 4px;">
+                                        송관석
+                                    </div>
+                                    <div>01085526745</div>
+                                    <div>
+                                        <p>경기 성남시 중원구 둔촌대로171번길 6 (성남동, 금호어울림아파트)</p>
+                                        <p>105동 201호</p>
+                                        <p>13371</p>
+                                    </div>
                                 </div>
-                                <div>01085526745</div>
-                                <div>
-                                    <p>경기 성남시 중원구 둔촌대로171번길 6 (성남동, 금호어울림아파트)</p>
-                                    <p>105동 201호</p>
-                                    <p>13371</p>
+                                <div class="orderProductDeliveryChange" style="display: none">
+                                    <ul>
+                                        <li>
+                                            <a class="orderSelectBtn">배송지 선택</a>
+                                        </li>
+                                        <li>
+                                            <a class="orderNewBtn">신규 입력</a>
+                                        </li>
+                                    </ul>
+                                    <div class="orderProductDeliveryTab">
+                                        <div class="orderDeliveryTapList">
+                                            <ul>
+                                                <li>
+                                                    <label style="border: none">
+                                                        <input type="radio" name="orderTapListRadio" checked>
+                                                        <span>송관석</span>
+                                                        <span>01085526745</span>
+                                                        <span><p>경기 성남시 중원구 둔촌대로171번길 6 (성남동, 금호어울림아파트)</p>
+                                                              <p>105동 201호</p>
+                                                              <p>13371</p>
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="orderProductDeliveryTabNew" style="display: none">
+                                        <div>
+                                            <input type="checkbox" id="orderDeliverySame">
+                                            <label for="orderDeliverySame">주문자 정보와 동일</label>
+                                        </div>
+                                        <div class="orderUserInfoNameWrap width50">
+                                            <input type="text" class="orderUserInfoName inputPadding">
+                                        </div>
+                                        <div class="orderUserInfoPhoneWrap width50">
+                                            <input type="text" class="orderUserInfoPhone inputPadding">
+                                        </div>
+                                        <div class="width25">
+                                            <input type="text" class="orderUserPostNum inputPadding">
+                                        </div>
+                                        <div class="width25">
+                                            <a href="">주소찾기</a>
+                                        </div>
+                                        <div class="width100">
+                                            <input type="text" class="orderUserPost inputPadding">
+                                        </div>
+                                        <div class="width100">
+                                            <input type="text" class="orderUserPostDetail inputPadding">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="orderDelivery">
                                     <p>배송 메모</p>
@@ -89,7 +154,7 @@
                             </div>
                         </div>
                         <div class="orderProduct">
-                            <h6>포인트</h6>
+                            <h4>포인트</h4>
                             <div class="orderUserPoint">
                                 <div style="margin-bottom: 4px;">
                                     포인트
@@ -111,7 +176,7 @@
                         <div class="orderSummaryPoint">
                             <div class="orderSummary">
                                 <div>
-                                    <h6>주문요약</h6>
+                                    <h3>주문요약</h3>
                                     <div class="orderSummaryDetail">
                                         <div>
                                             <p>상품가격</p>
@@ -134,14 +199,14 @@
                         </div>
                         <div class="orderSummaryPoint">
                             <div class="orderSummary">
-                                <h6>결제 수단</h6>
+                                <h4>결제 수단</h4>
                                 <div class="orderPayTypeRadioWrap">
                                     <div class="orderPayTypeRadio">
                                         <input type="radio" name="orderPayTypeRadio" value="card" checked>
                                         <p>신용카드</p>
                                     </div>
                                     <div class="orderPayTypeRadio">
-                                        <input type="radio" name="orderPayTypeRadio"  value="cacao">
+                                        <input type="radio" name="orderPayTypeRadio" value="cacao">
                                         <p>카카오페이</p>
                                     </div>
                                 </div>
@@ -151,12 +216,12 @@
                             <div class="orderSummary">
                                 <div>
                                     <label style="margin-bottom: 4px;">
-                                    <input type="checkbox" class="agreeAll" name="agree_all"><span class="text-14">전체 동의</span>
+                                        <input type="checkbox" class="agreeAll" name="agree_all"><span class="text-14">전체 동의</span>
                                     </label>
                                     <br>
                                     ㄴ
                                     <label style="margin-bottom: 4px;">
-                                    <input type="checkbox" class="agree" name="agree"><span class="text-14">구매조건 확인 및 결제진행에 동의</span>
+                                        <input type="checkbox" class="agree" name="agree"><span class="text-14">구매조건 확인 및 결제진행에 동의</span>
                                     </label>
                                 </div>
                             </div>

@@ -127,13 +127,59 @@ $(function(){
         day.append('<option value="i">'+i+'</option>');
     }
 });
-//order 결제 정보 radio btn
+//order 주문자 정보 변경 버튼
 $(function(){
-    var radiochk = $("input[name=orderPayTypeRadio]:checked").val();
-    if(radiochk == 'cacao'){
-        $("input[name=orderPayTypeRadio]").prop('checked', false);
-    }else{
+    var fixBtn = $('#orderUserFixBtn');
 
-    }
 
+    fixBtn.click(function (){
+        $('.orderUserInfoDefault').css({
+            display: 'none'
+        });
+        $('.orderUserInfoChange').css({
+            display: 'block'
+        });
+        fixBtn.css({
+            display: 'none'
+        });
+    });
+
+});
+//order 배송정보 변경 버튼
+$(function (){
+    var changeBtn = $('#orderDeliveryChange');
+
+    changeBtn.click(function(){
+        $('.orderProductDeliveryDefault').css({
+            display: 'none'
+        });
+        $('.orderProductDeliveryChange').css({
+            display: 'block'
+        });
+        changeBtn.css({
+            display: 'none'
+        });
+    });
+    $('.orderSelectBtn').click(function(){
+        $('.orderProductDeliveryDefault').css({
+            display: 'none'
+        });
+        $('.orderProductDeliveryTab').css({
+            display: 'block'
+        });
+        $('.orderProductDeliveryTabNew').css({
+            display: 'none'
+        });
+    })
+    $('.orderNewBtn').click(function (){
+        $('.orderProductDeliveryDefault').css({
+            display: 'none'
+        });
+        $('.orderProductDeliveryTab').css({
+            display: 'none'
+        });
+        $('.orderProductDeliveryTabNew').css({
+            display: 'block'
+        });
+    })
 });
