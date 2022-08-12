@@ -894,7 +894,7 @@ button:focus { outline: 0; }
 .myPageArticle {
     display:flex;
     justify-content: space-between;
-    padding: 80px 150px;
+    padding: 50px 150px;
 }
 .myPageNav {
     display: inline-block;
@@ -920,11 +920,43 @@ button:focus { outline: 0; }
 }
 
 .myPageHead {
+    display: flex;
+    justify-content: space-between;
     background-color: white;
     width:1000px;
     padding: 50px 0 40px 45px;
     margin-bottom: 70px;
     text-align: center;
+}
+.myPagePoint {
+    border-left: 1px solid black;
+    width: 250px;
+}
+.myPageInfo img{
+    width: 85px;
+    height: 85px;
+    margin-right: 20px;
+}
+.myPageInfo {
+    display: flex;
+}
+.myPageInfoUser {
+    align-content: center;
+}
+.myPageOrderTypeNew {
+    background: #f7c316;
+    color:white;
+    /*font-weight: bold;*/
+    padding:5px;
+    width:50px;
+    text-align: center;
+    height:100%;
+}
+.myPageCardWrap {
+    border: none;
+}
+.myPageCard {
+
 }
 /*order*/
 .order {
@@ -1029,7 +1061,6 @@ button:focus { outline: 0; }
     background-color: #ffd100;
     color:#000000;
     border: none;
-
 }
 .orderUserFixBtn:hover, .orderUserPointUseBtn:hover {
     background-color: #000000;
