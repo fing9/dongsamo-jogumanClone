@@ -85,6 +85,7 @@ function count(type)  {
     resultPrice2.innerText = priceNumber2;
 }
 
+
 //product sub box
 function detailInformation() {
     const detailbox=document.querySelector('.storeProductSubLi1');
@@ -96,6 +97,7 @@ function detailInformation() {
     qnabox.style.display="none";
     productchangebox.style.display="none";
 }
+
 function productcomment() {
     const detailbox=document.querySelector('.storeProductSubLi1');
     const productcommentbox=document.querySelector('.storeProductSubLi2');

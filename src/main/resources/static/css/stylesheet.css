@@ -95,7 +95,7 @@ input[type=checkbox] {
     color:red; font-size:10px; padding-top:5px;
 }
 section{
-    padding-top: 150px;
+    /*padding-top: 150px;*/
     background-color:#F5F6F7;
 }
 .articleAdmin {
@@ -512,30 +512,6 @@ article{
 
 .articleStoreNav ul li:hover{
     color: black;
-}
-
-.storeWrap{
-    margin:0px;
-}
-
-.storeCard{
-    margin : 0;
-    z-index: -1;
-}
-
-.storeDivWrap{
-    padding:0px;
-    margin:0px;
-}
-
-.storeCol{
-    width:304px;
-    height:450px;
-}
-
-.storeCard{
-    width:304px;
-    height:304px;
 }
 
 .articleSubNav{
@@ -1122,30 +1098,26 @@ button:focus { outline: 0; }
     color: #8f8d89;
 }
 
-.storeWrap{
-    width:1300px;
-    height:400px;
-    margin:0px;
-}
-
-.storeCard{
-    margin : 0;
-    z-index: -1;
-}
-
 .storeDivWrap{
     padding:0px;
     margin:0px;
 }
 
+.storeWrap{
+    display: flex;
+    justify-content: space-between;
+}
+
 .storeCol{
     width:304px;
-    height:304px;
+    height:450px;
 }
 
 .storeCard{
     width:304px;
     height:304px;
+    margin : 0px;
+    z-index: -1;
 }
 
 .collaboComoHeadImg img{
@@ -1253,4 +1225,85 @@ button:focus { outline: 0; }
 .loginTagA a {
     color: black;
     text-decoration: none;
+}
+
+/*--------------------------download------------------------------------*/
+
+.downloadSubImg {
+    //background-color: green;
+
+    height: 400px;
+    width: 100%;
+
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) /*이미지 어둡게하기*/, url("https://cdn.imweb.me/thumbnail/20220622/0010672a38e8c.jpg");
+    background-position: center;
+    background-size: cover;
+
+    color: white;
+
+    /*컨텐츠(내용물) 정렬, 4줄이 세트*/
+    display: flex;
+    flex-direction: column; /*column : 세로, row : 가로*/
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom:60px;
+}
+
+.downloadSubText{
+    display: flex;
+    flex-direction: column; /*column : 세로, row : 가로*/
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding:100px 0px;
+}
+
+.downloadSubImgList img{
+    width:870px;
+    height:870px;
+}
+
+.downloadSubImgWrap{
+    display: flex;
+    flex-direction: column; /*column : 세로, row : 가로*/
+    justify-content: center;
+    align-items: center;
+    margin-bottom:50px;
+}
+
+.downloadSubMsg{
+    margin-left:320px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.downloadFile{
+    margin-left:300px;
+}
+
+.downloadFileWrap{
+    width:870px;
+    height:80px;
+    background: #f7f7f7;
+    padding:15px;
+    display: flex;
+}
+
+.downloadFileWrap a{
+    text-decoration: none;
+    color:#f7c316;
+    font-weight: bold;
+}
+
+.downloadFileWrap em{
+    font-weight: bold;
+    color:gray;
+    font-size:11px;
+}
+
+.downloadFooter{
+    width:100%;
+    height:80px;
+    background: white;
 }
