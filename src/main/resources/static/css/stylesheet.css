@@ -1143,16 +1143,14 @@ button:focus { outline: 0; }
 .orderDeliveryTapList ul li {
     border: none;
 }
-.orderProductDeliveryTab, .orderProductDeliveryTabNew {
+.orderProductDeliveryTab{
     height: 150px;
     padding-bottom: 14px;
 }
 .orderProductDeliveryTabNew {
-    height:200px;
-    padding-top: 14px;
-}
-.orderProductDeliveryTabNew div{
-    padding: 14px 0;
+    height:300px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid black;
 }
 .width25 {
     float: left;
@@ -1165,14 +1163,96 @@ button:focus { outline: 0; }
     padding:7px 10px;
 }
 .width25 a {
-    width:100%;
+    display: inline-block;
+    height: 39px;
     text-decoration: none;
     color: black;
+    border: 0.5px solid #8f8d89;
+    padding-left: 14px;
+    background-color:#F2F2F2;
+    text-align: center;
 }
 .orderDelivery {
     padding-top: 14px;
     height: 100px;
 }
-.orderProductDeliveryTabNew {
-    height:150px
+.orderUserPostBtn {
+    padding-left: 14px;
+}
+.orderPadding {
+    padding-top:14px;
+}
+/*myPageModal*/
+.myPageModal {
+    width: 370px;
+}
+.myPageModalUser {
+    padding: 0;
+    margin-bottom: 25px;
+}
+.myPageModalMargin {
+    margin-bottom: 25px;
+}
+.myPageModalUser {
+    font-size: 16px;
+    text-align: center;
+}
+.myPageModalMargin label {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.myPageModalMargin input {
+    padding: 12px 16px;
+}
+.myPageModalBody {
+    padding: 32px 24px 24px;
+ }
+.myPageModalSelect {
+    float: left;
+    position: relative;
+    width: 32.6%;
+    max-width: 108px;
+    border: 0.5px solid #8f8d89;
+}
+.myPageModalSelectMargin {
+    margin: 0px 3px -1px 0px;
+}
+.myPageModalSelect select {
+    width: 100%;
+    height: 43px;
+    border: none;
+    background: none;
+}
+.myPageMdUserBirth {
+    position: relative;
+    height: 43px;
+    width: 100%;
+}
+.myPageModalSubmitBtn {
+    text-align: center;
+    width: 100%;
+    height: 47px;
+    border: none;
+    background-color: #FFD100;
+    color: #FFFFFF;
+}
+/*modalSecession*/
+.myPageModalSecession {
+    width: 600px;
+    padding: 24px 16px 16px;
+}
+.textAlineCenter {
+    text-align: center;
+}
+.modalSecessionBtn button:first-child {
+    border: none;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    color: black;
+}
+.modalSecessionBtn button:nth-child(2){
+    border: none;
+    padding: 10px 25px;
+    background-color: #FFD100;
+    color: #FFFFFF;
 }

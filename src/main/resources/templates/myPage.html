@@ -19,8 +19,10 @@
                     <li><a href="#">취소/교환/반품</a></li>
                     <li><a href="#">포인트</a></li>
                     <li><a href="#">1:1 문의</a></li>
-                    <li><a href="#">정보수정</a></li>
-                    <li><a href="#">회원탈퇴</a></li>
+                    <li><a href="#" data-bs-toggle="modal"
+                           data-bs-target="#myPageUserInfoFix">정보수정</a></li>
+                    <li><a href="#" data-bs-toggle="modal"
+                           data-bs-target="#myPageModalSecession">회원탈퇴</a></li>
                 </ul>
             </div>
             <div style="width: 1000px">
@@ -62,7 +64,88 @@
                     </div>
                 </div>
             </div>
-            <div></div>
+            <!-- Modal -->
+            <div class="modal fade" id="myPageUserInfoFix" tabindex="-1" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog myPageModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title myPageModalTitle" id="exampleModalLabelCheck">정보 수정</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body myPageModalBody">
+                            <div class="mb-3 myPageModalMargin">
+                                <div class="myPageModalUser">회원</div>
+                            </div>
+                            <div class="mb-3 myPageModalMargin">
+                                <input type="text" class="form-control" id="myPageMdEmail"
+                                       placeholder="Email" disabled>
+                                <input type="text" class="form-control" id="myPageMdPwOld"
+                                       placeholder="기존 비밀번호 입력">
+                                <input type="text" class="form-control" id="myPageMdPwNew"
+                                       placeholder="비밀번호를 변경하는 경우 입력하세요">
+                                <input type="text" class="form-control" id="myPageMdPwNewConfirm"
+                                       placeholder="비밀번호 확인">
+                            </div>
+                            <div class="mb-3 myPageModalMargin">
+                                <label for="myPageMdUserName">이름</label>
+                                <input type="text" class="form-control" id="myPageMdUserName">
+                            </div>
+                            <div class="mb-3 myPageModalMargin">
+                                <label for="myPageMdUserPhone">연락처</label>
+                                <input type="text" class="form-control" id="myPageMdUserPhone">
+                            </div>
+                            <div class="mb-3 myPageModalMargin">
+                                <label for="myPageMdUserBirth">생년월일</label>
+                                <div class="myPageMdUserBirth" id="myPageMdUserBirth">
+                                    <div class="myPageModalSelect myPageModalSelectMargin">
+                                        <select title="생년월일" name="myPageYear" id="selectYear"></select>
+                                    </div>
+                                    <div class="myPageModalSelect myPageModalSelectMargin">
+                                        <select title="생년월일" name="myPageMonth" id="selectMonth"></select>
+                                    </div>
+                                    <div class="myPageModalSelect">
+                                        <select title="생년월일" name="myPageDay" id="selectDay"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 myPageModalMargin">
+                                <p>
+                                    <button class="myPageModalSubmitBtn">확인</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ModalSecession -->
+            <div class="modal fade" id="myPageModalSecession" tabindex="-1" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content myPageModalSecession">
+                        <div class="modal-header textAlineCenter">
+                            <p>
+                            <h1>회원탈퇴</h1></p>
+                        </div>
+                        <div class="modal-body">
+                            <div class="myPageModalMargin">
+                                <div>가입된 회원정보가 모두 삭제됩니다. 작성하신 게시물은 삭제되지 않습니다.</div>
+                                <div>탈퇴 후 같은 계정으로 재가입 시 기존에 가지고 있던 적립금은 복원되지 않으며, 사용 및 다운로드했던 쿠폰도 사용 불가능합니다.</div>
+                                <div>회원 탈퇴를 진행하시겠습니까?</div>
+                            </div>
+                            <div class="textAlineCenter modalSecessionBtn">
+                                <button data-bs-dismiss="modal" aria-label="Close">
+                                    취소
+                                </button>
+                                <button>
+                                    탈퇴하기
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="articleGap"></div>
     </section>
