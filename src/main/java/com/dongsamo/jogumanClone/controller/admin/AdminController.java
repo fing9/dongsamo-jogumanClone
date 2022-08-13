@@ -48,27 +48,30 @@ public class AdminController {
 //    }
 
     @PostMapping("/admin/save")
-    public ModelAndView saveProduct( //@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
+    public Model saveProduct( //@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
                                      @Valid ProductVo productVo,
-                                     BindingResult errors
+                                     BindingResult errors,
+                                     Model model
     ) throws Exception {
 
-        ModelAndView mv = new ModelAndView();
+        //ModelAndView mv = new ModelAndView();
 
         if (errors.hasErrors()) {
             // 유효성 통과 못한 필드와 메시지를 핸들링
             Map<String, String> validatorResult = validateHandler.validateHandling(errors);
             for (String key : validatorResult.keySet()) {
-                mv.addObject(key, validatorResult.get(key));
+                //mv.addObject(key, validatorResult.get(key));
+                model.addAttribute(key, validatorResult.get(key));
             }
 
             // 데이터 갱신을 위한 임시 코드
             List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
-            mv.addObject("productSimpleList", productSimpleDtoList);
+            //mv.addObject("productSimpleList", productSimpleDtoList);
+            model.addAttribute("productSimpleList", productSimpleDtoList);
 
-            mv.setViewName("admin");//setView(new RedirectView("/admin"));
+            //mv.setViewName("admin");//setView(new RedirectView("/admin"));
 
-            return mv;
+            return model;//mv;
         }
 
         ProductDto productDto = productService.save(Product.builder()
@@ -81,20 +84,21 @@ public class AdminController {
 
         // 데이터 갱신을 위한 임시 코드
         List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
-        mv.addObject("productSimpleList", productSimpleDtoList);
+        //mv.addObject("productSimpleList", productSimpleDtoList);
+        model.addAttribute("productSimpleList", productSimpleDtoList);
 
-        mv.setView(new RedirectView("/admin"));
+        //mv.setView(new RedirectView("/admin"));
 
         //다른 URI로 파싱할수도 있음
-        return mv;
+        return model;//mv;
     }
 
     //change 요청이 왔을 때 파라미터로 받은 id값을 가지고 기존값을 리턴해줌
     @GetMapping("/admin/update")
-    public ModelAndView update(@RequestParam(value = "id", required = true) Long id) {
-        ModelAndView mv = new ModelAndView();
+    public Model update(@RequestParam(value = "id", required = true) Long id, Model model) {
+        //ModelAndView mv = new ModelAndView();
 
-        mv.setViewName("admin");
+        //mv.setViewName("admin");
         //mv.setView(new RedirectView("/admin"));
 
         ProductVo productVo = new ProductVo();
@@ -106,18 +110,19 @@ public class AdminController {
         productVo.setPrice(productDto.getPrice());
         productVo.setName(productDto.getName());
 
-        mv.addObject("productVo", productVo);
-        return mv;
+        //mv.addObject("productVo", productVo);
+        model.addAttribute("productVo", productVo);
+        return model;//mv;
     }
 
     //만들다가 말았음
     @PostMapping("/admin/update")
-    public ModelAndView update(//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
+    public Model update(//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
                                @Valid ProductVo productVo,
                                BindingResult errors,
                                Model model
     ) throws Exception {
-        ModelAndView mv = new ModelAndView();
+        //ModelAndView mv = new ModelAndView();
 
         if (errors.hasErrors()) {
             // 유효성 통과 못한 필드와 메시지를 핸들링
@@ -130,15 +135,16 @@ public class AdminController {
             List<ProductSimpleDto> productSimpleDtoList = productService.findSimpleAll();
             model.addAttribute("productSimpleList", productSimpleDtoList);
 
-            mv.setViewName("admin");//setView(new RedirectView("/admin"));
+            //mv.setViewName("admin");//setView(new RedirectView("/admin"));
 
-            return mv; //업데이트에서는 리다이렉션이 아니라 모델을 반환해주는게 맞을듯....?! 리다이렉션은 GetMapping("/admin/change")인경우 admin으로 이어줘서 해결하자
+            return model;//mv; //업데이트에서는 리다이렉션이 아니라 모델을 반환해주는게 맞을듯....?! 리다이렉션은 GetMapping("/admin/change")인경우 admin으로 이어줘서 해결하자
         }
 
-        productService.updateById(productVo.getId(), productVo, productVo.getImages());
+        ProductVo productVoRet = productService.updateById(productVo.getId(), productVo, productVo.getImages());
+        model.addAttribute("productVo", productVoRet);
 
-        mv.setView(new RedirectView("/admin"));
+        //mv.setView(new RedirectView("/admin"));
 
-        return mv;
+        return model;//mv;
     }
 }
