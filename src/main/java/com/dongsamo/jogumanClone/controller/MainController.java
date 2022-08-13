@@ -53,7 +53,8 @@ public class MainController {
         }
 
         model.addAttribute("productVo", productVo);
-        return "admin";
+//        System.out.println("product id ; " + productVo.getId());
+        return "/admin";
     }
 
     @GetMapping("/signup")

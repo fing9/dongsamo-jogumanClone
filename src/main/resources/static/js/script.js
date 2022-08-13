@@ -91,21 +91,23 @@ $(function(){
     });
 });
 
-$(function () {
-    $('#adminFixBtn').click(function () {
-        var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
-
-        $.ajax({
-            url: "/admin",
-            type: "GET",
-            data: {
-                id: $checkbox
-            },
-            dataType: "json",
-            contentType: "application/x-www-form-urlencoded; charset=UTF-8;"
-        });
-    });
-});
+// var buttonUpdate = document.getElementsByClassName('btn-outline-secondary')
+//
+// $(function () {
+//     $('#adminFixBtn').click(function () {
+//         var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
+//
+//         $.ajax({
+//             url: "/admin",
+//             type: "GET",
+//             data: {
+//                 id: $checkbox
+//             },
+//             dataType: "json",
+//             contentType: "application/x-www-form-urlencoded; charset=UTF-8;"
+//         });
+//     });
+// });
 
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");

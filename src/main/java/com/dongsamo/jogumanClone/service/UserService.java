@@ -1,5 +1,6 @@
 package com.dongsamo.jogumanClone.service;
 
+import com.dongsamo.jogumanClone.component.DtoMapper;
 import com.dongsamo.jogumanClone.domain.user.User;
 import com.dongsamo.jogumanClone.domain.user.UserRepository;
 import com.dongsamo.jogumanClone.dto.UserDto;
@@ -9,11 +10,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+
+    private final DtoMapper dtoMapper;
 
     /*
     Spring Security 필수 메소드 구현
@@ -49,5 +55,16 @@ public class UserService implements UserDetailsService {
                 .point(0L)
                 .totalprice(0L)
                 .build()).getId();
+    }
+
+    public List<UserDto> findAll() {
+        List<User> userList = userRepository.findAll();
+        List<UserDto> userDtoList = new ArrayList<>();
+
+        for(int i=0;i<userList.size();i++) {
+            userDtoList.add(dtoMapper.userEntityToDto(userList.get(i)));
+        }
+
+        return userDtoList;
     }
 }

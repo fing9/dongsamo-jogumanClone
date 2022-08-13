@@ -111,7 +111,8 @@
             </div>
 
             <!-- Button trigger modal -->
-            <button type="submit" class="btn btn-outline-secondary" data-bs-toggle="modal"
+<!--            Testline-->
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
                     data-bs-target="#exampleModalRevise" id="adminFixBtn">
                 수정
             </button>
@@ -119,7 +120,7 @@
             <div class="modal fade" id="exampleModalRevise" tabindex="-1" aria-labelledby="myModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                    <div class="modal-content" id="modal-content">
                         <form class="sign-up" method="post" th:action="@{/admin/update}" th:object="${productVo}" id="formUpdate"
                               enctype="multipart/form-data">
                             <div class="modal-header">
@@ -130,8 +131,7 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">ID</label>
-                                    <input type="text" class="form-control" id="id" th:field="*{id}"
-                                           readonly="readonly">
+                                    <input type="text" class="form-control" id="id" th:field="*{id}" readonly="readonly">
                                 </div>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">상품 이름</label>
