@@ -2,18 +2,55 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<div th:fragment="headerFragment" class="header navbar-fixed-top">
-<!--    <div class="headerImg">-->
-<!--        <img src="https://cdn.imweb.me/thumbnail/20220620/ea8ae05d24bca.png">-->
-<!--    </div>-->
+<div th:fragment="headerFragment" class="header">
     <div class="headerNav">
         <ul>
             <li class="headerImg"><a href="/" id="main"><img src="https://cdn.imweb.me/thumbnail/20220620/ea8ae05d24bca.png"></a></li>
-            <li><a href="#" id="mainAbout">About</a></li>
-            <li><a href="#" id="mainProjects">Projects</a></li>
-            <li><a href="#" id="mainDownloads">Downloads</a></li>
-            <li><a href="#" id="mainStore">Store</a></li>
-            <li><a href="/support" id="mainSupport">Support</a></li>
+            <li></li><li></li>
+            <li id="headerAbout" class="headerNavLi"><a href="#" id="mainAbout">About</a>
+                <ul class="headerSubMenu" id="headerSubAbout">
+                    <li><a href="#">Joguman</a></li>
+                    <li><a href="#">하찮은 공룡들</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Stockists</a></li>
+                </ul>
+            </li>
+            <li class="headerNavLi"><a href="#" id="mainProjects">Projects</a>
+                <ul class="headerSubMenu" id="headerSubProjects">
+                    <li><a href="#">Collaboration</a></li>
+                    <li><a href="#">Joguman Laboratory</a></li>
+                    <li><a href="#">Book</a></li>
+                    <li><a href="#">Emoticon</a></li>
+                </ul>
+            </li>
+            <li class="headerNavLi"><a href="#" id="mainDownloads">Downloads</a>
+                <ul class="headerSubMenu" id="headerSubDownloads">
+                    <li><a href="#">Free</a></li>
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Sticker</a></li>
+                    <li><a href="#">Memopad</a></li>
+                    <li><a href="#">Wallpaper</a></li>
+                    <li><a href="#">Letter</a></li>
+                    <li><a href="#">Sheet</a></li>
+                    <li><a href="#">Poster</a></li>
+                </ul>
+            </li>
+            <li class="headerNavLi"><a href="#" id="mainStore">Store</a>
+                <ul class="headerSubMenu" id="headerSubStore">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Stationery</a></li>
+                    <li><a href="#">Digital</a></li>
+                    <li><a href="#">Living</a></li>
+                    <li><a href="#">Acc</a></li>
+                    <li><a href="#">Collab</a></li>
+                </ul>
+            </li>
+            <li class="headerNavLi"><a href="/support" id="mainSupport">Support</a>
+                <ul class="headerSubMenu" id="headerSubSupport">
+                    <li><a href="#">Notice</a></li>
+                    <li><a href="#">Q&A</a></li>
+                </ul>
+            </li>
             <li></li><li></li>
 <!--            <span sec:authentication="name"></span>-->
 <!--            <span sec:authentication="authorities"></span> <br>-->
@@ -28,8 +65,23 @@
                 <a href="/signup" id="headerSignup">Signup</a>
             </li>
 
-            <li sec:authorize="isAuthenticated()">
-                <a sec:authorize="hasRole('ROLE_USER') && !hasRole('ROLE_ADMIN')" href="/myPage" id="headerLoginAuthenticated"><span sec:authentication="name"></span></a>
+            <li sec:authorize="isAuthenticated()" class="headerNavMyPage">
+                <a sec:authorize="hasRole('ROLE_USER') && !hasRole('ROLE_ADMIN')" href="#" id="headerLoginAuthenticated"><span sec:authentication="name"></span></a>
+                <ul id="headerLoginAuthenticatedUl">
+                    <li>
+                        <span>
+                            <div class="headerLoginAuthenticatedImg">
+                                <img src="" alt="">
+                            </div>
+                            <div id="headerLoginAuthenticatedName"></div>
+                            <small style="color: black">회원</small>
+                        </span>
+                    </li>
+                    <li class="btn-group-justified">
+                        <a href="#" class="btn btn-flat">마이페이지</a>
+                        <a href="#" class="btn btn-flat">로그아웃</a>
+                    </li>
+                </ul>
                 <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin" id="headerLoginAuthenticatedAdmin"><span sec:authentication="name"></span></a>
             </li>
             <li sec:authorize="isAuthenticated()">

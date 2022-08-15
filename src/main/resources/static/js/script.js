@@ -1,34 +1,34 @@
 //위시리스트
 function heartClickOn(e) {
-    const normal=document.querySelector("#normalHeart");
-    const solid=document.querySelector('#solidHeart');
-    const resultCnt=document.querySelector('#heartCnt');
-    let cntNumber=resultCnt.innerText;
-    solid.style.display="none";
+    const normal = document.querySelector("#normalHeart");
+    const solid = document.querySelector('#solidHeart');
+    const resultCnt = document.querySelector('#heartCnt');
+    let cntNumber = resultCnt.innerText;
+    solid.style.display = "none";
 
-    normal.addEventListener('click',function() {
-        normal.style.display="none";
-        solid.style.display="inline-block";
-        cntNumber=parseInt(cntNumber)+1;
-        resultCnt.innerText=cntNumber;
+    normal.addEventListener('click', function () {
+        normal.style.display = "none";
+        solid.style.display = "inline-block";
+        cntNumber = parseInt(cntNumber) + 1;
+        resultCnt.innerText = cntNumber;
     })
 
-    solid.addEventListener('click',function() {
-        normal.style.display="inline-block";
-        solid.style.display="none";
-        cntNumber=parseInt(cntNumber);
-        resultCnt.innerText=cntNumber;
+    solid.addEventListener('click', function () {
+        normal.style.display = "inline-block";
+        solid.style.display = "none";
+        cntNumber = parseInt(cntNumber);
+        resultCnt.innerText = cntNumber;
     })
 }
 
 //product 수량 count
-function count(type)  {
+function count(type) {
     // 결과를 표시할 element
     const resultElement1 = document.getElementById('result1');
     const resultElement2 = document.getElementById('result2');
-    const resultPrice0=document.querySelector('#price0');
-    const resultPrice1=document.querySelector('#price1');
-    const resultPrice2=document.querySelector('#price2');
+    const resultPrice0 = document.querySelector('#price0');
+    const resultPrice1 = document.querySelector('#price1');
+    const resultPrice2 = document.querySelector('#price2');
 
     // 현재 화면에 표시된 값
     let number1 = resultElement1.innerText;
@@ -38,23 +38,22 @@ function count(type)  {
     let priceNumber2 = resultPrice2.innerText;
 
     // 더하기/빼기
-    if(type === 'plus') {
+    if (type === 'plus') {
         number1 = parseInt(number1) + 1;
         number2 = parseInt(number2) + 1;
-        priceNumber1 = parseInt(priceNumber0)*number1;
-        priceNumber2 = parseInt(priceNumber0)*number1;
-    }
-    else if(type === 'minus')  {
+        priceNumber1 = parseInt(priceNumber0) * number1;
+        priceNumber2 = parseInt(priceNumber0) * number1;
+    } else if (type === 'minus') {
         number1 = parseInt(number1) - 1;
         number2 = parseInt(number2) - 1;
-        priceNumber1 = parseInt(priceNumber1)-parseInt(priceNumber0);
-        priceNumber2 = parseInt(priceNumber2)-parseInt(priceNumber0);
+        priceNumber1 = parseInt(priceNumber1) - parseInt(priceNumber0);
+        priceNumber2 = parseInt(priceNumber2) - parseInt(priceNumber0);
 
-        if(number1<=1 && number2<=1){
-            number1=1;
-            number2=1;
-            priceNumber1=parseInt(priceNumber0);
-            priceNumber2=parseInt(priceNumber0);
+        if (number1 <= 1 && number2 <= 1) {
+            number1 = 1;
+            number2 = 1;
+            priceNumber1 = parseInt(priceNumber0);
+            priceNumber2 = parseInt(priceNumber0);
         }
     }
     // 결과 출력
@@ -67,45 +66,47 @@ function count(type)  {
 
 //product sub box
 function detailInformation() {
-    const detailbox=document.querySelector('.storeProductSubLi1');
-    const productcommentbox=document.querySelector('.storeProductSubLi2');
-    const qnabox=document.querySelector('.storeProductSubLi3');
-    const productchangebox=document.querySelector('.storeProductSubLi4');
-    detailbox.style.display="block";
-    productcommentbox.style.display="none";
-    qnabox.style.display="none";
-    productchangebox.style.display="none";
+    const detailbox = document.querySelector('.storeProductSubLi1');
+    const productcommentbox = document.querySelector('.storeProductSubLi2');
+    const qnabox = document.querySelector('.storeProductSubLi3');
+    const productchangebox = document.querySelector('.storeProductSubLi4');
+    detailbox.style.display = "block";
+    productcommentbox.style.display = "none";
+    qnabox.style.display = "none";
+    productchangebox.style.display = "none";
 }
 
 function productcomment() {
-    const detailbox=document.querySelector('.storeProductSubLi1');
-    const productcommentbox=document.querySelector('.storeProductSubLi2');
-    const qnabox=document.querySelector('.storeProductSubLi3');
-    const productchangebox=document.querySelector('.storeProductSubLi4');
-    detailbox.style.display="none";
-    productcommentbox.style.display="block";
-    qnabox.style.display="none";
-    productchangebox.style.display="none";
+    const detailbox = document.querySelector('.storeProductSubLi1');
+    const productcommentbox = document.querySelector('.storeProductSubLi2');
+    const qnabox = document.querySelector('.storeProductSubLi3');
+    const productchangebox = document.querySelector('.storeProductSubLi4');
+    detailbox.style.display = "none";
+    productcommentbox.style.display = "block";
+    qnabox.style.display = "none";
+    productchangebox.style.display = "none";
 }
+
 function qna() {
-    const detailbox=document.querySelector('.storeProductSubLi1');
-    const productcommentbox=document.querySelector('.storeProductSubLi2');
-    const qnabox=document.querySelector('.storeProductSubLi3');
-    const productchangebox=document.querySelector('.storeProductSubLi4');
-    detailbox.style.display="none";
-    productcommentbox.style.display="none";
-    qnabox.style.display="block";
-    productchangebox.style.display="none";
+    const detailbox = document.querySelector('.storeProductSubLi1');
+    const productcommentbox = document.querySelector('.storeProductSubLi2');
+    const qnabox = document.querySelector('.storeProductSubLi3');
+    const productchangebox = document.querySelector('.storeProductSubLi4');
+    detailbox.style.display = "none";
+    productcommentbox.style.display = "none";
+    qnabox.style.display = "block";
+    productchangebox.style.display = "none";
 }
+
 function productchange() {
-    const detailbox=document.querySelector('.storeProductSubLi1');
-    const productcommentbox=document.querySelector('.storeProductSubLi2');
-    const qnabox=document.querySelector('.storeProductSubLi3');
-    const productchangebox=document.querySelector('.storeProductSubLi4');
-    detailbox.style.display="none";
-    productcommentbox.style.display="none";
-    qnabox.style.display="none";
-    productchangebox.style.display="block";
+    const detailbox = document.querySelector('.storeProductSubLi1');
+    const productcommentbox = document.querySelector('.storeProductSubLi2');
+    const qnabox = document.querySelector('.storeProductSubLi3');
+    const productchangebox = document.querySelector('.storeProductSubLi4');
+    detailbox.style.display = "none";
+    productcommentbox.style.display = "none";
+    qnabox.style.display = "none";
+    productchangebox.style.display = "block";
 }
 
 
@@ -189,57 +190,58 @@ $(function () {
     });
 });
 // signupSub select 번호 자동 추가
-$(function(){
+$(function () {
     const year = $('#selectYear');
     const month = $('#selectMonth');
     const day = $('#selectDay');
 
     for (var i = 1900; i <= 2022; i++) {
-        year.append('<option value="i">'+i+'</option>');
+        year.append('<option value="i">' + i + '</option>');
     }
     for (var i = 1; i <= 12; i++) {
-        month.append('<option value="i">'+i+'</option>');
+        month.append('<option value="i">' + i + '</option>');
     }
     for (var i = 1; i <= 31; i++) {
-        day.append('<option value="i">'+i+'</option>');
+        day.append('<option value="i">' + i + '</option>');
     }
 });
 //order 주문자,배송정보 변경 버튼
-$(function (){
+$(function () {
     var changeBtn = $('#orderDeliveryChange');
     var fixBtn = $('#orderUserFixBtn');
 
-    fixBtn.click(function (){
+    fixBtn.click(function () {
         $('.orderUserInfoDefault').css({display: 'none'});
         $('.orderUserInfoChange').css({});
         fixBtn.css({display: 'none'});
     });
-    changeBtn.click(function(){
+    changeBtn.click(function () {
         $('.orderProductDeliveryDefault').css({display: 'none'});
         $('.orderProductDeliveryChange').css({display: 'block'});
         changeBtn.css({display: 'none'});
     });
-    $('.orderSelectBtn').click(function(){
+    $('.orderSelectBtn').click(function () {
         $('.orderProductDeliveryDefault').css({display: 'none'});
         $('.orderProductDeliveryTab').css({display: 'block'});
         $('.orderProductDeliveryTabNew').css({display: 'none'});
     })
-    $('.orderNewBtn').click(function (){
+    $('.orderNewBtn').click(function () {
         $('.orderProductDeliveryDefault').css({display: 'none'});
         $('.orderProductDeliveryTab').css({display: 'none'});
         $('.orderProductDeliveryTabNew').css({display: 'block'});
     })
 });
 //order 총금액 계산
-$(function (){
+$(function () {
     var productFee = $('.orderProductFee p:nth-child(2)').text().slice(1);
     var delivaryFee = $('.orderProductDelFee p:nth-child(2)').text().slice(2);
 
-    function addComma(value){
+    function addComma(value) {
         value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return value;
     }
-    function minusComma(value){
+
+    function minusComma(value) {
         value = value.replace(/[^\d]+/g, "");
         return value;
     }
@@ -251,7 +253,7 @@ $(function (){
     totalFee = String(totalFee);
     totalFee = addComma(totalFee);
 
-    $('.orderSummaryTotal').append('<p>₩' + totalFee +'</p>');
+    $('.orderSummaryTotal').append('<p>₩' + totalFee + '</p>');
 
 });
 $(function () {
@@ -265,8 +267,8 @@ $(function () {
         var token = $("meta[name='_csrf']").attr("content");
         var header = $("meta[name='_csrf_header']").attr("content");
         $.ajax({
-            beforeSend: function(xhr){
-                xhr.setRequestHeader(header,token);
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
             },
             url: "/admin/update",
             type: "GET",
@@ -297,8 +299,8 @@ $(function () {
         var token = $("meta[name='_csrf']").attr("content");
         var header = $("meta[name='_csrf_header']").attr("content");
         $.ajax({
-            beforeSend: function(xhr){
-                xhr.setRequestHeader(header,token);
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
             },
             url: "/admin/delete",
             type: "POST",
@@ -312,6 +314,39 @@ $(function () {
     });
 });
 
-var token = $("meta[name='_csrf']").attr("content");
-var header = $("meta[name='_csrf_header']").attr("content");
-$(document).ajaxSend(function(e, xhr, options) { xhr.setRequestHeader(header, token); });
+//header 드롭다운 메뉴
+$(function () {
+    $('.headerNavLi').mouseover(function () {
+        $(this).find('.headerSubMenu').css({
+            visibility: 'visible',
+            opacity: 1,
+        });
+    }).mouseout(function () {
+        $(this).find('.headerSubMenu').css({
+            visibility: 'hidden',
+            opacity: 0,
+        });
+    }).find('li').mouseover(function () {
+        $(this).css({
+            background: '#ff7000',
+            color: 'white',
+        })
+    }).mouseout(function () {
+        $(this).css({
+            background: 'white',
+            color: 'black',
+        })
+    });
+});
+//header user 드롭다운 메뉴
+
+$(function () {
+    $('#headerLoginAuthenticated').click(function (e) {
+        console.log(e);
+        $('#headerLoginAuthenticatedName').text(this.text);
+        $('.headerNavMyPage ul').css({
+            visibility: 'visible',
+            opacity: 1,
+        });
+    });
+});
