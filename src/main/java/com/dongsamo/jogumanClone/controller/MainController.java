@@ -50,14 +50,4 @@ public class MainController {
         return "signUpSub";
     }
 
-    @GetMapping("/myPage")
-    public String mypage() {
-        return "myPage";
-    }
-
-    @GetMapping("/order")
-    public String order() {
-        return "order";
-    }
-
 }
