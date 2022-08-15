@@ -130,10 +130,12 @@ section{
     flex-direction: column;
     width:1000px;
     text-align: center;
+    border: 1px solid black;
 }
 .articleAdminBtn {
     float:right;
     padding-top: 80px;
+    padding-right: 150px;
 }
 .articleAdminBtn button {
     margin-left: 10px;
