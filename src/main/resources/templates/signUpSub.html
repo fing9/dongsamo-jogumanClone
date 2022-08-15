@@ -14,76 +14,80 @@
 </head>
 <!--<body style="background-color: #F5F6F7">-->
 <body layout:fragment="content">
-<section>
-    <div class="wrap" style="display: flex; justify-content: center">
-        <div class="sign-up-sub-warp">
-            <div class="sign-up-profile">
-                <h1 style="font-weight: bold; text-align: center">Sign In</h1>
-                <div class="sign-up-profile-img">
-                </div>
-            </div>
-            <br>
-            <div class="sign-up-box">
-                정확한 이메일 주소를 입력하지 않을 경우, 구매/결제/환불/새소식 등의 안내 메일을 받지 못할 수 있습니다.
-            </div>
-            <br>
-
-            <form th:action="@{/user}" method="POST" modelAttribute="userDto">
-                <input class="sign-up-input" type="text" name="email" th:value="${userDto.email}"
-                       placeholder="이메일을 입력해주세요." id="email-id"> <br>
-                <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_email}" th:id="valid_email"></span>
-                <br>
-                <input class="sign-up-input" type="password" name="password" th:value="${userDto.password}"
-                       placeholder="비밀번호를 입력해주세요." id="password-id"> <br>
-                <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_password}"
-                      th:id="valid_password"></span> <br>
-                <input class="sign-up-input" type="name" name="name" th:value="${userDto.name}"
-                       placeholder="이름을 입력해주세요." id="name-id"> <br>
-                <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_name}" th:id="valid_name"></span>
-                <br>
-                <input class="sign-up-input" type="phone" name="phone" th:value="${userDto.phone}"
-                       placeholder="전화번호를 입력해주세요." id="phone-number-id"> <br>
-                <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_phone}" th:id="valid_phone"></span>
-                <br>
-                <input class="sign-up-input" type="birthday" name="birthday" th:value="${userDto.birthday}"
-                       placeholder="생일을 입력해주세요." id="birth-id"> <br>
-                <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_birthday}"
-                      th:id="valid_birthday"></span> <br>
-                <div class="birthForm">
-                    <label for="birth-id-select">생년월일</label>
-                    <div class="sign-up-select" id="birth-id-select">
-                        <div class="select-box">
-                            <select style="width:110px; height:40px; border:1px solid #bdc2c9;" name="selectYear"
-                                    id="selectYear">
-                                <option value="">year</option>
-                            </select>
-                        </div>
-                        <div class="select-box">
-                            <select style="width:110px; height:40px; border:1px solid #bdc2c9;" name="selectMonth"
-                                    id="selectMonth">
-                                <option value="">Month</option>
-                            </select>
-                        </div>
-                        <div class="select-box">
-                            <select style="width:110px; height:40px; border:1px solid #bdc2c9;" name="selectDay"
-                                    id="selectDay">
-                                <option value="">Day</option>
-                            </select>
-                        </div>
+<container>
+    <section>
+        <div class="wrap" style="display: flex; justify-content: center">
+            <div class="sign-up-sub-warp">
+                <div class="sign-up-profile">
+                    <h1 style="font-weight: bold; text-align: center">Sign In</h1>
+                    <div class="sign-up-profile-img">
                     </div>
                 </div>
-                <div class="authority">
-                <input type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER"> admin
-                <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user
+                <br>
+                <div class="sign-up-box">
+                    정확한 이메일 주소를 입력하지 않을 경우, 구매/결제/환불/새소식 등의 안내 메일을 받지 못할 수 있습니다.
                 </div>
-                <button type="submit" class="sign-up-sub-btn">가입하기</button>
-            </form>
-            <br>
-            <br>
+                <br>
+
+                <form th:action="@{/user}" method="POST" modelAttribute="userDto">
+                    <input class="sign-up-input" type="text" name="email" th:value="${userDto.email}"
+                           placeholder="이메일을 입력해주세요." id="email-id"> <br>
+                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_email}"
+                          th:id="valid_email"></span>
+                    <br>
+                    <input class="sign-up-input" type="password" name="password" th:value="${userDto.password}"
+                           placeholder="비밀번호를 입력해주세요." id="password-id"> <br>
+                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_password}"
+                          th:id="valid_password"></span> <br>
+                    <input class="sign-up-input" type="name" name="name" th:value="${userDto.name}"
+                           placeholder="이름을 입력해주세요." id="name-id"> <br>
+                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_name}" th:id="valid_name"></span>
+                    <br>
+                    <input class="sign-up-input" type="phone" name="phone" th:value="${userDto.phone}"
+                           placeholder="전화번호를 입력해주세요." id="phone-number-id"> <br>
+                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_phone}"
+                          th:id="valid_phone"></span>
+                    <br>
+                    <input class="sign-up-input" type="birthday" name="birthday" th:value="${userDto.birthday}"
+                           placeholder="생일을 입력해주세요." id="birth-id"> <br>
+                    <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_birthday}"
+                          th:id="valid_birthday"></span> <br>
+                    <div class="birthForm">
+                        <label for="birth-id-select">생년월일</label>
+                        <div class="sign-up-select" id="birth-id-select">
+                            <div class="select-box">
+                                <select style="width:110px; height:40px; border:1px solid #bdc2c9;" name="selectYear"
+                                        id="selectYear">
+                                    <option value="">year</option>
+                                </select>
+                            </div>
+                            <div class="select-box">
+                                <select style="width:110px; height:40px; border:1px solid #bdc2c9;" name="selectMonth"
+                                        id="selectMonth">
+                                    <option value="">Month</option>
+                                </select>
+                            </div>
+                            <div class="select-box">
+                                <select style="width:110px; height:40px; border:1px solid #bdc2c9;" name="selectDay"
+                                        id="selectDay">
+                                    <option value="">Day</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="authority">
+                        <input type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER"> admin
+                        <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user
+                    </div>
+                    <button type="submit" class="sign-up-sub-btn">가입하기</button>
+                </form>
+                <br>
+                <br>
+            </div>
         </div>
-    </div>
-    </div>
-</section>
+        </div>
+    </section>
+</container>
 </body>
 
 </html>

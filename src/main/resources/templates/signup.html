@@ -8,26 +8,28 @@
     <title>SignUp</title>
 </head>
 <body layout:fragment="content">
-<section style="background-color: #F5F6F7">
-    <div class="wrap">
-        <div class="signUpPolicy">
-            <h1 style="font-weight: bold">Terms & Policy</h1>
-        </div>
-        <div class="signUpCheck">
-            <div class="checkBox">
-                <input type="checkbox" value="" id="flexCheckDefault1" name="agree_all">
-                <label for="flexCheckDefault1">
-                    <p>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</p>
-                </label>
+<container>
+    <section style="background-color: #F5F6F7">
+        <div class="wrap">
+            <div class="signUpPolicy">
+                <h1 style="font-weight: bold">Terms & Policy</h1>
             </div>
-            <br>
-            <div class="checkBox">
-                <input type="checkbox" value="" id="flexCheckDefault2" name="agree">
-                <label for="flexCheckDefault2">
-                    <p>이용약관 동의<span style="color: red">(필수)</span></p>
-                </label>
-            </div>
-            <div class="signup-text1" contenteditable="true" style="background-color: white; width:100%; height:200px;">
+            <div class="signUpCheck">
+                <div class="checkBox">
+                    <input type="checkbox" value="" id="flexCheckDefault1" name="agree_all">
+                    <label for="flexCheckDefault1">
+                        <p>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</p>
+                    </label>
+                </div>
+                <br>
+                <div class="checkBox">
+                    <input type="checkbox" value="" id="flexCheckDefault2" name="agree">
+                    <label for="flexCheckDefault2">
+                        <p>이용약관 동의<span style="color: red">(필수)</span></p>
+                    </label>
+                </div>
+                <div class="signup-text1" contenteditable="true"
+                     style="background-color: white; width:100%; height:200px;">
                 <textarea disabled style="width:100%; height:200px;">
 제1조 목적
 
@@ -153,15 +155,16 @@
 
 이 약관은 <사이트 개설일>부터 시행합니다.
                 </textarea>
-            </div>
-            <br><br>
-            <div class="checkBox">
-                <input type="checkbox" value="" id="flexCheckDefault3" name="agree">
-                <label for="flexCheckDefault3">
-                    <p>개인정보 수집 및 이용 동의<span style="color: red">(필수)</span></p>
-                </label>
-            </div>
-            <div class="signup-text2" contenteditable="true" style="background-color: white; width:100%; height:200px;">
+                </div>
+                <br><br>
+                <div class="checkBox">
+                    <input type="checkbox" value="" id="flexCheckDefault3" name="agree">
+                    <label for="flexCheckDefault3">
+                        <p>개인정보 수집 및 이용 동의<span style="color: red">(필수)</span></p>
+                    </label>
+                </div>
+                <div class="signup-text2" contenteditable="true"
+                     style="background-color: white; width:100%; height:200px;">
                 <textarea disabled style="width:100%; height:200px;">
 1. 개인정보 수집목적 및 이용목적
 
@@ -182,15 +185,18 @@ ID, 성명, 비밀번호, 주소, 휴대폰 번호, 이메일, 14세 미만 가�
 
 
                 </textarea>
+                </div>
+            </div>
+            <br>
+            <div class="signUpBtnWrap">
+                <button type="button" onclick="location.href='/'" class="signUpBtnClose">취소</button>
+                <button type="button" onclick="location.href='/signupSub'" class="signUpBtnSubmit" disabled="disabled">
+                    가입하기
+                </button>
             </div>
         </div>
-        <br>
-        <div class="signUpBtnWrap">
-            <button type="button" onclick="location.href='/'" class="signUpBtnClose">취소</button>
-            <button type="button" onclick="location.href='/signupSub'" class="signUpBtnSubmit" disabled = "disabled">가입하기</button>
-        </div>
-    </div>
-</section>
+    </section>
+</container>
 </body>
 
 </html>

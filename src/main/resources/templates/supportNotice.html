@@ -9,43 +9,45 @@
 </head>
 
 <body layout:fragment="content">
-<div class="articleAdminPadding">
-    <div class="supportNoticeNav">
-        <ul>
-            <li><a href="/support" style="border-bottom: 1px solid black">Notice</a></li>
-            <li><a href="/qna">QnA</a></li>
-        </ul>
-    </div>
-    <div class="adminNoticeSearch">
+<container>
+    <div class="articleAdminPadding">
+        <div class="supportNoticeNav">
+            <ul>
+                <li><a href="/support" style="border-bottom: 1px solid black">Notice</a></li>
+                <li><a href="/qna">QnA</a></li>
+            </ul>
+        </div>
+        <div class="adminNoticeSearch">
 
+        </div>
+        <div class="supportNoticeArticle">
+            <table class="table" id="myTable">
+                <thead class="table-light">
+                <tr>
+                    <th scope="col">번호</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">글쓴이</th>
+                    <th scope="col">조회수</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td><a href="#">[FAQ] 자주 묻는 질문들</a></td>
+                    <td>조구만</td>
+                    <td>180</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td><a href="#">공지사항 2</a></td>
+                    <td>조구만</td>
+                    <td>18</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footerGap"></div>
     </div>
-    <div class="supportNoticeArticle">
-        <table class="table" id="myTable">
-            <thead class="table-light">
-            <tr>
-                <th scope="col">번호</th>
-                <th scope="col">제목</th>
-                <th scope="col">글쓴이</th>
-                <th scope="col">조회수</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td><a href="#">[FAQ] 자주 묻는 질문들</a></td>
-                <td>조구만</td>
-                <td>180</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td><a href="#">공지사항 2</a></td>
-                <td>조구만</td>
-                <td>18</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="footerGap"></div>
-</div>
+</container>
 </body>
 </html>

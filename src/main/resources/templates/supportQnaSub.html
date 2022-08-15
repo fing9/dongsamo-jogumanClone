@@ -5,36 +5,38 @@
       layout:decorate="~{fragments/layout}">
 
 <head>
-  <title>support notice sub</title>
+    <title>support notice sub</title>
 </head>
 <body layout:fragment="content">
-<div class="articleSupportPadding">
-  <div class="supportNoticeNav">
-    <ul>
-      <li><a href="/support">Notice</a></li>
-      <li><a href="/qna" style="border-bottom: 1px solid black">QnA</a></li>
-    </ul>
-  </div>
-  <div class="supportNoticeSearch">
+<container>
+    <div class="articleSupportPadding">
+        <div class="supportNoticeNav">
+            <ul>
+                <li><a href="/support">Notice</a></li>
+                <li><a href="/qna" style="border-bottom: 1px solid black">QnA</a></li>
+            </ul>
+        </div>
+        <div class="supportNoticeSearch">
 
-  </div>
-  <div class="supportNoticeSubArticle">
+        </div>
+        <div class="supportNoticeSubArticle">
 
-    <div class="title">
+            <div class="title">
+
+            </div>
+            <div id="contents">
+
+            </div>
+        </div>
+
+        <div class="articleAdminBtn">
+            <button type="button" class="btn btn-outline-secondary" onClick="location.href='/qna'">목록</button>
+        </div>
+
+
+        <div class="footerGap"></div>
 
     </div>
-    <div id="contents">
-
-    </div>
-  </div>
-
-  <div class="articleAdminBtn">
-    <button type="button" class="btn btn-outline-secondary" onClick="location.href='/qna'">목록</button>
-  </div>
-
-
-  <div class="footerGap"></div>
-
-</div>
+</container>
 </body>
 </html>
