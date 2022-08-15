@@ -94,6 +94,7 @@ input[type=checkbox] {
     color:red; font-size:10px; padding-top:5px;
 }
 section{
+    /*padding-top: 150px;*/
     background-color:#F5F6F7;
 }
 .articleAdmin {
@@ -334,7 +335,13 @@ section{
 #numbers li a.active {
     opacity: 1;
 }
-
+/*--------------------- article --------------------------*/
+article{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /*padding-top:150px;*/
+}
 .articleNav {
     width: 100%;
     height: 100px;
@@ -379,7 +386,7 @@ section{
     color: #212121B3;
 }
 
-/*store*/
+/*------------------- store ----------------------*/
 .select-product{
     border:none;
 }
@@ -503,30 +510,6 @@ section{
     color: black;
 }
 
-.storeWrap{
-    margin:0px;
-}
-
-.storeCard{
-    margin : 0;
-    z-index: -1;
-}
-
-.storeDivWrap{
-    padding:0px;
-    margin:0px;
-}
-
-.storeCol{
-    width:304px;
-    height:450px;
-}
-
-.storeCard{
-    width:304px;
-    height:304px;
-}
-
 .articleSubNav{
     width: 100%;
     height: 60px;
@@ -559,7 +542,7 @@ section{
 }
 
 
-/*store*/
+/*------------------- article ----------------------*/
 
 .articleNav ul li:nth-child(1){
     border-bottom: 1px solid black;
@@ -591,8 +574,360 @@ section{
     z-index: -1;
     border:none;
 }
+/*------------------- storeProduct ----------------------*/
+.storeProductImg img{
+    width:611px;
+    height:611px;
+}
 
-/*projects > Joguman Laboratory*/
+.storeProductImg{
+    width:611px;
+    height:611px;
+}
+
+.storeProductImgSelect img{
+    width:60px;
+    height:60px;
+}
+
+.storeProductTitle-name{
+    font-size:22px;
+    padding:0px;
+}
+.storeProductImgSelect ul{
+    padding : 10px 0 0 0;
+    list-style:none;
+    margin-bottom: 0;
+
+}
+
+.storeProductImgSelect ul li{
+    display: inline-block;
+}
+
+.storeProductWrap{
+    display: flex;
+    /*justify-content: center;*/
+
+}
+
+.storeProductTextWrap{
+    /*margin-left:50px;*/
+    /*background: green;*/
+    margin-left:100px;
+}
+
+.storeProductTitle{
+    display: flex;
+}
+
+.storeProductTitle-name{
+    font-weight:normal;
+}
+
+.storeProductTitle-price{
+    font-size:20px;
+    font-weight:normal;
+    line-height: 1;
+}
+
+.amountCountBox{
+    display: flex;
+}
+
+.productAmountCnt{
+    background: white;
+    width:50px;
+    height: 30px;
+    border:1px solid rgba(33,33,33,0.1);
+    text-align: center;
+}
+
+.storeProductNav{
+    border-bottom:1px solid rgba(33,33,33,0.1);
+    color:gray;
+}
+
+.storeProductNav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.storeProductSubLi1{
+    margin-top:200px;
+}
+
+.storeProductSubLi1 img{
+    width:1000px;
+    height:667px;
+    margin-bottom:80px;
+}
+
+.storeProductImgList{
+    /*width:1000px;*/
+    text-align: center; /* 이미지 가운데 정렬은 text-align */
+}
+
+.storeProductNav ul li{
+    padding:30px 30px 5px 30px;
+}
+
+.storeProductNav ul li:hover{
+    color: black;
+    font-weight: bold;
+}
+
+.amountCountWrap{
+    display: flex;
+}
+.storeProductSubBox{
+    display: flex;
+    justify-content: center;
+}
+
+.storeProductBtns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.storeProductSubLi1{
+    width:100%;
+    height:100%;
+}
+
+.storeProductSubLi2{
+    width:100%;
+    height:100%;
+    padding:20px;
+}
+
+.storeProductSubLi2-text p{
+    font-size:13px;
+    font-weight: bold;
+}
+
+.storeProductSubLi3Table{
+    margin-top:20px;
+    border-top:1px solid black;
+    text-align: center;
+}
+
+.storeProductSubLi3Table table th{
+    color: #f7c316;
+}
+
+.storeProductSubLi2Btn{
+    background: #f7c316;
+    width:100px;
+    height:40px;
+    color: black;
+    border:none;
+    font-weight: bold;
+    font-size:13px;
+}
+
+.storeProductSubLi3Btn1{
+    background: #f7c316;
+    width:100px;
+    height:40px;
+    color: black;
+    border:none;
+    font-weight: bold;
+    font-size:13px;
+}
+
+.storeProductSubLi3Btn2{
+    width:100px;
+    height:40px;
+    color: black;
+    background: white;
+    border:1px solid rgba(33,33,33,0.1);
+    font-weight: bold;
+    font-size:13px;
+}
+
+.comment-item-text{
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-item-img img{
+    width:100%;
+    height: 100%;
+}
+
+.storeProductSubLi3{
+    width:100%;
+    height:100%;
+
+}
+
+.storeProductSubLi4{
+    width:100%;
+    height:100%;
+}
+
+.storeProductSubLi4 table{
+    margin-top:40px;
+}
+
+.storeProductSubLi4 table th{
+    background: rgba(33,33,33,0.1);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.storeProductSubLi4 table ol {
+    padding-left:20px;
+}
+
+.storeProductSubLi4 table td{
+    /*height:80px;*/
+    padding:20px 0px 20px 20px;
+}
+
+.storeProductTitle-new{
+    /*margin : 0 auto;*/
+    background: #ffcd00;
+    border:1px solid #ffcd00;
+    width:40px;
+    height:100%;
+    margin : auto;
+}
+
+.storeProduct-new{
+    text-align: center;
+    color: white;
+    font-size:10px;
+}
+
+.storeProductTitle-name{
+    font-weight: bold;
+}
+
+.storeProductPrice{
+    font-size:22px;
+}
+
+#storeProductPrice-point{
+    font-weight: normal;
+    font-size:12px;
+}
+
+.storeProductAmount{
+    margin-top:10px;
+    border:1px solid #21212108;
+    background: #21212108;
+}
+
+.storeProductTotalPriceBox{
+    display: flex;
+    margin:20px 0px;
+    padding:10px 0px;
+}
+
+.storeProductTotalPrice{
+    margin-left: auto;
+    font-size:22px;
+}
+
+#price2{
+    font-weight: bold;
+    font-size:22px;
+}
+
+.storeProductPriceBtn button{
+    background: #f7c316;
+    width:160px;
+    height:45px;
+    color: white;
+    border:none;
+    font-weight: bold;
+}
+
+.storeProductBasketBtn button{
+    background: white;
+    width:160px;
+    height:45px;
+    color: black;
+    border:1px solid rgba(33,33,33,0.1);
+    font-weight: bold;
+}
+
+.storeProductWishListBtn button{
+    background: white;
+    width:160px;
+    height:45px;
+    color: black;
+    border:1px solid rgba(33,33,33,0.1);
+    font-weight: bold;
+}
+
+.storeProductAmount-text{
+    margin:10px;
+    padding:10px;
+    border-bottom:1px dotted rgba(33,33,33,0.1);
+}
+
+#amountBtnMinus, #amountBtnPlus {
+    width: 25px;
+    height: 30px;
+    background: white;
+    border: 1px solid rgba(33, 33, 33, 0.1);
+}
+
+.amountCountBox{
+    margin:10px;
+    padding:10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#price0{
+    font-weight: bold;
+    font-size:22px;
+}
+
+.storeProductTitlePriceBox{
+    border-bottom : 1px solid rgba(33,33,33,0.1);
+    padding-bottom:20px;
+}
+
+.storeProductDescription{
+    padding-top:20px;
+}
+
+.storeProductDescription-ul-wrap{
+    margin:20px 20px 20px 0px;
+    padding:20px;
+    /*background: blue;*/
+}
+
+.storeProductDescription ul{
+    padding-left:0px;
+    /*background: red;*/
+}
+
+.storeProductDescription{
+    margin-bottom:20px;
+    border-bottom:1px solid rgba(33,33,33,0.1);
+}
+
+.storeProductNoteBox{
+    margin:20px 0px;
+    /*background: blue;*/
+    padding-left:0px;
+}
+
+.storeProductNoteBox ul{
+    padding-left:20px;
+}
+
+.storeProductNoteBox{
+
+}
+/*------------------- projects > Joguman Laboratory ----------------------*/
 .siema {
     width: 500px;
     margin: 3em auto;
@@ -757,30 +1092,26 @@ button:focus { outline: 0; }
     color: #8f8d89;
 }
 
-.storeWrap{
-    width:1300px;
-    height:400px;
-    margin:0px;
-}
-
-.storeCard{
-    margin : 0;
-    z-index: -1;
-}
-
 .storeDivWrap{
     padding:0px;
     margin:0px;
 }
 
+.storeWrap{
+    display: flex;
+    justify-content: space-between;
+}
+
 .storeCol{
     width:304px;
-    height:304px;
+    height:450px;
 }
 
 .storeCard{
     width:304px;
     height:304px;
+    margin : 0px;
+    z-index: -1;
 }
 
 .collaboComoHeadImg img{
@@ -888,7 +1219,6 @@ button:focus { outline: 0; }
     color: black;
     text-decoration: none;
 }
-
 /*myPage*/
 
 .myPageArticle {
@@ -1250,9 +1580,89 @@ button:focus { outline: 0; }
     background-color: #FFFFFF;
     color: black;
 }
-.modalSecessionBtn button:nth-child(2){
+.modalSecessionBtn button:nth-child(2) {
     border: none;
     padding: 10px 25px;
     background-color: #FFD100;
     color: #FFFFFF;
+}
+/*--------------------------download------------------------------------*/
+
+.downloadSubImg {
+    background-color: green;
+
+    height: 400px;
+    width: 100%;
+
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) /*이미지 어둡게하기*/, url("https://cdn.imweb.me/thumbnail/20220622/0010672a38e8c.jpg");
+    background-position: center;
+    background-size: cover;
+
+    color: white;
+
+    /*컨텐츠(내용물) 정렬, 4줄이 세트*/
+    display: flex;
+    flex-direction: column; /*column : 세로, row : 가로*/
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom:60px;
+}
+
+.downloadSubText{
+    display: flex;
+    flex-direction: column; /*column : 세로, row : 가로*/
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding:100px 0px;
+}
+
+.downloadSubImgList img{
+    width:870px;
+    height:870px;
+}
+
+.downloadSubImgWrap{
+    display: flex;
+    flex-direction: column; /*column : 세로, row : 가로*/
+    justify-content: center;
+    align-items: center;
+    margin-bottom:50px;
+}
+
+.downloadSubMsg{
+    margin-left:320px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.downloadFile{
+    margin-left:300px;
+}
+
+.downloadFileWrap{
+    width:870px;
+    height:80px;
+    background: #f7f7f7;
+    padding:15px;
+    display: flex;
+}
+
+.downloadFileWrap a{
+    text-decoration: none;
+    color:#f7c316;
+    font-weight: bold;
+}
+
+.downloadFileWrap em{
+    font-weight: bold;
+    color:gray;
+    font-size:11px;
+}
+
+.downloadFooter{
+    width:100%;
+    height:80px;
+    background: white;
 }
