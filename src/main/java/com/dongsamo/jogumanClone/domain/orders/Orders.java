@@ -33,18 +33,16 @@ public class Orders extends BaseTimeEntity {
 
     private Long usepoint;
 
-    private Long OrdersProduct_id;
-    private Long user_id;
+    @ManyToOne
+    @JoinColumn(name="product")
+    private Product product;
 
-
-
-//    User와 OrdersProduct를 외래키로 엮어야함
-//    @ManyToOne
-//    @JoinColumn(name="User")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name="user")
+    private User user;
 
     @Builder
-    public Orders(Long addressee, String memberAddr1, String memberAddr2, String memberAddr3, String paymentstate, Long deliverycost, Long usepoint, Long ordersproduct_id, Long user_id){
+    public Orders(Long addressee, String memberAddr1, String memberAddr2, String memberAddr3, String paymentstate, Long deliverycost, Long usepoint, Product product, User user){
         this.addressee = addressee;
         this.memberAddr1 = memberAddr1;
         this.memberAddr2 = memberAddr2;
@@ -52,7 +50,7 @@ public class Orders extends BaseTimeEntity {
         this.paymentstate = paymentstate;
         this.deliverycost = deliverycost;
         this.usepoint = usepoint;
-//        this.ordersproduct_id = product;
-//        this.user = user;
+        this.product = product;
+        this.user = user;
     }
 }

@@ -13,6 +13,7 @@ import javax.validation.constraints.Positive;
 @Data
 public class OrdersDto {
 
+    // @NotNUll등의 칼럼 조건은 이 파일 (DTO)에서 써줘야함! 써주세용 ㅎㅎ
     @NotNull
     private Long id;
 
@@ -30,7 +31,7 @@ public class OrdersDto {
 
     private Long usepoint;
 
-    private Long Ordersproduct_id;
+    private Long product_id;
     private Long user_id;
 
     private String createdDate;
@@ -46,8 +47,8 @@ public class OrdersDto {
         this.paymentstate = orders.getPaymentstate();
         this.deliverycost = orders.getDeliverycost();
         this.usepoint = orders.getUsepoint();
-//        this.Ordersproduct_id = orders.getOrdersProduct().getId(); // 주문상품과 외래키 연결해야함
-//        this.user_id = orders.getUser().getId(); // 회원과 외래키로 연결해야함
+        this.product_id = orders.getProduct().getId(); // 주문상품과 외래키 연결해야함
+        this.user_id = orders.getUser().getId(); // 회원과 외래키로 연결해야함
         this.createdDate = orders.getCreatedDate().toString();
         this.modifiedDate = orders.getModifiedDate().toString();
     }
