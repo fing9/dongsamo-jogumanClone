@@ -91,23 +91,63 @@ $(function(){
     });
 });
 
-// var buttonUpdate = document.getElementsByClassName('btn-outline-secondary')
-//
-// $(function () {
-//     $('#adminFixBtn').click(function () {
-//         var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
-//
-//         $.ajax({
-//             url: "/admin",
-//             type: "GET",
-//             data: {
-//                 id: $checkbox
-//             },
-//             dataType: "json",
-//             contentType: "application/x-www-form-urlencoded; charset=UTF-8;"
-//         });
-//     });
-// });
+$(function () {
+    $('#adminFixBtn').click(function () {
+        var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
+        var dataId = {
+            id: $checkbox
+        };
+
+
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $.ajax({
+            beforeSend: function(xhr){
+                xhr.setRequestHeader(header,token);
+            },
+            url: "/admin/update",
+            type: "GET",
+            data: dataId,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
+            success: function (data) {
+                console.log('success');
+                console.log(data);
+                $("#id").val(data.id);
+                $("#nameUpdate").val(data.name);
+                $("#priceUpdate").val(data.price);
+                $("#categoryUpdate").val(data.category);
+                $("#descriptionUpdate").val(data.description);
+                $("#amountUpdate").val(data.amount);
+                $("#imagesUpdate").val(data.images);
+            }
+        });
+    });
+});
+
+$(function () {
+    $('#adminDeleteBtn').click(function () {
+        var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
+        var dataId = {
+            id: $checkbox
+        };
+
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $.ajax({
+            beforeSend: function(xhr){
+                xhr.setRequestHeader(header,token);
+            },
+            url: "/admin/delete",
+            type: "POST",
+            data: dataId,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
+            success: function (data) {
+                console.log('success');
+                location.reload();
+            }
+        });
+    });
+});
 
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");

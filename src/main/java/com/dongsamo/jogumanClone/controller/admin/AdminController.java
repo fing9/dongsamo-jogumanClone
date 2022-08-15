@@ -95,11 +95,7 @@ public class AdminController {
 
     //change 요청이 왔을 때 파라미터로 받은 id값을 가지고 기존값을 리턴해줌
     @GetMapping("/admin/update")
-    public Model update(@RequestParam(value = "id", required = true) Long id, Model model) {
-        //ModelAndView mv = new ModelAndView();
-
-        //mv.setViewName("admin");
-        //mv.setView(new RedirectView("/admin"));
+    public ProductVo update(@RequestParam(value = "id", required = true) Long id) {
 
         ProductVo productVo = new ProductVo();
         ProductDto productDto = productService.findById(id);
@@ -110,11 +106,9 @@ public class AdminController {
         productVo.setPrice(productDto.getPrice());
         productVo.setName(productDto.getName());
 
-        //mv.addObject("productVo", productVo);
-        model.addAttribute("productVo", productVo);
-        System.out.println(model.getAttribute("productVo").toString());
-        return model;//mv;
+        return productVo;//mv;
     }
+
 
     @PostMapping("/admin/update")
     public ModelAndView update(//@Valid로 유효성검사 추가하기 (모든 엔티티 필드에 조건을 붙여야함)
