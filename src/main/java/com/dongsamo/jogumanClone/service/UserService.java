@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class UserService implements UserDetailsService {
     @throws UsernameNotfoundException 유저가 없을 때 예외 발생
      */
 
+    @Transactional
     @Override //기본적인 반환 타입은 UserDetails, UserDetails를 상속받은 UserInfo로 반환 타입 지정 (자동으로 다운 캐스팅됨)
     public User loadUserByUsername(String email) throws UsernameNotFoundException { //시큐리티에서 지정한 서비스이기 때문에 이 메소드를 필수로 구현
         return userRepository.findByEmail(email)
@@ -41,6 +43,7 @@ public class UserService implements UserDetailsService {
     @param userDto 회원정보가 들어있는 DTO
     @return 저장되는 회원의 PK
      */
+    @Transactional
     public Long save(UserDto userDto) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         userDto.setPassword(encoder.encode(userDto.getPassword())); //입력받은 비밀번호를 BCrypt로 암호화한 후에 회원 저장
@@ -57,6 +60,7 @@ public class UserService implements UserDetailsService {
                 .build()).getId();
     }
 
+    @Transactional
     public List<UserDto> findAll() {
         List<User> userList = userRepository.findAll();
         List<UserDto> userDtoList = new ArrayList<>();
@@ -66,5 +70,35 @@ public class UserService implements UserDetailsService {
         }
 
         return userDtoList;
+    }
+
+    @Transactional
+    public UserDto findById(Long id) {
+        User user = userRepository.findById(id).get();
+
+        return dtoMapper.userEntityToDto(user);
+    }
+
+    @Transactional
+    public UserDto updateById(UserDto userDto) {
+        User user = userRepository.findById(userDto.getId()).get();
+
+        user.update(userDto.getEmail(),
+                userDto.getName(),
+                userDto.getPassword(),
+                userDto.getAuth(),
+                userDto.getPhone(),
+                userDto.getBirthday(),
+                userDto.getPoint(),
+                userDto.getTotalprice());
+
+        return dtoMapper.userEntityToDto(user);
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        userRepository.deleteById(id);
+
+        return;
     }
 }

@@ -166,4 +166,13 @@ public class ProductService {
 //        }
         return productVo;
     }
+
+    //@Query이용해서 와일드카드 조회문 짜야함
+//    @Transactional
+//    public ProductDto findByName(String search) {
+//        ProductDto productDto = new ProductDto();
+//
+//
+//        return productDto;
+//    }
 }
