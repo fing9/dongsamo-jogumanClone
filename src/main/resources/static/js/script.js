@@ -172,17 +172,6 @@ $(function () {
         console.log(typeof ($checkbox));
     });
 });
-//signupSub select 형식 알기
-$(function(){
-    $('.sign-up-sub-btn').click(function(){
-        var yeartext = $("select[name=selectYear] option:selected").text();
-        var monthtext = $("select[name=selectMonth] option:selected").text();
-        var daytext = $("select[name=selectDay] option:selected").text();
-
-        console.log(yeartext, monthtext, daytext);
-        console.log(typeof(yeartext), typeof(monthtext),typeof(daytext));
-    });
-});
 
 //signup 페이지 모두 동의 버튼 , 동의 안하면 안넘어가게
 $(function () {
