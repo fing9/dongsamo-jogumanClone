@@ -1,6 +1,7 @@
 package com.dongsamo.jogumanClone.domain.product;
 
 import com.dongsamo.jogumanClone.domain.date.BaseTimeEntity;
+import com.dongsamo.jogumanClone.domain.exception.NotEnoughStockException;
 import com.dongsamo.jogumanClone.domain.productImage.ProductImage;
 import com.dongsamo.jogumanClone.dto.ProductImageDto;
 import lombok.Builder;
@@ -64,5 +65,24 @@ public class Product extends BaseTimeEntity {
         this.price = price;
         this.description = description;
         this.amount = amount;
+    }
+
+    //==비즈니스 로직==//
+    /**
+     * stock 증가
+     */
+    public void addStock(Long quantity) {
+        this.amount += quantity;
+    }
+
+    /**
+     * stock 감소
+     */
+    public void removeStock(Long quantity) {
+        Long restStock = this.amount - quantity;
+        if (restStock < 0) {
+            throw new NotEnoughStockException("need more stock");
+        }
+        this.amount = restStock;
     }
 }

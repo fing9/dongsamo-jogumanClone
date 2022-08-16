@@ -1,6 +1,8 @@
 package com.dongsamo.jogumanClone.dto;
 
 import com.dongsamo.jogumanClone.domain.orders.Orders;
+import com.dongsamo.jogumanClone.domain.orders.PaymentStatus;
+import com.dongsamo.jogumanClone.domain.ordersproduct.OrdersProduct;
 import lombok.Builder;
 import lombok.Data;
 
@@ -9,6 +11,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.List;
 
 @Data
 public class OrdersDto {
@@ -17,22 +20,31 @@ public class OrdersDto {
     @NotNull
     private Long id;
 
+    @NotBlank(message = "수신인은 필수 입력 값입니다.")
     private Long addressee;
 
+    @NotBlank(message = "우편번호는 필수 입력 값입니다.")
     private String memberAddr1;
 
+    @NotBlank(message = "회원주소는 필수 입력 값입니다.")
     private String memberAddr2;
 
+    @NotBlank(message = "회원상세주소는 필수 입력 값입니다.")
     private String memberAddr3;
 
-    private String paymentstate;
+    @NotNull
+    private PaymentStatus status;
 
+    @NotNull(message = "배달비는 필수 입력 값입니다.")
     private Long deliverycost;
 
+    @NotNull(message = "사용포인트는 필수 입력 값입니다.")
     private Long usepoint;
 
-    private Long product_id;
+    private List<OrdersProduct> ordersproducts;
     private Long user_id;
+
+    private Long delivery_id;
 
     private String createdDate;
     private String modifiedDate;
@@ -44,11 +56,12 @@ public class OrdersDto {
         this.memberAddr1 = orders.getMemberAddr1();
         this.memberAddr2 = orders.getMemberAddr2();
         this.memberAddr3 = orders.getMemberAddr3();
-        this.paymentstate = orders.getPaymentstate();
+        this.status = orders.getStatus();
         this.deliverycost = orders.getDeliverycost();
         this.usepoint = orders.getUsepoint();
-        this.product_id = orders.getProduct().getId(); // 주문상품과 외래키 연결해야함
-        this.user_id = orders.getUser().getId(); // 회원과 외래키로 연결해야함
+        this.ordersproducts = orders.getOrdersproducts();
+        this.delivery_id = orders.getDelivery().getId();
+        this.user_id = orders.getUser().getId();
         this.createdDate = orders.getCreatedDate().toString();
         this.modifiedDate = orders.getModifiedDate().toString();
     }

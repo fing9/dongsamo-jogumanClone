@@ -12,16 +12,6 @@ import javax.validation.constraints.Positive;
 
 @Data
 public class OrdersProductDto {
-//    OrderitemDto
-//            변수
-//    주문번호 - orderId (외래키)
-//    상품번호 - productid (외래키)
-//    주문수량 - amount
-//    orderItem 기본키 - id
-//    상품 한개 가격 - price
-//    상품 한 개 구매시 획득 포인트 - savepoint
-//    총가격 - totalprice
-//    총 획득 포인트 - totalsavePoint
     @NotNull
     private Long id;
 
@@ -43,17 +33,16 @@ public class OrdersProductDto {
     @NotNull
     private Long totalsavepoint;
 
-    private Long product_id;
+    private Long product;
 
     @Builder
     public OrdersProductDto(OrdersProduct ordersproduct){
         this.amount = ordersproduct.getAmount();
         this.price = ordersproduct.getPrice();
         this.savepoint = ordersproduct.getSavepoint();
-        this.totalprice = ordersproduct.getTotalprice();
+        this.totalprice = ordersproduct.getTotalPrice();
         this.totalsavepoint = ordersproduct.getTotalsavepoint();
-        this.product_id = ordersproduct.getProduct().getId();
-//        this.user = user; // user id를 외래키로 연결해야함
+        this.product = ordersproduct.getProduct().getId();
     }
 
 
