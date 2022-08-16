@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<head>
+<!--  <link rel="stylesheet" href="../static/css/stylesheet.css">-->
+<!--  <script src="../static/js/script.js"></script>-->
+  <script>
+
+  </script>
+  <title>basket</title>
+</head>
+<body layout:fragment="content">
+<container>
+  <article>
+    <div class="wrap">
+      <div class="basketTitle">
+        장바구니
+      </div>
+      <div class="basketTable">
+        <table class="table">
+          <tr>
+            <td>상품정보</td>
+            <td>수량</td>
+            <td>주문금액</td>
+            <td>배송정보</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <img src="https://cdn.imweb.me/thumbnail/20220719/aa7fd28ca70e6.jpg">
+              <span>Brachio Drink Holder 브라키오 튜브 컵홀더</span>
+            </th>
+            <td>
+              <p>1</p>
+              <button type="submit">옵션/수량 변경</button>
+            </td>
+            <td>
+              <p>₩10000</p>
+              <button type="submit">바로구매</button>
+            </td>
+            <td>
+              <p>₩3,000</p>
+              <p>택배</p>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <img src="https://cdn.imweb.me/thumbnail/20220719/aa7fd28ca70e6.jpg">
+              <span>Brachio Drink Holder 브라키오 튜브 컵홀더</span>
+            </th>
+            <td>
+              <p>1</p>
+              <button type="submit">옵션/수량 변경</button>
+            </td>
+            <td>
+              <p>₩10000</p>
+              <button type="submit">바로구매</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="basketBtns">
+        <button type="submit">선택상품 삭제</button>
+        <button type="submit">품절상품 삭제</button>
+      </div>
+      <div class="basketTotalTable">
+        <table class="table">
+          <tr>
+            <td>총 상품 금액</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              ₩22000
+
+              상품금액
+
+              ₩3000
+
+              배송비
+
+              ₩25000
+
+              총 주문금액
+            </th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </article>
+</container>
+</body>
+
+</html>
