@@ -73,4 +73,9 @@ public class MainController {
         model.addAttribute("productSimpleList", productSimpleDtoList);
         return "store";
     }
+
+    @GetMapping("/basket")
+    public String basket() {
+        return "basket";
+    }
 }
