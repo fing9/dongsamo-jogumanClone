@@ -22,7 +22,7 @@
             </div>
             <div class="articleAdminSection">
                 <form action="http://localhost:8080/admin" method="post">
-                    <table class="table">
+                    <table class="table" id="myTable">
                         <thead class="table-light">
                         <tr>
                             <th scope="col"></th>
@@ -37,9 +37,15 @@
                         </thead>
                         <tbody id="tableId">
                         <tr data-th-each="product : ${productSimpleList}">
-                            <th scope="row"><input class="form-check-input listRadioInput" type="radio" name="inlineRadioOptions" th:id="inlineRadio+${product.id}" th:value="${product.id}"></th>
+                            <th scope="row"><input class="form-check-input listRadioInput" type="radio"
+                                                   name="inlineRadioOptions" th:id="inlineRadio+${product.id}"
+                                                   th:value="${product.id}"></th>
                             <th scope="row" data-th-text="${product.id}"></th>
-                            <td th:if="${product.images.isEmpty()} == false"><img id="imgId" th:src="${product.images.get(0).getUploadPath().split('static/')[1]}" alt="첨부이미지" th:if="${product.images.isEmpty() == false}" height="50"/></td>
+                            <td th:if="${product.images.isEmpty()} == false"><img id="imgId"
+                                                                                  th:src="${product.images.get(0).getUploadPath().split('static/')[1]}"
+                                                                                  alt="첨부이미지"
+                                                                                  th:if="${product.images.isEmpty() == false}"
+                                                                                  height="50"/></td>
                             <td th:unless="${product.images.isEmpty()} == false"></td>
                             <td data-th-text="${product.name}"></td>
                             <td data-th-text="${product.category}"></td>
@@ -50,53 +56,26 @@
                         </tbody>
                     </table>
                 </form>
+                <div class="pagination">
+                    <ol id="numbers">
+                        <!--            <li><a href="#">1</a></li>-->
+                        <!--            <li><a href="#">2</a></li>-->
+                        <!--            <li><a href="#">3</a></li>-->
+
+                    </ol>
+                </div>
             </div>
         </div>
         <div class="articleAdminBtn">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModalCheck">
-                조회
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCheck" tabindex="-1" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabelCheck">상품 조회</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="formGroupCategoryInput-check" class="form-label">카테고리</label>
-                                <input type="text" class="form-control" id="formGroupCategoryInput-check"
-                                       placeholder="Category input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupNameInput-check" class="form-label">상품 이름</label>
-                                <input type="text" class="form-control" id="formGroupNameInput-check"
-                                       placeholder="Name input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupPriceInput-check" class="form-label">가격</label>
-                                <input type="text" class="form-control" id="formGroupPriceInput-check"
-                                       placeholder="Price input placeholder">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formGroupStockInput-check" class="form-label">재고</label>
-                                <input type="text" class="form-control" id="formGroupStockInput-check"
-                                       placeholder="Stock input placeholder">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
-                            </button>
-                        </div>
+            <!-- button search -->
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 aboutSearchPart">
+                <div class="input-group">
+                    <input type="text" aria-describedby="button-addon1" class="form-control border-0 bg-light" id="aboutSearchInput">
+                    <div class="input-group-append">
+                        <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search Magnifying"></i></button>
                     </div>
                 </div>
             </div>
-
             <!-- Button trigger modal -->
             <!--            Testline-->
             <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
@@ -108,7 +87,8 @@
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content" id="modal-content">
-                        <form class="sign-up" method="post" th:action="@{/admin/update}" th:object="${productVo}" id="formUpdate"
+                        <form class="sign-up" method="post" th:action="@{/admin/update}" th:object="${productVo}"
+                              id="formUpdate"
                               enctype="multipart/form-data">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="myModalLabelUpdate">상품 수정</h5>
@@ -118,7 +98,8 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">ID</label>
-                                    <input type="text" class="form-control" id="id" th:field="*{id}" readonly="readonly">
+                                    <input type="text" class="form-control" id="id" th:field="*{id}"
+                                           readonly="readonly">
                                 </div>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">상품 이름</label>
@@ -143,7 +124,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="description" class="form-label">설명</label>
-                                    <textarea class="form-control" id="descriptionUpdate" rows="3" th:field="*{description}"
+                                    <textarea class="form-control" id="descriptionUpdate" rows="3"
+                                              th:field="*{description}"
                                     ></textarea>
                                     <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_description}"
                                           th:id="valid_description"></span>
@@ -162,7 +144,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                                </button>
                                 <button type="submit" class="btn btn-outline-secondary" id="btnUpadate">Submit</button>
                             </div>
                         </form>
@@ -179,7 +162,8 @@
                  aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form class="sign-up" method="post" th:action="@{/admin/save}" th:object="${productVo}" id="form"
+                        <form class="sign-up" method="post" th:action="@{/admin/save}" th:object="${productVo}"
+                              id="form"
                               enctype="multipart/form-data">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="myModalLabel">상품 등록</h5>
@@ -229,8 +213,10 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">Submit</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                                </button>
+                                <button type="submit" class="btn btn-outline-secondary" id="btnRegistration">Submit
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -238,6 +224,7 @@
             </div>
             <button type="button" class="btn btn-outline-secondary" id="adminDeleteBtn">삭제</button>
         </div>
+        <div class="articleGap"></div>
         <div class="articleGap"></div>
     </section>
 </container>

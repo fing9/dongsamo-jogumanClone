@@ -329,13 +329,17 @@ $(function () {
     }).find('li').mouseover(function () {
         $(this).css({
             background: '#ff7000',
-            color: 'white',
-        })
+        });
+        $(this).find('a').css({
+            color: '#FFFFFF',
+        });
     }).mouseout(function () {
         $(this).css({
-            background: 'white',
-            color: 'black',
+            background: '#FFFFFF',
         })
+        $(this).find('a').css({
+            color: '#000000',
+        });
     });
 });
 //header user 드롭다운 메뉴
@@ -347,6 +351,31 @@ $(function () {
         $('.headerNavMyPage ul').css({
             visibility: 'visible',
             opacity: 1,
+        });
+    });
+});
+$(function () {
+    $('#button-addon1').click(function () {
+        var $searchInput = $('#aboutSearchInput').val();
+        var dataSearch = {
+            name: $searchInput,
+        };
+
+        console.log(dataSearch);
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $.ajax({
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            url: "",
+            type: "POST",
+            data: dataSearch,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
+            success: function (data) {
+                console.log('success');
+                location.reload();
+            }
         });
     });
 });
