@@ -2,6 +2,7 @@ package com.dongsamo.jogumanClone.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -13,22 +14,22 @@ public class SupportController {
      */
 
     @GetMapping("/support")
-    public String notice() {
+    public String notice(Model model) {
         return "supportNotice";
     }
 
     @GetMapping("/qna")
-    public String qna() {
+    public String qna(Model model) {
         return "supportQna";
     }
 
     @GetMapping("/adminNotice")
-    public String adminNotice() {
+    public String adminNotice(Model model) {
         return "adminNotice";
     }
 
     @GetMapping("/adminQna")
-    public String adminQna() {
+    public String adminQna(Model model) {
         return "adminQna";
     }
 }

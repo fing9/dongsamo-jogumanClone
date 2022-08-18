@@ -39,6 +39,8 @@ public class AdminUserController {
         return model;
     }
 
+    //user는 관리자에 의한 계정 생성기능 따로 만들지않음
+
     @GetMapping("/admin/user/update")
     public UserDto update(@RequestParam(value = "id", required = true) Long id) {
 
