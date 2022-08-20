@@ -27,6 +27,7 @@
                 <th scope="col">제목</th>
                 <th scope="col">글쓴이</th>
                 <th scope="col">조회수</th>
+                <th scope="col">작성시간</th>
             </tr>
             </thead>
             <tbody>
@@ -35,6 +36,7 @@
                 <td> <a th:href="@{/support/{id}(id = ${notice.id})}" data-th-text="${notice.title}"></a></td>
                 <td data-th-text="${notice.user_name}"></td>
                 <td data-th-text="${notice.hits}"></td>
+                <td>2022/08/21</td>
             </tr>
             </tbody>
         </table>

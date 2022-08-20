@@ -32,18 +32,22 @@
                 <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_description}"
                       th:id="valid_description"></span>
             </div>
-            <div class="articleAdminBtn">
-                <button type="button" class="btn btn-outline-secondary" onClick="location.href='/adminQna'" style="
-                        float: left;">목록
-                </button>
-                <button type="submit" class="btn btn-outline-secondary" style="float: right;">제출</button>
+            <div>
+                <input type="radio" name="adminQnaSubRadio" class="adminQnaSubRadio" id="adminQnaSubRadioPublic"> 공개
+                <input type="radio" name="adminQnaSubRadio" class="adminQnaSubRadio" id="adminQnaSubRadioPrivate"> 비공개
+
             </div>
         </form>
     </div>
 </div>
-
+<div class="articleAdminBtn">
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='/adminQna'" style="
+                        float: left;">목록
+    </button>
+    <button type="submit" class="btn btn-outline-secondary" style="float: right;">제출</button>
+</div>
 <div class="footerGap"></div>
-
+<div class="footerGap"></div>
 </div>
 </body>
 </html>

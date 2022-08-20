@@ -27,6 +27,7 @@
                 <th scope="col">카테고리</th>
                 <th scope="col">제목</th>
                 <th scope="col">글쓴이</th>
+                <th scope="col">비밀글</th>
                 <th scope="col">작성시간</th>
             </tr>
             </thead>
@@ -36,9 +37,13 @@
                 <td> <a th:href="@{/qna/{id}(id = ${qna.id})}" data-th-text="${qna.title}"></a></td>
                 <td data-th-text="${qna.user_name}"></td>
                 <td data-th-text="${qna.hits}"></td>
+                <td>o</td>
+                <td>2022/08/21</td>
             </tr>
             </tbody>
         </table>
+
+        <button type="button" class="btn btn-outline-secondary supportQnaWriteBtn" onclick="location.href='/'">글쓰기</button>
     </div>
     <div class="footerGap"></div>
 </div>

@@ -5,41 +5,40 @@
       layout:decorate="~{fragments/layout}">
 
 <head>
-  <title>support notice sub</title>
+    <title>support notice sub</title>
 </head>
 <body layout:fragment="content">
 <div class="articleSupportPadding">
-  <div class="supportNoticeNav">
-    <ul>
-      <li><a href="/support" style="border-bottom: 1px solid black">Notice</a></li>
-      <li><a href="/qna">QnA</a></li>
-    </ul>
-  </div>
-  <div class="supportNoticeSearch">
-
-  </div>
-  <div class="supportNoticeSubArticle">
-    <h5 id="title">[[${notice.title}]]</h5>
-    <p><br></p>
-    <p id="name">[[${notice.user_name}]]</p>
-    <p id="category">
-      <span>Notice</span>
-      <span>조회수</span>
-      <span>[[${notice.hits}]]</span>
-    </p>
-
-    <div id="contents">
-      <p>[[${notice.content}]]</p>
+    <div class="supportNoticeNav">
+        <ul>
+            <li><a href="/support" style="border-bottom: 1px solid black">Notice</a></li>
+            <li><a href="/qna">QnA</a></li>
+        </ul>
     </div>
-  </div>
+    <div class="supportNoticeSubArticle">
+        <h5 id="title">[[${notice.title}]]</h5>
+        <p><br></p>
+        <p id="name">[[${notice.user_name}]]</p>
+        <p id="category">
+            <span>Notice</span>
+            <span>조회수</span>
+            <span>[[${notice.hits}]]</span>
+            <span>작성 날짜</span>
+            <span>2022/08/21</span>
+        </p>
 
-  <div class="articleAdminBtn">
-    <button type="button" class="btn btn-outline-secondary" onClick="location.href='/qna'">목록</button>
-  </div>
+        <div id="contents">
+            <p>[[${notice.content}]]</p>
+        </div>
+    </div>
 
+    <div class="supportNoticeSubComment"></div>
 
-  <div class="footerGap"></div>
-
+    <div class="footerGap"></div>
 </div>
+<div class="articleAdminBtn">
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='/support'">목록</button>
+</div>
+<div class="footerGap"></div>
 </body>
 </html>

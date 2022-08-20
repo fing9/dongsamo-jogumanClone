@@ -28,19 +28,19 @@
             </div>
             <div>
                 <label for="contents" class="form-label">내용</label>
-                <textarea class="form-control" id="contents" rows="30"></textarea>
+                <textarea class="form-control" id="contents" rows="30" placeholder="text description"></textarea>
                 <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_description}"
                       th:id="valid_description"></span>
-            </div>
-            <div class="articleAdminBtn">
-                <button type="button" class="btn btn-outline-secondary" onClick="location.href='/adminNotice'" style="
-                        float: left;">목록</button>
-                <button type="submit" class="btn btn-outline-secondary" style="float: right;">제출</button>
             </div>
         </form>
     </div>
 </div>
-
+<div class="articleAdminBtn">
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='/adminNotice'" style="
+                        float: left;">목록</button>
+    <button type="submit" class="btn btn-outline-secondary" style="float: right;">제출</button>
+</div>
+<div class="footerGap"></div>
 <div class="footerGap"></div>
 
 </div>
