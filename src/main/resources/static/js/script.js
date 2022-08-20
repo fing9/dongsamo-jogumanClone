@@ -256,6 +256,7 @@ $(function () {
     $('.orderSummaryTotal').append('<p>₩' + totalFee + '</p>');
 
 });
+//admin 상픔 페이지 수정 버튼
 $(function () {
     $('#adminFixBtn').click(function () {
         var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
@@ -288,7 +289,7 @@ $(function () {
         });
     });
 });
-
+//admin 상품페이지 삭제
 $(function () {
     $('#adminDeleteBtn').click(function () {
         var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
@@ -354,6 +355,7 @@ $(function () {
         });
     });
 });
+//admin 상품페이지 검색 기능
 $(function () {
     $('#button-addon1').click(function () {
         var $searchInput = $('#aboutSearchInput').val();
@@ -375,6 +377,31 @@ $(function () {
             success: function (data) {
                 console.log('success');
                 location.reload();
+            }
+        });
+    });
+});
+//admin 공지페이지 수정 버튼
+$(function(){
+    $('#noticeFixButton').click(function () {
+        var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
+        var dataId = {
+            name: $checkbox,
+        };
+
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $.ajax({
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            url: "",
+            type: "Get",
+            data: dataId,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
+            success: function (data) {
+                console.log('success');
+                location.href = "/adminNoticeSub";
             }
         });
     });

@@ -260,22 +260,13 @@ section{
     margin-bottom : 40px;
 }
 
-.articleMainImg {
-    width:100%;
-    height:100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.articleMainImg img {
-    height:900px;
-    margin-bottom : 100px;
+.slide {
+    width: 100%;
+    height: 800px;
+    margin: 0 auto 100px;
 }
 
 .mainCard{
-    margin : 0;
     z-index: -1;
 }
 
@@ -366,6 +357,10 @@ article{
     padding-bottom: 5px;
     vertical-align: middle;
     color: #212121B3;
+}
+.articleNav ul li a{
+    text-decoration: none;
+    color: black;
 }
 
 .articleDownloadNav{
@@ -549,10 +544,7 @@ article{
 
 /*------------------- article ----------------------*/
 
-.articleNav ul li:nth-child(1){
-    border-bottom: 1px solid black;
-    color:black;
-}
+
 
 .articleImg {
     height:818px;
@@ -961,6 +953,12 @@ button:focus { outline: 0; }
 .articleLabText {
     text-align: center;
 }
+.articleLabSlide {
+    margin: 0 150px;
+}
+.projectJLGrid {
+    margin: 0 150px;
+}
 /*projects > book*/
 
 .articleBookImg {
@@ -1006,6 +1004,12 @@ button:focus { outline: 0; }
     font-weight: bold;
     margin:0 30px;
 }
+.articleBookSlide {
+    margin: 0 150px;
+}
+.projectCollaboGrid {
+    margin: 0 150px;
+}
 
 
 /*main > footer*/
@@ -1027,7 +1031,7 @@ button:focus { outline: 0; }
 }
 /*adminNoticeSub*/
 .articleAdminPadding, .articleSupportPadding {
-    padding: 0 100px;
+    padding: 0 150px;
 }
 .adminNoticeNav, .supportNoticeNav {
     padding-top: 50px;

@@ -29,14 +29,14 @@
     <!--    </header>-->
     <main>
         <div class="wrap">
-            <div class="articleMainImg" id="mainImg">
-                <img class="slide1" src="https://cdn.imweb.me/thumbnail/20220621/dc86be43bdcc2.jpg">
-                <img class="slide1" src="https://cdn.imweb.me/thumbnail/20220128/7b9797e7f9333.jpg">
-                <img class="slide1" src="https://cdn.imweb.me/thumbnail/20210903/dd21019aa3c98.jpg">
-                <img class="slide1" src="https://cdn.imweb.me/thumbnail/20220621/b00479c120408.jpg">
-                <img class="slide1" src="https://cdn.imweb.me/thumbnail/20200709/962a20194cff6.jpg">
-                <img class="slide1" src="https://cdn.imweb.me/thumbnail/20211119/593fbf58b51b2.jpg">
-                <img class="slide1" src="https://cdn.imweb.me/thumbnail/20210203/fdf61454a670d.jpg">
+            <div class=" slider">
+                <img class="slide" src="https://cdn.imweb.me/thumbnail/20220621/dc86be43bdcc2.jpg">
+                <img class="slide" src="https://cdn.imweb.me/thumbnail/20220128/7b9797e7f9333.jpg">
+                <img class="slide" src="https://cdn.imweb.me/thumbnail/20210903/dd21019aa3c98.jpg">
+                <img class="slide" src="https://cdn.imweb.me/thumbnail/20220621/b00479c120408.jpg">
+                <img class="slide" src="https://cdn.imweb.me/thumbnail/20200709/962a20194cff6.jpg">
+                <img class="slide" src="https://cdn.imweb.me/thumbnail/20211119/593fbf58b51b2.jpg">
+                <img class="slide" src="https://cdn.imweb.me/thumbnail/20210203/fdf61454a670d.jpg">
             </div>
             <div class="row row-cols-1 row-cols-md-3 g-4" id="subImg">
                 <div class="col">
@@ -90,6 +90,7 @@
     </main>
     <footer>
         <div class="footer">
+            <a href="/supportNoticeSub">supportNoticeSub</a>
             <img src="https://cdn.imweb.me/thumbnail/20210203/fada50a734994.jpg" class="footer_logo">
             <p>상호 : 조구만 ㅣ 대표 : 김병준 ㅣ 주소 : 서울시 마포구 월드컵북로5나길 9-6, 2층 ㅣ 사업자등록번호 : 160-81-02444 ㅣ 통신판매업신고증 :
                 제2022-서울마포-2050호 ㅣ E-mail : joguman.studio@gmail.com
@@ -99,5 +100,39 @@
         </div>
     </footer>
 </container>
+<script>
+    //siema slider 코드 (Jquery 강의 38)
+    $(function () {
+
+        var timer
+
+        const mySiema = new Siema({
+            selector: '.slider',
+            loop: true,
+            duration: 800,
+        });
+
+        function autoSlide() {
+            timer = setInterval(function () {
+                mySiema.next();
+            }, 4000);
+        }
+
+        autoSlide();
+        $('.slider').mouseover(function () {
+            clearInterval(timer);
+        }).mouseout(function () {
+            autoSlide();
+        });
+
+        $('.prev').click(function () {
+            mySiema.prev();
+        });
+        $('.next').click(function () {
+            mySiema.next();
+        });
+
+    });
+</script>
 </body>
 </html>

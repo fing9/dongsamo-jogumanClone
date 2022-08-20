@@ -137,15 +137,24 @@
                         </ol>
                     </div>
                 </div>
-                <div class="articleAdminBtn">
-                    <button type="button" class="btn btn-outline-secondary" id="qnaSerchButton">조회</button>
-                    <button type="button" class="btn btn-outline-secondary" id="qnaEnrollButton">등록</button>
-                    <button type="button" class="btn btn-outline-secondary" ic="qnaFixButton">수정</button>
-                    <button type="button" class="btn btn-outline-secondary" id="qnaDeleteButton">삭제</button>
-
-                </div>
             </div>
         </div>
+        <div class="articleAdminBtn">
+            <!-- button search -->
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 aboutSearchPart">
+                <div class="input-group">
+                    <input type="text" aria-describedby="button-addon1" class="form-control border-0 bg-light" id="aboutSearchInput">
+                    <div class="input-group-append">
+                        <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search Magnifying"></i></button>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-secondary" id="qnaEnrollButton">등록</button>
+            <button type="button" class="btn btn-outline-secondary" ic="qnaFixButton">수정</button>
+            <button type="button" class="btn btn-outline-secondary" id="qnaDeleteButton">삭제</button>
+        </div>
+        <a href="/adminQnaSub">adminQnaSub</a>
+        <div class="articleGap"></div>
         <div class="articleGap"></div>
     </section>
 </container>

@@ -5,8 +5,10 @@
 <div th:fragment="headerFragment" class="header">
     <div class="headerNav">
         <ul>
-            <li class="headerImg"><a href="/" id="main"><img src="https://cdn.imweb.me/thumbnail/20220620/ea8ae05d24bca.png"></a></li>
-            <li></li><li></li>
+            <li class="headerImg"><a href="/" id="main"><img
+                    src="https://cdn.imweb.me/thumbnail/20220620/ea8ae05d24bca.png"></a></li>
+            <li></li>
+            <li></li>
             <li id="headerAbout" class="headerNavLi"><a href="#" id="mainAbout">About</a>
                 <ul class="headerSubMenu" id="headerSubAbout">
                     <li><a href="#">Joguman</a></li>
@@ -38,11 +40,52 @@
             <li class="headerNavLi"><a href="#" id="mainStore">Store</a>
                 <ul class="headerSubMenu" id="headerSubStore">
                     <li><a href="#">All</a></li>
-                    <li><a href="#">Stationery</a></li>
-                    <li><a href="#">Digital</a></li>
-                    <li><a href="#">Living</a></li>
-                    <li><a href="#">Acc</a></li>
-                    <li><a href="#">Collab</a></li>
+                    <li class="headerStoreSub"><a href="#">Stationery</a>
+                        <ul>
+                            <li><a href="#">Postcard</a></li>
+                            <li><a href="#">Memo Pad</a></li>
+                            <li><a href="#">Tape</a></li>
+                            <li><a href="#">Sticker</a></li>
+                            <li><a href="#">Etc</a></li>
+                        </ul>
+                    </li>
+                    <li class="headerStoreSub"><a href="#">Digital</a>
+                        <ul>
+                            <li><a href="#">Griptok</a></li>
+                            <li><a href="#">MousePad</a></li>
+                        </ul>
+                    </li>
+                    <li class="headerStoreSub"><a href="#">Living</a>
+                        <ul>
+                            <li><a href="#">Poster</a></li>
+                            <li><a href="#">Cup</a></li>
+                            <li><a href="#">Soft Toy</a></li>
+                            <li><a href="#">Golf</a></li>
+                        </ul>
+                    </li>
+                    <li class="headerStoreSub"><a href="#">Acc</a>
+                        <ul>
+                            <li><a href="#">Key Ring</a></li>
+                            <li><a href="#">Pin Badge</a></li>
+                        </ul>
+                    </li>
+                    <li class="headerStoreSub"><a href="#">Collab</a>
+                        <ul>
+                            <li><a href="#">Comoninoze</a></li>
+                            <li><a href="#">FlipDeep</a></li>
+                            <li><a href="#">Casetify</a>
+                                <ul>
+                                    <li><a href="#">Phone</a></li>
+                                    <li><a href="#">AirPods</a></li>
+                                    <li><a href="#">ipad</a></li>
+                                    <li><a href="#">MacBook</a></li>
+                                    <li><a href="#">Watch Band</a></li>
+                                    <li><a href="#">AirTag</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Dentists Appointment</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li class="headerNavLi"><a href="/support" id="mainSupport">Support</a>
@@ -51,13 +94,14 @@
                     <li><a href="#">Q&A</a></li>
                 </ul>
             </li>
-            <li></li><li></li>
-<!--            <span sec:authentication="name"></span>-->
-<!--            <span sec:authentication="authorities"></span> <br>-->
-<!--            <form id="logout" action="/logout" method="POST">-->
-<!--                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
-<!--                <input type="submit" value="로그아웃"/>-->
-<!--            </form>-->
+            <li></li>
+            <li></li>
+            <!--            <span sec:authentication="name"></span>-->
+            <!--            <span sec:authentication="authorities"></span> <br>-->
+            <!--            <form id="logout" action="/logout" method="POST">-->
+            <!--                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
+            <!--                <input type="submit" value="로그아웃"/>-->
+            <!--            </form>-->
             <li sec:authorize="isAnonymous()">
                 <a href="/login" id="headerLoginAnonymous">Login</a>
             </li>
@@ -66,7 +110,8 @@
             </li>
 
             <li sec:authorize="isAuthenticated()" class="headerNavMyPage">
-                <a sec:authorize="hasRole('ROLE_USER') && !hasRole('ROLE_ADMIN')" href="#" id="headerLoginAuthenticated"><span sec:authentication="name"></span></a>
+                <a sec:authorize="hasRole('ROLE_USER') && !hasRole('ROLE_ADMIN')" href="#"
+                   id="headerLoginAuthenticated"><span sec:authentication="name"></span></a>
                 <ul id="headerLoginAuthenticatedUl">
                     <li>
                         <span>
@@ -82,7 +127,8 @@
                         <a href="#" class="btn btn-flat">로그아웃</a>
                     </li>
                 </ul>
-                <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin" id="headerLoginAuthenticatedAdmin"><span sec:authentication="name"></span></a>
+                <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin" id="headerLoginAuthenticatedAdmin"><span
+                        sec:authentication="name"></span></a>
             </li>
             <li sec:authorize="isAuthenticated()">
                 <form id="logout" action="/logout" method="POST">
@@ -90,11 +136,11 @@
                     <input type="submit" value="로그아웃"/>
                 </form>
             </li>
-<!--            <li><a href="/signup" id="headerSignup">Signup</a></li>-->
+            <!--            <li><a href="/signup" id="headerSignup">Signup</a></li>-->
         </ul>
     </div>
-<!--    <div class="headerLogin">-->
-<!--        <a href="#">Login</a>-->
-<!--    </div>-->
+    <!--    <div class="headerLogin">-->
+    <!--        <a href="#">Login</a>-->
+    <!--    </div>-->
 </div>
 </html>
