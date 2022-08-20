@@ -30,17 +30,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td><a href="#">[FAQ] 자주 묻는 질문들</a></td>
-                <td>조구만</td>
-                <td>180</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td><a href="#">공지사항 2</a></td>
-                <td>조구만</td>
-                <td>18</td>
+            <tr data-th-each="notice : ${noticeList}">
+                <th scope="row" data-th-text="${notice.id}"></th>
+                <td> <a th:href="@{/support/{id}(id = ${notice.id})}" data-th-text="${notice.title}"></a></td>
+                <td data-th-text="${notice.user_name}"></td>
+                <td data-th-text="${notice.hits}"></td>
             </tr>
             </tbody>
         </table>

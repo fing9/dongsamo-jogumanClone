@@ -31,19 +31,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>기타 문의</td>
-                <td>로그아웃 버튼이 어디있나요??</td>
-                <td>sscfadsf</td>
-                <td>2022-09-02</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>배송 관련 문의</td>
-                <td><a href="#">비밀글입니다</a></td>
-                <td>asfdqfewqfwe</td>
-                <td>2022-08-08</td>
+            <tr data-th-each="qna : ${qnaList}">
+                <th scope="row" data-th-text="${qna.id}"></th>
+                <td> <a th:href="@{/qna/{id}(id = ${qna.id})}" data-th-text="${qna.title}"></a></td>
+                <td data-th-text="${qna.user_name}"></td>
+                <td data-th-text="${qna.hits}"></td>
             </tr>
             </tbody>
         </table>
