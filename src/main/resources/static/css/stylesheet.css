@@ -1711,3 +1711,7 @@ button:focus { outline: 0; }
 .basketTable{
     border-top:1px solid #dee2e6;
 }
+
+.basketTable td{
+    border:1px solid #dee2e6;
+}

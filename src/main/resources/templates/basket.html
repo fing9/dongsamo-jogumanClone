@@ -5,7 +5,75 @@
       layout:decorate="~{fragments/layout}">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
+  <link rel="stylesheet" href="../static/css/stylesheet.css">
+  <script src="../static/js/script.js"></script>
   <script>
+    //checkbox function
+    $(function () {
+      var check = $("input[name=check]");
+      var check_all = $("input[name=check_all]");
+
+      check_all.click(function () {
+        if ($(this).is(":checked")) {
+          check.prop("checked", true);
+        } else {
+          check.prop("checked", false);
+        }
+      })
+      check.click(function () {
+        var total = check.length;
+        var checked = $("input[name=check]:checked").length;
+
+        if (total != checked) {
+          check_all.prop("checked", false);
+        } else {
+          check_all.prop("checked", true);
+        }
+      });
+    });
+
+    //checkbox 선택되면 해당 상품 개수 가져오기
+    $(function() {
+      var check_all = $("input[name=check_all]");
+      var check = $('input[name=check]'); //box 객체 가져오기
+      var productCnt = $('#productCnt').text();
+      var resultProductCnt = parseInt(productCnt);
+
+      check_all.click(function () {
+        if ($(this).is(":checked")) {
+          $('#productCnt').empty();
+          $('#productCnt').append(check.length);
+        } else {
+          $('#productCnt').empty();
+          $('#productCnt').append(0);
+        }
+      })
+
+      //basketTotalPrice에 price1값 넣기
+      check.click(function() {
+        if ($(this).is(":checked")) {
+          resultProductCnt++;
+          $('#productCnt').empty();
+          $('#productCnt').append(resultProductCnt);
+        } else {
+          resultProductCnt--;
+          $('#productCnt').empty();
+          $('#productCnt').append(resultProductCnt);
+        }
+      })
+    })
+
 
   </script>
   <title>basket</title>
@@ -20,15 +88,16 @@
       <div class="basketTable">
         <table class="table">
           <tr>
-            <td>상품정보</td>
-            <td>수량</td>
-            <td>주문금액</td>
-            <td>배송정보</td>
+            <th><input type="checkbox" value="" id="agreeAll" name="check_all">상품정보</th>
+            <th>수량</th>
+            <th>주문금액</th>
+            <th>배송정보</th>
           </tr>
           <tr>
             <th scope="row">
-              <img src="https://cdn.imweb.me/thumbnail/20220719/aa7fd28ca70e6.jpg">
+              <input type="checkbox" value="" id="agree1" name="check"><img src="https://cdn.imweb.me/thumbnail/20220719/aa7fd28ca70e6.jpg">
               <span>Brachio Drink Holder 브라키오 튜브 컵홀더</span>
+<!--              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
             </th>
             <td>
               <p>1</p>
@@ -42,11 +111,33 @@
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">옵션 변경</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      ...
+                      <div class="modalImgWrap" style="display: flex; justify-content: space-between;">
+                        <div class="modalImg">
+                          <img src="https://cdn.imweb.me/thumbnail/20220719/aa7fd28ca70e6.jpg">
+                        </div>
+                        <div class="modalImgDescription">
+                          <span>Brachio Drink Holder 브라키오 튜브 컵홀더</span>
+                          <span>₩10,000</span>
+                        </div>
+                      </div>
+                      <div class="basketCnt">
+                        <div class="storeProductAmount-text">수량</div>
+                          <div class="amountCountWrap">
+                            <div><input type='button' onclick='count("minus")' value='-' id="amountBtnMinus"/></div>
+                            <div class="productAmountCnt" name="productAmountCnt" id='result1'>1</div>
+                            <div><input type='button' onclick='count("plus")' value='+' id="amountBtnPlus"/></div>
+                          </div>
+                          <div class="amountCountText">
+                            <div style="display: flex; justify-content: space-between">
+                            <div><span>총 수량 <span>1</span>개</span></div>
+                            <div>₩<span id="price1">12,000</span></div>
+                            </div>
+                          </div>
+                      </div>
                     </div>
                     <div class="modal-footer">
                       <button type="button" data-bs-dismiss="modal">취소</button>
@@ -58,17 +149,17 @@
 
             </td>
             <td>
-              <p>₩10000</p>
+              <p id="basketPrice1">₩10,000</p>
               <button type="submit">바로구매</button>
             </td>
-            <td>
-              <p>₩3,000</p>
+            <td rowspan="2" style="border-right:none;">
+              <p id="basketDelivery">₩3,000</p>
               <p>택배</p>
             </td>
           </tr>
           <tr>
             <th scope="row">
-              <img src="https://cdn.imweb.me/thumbnail/20220719/aa7fd28ca70e6.jpg">
+              <input type="checkbox" value="" id="agree2" name="check"><img src="https://cdn.imweb.me/thumbnail/20220719/aa7fd28ca70e6.jpg">
               <span>Brachio Drink Holder 브라키오 튜브 컵홀더</span>
             </th>
             <td>
@@ -76,7 +167,7 @@
               <button type="submit">옵션/수량 변경</button>
             </td>
             <td>
-              <p>₩10000</p>
+              <p id="basketPrice2">₩12,000</p>
               <button type="submit">바로구매</button>
             </td>
           </tr>
@@ -89,27 +180,27 @@
       <div class="basketTotalTable">
         <table class="table">
           <tr>
-            <td>총 상품 금액</td>
+            <td>총 주문 상품 <span id="productCnt">0</span>개</td>
           </tr>
           <tr>
             <th scope="row">
               <div class="paymentTableWrap">
               <div>
-                <p>₩22000</p>
+                <p id="basketTotalPrice">₩0</p>
                 <p>상품금액</p>
               </div>
                 <div>
                   <p>+</p>
                 </div>
               <div>
-                <p>₩3000</p>
+                <p id="basketTotalDelivery">₩0</p>
                 <p>배송비</p>
               </div>
                 <div>
                   <p>=</p>
                 </div>
               <div>
-                <p>₩25000</p>
+                <p>₩0</p>
                 <p>총 주문금액</p>
               </div>
               </div>

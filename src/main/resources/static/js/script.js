@@ -252,7 +252,6 @@ $(function (){
     totalFee = addComma(totalFee);
 
     $('.orderSummaryTotal').append('<p>₩' + totalFee +'</p>');
-
 });
 $(function () {
     $('#adminFixBtn').click(function () {
