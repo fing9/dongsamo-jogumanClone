@@ -19,61 +19,66 @@
   <link rel="stylesheet" href="../static/css/stylesheet.css">
   <script src="../static/js/script.js"></script>
   <script>
-    //checkbox function
-    $(function () {
-      var check = $("input[name=check]");
-      var check_all = $("input[name=check_all]");
+    //옵션, 수량 모달 내부 변경
+    function count(type)  {
+      // 결과를 표시할 element
+      const resultElement1 = document.getElementById('result1');
+      const resultElement2 = document.getElementById('result2');
+      const resultPrice1=document.getElementById('basketPrice1');
+      const resultPrice2=document.getElementById('basketPrice2');
 
-      check_all.click(function () {
-        if ($(this).is(":checked")) {
-          check.prop("checked", true);
-        } else {
-          check.prop("checked", false);
+      // 현재 화면에 표시된 값
+      let number1 = resultElement1.innerText;
+      let number2 = resultElement2.innerText;
+      let price1=resultPrice1.innerText;
+      let price2=resultPrice2.innerText;
+
+      //comma 처리
+      function addComma(value){
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return value;
+      }
+      function minusComma(value){
+        value = value.replace(/[^\d]+/g, "");
+        return value;
+      }
+
+      price1=minusComma(price1);
+      price2=minusComma(price2);
+
+      // 더하기/빼기
+      if(type === 'plus') {
+        number1 = parseInt(number1) + 1;
+        number2 = parseInt(number2) + 1;
+        price2 = parseInt(price1)*number1;
+      }
+      else if(type === 'minus')  {
+        number1 = parseInt(number1) - 1;
+        number2 = parseInt(number2) - 1;
+        price2 = parseInt(price2)-parseInt(price1);
+        if(number1<=1 && number2<=1){
+          number1=1;
+          number2=1;
+          price2=parseInt(price1);
         }
-      })
-      check.click(function () {
-        var total = check.length;
-        var checked = $("input[name=check]:checked").length;
+      }
+      // 결과 출력
+      resultElement1.innerText = number1;
+      resultElement2.innerText = number2;
+      price2=String(price2);
+      price2=addComma(price2);
+      resultPrice2.innerText=price2;
+    }
 
-        if (total != checked) {
-          check_all.prop("checked", false);
-        } else {
-          check_all.prop("checked", true);
-        }
-      });
-    });
-
-    //checkbox 선택되면 해당 상품 개수 가져오기
-    $(function() {
-      var check_all = $("input[name=check_all]");
-      var check = $('input[name=check]'); //box 객체 가져오기
-      var productCnt = $('#productCnt').text();
-      var resultProductCnt = parseInt(productCnt);
-
-      check_all.click(function () {
-        if ($(this).is(":checked")) {
-          $('#productCnt').empty();
-          $('#productCnt').append(check.length);
-        } else {
-          $('#productCnt').empty();
-          $('#productCnt').append(0);
-        }
-      })
-
-      //basketTotalPrice에 price1값 넣기
-      check.click(function() {
-        if ($(this).is(":checked")) {
-          resultProductCnt++;
-          $('#productCnt').empty();
-          $('#productCnt').append(resultProductCnt);
-        } else {
-          resultProductCnt--;
-          $('#productCnt').empty();
-          $('#productCnt').append(resultProductCnt);
-        }
-      })
-    })
-
+    //수량, 금액 테이블 변경
+    function basketRevise(){
+      const resultElement1 = document.getElementById('result1'); //modal안에있는값
+      const resultProductCnt = document.getElementById('basketTableProductCnt'); //table값
+      const resultPrice2=document.getElementById('basketPrice2'); //modal안에있는값
+      const resultProductPrice = document.getElementById('basketTableProductPrice'); //table값
+      resultProductCnt.innetText=resultElement1.innerText;
+      resultProductPrice.innetText=resultPrice2.innerText;
+    }
 
   </script>
   <title>basket</title>
@@ -100,7 +105,7 @@
 <!--              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
             </th>
             <td>
-              <p>1</p>
+              <p id="basketTableProductCnt">1</p>
               <!-- Button trigger modal -->
               <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 옵션/수량 변경
@@ -121,27 +126,29 @@
                         </div>
                         <div class="modalImgDescription">
                           <span>Brachio Drink Holder 브라키오 튜브 컵홀더</span>
-                          <span>₩10,000</span>
+                          <span>₩<span id="basketPrice1">10,000</span></span>
                         </div>
                       </div>
                       <div class="basketCnt">
-                        <div class="storeProductAmount-text">수량</div>
-                          <div class="amountCountWrap">
-                            <div><input type='button' onclick='count("minus")' value='-' id="amountBtnMinus"/></div>
-                            <div class="productAmountCnt" name="productAmountCnt" id='result1'>1</div>
-                            <div><input type='button' onclick='count("plus")' value='+' id="amountBtnPlus"/></div>
+                        <div class="basketProductAmount-text">수량</div>
+                          <div class="basketCountWrap">
+                            <div><input type='button' onclick='count("minus")' value='-' id="basketBtnMinus"/></div>
+                            <div class="basketAmountCnt" name="basketAmountCnt" id='result1'>1</div>
+                            <div><input type='button' onclick='count("plus")' value='+' id="basketBtnPlus"/></div>
                           </div>
-                          <div class="amountCountText">
+                          <div class="basketCountText">
                             <div style="display: flex; justify-content: space-between">
-                            <div><span>총 수량 <span>1</span>개</span></div>
-                            <div>₩<span id="price1">12,000</span></div>
+                            <div><span>총 수량 <span id="result2">1</span>개</span></div>
+                            <div>₩<span id="basketPrice2">10,000</span></div>
                             </div>
                           </div>
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" data-bs-dismiss="modal">취소</button>
-                      <button type="submit">변경</button>
+                      <form action="#">
+                        <button type="button" data-bs-dismiss="modal">취소</button>
+                        <button type="submit" id="basketReviseBtn" onclick="basketRevise();">변경</button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -149,25 +156,25 @@
 
             </td>
             <td>
-              <p id="basketPrice1">₩10,000</p>
+              <p>₩<span id="basketTableProductPrice">10,000</span></p>
               <button type="submit">바로구매</button>
             </td>
             <td rowspan="2" style="border-right:none;">
-              <p id="basketDelivery">₩3,000</p>
+              <p>₩3,000</p>
               <p>택배</p>
             </td>
           </tr>
           <tr>
             <th scope="row">
-              <input type="checkbox" value="" id="agree2" name="check"><img src="https://cdn.imweb.me/thumbnail/20220719/aa7fd28ca70e6.jpg">
-              <span>Brachio Drink Holder 브라키오 튜브 컵홀더</span>
+              <input type="checkbox" value="" id="agree2" name="check"><img src="https://cdn.imweb.me/thumbnail/20220713/b1a3092210245.jpg">
+              <span>Fuck You Inflatable Glove 빠큐 풍선장갑</span>
             </th>
             <td>
               <p>1</p>
               <button type="submit">옵션/수량 변경</button>
             </td>
             <td>
-              <p id="basketPrice2">₩12,000</p>
+              <p>₩12,000</p>
               <button type="submit">바로구매</button>
             </td>
           </tr>
@@ -217,75 +224,7 @@
           <div class="col basketCol">
             <div class="card basketCard">
               <img src="https://cdn.imweb.me/thumbnail/20220707/9b3f2e400b2f3.jpg"
-                   class="card-img-top card-img-top-store" alt="...">
-              <div class="store-card-body">
-                <div class="card-title basket-card-title">
-                  Branchio Drink Holder 브라키오 튜브 컵홀더
-                </div>
-                <div class="card-price">
-                  $10,000
-                </div>
-                <div class="card-update">
-                  <div class="updateBox-new">NEW</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col basketCol">
-            <div class="card basketCard">
-              <img src="https://cdn.imweb.me/thumbnail/20220707/9b3f2e400b2f3.jpg"
-                   class="card-img-top card-img-top-store" alt="...">
-              <div class="store-card-body">
-                <div class="card-title basket-card-title">
-                  Branchio Drink Holder 브라키오 튜브 컵홀더
-                </div>
-                <div class="card-price">
-                  $10,000
-                </div>
-                <div class="card-update">
-                  <div class="updateBox-new">NEW</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col basketCol">
-            <div class="card basketCard">
-              <img src="https://cdn.imweb.me/thumbnail/20220707/9b3f2e400b2f3.jpg"
-                   class="card-img-top card-img-top-store" alt="...">
-              <div class="store-card-body">
-                <div class="card-title basket-card-title">
-                  Branchio Drink Holder 브라키오 튜브 컵홀더
-                </div>
-                <div class="card-price">
-                  $10,000
-                </div>
-                <div class="card-update">
-                  <div class="updateBox-new">NEW</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col basketCol">
-            <div class="card basketCard">
-              <img src="https://cdn.imweb.me/thumbnail/20220707/9b3f2e400b2f3.jpg"
-                   class="card-img-top card-img-top-store" alt="...">
-              <div class="store-card-body">
-                <div class="card-title basket-card-title">
-                  Branchio Drink Holder 브라키오 튜브 컵홀더
-                </div>
-                <div class="card-price">
-                  $10,000
-                </div>
-                <div class="card-update">
-                  <div class="updateBox-new">NEW</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col basketCol">
-            <div class="card basketCard">
-              <img src="https://cdn.imweb.me/thumbnail/20220707/9b3f2e400b2f3.jpg"
-                   class="card-img-top card-img-top-store" alt="...">
+                   class="card-img-top card-img-top-store card-img-top-basket" alt="...">
               <div class="store-card-body">
                 <div class="card-title basket-card-title">
                   Branchio Drink Holder 브라키오 튜브 컵홀더
@@ -302,7 +241,6 @@
         </div>
       </div>
     </div>
-
   </article>
 </container>
 </body>

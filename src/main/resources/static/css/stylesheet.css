@@ -615,13 +615,9 @@ article{
 
 .storeProductWrap{
     display: flex;
-    /*justify-content: center;*/
-
 }
 
 .storeProductTextWrap{
-    /*margin-left:50px;*/
-    /*background: green;*/
     margin-left:100px;
 }
 
@@ -673,7 +669,6 @@ article{
 }
 
 .storeProductImgList{
-    /*width:1000px;*/
     text-align: center; /* 이미지 가운데 정렬은 text-align */
 }
 
@@ -1690,7 +1685,6 @@ button:focus { outline: 0; }
     width:234px;
     height:234px;
     margin : 0px;
-    z-index: -1;
 }
 
 .basket-card-title{
@@ -1715,3 +1709,45 @@ button:focus { outline: 0; }
 .basketTable td{
     border:1px solid #dee2e6;
 }
+
+#basketBtnMinus, #basketBtnPlus {
+    width: 25px;
+    height: 30px;
+    background: white;
+    border: 1px solid rgba(33, 33, 33, 0.1);
+}
+
+.basketCountWrap{
+    display: flex;
+}
+
+.basketCnt{
+    margin-top:10px;
+    border:1px solid #21212108;
+    background: #21212108;
+}
+
+.basketAmountCnt{
+    background: white;
+    width:50px;
+    height: 30px;
+    border:1px solid rgba(33,33,33,0.1);
+    text-align: center;
+}
+
+.basketProductAmount-text{
+    margin:10px;
+    padding:10px;
+    border-bottom:1px dotted rgba(33,33,33,0.1);
+}
+
+.basketTable tr th img{
+    width:80px;
+    height:80px;
+}
+
+.modalImg img{
+    width:62px;
+    height:62px;
+}
+

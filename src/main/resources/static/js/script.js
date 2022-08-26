@@ -314,3 +314,79 @@ $(function () {
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
 $(document).ajaxSend(function(e, xhr, options) { xhr.setRequestHeader(header, token); });
+
+//basket checkbox function
+$(function () {
+    var check = $("input[name=check]");
+    var check_all = $("input[name=check_all]");
+
+    check_all.click(function () {
+        if ($(this).is(":checked")) {
+            check.prop("checked", true);
+        } else {
+            check.prop("checked", false);
+        }
+    })
+    check.click(function () {
+        var total = check.length;
+        var checked = $("input[name=check]:checked").length;
+
+        if (total != checked) {
+            check_all.prop("checked", false);
+        } else {
+            check_all.prop("checked", true);
+        }
+    });
+});
+
+//basket checkbox 선택되면 해당 상품 개수 가져오기
+$(function() {
+    var check_all = $("input[name=check_all]");
+    var check = $('input[name=check]'); //box 객체 가져오기
+    var productCnt = $('#productCnt').text();
+    var resultProductCnt = parseInt(productCnt);
+
+    check_all.click(function () {
+        if ($(this).is(":checked")) {
+            $('#productCnt').empty();
+            $('#productCnt').append(check.length);
+            resultProductCnt=check.length;
+        } else {
+            resultProductCnt=parseInt(productCnt);
+            $('#productCnt').empty();
+            $('#productCnt').append(resultProductCnt);
+        }
+    })
+
+    check.click(function() {
+        if ($(this).is(":checked")) {
+            resultProductCnt++;
+            $('#productCnt').empty();
+        } else {
+            resultProductCnt--;
+            $('#productCnt').empty();
+        }
+        if(resultProductCnt<0){
+            resultProductCnt=parseInt(productCnt);
+        }
+        $('#productCnt').append(resultProductCnt);
+    })
+})
+
+//basket 위시리스트 5개만 보이게
+$(document).ready( function() {
+    let basketWish=$('.basketCol');
+    let basketCnt=basketWish.length;
+    if(basketCnt>5){
+        $('.basketCol:nth-of-type(n+6)').css({display: 'none'});
+    }
+});
+
+//basket card img 어둡게
+$(document).ready(function(){
+    $('.basketCard img').hover(function() {
+        $(this).css({filter: "brightness(50%)"});
+    }, function(){
+        $(this).css({filter: "brightness(100%)"});
+    });
+});
