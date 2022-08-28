@@ -253,13 +253,13 @@ $(function (){
 
     $('.orderSummaryTotal').append('<p>₩' + totalFee +'</p>');
 });
+
 $(function () {
     $('#adminFixBtn').click(function () {
         var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
         var dataId = {
             id: $checkbox
         };
-
 
         var token = $("meta[name='_csrf']").attr("content");
         var header = $("meta[name='_csrf_header']").attr("content");
@@ -390,3 +390,66 @@ $(document).ready(function(){
         $(this).css({filter: "brightness(100%)"});
     });
 });
+
+//총 주문금액 테이블 변경
+$(function() {
+    var check = $('input[name=check]'); //box 객체 가져오기
+    var check_all = $("input[name=check_all]");
+    var delivery=$('#basketDeliveryPrice').text(); //table에서 배송비 가져오기
+    var productPrice=$('#basketTableProductPrice').text(); //table에서 상품 가격 가져오기
+    var resultDelivery=$('#basketDelivery'); //여기에 배송비 넣기
+    var resultProductPrice=$('#basketPrice'); //여기에 가격 넣기
+    var total = $('#basketTotal'); //총 주문금액 넣기
+
+    function addComma(value){
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return value;
+    }
+    function minusComma(value){
+        value = value.replace(/[^\d]+/g, "");
+        return value;
+    }
+
+    delivery=minusComma(delivery);
+    productPrice=minusComma(productPrice);
+
+    var totalPrice=parseInt(delivery)+parseInt(productPrice); //총 주문금액
+    totalPrice=String(totalPrice);
+    totalPrice=addComma(totalPrice);
+
+    check_all.click(function () {
+        if ($(this).is(":checked")) {
+            resultDelivery.empty();
+            resultProductPrice.empty();
+            total.empty();
+            total.append(totalPrice);
+            resultProductPrice.append(addComma(productPrice));
+            resultDelivery.append(addComma(delivery));
+        } else {
+            resultDelivery.empty();
+            resultProductPrice.empty();
+            total.empty();
+            resultProductPrice.append(0);
+            resultDelivery.append(0);
+            total.append(0);
+        }
+    })
+
+    check.click(function() {
+        if ($(this).is(":checked")) {
+            resultDelivery.empty();
+            resultProductPrice.empty();
+            total.empty();
+            total.append(totalPrice);
+            resultProductPrice.append(addComma(productPrice));
+            resultDelivery.append(addComma(delivery));
+        } else {
+            resultDelivery.empty();
+            resultProductPrice.empty();
+            total.empty();
+            resultProductPrice.append(0);
+            resultDelivery.append(0);
+            total.append(0);
+        }
+    })
+})

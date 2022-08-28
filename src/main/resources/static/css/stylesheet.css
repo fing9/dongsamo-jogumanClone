@@ -1695,6 +1695,7 @@ button:focus { outline: 0; }
 .basketColWrap{
     display: flex;
     justify-content: flex-start;
+    margin-top:15px;
 }
 
 .basketTitle{
@@ -1723,6 +1724,7 @@ button:focus { outline: 0; }
 
 .basketCnt{
     margin-top:10px;
+    padding:10px;
     border:1px solid #21212108;
     background: #21212108;
 }
@@ -1731,14 +1733,16 @@ button:focus { outline: 0; }
     background: white;
     width:50px;
     height: 30px;
-    border:1px solid rgba(33,33,33,0.1);
+    border-top:1px solid rgba(33,33,33,0.1);
+    border-bottom:1px solid rgba(33,33,33,0.1);
     text-align: center;
 }
 
 .basketProductAmount-text{
-    margin:10px;
-    padding:10px;
-    border-bottom:1px dotted rgba(33,33,33,0.1);
+    margin:5px;
+    text-align: left;
+    font-weight: bold;
+    font-size:13px;
 }
 
 .basketTable tr th img{
@@ -1750,4 +1754,226 @@ button:focus { outline: 0; }
     width:62px;
     height:62px;
 }
+
+.basketTitle{
+    margin-bottom:20px;
+}
+
+.basketTableTh{
+    text-align:center;
+    font-size:13px;
+    vertical-align: middle;
+}
+
+.basketTable input{
+    accent-color: #ffcd00;
+}
+
+.basketProductBtn{
+    background: white;
+    border:1px solid #e5e7eb;
+    width:100px;
+    height:30px;
+    font-size:13px;
+}
+
+.basketProductBtn:hover{
+    border:1px solid black;
+}
+
+.basketTable table td{
+    text-align: center;
+    vertical-align: middle;
+    height:100px;
+}
+
+.basketTable table th{
+    vertical-align: middle;
+    height:40px;
+}
+
+#basketTableProductCnt{
+    font-weight: bold;
+}
+
+.basketBtn{
+    background: #ffcd00;
+    color:black;
+    border:1px solid #e5e7eb;
+    width:100px;
+    height:30px;
+    font-size:13px;
+}
+
+.basketBtn:hover{
+    background: black;
+    color:white;
+}
+
+.basketDeleteBtn{
+    background: white;
+    border:1px solid #e5e7eb;
+    width:100px;
+    height:30px;
+    font-size:12px;
+    font-weight: bold;
+}
+
+.basketTableDiv{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.basketTotalTable{
+    margin-top:40px;
+    border-top:2px solid black;
+}
+
+#productCnt{
+    color:#ffcd00;
+    font-weight: bold;
+    font-size:13px;
+}
+
+.basketTotalTable tr td{
+    height:40px;
+    vertical-align: middle;
+}
+
+.basketTotalTable tr th {
+    height:120px;
+    vertical-align: middle;
+}
+
+.basketPayment{
+    font-weight: bold;
+    font-size:13px;
+    color:gray;
+}
+
+.basketTotalPayment{
+    font-size:24px;
+    font-weight: bold;
+}
+
+.paymentElement{
+    margin:10px;
+    text-align: center;
+}
+
+.basketTotalTable table tr:nth-of-type(2){
+    border-bottom:2px solid black;
+}
+
+.basketOrderBtnWrap{
+    display: flex;
+    justify-content: center;
+    margin-top:40px;
+}
+
+.basketOrderBtn{
+    width:280px;
+    height:50px;
+    background: #ffcd00;
+    color:white;
+    border:none;
+    font-weight: bold;
+}
+
+.basketShopBtnWrap{
+    display: flex;
+    justify-content: center;
+}
+
+.basketShopBtnWrap{
+    margin-top:30px;
+}
+
+.basketShopBtnWrap a:link{
+    color:#ffcd00;
+    font-weight: bold;
+}
+
+.basketShopBtnWrap a:visited{
+    color:#ffcd00;
+    font-weight: bold;
+}
+
+.basketShopBtnWrap a:hover{
+    color:#ffcd00;
+    font-weight: bold;
+}
+
+.basketShopBtnWrap a:active{
+    color:#ffcd00;
+    font-weight: bold;
+}
+
+.basketWishList{
+    margin-top:30px;
+}
+
+.basketMoreBtn{
+    background: white;
+    border:1px solid #e5e7eb;
+    width:60px;
+    height:30px;
+    font-size:12px;
+    font-weight: bold;
+    margin-left:10px;
+}
+
+.basketCountText{
+    margin-top:20px;
+    font-weight: bold;
+    color:gray;
+}
+
+.modalImgDescription{
+    padding-left:15px;
+    text-align: left;
+    padding-top:10px;
+    vertical-align: middle;
+}
+
+.basketModalText{
+    font-size:15px;
+}
+
+.modalImgDescription{
+    font-weight: bold;
+}
+
+.basketCancelBtn{
+    background: white;
+    border:1px solid #e5e7eb;
+    width:70px;
+    height:40px;
+    font-size:13px;
+    font-weight: bold;
+}
+
+.basketReviseBtn{
+    background: #ffcd00;
+    border:none;
+    color:white;
+    width:70px;
+    height:40px;
+    font-size:13px;
+    font-weight: bold;
+}
+
+.basketBtns{
+    margin :auto;
+    border:none;
+}
+
+.basketModalBody{
+    margin-bottom:20px;
+}
+
+.basketModalLine{
+    border-top:1px solid #e5e7eb; width:450px; margin:auto;
+}
+
 
