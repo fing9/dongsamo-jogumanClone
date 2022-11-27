@@ -5,29 +5,10 @@
       layout:decorate="~{fragments/layout}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- ajax -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- 부트스트랩 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-    <!-- siema -->
-    <script src="https://cdn.jsdelivr.net/npm/siema@1.3.1/dist/siema.min.js"></script>
-    <!-- 조구만 스튜디오 폰트 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
-    <link rel="stylesheet" href="../static/css/stylesheet.css">
-
     <title>Book</title>
 </head>
 <body layout:fragment="content">
 <container>
-    <div data-include-path="header.html"></div>
     <article>
         <div class="articleNav">
             <ul>
@@ -115,8 +96,50 @@
         <div class="articleGap"></div>
     </article>
 </container>
-<script src="../static/js/script.js"></script>
 
+<script>
+    //siema slider 코드 (Jquery 강의 38)
+    $(function () {
+        function onInitCallback() {
+            console.log('Siema initialised bro :)');
+        }
+
+        function onChangeCallback() {
+            console.log(`The index of current slide is: ${this.currentSlide}`);
+        }
+
+        var timer
+
+        const mySiema = new Siema({
+            selector: '.slider',
+            onInit: onInitCallback,
+            onChange: onChangeCallback,
+            loop: true,
+            duration: 800,
+        });
+
+        function autoSlide() {
+            timer = setInterval(function () {
+                mySiema.next();
+            }, 4000);
+        }
+
+        autoSlide();
+        $('.slider').mouseover(function () {
+            clearInterval(timer);
+        }).mouseout(function () {
+            autoSlide();
+        });
+
+        $('.prev').click(function () {
+            mySiema.prev();
+        });
+        $('.next').click(function () {
+            mySiema.next();
+        });
+
+    });
+</script>
 </body>
 
 </html>

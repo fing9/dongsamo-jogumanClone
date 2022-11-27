@@ -8,6 +8,7 @@ import com.dongsamo.jogumanClone.domain.productImage.ProductImageRepository;
 import com.dongsamo.jogumanClone.dto.ProductDto;
 import com.dongsamo.jogumanClone.dto.ProductImageDto;
 import com.dongsamo.jogumanClone.dto.ProductSimpleDto;
+import com.dongsamo.jogumanClone.dto.ProductVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -131,9 +132,9 @@ public class ProductService {
     }
 
     @Transactional
-    public ProductDto updateById(Long id, ProductDto productDto, List<ProductImageDto> productImageDtoList) {
+    public ProductVo updateById(Long id, ProductVo productVo, List<MultipartFile> files) throws Exception {
         Product product = productRepository.getById(id);
-        product.update(productDto.getName(), productDto.getCategory(), productDto.getPrice(), productDto.getDescription(), productDto.getAmount());
+        product.update(productVo.getName(), productVo.getCategory(), productVo.getPrice(), productVo.getDescription(), productVo.getAmount());
         List<ProductImage> images = productImageRepository.findAllByProduct(product);
 
         //업데이트시에는 기존에 저장된 모든 사진을 지우므로 다시 올려야 함
@@ -142,11 +143,36 @@ public class ProductService {
             deleteProductImageAndFilesByProductId(id);
         }
         //2단계 : 다시 받은 사진 저장하기
-        if(productImageDtoList != null) {
-            for (int i=0;i< productImageDtoList.size();i++) {
-                productImageRepository.save(productImage.dtoToEntity(productImageDtoList.get(i), product));
+        List<ProductImage> list = fileHandler.parseFileInfo(product, files);
+
+        List<ProductImageDto> pictureBeans;
+
+        if (list.isEmpty()) {
+            return productVo;
+            // TODO : 파일이 없을 땐 어떻게 해야할까.. 고민을 해보아야 할 것
+        }
+        // 파일에 대해 DB에 저장하고 가지고 있을 것
+        else {
+            pictureBeans = new ArrayList<>();
+            for (ProductImage productImage : list) {
+                pictureBeans.add(new ProductImageDto(productImageRepository.save(productImage)));
             }
         }
-        return productDto;
+
+//        if(productImageDtoList != null) {
+//            for (int i=0;i< productImageDtoList.size();i++) {
+//                productImageRepository.save(productImage.dtoToEntity(productImageDtoList.get(i), product));
+//            }
+//        }
+        return productVo;
     }
+
+    //@Query이용해서 와일드카드 조회문 짜야함
+//    @Transactional
+//    public ProductDto findByName(String search) {
+//        ProductDto productDto = new ProductDto();
+//
+//
+//        return productDto;
+//    }
 }

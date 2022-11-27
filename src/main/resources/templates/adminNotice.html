@@ -5,150 +5,130 @@
       layout:decorate="~{fragments/layout}">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- ajax -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- 부트스트랩 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-          crossorigin="anonymous"></script>
-  <!-- siema -->
-  <script src="https://cdn.jsdelivr.net/npm/siema@1.3.1/dist/siema.min.js"></script>
-  <!-- 조구만 스튜디오 폰트 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.typekit.net/fnd3ack.css">
-  <link rel="stylesheet" href="../static/css/stylesheet.css">
-  <title>admin notice</title>
+    <title>admin notice</title>
 </head>
 <body layout:fragment="content">
 <container>
-  <div data-include-path="header.html"></div>
-  <section>
-    <div class="articleAdmin">
-      <div class="articleAdminNav">
-        <ul>
-          <li><a href="#">상품 관리</a></li>
-          <li><a href="#">회원 관리</a></li>
-          <li><a href="#">주문 관리</a></li>
-          <li><a href="#" style="border-bottom: 2px solid orange">공지 관리</a></li>
-          <li><a href="#">QnA 관리</a></li>
-        </ul>
-      </div>
-      <div class="articleAdminSection">
-        <table class="table articleAdminTable" id="myTable">
-          <thead class="table-light">
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">번호</th>
-              <th scope="col">제목</th>
-              <th scope="col">글쓴이</th>
-              <th scope="col">조회수</th>
-              <th scope="col">등록일시</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
-              <th scope="row">1</th>
-              <td>[FAQ] 자주 묻는 질문들</td>
-              <td>조구만</td>
-              <td>180</td>
-              <td>2022/7/28</td>
-            </tr>
-            <tr>
-              <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
-              <th scope="row">2</th>
-              <td>공지사항 2</td>
-              <td>조구만</td>
-              <td>18</td>
-              <td>2022/7/28</td>
-            </tr>
-            <tr>
-              <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
-              <th scope="row">3</th>
-              <td>공지사항 3</td>
-              <td>조구만</td>
-              <td>18</td>
-              <td>2022/7/28</td>
-            </tr>
-            <tr>
-              <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
-              <th scope="row">4</th>
-              <td>공지사항 4</td>
-              <td>조구만</td>
-              <td>18</td>
-              <td>2022/7/28</td>
-            </tr>
-            <tr>
-              <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
-              <th scope="row">5</th>
-              <td>공지사항 5</td>
-              <td>조구만</td>
-              <td>18</td>
-              <td>2022/7/28</td>
-            </tr>
-            <tr>
-              <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
-              <th scope="row">6</th>
-              <td>공지사항 6</td>
-              <td>조구만</td>
-              <td>18</td>
-              <td>2022/7/28</td>
-            </tr>
-            <tr>
-              <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
-              <th scope="row">7</th>
-              <td>공지사항 7</td>
-              <td>조구만</td>
-              <td>18</td>
-              <td>2022/7/28</td>
-            </tr>
-            <tr>
-              <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
-              <th scope="row">8</th>
-              <td>공지사항 8</td>
-              <td>조구만</td>
-              <td>18</td>
-              <td>2022/7/28</td>
-            </tr>
-            <tr>
-              <th scope="row"><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></th>
-              <th scope="row">9</th>
-              <td>공지사항 9</td>
-              <td>조구만</td>
-              <td>18</td>
-              <td>2022/7/28</td>
-            </tr>
+    <section>
+        <div class="articleAdmin">
 
-          </tbody>
+            <div class="articleAdminNav">
+                <ul>
+                    <li><a href="/admin">상품 관리</a></li>
+                    <li><a href="#">회원 관리</a></li>
+                    <li><a href="#">주문 관리</a></li>
+                    <li><a href="/adminNitice" style="border-bottom: 2px solid orange">공지 관리</a></li>
+                    <li><a href="/adminQna">QnA 관리</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="articleAdminSection">
+                    <table class="table articleAdminTable" id="myTable">
+                        <thead class="table-light">
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">번호</th>
+                            <th scope="col">제목</th>
+                            <th scope="col">글쓴이</th>
+                            <th scope="col">조회수</th>
+                            <th scope="col">등록일시</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   id="radio-button" value="1"></th>
+                            <th>1</th>
+                            <td>[FAQ] 자주 묻는 질문</td>
+                            <td>송관석</td>
+                            <td>18</td>
+                            <td>2022/07/29</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   value="2"></th>
+                            <th>2</th>
+                            <td>[FAQ] 자주 묻는 질문</td>
+                            <td>송관석</td>
+                            <td>18</td>
+                            <td>2022/07/29</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   value="3"></th>
+                            <th>3</th>
+                            <td>[FAQ] 자주 묻는 질문</td>
+                            <td>송관석</td>
+                            <td>18</td>
+                            <td>2022/07/29</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   value="4"></th>
+                            <th>4</th>
+                            <td>[FAQ] 자주 묻는 질문</td>
+                            <td>송관석</td>
+                            <td>18</td>
+                            <td>2022/07/29</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   value="5"></th>
+                            <th>5</th>
+                            <td>[FAQ] 자주 묻는 질문</td>
+                            <td>송관석</td>
+                            <td>18</td>
+                            <td>2022/07/29</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   value="6"></th>
+                            <th>6</th>
+                            <td>[FAQ] 자주 묻는 질문</td>
+                            <td>송관석</td>
+                            <td>18</td>
+                            <td>2022/07/29</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   value="7"></th>
+                            <th>7</th>
+                            <td>[FAQ] 자주 묻는 질문</td>
+                            <td>송관석</td>
+                            <td>18</td>
+                            <td>2022/07/29</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                   value="8"></th>
+                            <th>8</th>
+                            <td>[FAQ] 자주 묻는 질문</td>
+                            <td>송관석</td>
+                            <td>18</td>
+                            <td>2022/07/29</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <ol id="numbers">
+                            <!--            <li><a href="#">1</a></li>-->
+                            <!--            <li><a href="#">2</a></li>-->
+                            <!--            <li><a href="#">3</a></li>-->
 
-        </table>
-        <div class="pagination">
-          <ol id="numbers">
-<!--            <li><a href="#">1</a></li>-->
-<!--            <li><a href="#">2</a></li>-->
-<!--            <li><a href="#">3</a></li>-->
-
-          </ol>
+                        </ol>
+                    </div>
+                </div>
+                <div class="articleAdminBtn">
+                    <button type="button" class="btn btn-outline-secondary" id="noticeSerchButton">조회</button>
+                    <button type="submit" class="btn btn-outline-secondary" id="noticeEnrollButton">등록</button>
+                    <button type="button" class="btn btn-outline-secondary" ic="noticeFixButton">수정</button>
+                    <button type="button" class="btn btn-outline-secondary" id="noticeDeleteButton">삭제</button>
+<!--                    <a href="/adminNoticeSub">admin notice sub</a>-->
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="articleAdminBtn">
-      <button type="button" class="btn btn-outline-secondary">조회</button>
-      <button type="button" class="btn btn-outline-secondary">등록</button>
-      <button type="button" class="btn btn-outline-secondary">수정</button>
-      <button type="button" class="btn btn-outline-secondary">삭제</button>
-
-    </div>
-
-
-    <div class="articleGap"></div>
-  </section>
+        <div class="articleGap"></div>
+    </section>
 </container>
-<script src="../static/js/script.js"></script>
 </body>
 </html>

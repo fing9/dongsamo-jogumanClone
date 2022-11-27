@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<head>
+    <title>support notice sub</title>
+</head>
+<body layout:fragment="content">
+<div class="articleSupportPadding">
+    <div class="supportNoticeNav">
+        <ul>
+            <li><a href="/support">Notice</a></li>
+            <li><a href="/qna" style="border-bottom: 1px solid black">QnA</a></li>
+        </ul>
+    </div>
+    <div class="supportNoticeSearch">
+
+    </div>
+    <div class="supportNoticeSubArticle">
+
+        <div class="title">
+
+        </div>
+        <div id="contents">
+
+        </div>
+    </div>
+    <div class="supportQnaSubComment">
+        <p>좋습니다</p>
+        <div>
+            <p>2022/08/21</p>
+            <a href="#">수정</a>
+            <a href="#">삭제</a>
+        </div>
+    </div>
+
+    <div class="supportQnaSubCommentWrite">
+        <form action="#">
+            <textarea class="form-control" id="Comment" rows="5" placeholder="댓글을 입력하세요"></textarea>
+            <button type="button" class="commentSubmit">제출</button>
+        </form>
+    </div>
+    <div class="footerGap"></div>
+</div>
+<div class="articleAdminBtn">
+    <button type="button" class="btn btn-outline-secondary" onClick="location.href='/'">목록</button>
+</div>
+<div class="footerGap"></div>
+</body>
+</html>

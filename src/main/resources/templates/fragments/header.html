@@ -13,7 +13,7 @@
             <li><a href="#" id="mainProjects">Projects</a></li>
             <li><a href="#" id="mainDownloads">Downloads</a></li>
             <li><a href="#" id="mainStore">Store</a></li>
-            <li><a href="#" id="mainSupport">Support</a></li>
+            <li><a href="/support" id="mainSupport">Support</a></li>
             <li></li><li></li>
 <!--            <span sec:authentication="name"></span>-->
 <!--            <span sec:authentication="authorities"></span> <br>-->
@@ -29,7 +29,7 @@
             </li>
 
             <li sec:authorize="isAuthenticated()">
-                <a sec:authorize="hasRole('ROLE_USER') && !hasRole('ROLE_ADMIN')" href="/" id="headerLoginAuthenticated"><span sec:authentication="name"></span></a>
+                <a sec:authorize="hasRole('ROLE_USER') && !hasRole('ROLE_ADMIN')" href="/myPage" id="headerLoginAuthenticated"><span sec:authentication="name"></span></a>
                 <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin" id="headerLoginAuthenticatedAdmin"><span sec:authentication="name"></span></a>
             </li>
             <li sec:authorize="isAuthenticated()">
@@ -40,7 +40,6 @@
             </li>
 <!--            <li><a href="/signup" id="headerSignup">Signup</a></li>-->
         </ul>
-        <ul></ul>
     </div>
 <!--    <div class="headerLogin">-->
 <!--        <a href="#">Login</a>-->

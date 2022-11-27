@@ -1,92 +1,317 @@
-//mainImg 화면 전환 script
-var index = 0;   //이미지에 접근하는 인덱스
-window.onload = function(){
-    slideShow();
+//위시리스트
+function heartClickOn(e) {
+    const normal=document.querySelector("#normalHeart");
+    const solid=document.querySelector('#solidHeart');
+    const resultCnt=document.querySelector('#heartCnt');
+    let cntNumber=resultCnt.innerText;
+    solid.style.display="none";
+
+    normal.addEventListener('click',function() {
+        normal.style.display="none";
+        solid.style.display="inline-block";
+        cntNumber=parseInt(cntNumber)+1;
+        resultCnt.innerText=cntNumber;
+    })
+
+    solid.addEventListener('click',function() {
+        normal.style.display="inline-block";
+        solid.style.display="none";
+        cntNumber=parseInt(cntNumber);
+        resultCnt.innerText=cntNumber;
+    })
 }
 
-function slideShow() {
-    var i;
-    var x = document.getElementsByClassName("slide1");  //slide1에 대한 dom 참조
+//product 수량 count
+function count(type)  {
+    // 결과를 표시할 element
+    const resultElement1 = document.getElementById('result1');
+    const resultElement2 = document.getElementById('result2');
+    const resultPrice0=document.querySelector('#price0');
+    const resultPrice1=document.querySelector('#price1');
+    const resultPrice2=document.querySelector('#price2');
 
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";   //처음에 전부 display를 none으로 지정 (안보이게)
-    }
-    index++;
-    if (index > x.length) {
-        index = 1;  //인덱스가 초과되면 1로 변경
-    }
-    x[index-1].style.display = "block";  //해당 인덱스는 block으로 (보이게)
-    setTimeout(slideShow, 3000);   //함수를 3초마다 호출
+    // 현재 화면에 표시된 값
+    let number1 = resultElement1.innerText;
+    let number2 = resultElement2.innerText;
+    let priceNumber0 = resultPrice0.innerText;
+    let priceNumber1 = resultPrice1.innerText;
+    let priceNumber2 = resultPrice2.innerText;
 
+    // 더하기/빼기
+    if(type === 'plus') {
+        number1 = parseInt(number1) + 1;
+        number2 = parseInt(number2) + 1;
+        priceNumber1 = parseInt(priceNumber0)*number1;
+        priceNumber2 = parseInt(priceNumber0)*number1;
+    }
+    else if(type === 'minus')  {
+        number1 = parseInt(number1) - 1;
+        number2 = parseInt(number2) - 1;
+        priceNumber1 = parseInt(priceNumber1)-parseInt(priceNumber0);
+        priceNumber2 = parseInt(priceNumber2)-parseInt(priceNumber0);
+
+        if(number1<=1 && number2<=1){
+            number1=1;
+            number2=1;
+            priceNumber1=parseInt(priceNumber0);
+            priceNumber2=parseInt(priceNumber0);
+        }
+    }
+    // 결과 출력
+    resultElement1.innerText = number1;
+    resultElement2.innerText = number2;
+    resultPrice1.innerText = priceNumber1;
+    resultPrice2.innerText = priceNumber2;
 }
 
-//siema slider 코드 (Jquery 강의 38)
-$(function(){
-    function onInitCallback() {
-        console.log('Siema initialised bro :)');
-    }
-    function onChangeCallback() {
-        console.log(`The index of current slide is: ${this.currentSlide}`);
-    }
-    var timer
 
-    const mySiema = new Siema({
-        selector:'.slider',
-        onInit: onInitCallback,
-        onChange: onChangeCallback,
-        loop: true,
-        duration: 800,
-    });
-    function autoSlide(){
-        timer = setInterval(function(){
-            mySiema.next();
-        }, 4000);
-    }
-    autoSlide();
-    $('.slider').mouseover(function(){
-        clearInterval(timer);
-    }).mouseout(function(){
-        autoSlide();
-    });
+//product sub box
+function detailInformation() {
+    const detailbox=document.querySelector('.storeProductSubLi1');
+    const productcommentbox=document.querySelector('.storeProductSubLi2');
+    const qnabox=document.querySelector('.storeProductSubLi3');
+    const productchangebox=document.querySelector('.storeProductSubLi4');
+    detailbox.style.display="block";
+    productcommentbox.style.display="none";
+    qnabox.style.display="none";
+    productchangebox.style.display="none";
+}
 
-    $('.prev').click(function(){
-        mySiema.prev();
-    });
-    $('.next').click(function(){
-        mySiema.next();
-    });
+function productcomment() {
+    const detailbox=document.querySelector('.storeProductSubLi1');
+    const productcommentbox=document.querySelector('.storeProductSubLi2');
+    const qnabox=document.querySelector('.storeProductSubLi3');
+    const productchangebox=document.querySelector('.storeProductSubLi4');
+    detailbox.style.display="none";
+    productcommentbox.style.display="block";
+    qnabox.style.display="none";
+    productchangebox.style.display="none";
+}
+function qna() {
+    const detailbox=document.querySelector('.storeProductSubLi1');
+    const productcommentbox=document.querySelector('.storeProductSubLi2');
+    const qnabox=document.querySelector('.storeProductSubLi3');
+    const productchangebox=document.querySelector('.storeProductSubLi4');
+    detailbox.style.display="none";
+    productcommentbox.style.display="none";
+    qnabox.style.display="block";
+    productchangebox.style.display="none";
+}
+function productchange() {
+    const detailbox=document.querySelector('.storeProductSubLi1');
+    const productcommentbox=document.querySelector('.storeProductSubLi2');
+    const qnabox=document.querySelector('.storeProductSubLi3');
+    const productchangebox=document.querySelector('.storeProductSubLi4');
+    detailbox.style.display="none";
+    productcommentbox.style.display="none";
+    qnabox.style.display="none";
+    productchangebox.style.display="block";
+}
 
-});
 
 //pagination 코드 (Jquery 강의 69)
-$(function(){
-    var rowsPerPage = 7,
-        rows = $('#myTable tbody tr'),
-        rowsCount = rows.length,
-        pageCount = Math.ceil(rowsCount/rowsPerPage),
+$(function () {
+    var rowsPerPage = 7, //한 페이지에 나오는 list 수
+        rows = $('#myTable tbody tr'), //table 에서 값 받아오기
+        rowsCount = rows.length, //table 에서 받아온 값 개수
+        pageCount = Math.ceil(rowsCount / rowsPerPage),
         numbers = $('#numbers');
 
     /* 페이지네이션 li생성 반복문*/
-    for(var i = 1; i<=pageCount; i++) {
-        numbers.append('<li><a href="#">' + i +'</a></li>');
-    };
+    for (var i = 1; i <= pageCount; i++) {
+        numbers.append('<li><a href="#">' + i + '</a></li>');
+    }
+    ;
     numbers.find('li:first-child a').addClass('active');
 
-    //페이지네이션 함수
-    function displayRows(idx){
+    //rowsPerPage에 저장된 수만큼 보여주기
+    function displayRows(idx) {
         var start = (idx - 1) * rowsPerPage,
             end = start + rowsPerPage;
 
-            rows.hide();
-            rows.slice(start, end).show();
+        rows.hide();
+        rows.slice(start, end).show();
     };
     displayRows(1);
-
-    numbers.find('li a').click(function(e){
+    //숫자 버튼을 누르면 해당하는 번호 list 보여주기
+    numbers.find('li a').click(function (e) {
         e.preventDefault();
         numbers.find('li a').removeClass('active');
         $(this).addClass('active');
         var index = $(this).text();
         displayRows(index);
     });
+})
+//radio button 체크하고 조회 버튼 누르면 백에 id값 보내기
+$(function () {
+    $('#noticeSerchButton, #noticeDeleteButton, #qnaSerchButton, #qnaDeleteButton').click(function () {
+        var rowData = new Array();
+        var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
+        console.log($checkbox);
+        console.log(typeof ($checkbox));
+    });
 });
+
+//signup 페이지 모두 동의 버튼 , 동의 안하면 안넘어가게
+$(function () {
+    var agree = $("input[name=agree]");
+    var agree_all = $("input[name=agree_all]");
+    var $submitBtn = $(".signUpBtnSubmit");
+
+    agree_all.click(function () {
+        if ($(this).is(":checked")) {
+            agree.prop("checked", true);
+            $submitBtn.css({
+                opacity: 1,
+            }).prop("disabled", false);
+        } else {
+            agree.prop("checked", false);
+            $submitBtn.css({
+                opacity: 0.6,
+            }).prop("disabled", true);
+        }
+    })
+    agree.click(function () {
+        var total = agree.length;
+        var checked = $("input[name=agree]:checked").length;
+
+        if (total != checked) {
+            agree_all.prop("checked", false);
+            $submitBtn.css({
+                opacity: 0.6,
+            }).prop("disabled", true);
+        } else {
+            agree_all.prop("checked", true);
+            $submitBtn.css({
+                opacity: 1,
+            }).prop("disabled", false);
+        }
+    });
+});
+// signupSub select 번호 자동 추가
+$(function(){
+    const year = $('#selectYear');
+    const month = $('#selectMonth');
+    const day = $('#selectDay');
+
+    for (var i = 1900; i <= 2022; i++) {
+        year.append('<option value="i">'+i+'</option>');
+    }
+    for (var i = 1; i <= 12; i++) {
+        month.append('<option value="i">'+i+'</option>');
+    }
+    for (var i = 1; i <= 31; i++) {
+        day.append('<option value="i">'+i+'</option>');
+    }
+});
+//order 주문자,배송정보 변경 버튼
+$(function (){
+    var changeBtn = $('#orderDeliveryChange');
+    var fixBtn = $('#orderUserFixBtn');
+
+    fixBtn.click(function (){
+        $('.orderUserInfoDefault').css({display: 'none'});
+        $('.orderUserInfoChange').css({});
+        fixBtn.css({display: 'none'});
+    });
+    changeBtn.click(function(){
+        $('.orderProductDeliveryDefault').css({display: 'none'});
+        $('.orderProductDeliveryChange').css({display: 'block'});
+        changeBtn.css({display: 'none'});
+    });
+    $('.orderSelectBtn').click(function(){
+        $('.orderProductDeliveryDefault').css({display: 'none'});
+        $('.orderProductDeliveryTab').css({display: 'block'});
+        $('.orderProductDeliveryTabNew').css({display: 'none'});
+    })
+    $('.orderNewBtn').click(function (){
+        $('.orderProductDeliveryDefault').css({display: 'none'});
+        $('.orderProductDeliveryTab').css({display: 'none'});
+        $('.orderProductDeliveryTabNew').css({display: 'block'});
+    })
+});
+//order 총금액 계산
+$(function (){
+    var productFee = $('.orderProductFee p:nth-child(2)').text().slice(1);
+    var delivaryFee = $('.orderProductDelFee p:nth-child(2)').text().slice(2);
+
+    function addComma(value){
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return value;
+    }
+    function minusComma(value){
+        value = value.replace(/[^\d]+/g, "");
+        return value;
+    }
+
+    productFee = minusComma(productFee);
+    delivaryFee = minusComma(delivaryFee);
+
+    var totalFee = parseInt(productFee) + parseInt(delivaryFee);
+    totalFee = String(totalFee);
+    totalFee = addComma(totalFee);
+
+    $('.orderSummaryTotal').append('<p>₩' + totalFee +'</p>');
+
+});
+$(function () {
+    $('#adminFixBtn').click(function () {
+        var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
+        var dataId = {
+            id: $checkbox
+        };
+
+
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $.ajax({
+            beforeSend: function(xhr){
+                xhr.setRequestHeader(header,token);
+            },
+            url: "/admin/update",
+            type: "GET",
+            data: dataId,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
+            success: function (data) {
+                console.log('success');
+                console.log(data);
+                $("#id").val(data.id);
+                $("#nameUpdate").val(data.name);
+                $("#priceUpdate").val(data.price);
+                $("#categoryUpdate").val(data.category);
+                $("#descriptionUpdate").val(data.description);
+                $("#amountUpdate").val(data.amount);
+                $("#imagesUpdate").val(data.images);
+            }
+        });
+    });
+});
+
+$(function () {
+    $('#adminDeleteBtn').click(function () {
+        var $checkbox = $("input[name=inlineRadioOptions]:checked").val();
+        var dataId = {
+            id: $checkbox
+        };
+
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+        $.ajax({
+            beforeSend: function(xhr){
+                xhr.setRequestHeader(header,token);
+            },
+            url: "/admin/delete",
+            type: "POST",
+            data: dataId,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
+            success: function (data) {
+                console.log('success');
+                location.reload();
+            }
+        });
+    });
+});
+
+var token = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
+$(document).ajaxSend(function(e, xhr, options) { xhr.setRequestHeader(header, token); });

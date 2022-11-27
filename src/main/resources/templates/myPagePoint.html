@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<head>
+  <title>admin</title>
+</head>
+<body layout:fragment="content">
+<container>
+  <section>
+    <div class="myPageArticle">
+      <div class="myPageNav">
+        <ul>
+          <li><a href="#">주문 조회</a></li>
+          <li><a href="#" style="border-bottom: 2px solid orange">위시 리스트</a></li>
+          <li><a href="#">취소/교환/반품</a></li>
+          <li><a href="#">포인트</a></li>
+          <li><a href="#">1:1 문의</a></li>
+          <li><a href="#">정보수정</a></li>
+          <li><a href="#">회원탈퇴</a></li>
+        </ul>
+      </div>
+      <div style="width: 1000px">
+        <div class="myPageHead">
+          <div class="myPageInfo">
+            <img src="https://cdn.imweb.me/thumbnail/20220718/e7d5f05e53ed2.jpg" alt="">
+            <div class="myPageInfoUser">
+              <span id="myPageName">송관석 님 안녕하세요.</span>
+              <span id="myPagePrice">누적 구입금액:₩0</span>
+            </div>
+          </div>
+          <div class="myPagePoint">
+            <p>포인트</p>
+            <span>1000</span>
+          </div>
+        </div>
+        <div>
+          <div><h3>주문조회</h3></div>
+
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <div class="articleGap"></div>
+  </section>
+</container>
+</body>
+
+</html>

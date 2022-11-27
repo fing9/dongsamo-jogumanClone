@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<head>
+    <title>support Notice</title>
+</head>
+
+<body layout:fragment="content">
+<div class="articleAdminPadding">
+    <div class="supportNoticeNav">
+        <ul>
+            <li><a href="/support">Notice</a></li>
+            <li><a href="/qna" style="border-bottom: 1px solid black">QnA</a></li>
+        </ul>
+    </div>
+    <div class="adminNoticeSearch">
+
+    </div>
+    <div class="supportNoticeArticle">
+        <table class="table" id="myTable">
+            <thead class="table-light">
+            <tr>
+                <th scope="col">번호</th>
+                <th scope="col">카테고리</th>
+                <th scope="col">제목</th>
+                <th scope="col">글쓴이</th>
+                <th scope="col">비밀글</th>
+                <th scope="col">작성시간</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="qna : ${qnaList}">
+                <th scope="row" data-th-text="${qna.id}"></th>
+                <td> <a th:href="@{/qna/{id}(id = ${qna.id})}" data-th-text="${qna.title}"></a></td>
+                <td data-th-text="${qna.user_name}"></td>
+                <td data-th-text="${qna.hits}"></td>
+                <td>o</td>
+                <td>2022/08/21</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-outline-secondary supportQnaWriteBtn" onclick="location.href='/'">글쓰기</button>
+    </div>
+    <div class="footerGap"></div>
+</div>
+</body>
+</html>

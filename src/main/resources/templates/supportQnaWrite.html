@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
+
+<head>
+  <title>admin Qna sub</title>
+</head>
+<body layout:fragment="content">
+<div class="articleAdminPadding">
+  <div class="adminNoticeNav">
+    <ul>
+      <li><a href="#">Notice</a></li>
+      <li><a href="#" style="border-bottom: 1px solid black">QnA</a></li>
+    </ul>
+  </div>
+  <div class="adminNoticeSearch">
+
+  </div>
+  <div class="adminNoticeSubArticle">
+    <form action="" method="get">
+      <div>
+        <label for="title" class="form-label">제목</label>
+        <input type="text" class="form-control" id="title" placeholder="text title">
+        <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_price}"
+              th:id="valid_price"></span>
+      </div>
+      <div>
+        <label for="contents" class="form-label">설명</label>
+        <textarea class="form-control" id="contents" rows="30"></textarea>
+        <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_description}"
+              th:id="valid_description"></span>
+      </div>
+      <div>
+        <input type="radio" name="adminQnaSubRadio" class="adminQnaSubRadio" id="adminQnaSubRadioPublic"> 공개
+        <input type="radio" name="adminQnaSubRadio" class="adminQnaSubRadio" id="adminQnaSubRadioPrivate"> 비공개
+
+      </div>
+    </form>
+  </div>
+</div>
+<div class="articleAdminBtn">
+  <button type="button" class="btn btn-outline-secondary" onClick="location.href='/adminQna'" style="
+                        float: left;">목록
+  </button>
+  <button type="submit" class="btn btn-outline-secondary" style="float: right;">제출</button>
+</div>
+<div class="footerGap"></div>
+<div class="footerGap"></div>
+</div>
+</body>
+</html>
